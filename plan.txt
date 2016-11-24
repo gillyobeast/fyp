@@ -5,10 +5,18 @@ PLAN:
 	-state aims of project
 	-further/recent research - explore where this theory could lead
 
+prerequisite knowledge:
+	-algebras
+	-normed spaces, ip spaces, hilbert spaces, linear algebra
+	-topology - weak-* topology?
+	-spectral theory
+	-[simmons83] gives a good broad background on all of these
+	-[blackadar06] gives a very fast, encyclopaedic coverage of lots of operator theory
+	
 AIMS:
 The aims for my project are, provisionally:
 	-Take the Gelfand-Naimark theorem, and understand its contents and proof.
-	-Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	-Consider the representation theory of C*-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
 
 
 
