@@ -1,0 +1,23 @@
+PLAN:
+	-brief history (including motivation)
+	-defn - talk about abstract defn vs practical uses i.e. operator algebras
+	-prerequisite knowledge - i.e. references to sources for extra background and such
+	-state aims of project
+	-further/recent research - explore where this theory could lead
+
+AIMS:
+The aims for my project are, provisionally:
+	-Take the Gelfand-Naimark theorem, and understand its contents and proof.
+	-Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+
+
+
+further research: e.g., 
+	-group algebras - representation theory links,
+	-k-theory and cuntz algebras, 
+	-c* alg valued metric spaces, 
+	-bicommutant thm, 
+	-abstract (noncommutative) harmonic analysis, 
+	-factors (von neumann algebras).
+
+
