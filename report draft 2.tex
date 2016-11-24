@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{amsart}
+
+%\usepackage{fullpage}
+\usepackage{graphicx}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{defn}
+\newtheorem{defn}{Definition}
+
+
+
+\author{Luke Armitage}
+\title{C$^\ast$-Algebras, the~Gelfand-Naimark Theorem, and~[other thing]}
+
+%%% note on style: use C$^\ast$
+
+\begin{document}
+\maketitle
+\section{Introduction}
+\subsection{History of C$^\ast$-Algebras}
+	A brief timeline of the development on the theory.
+The theory of C$^\ast$-algebras has its basis in W. Heisenberg's use of so-called ``matrix mechanics'' in the modelling of algebras of physical observables in quantum mechanical systems. In [1925], Heisenberg 
+	
+\subsection{C$^\ast$-Algebras}
+	A brief overview of what a C$^\ast$-algebra is.
+\begin{enumerate}
+	\item[$\bullet$] banach space
+	\item[$\bullet$] banach algebra
+	\item[$\bullet$] *-algebra
+	\item[$\bullet$] C* algebra
+	\item[$\bullet$] representations
+\end{enumerate}
+\begin{defn}
+A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution $\ast : A \to A$ with the condition that
+\begin{align*}
+	\|x ^\ast x\| = \|x\|^2 \mbox{ for all } x \in A.
+\end{align*}
+\end{defn}
+
+This condition is known as the \emph{C$^\ast$ axiom}. The study of C$^\ast$-algebras started with the consideration of matrix mechanics by H
+
+There are many statements of the theorem; this here comes from [ref].
+\begin{thm*}[Gelfand-Naimark, Commutative]
+	Every commutative, unital C*-algebra A is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
+
+\end{thm*}
+The theorem first appeared in [gelfand-naimark] in a form relating `normed rings' and a closed subrings of the set of bounded operators on a Hilbert space.
+
+
+\subsection{Aims}
+The aims for my project are, provisionally:
+\begin{enumerate}
+
+	\item[$\bullet$] Take the Gelfand-Naimark theorem, and understand its contents and proof.
+	\item[$\bullet$] Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	\item[$\bullet$] (as 'further reading') Give an overview of areas in which operator algebra theory can be taken (for example, Cuntz algebras and operator K-theory, von Neumann algebras and Factors, abstract harmonic analysis).
+\end{enumerate}
+
+\begin{thebibliography}{00}
+	
+	
+	
+\end{thebibliography}
+
+\end{document}
