@@ -12,17 +12,17 @@
 
 
 \author{Luke Armitage}
-\title{C$^\ast$-Algebras, the~Gelfand-Naimark Theorem, and~[other thing]}
+\title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
 
 %%% note on style: use C$^\ast$
 
 %%% TODO:
 
-%%% think about [other thing]
+%%% 
 %%% add more references to bibliography
 %%% figure out how to cite schroer03
-%%% find a better word to replace convey, history section
-%%% finish sentence in history section
+%%% 
+%%% 
 %%%	write definition section - how quick an overview?
 %%% write about prereq knowledge
 %%%	write about further/recent research
@@ -33,7 +33,7 @@
 \maketitle
 \section{Introduction}
 \subsection{History of C$^\ast$-Algebras}
-	The noncommutative nature of W. Heisenberg's work on (finish sentence) \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely convey the new quantum mechanical model. 
+	The noncommutative nature of W. Heisenberg's work on a new quantum mechanics \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
 	From 1930-1943, J. von Neumann, together with F. J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35}, \cite{vonneumann37}, \cite{vonneumann40}, \cite{vonneumann43}, in an attempt to establish a general framework for this matrix mechanics.
 	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory. 
 	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and likewise in \cite{schroer03}, for the works of Jordan expanding on this.
@@ -43,15 +43,31 @@
 	Used in the proof of the G-N theorem is the Gelfand-Naimark-Segal construction, a pair of results relating cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
 	
 	
+\subsection{Background Mathematics and Resources.}	
+	The following is some mathematics which may prove useful throughout the project, with relevant resources; we will of course be making definitions as needed, this is just for further background and related theory.
+
+	We will be assuming some familiarity with the following theory, giving some explanation as necessary as we go:
+\begin{itemize}
+	\item Rings, algebras and linear spaces.
+	\item Normed spaces, inner product spaces, Banach and Hilbert spaces.
+	\item Point-set topology.
+\end{itemize}
+	A good broad background on all of these can be found in \cite{simmons83}.
+
+	Some texts which cover C$^\ast$-algebras: 
+	\cite{dixmier77} is a summary of the general theory up to that time, with \cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
+	Sakai \cite{sakai71} gives a treatment of C$^\ast$- and von Neumann algebras from a more topological point of view.
+
+	
 \subsection{C$^\ast$-Algebras}
 	A brief overview of what a C$^\ast$-algebra is.
-\begin{enumerate}
-	\item[$\bullet$] banach space
-	\item[$\bullet$] banach algebra
-	\item[$\bullet$] *-algebra
-	\item[$\bullet$] C* algebra
-	\item[$\bullet$] representations
-\end{enumerate}
+\begin{itemize}
+	\item banach space
+	\item banach algebra
+	\item *-algebra
+	\item C* algebra
+	\item representations
+\end{itemize}
 \begin{defn}
 A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution $\ast : A \to A$ with the condition that
 \begin{align*}
@@ -61,7 +77,6 @@ A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution
  
 This condition is known as the \emph{C$^\ast$ axiom}. The study of C$^\ast$-algebras started with the consideration of matrix mechanics by H
 
-\clearpage
 
 \begin{thm*}[Gelfand-Naimark, Commutative]
 	Every commutative, unital C*-algebra A is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
@@ -72,12 +87,12 @@ The theorem first appeared in [gelfand-naimark] in a form relating `normed rings
 
 \subsection{Aims}
 The aims for my project are, provisionally:
-\begin{enumerate}
+\begin{itemize}
 
-	\item[$\bullet$] Take the Gelfand-Naimark theorem, and understand its contents and proof.
-	\item[$\bullet$] Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
-	\item[$\bullet$] (as 'further reading') Give an overview of areas in which operator algebra theory can be taken (for example, Cuntz algebras and operator K-theory, von Neumann algebras and Factors, abstract harmonic analysis).
-\end{enumerate}
+	\item Take the Gelfand-Naimark theorem, and understand its contents and proof.
+	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	\item (as 'further reading') Give an overview of areas in which operator algebra theory can be taken (for example, Cuntz algebras and operator K-theory, von Neumann algebras and Factors, abstract harmonic analysis).
+\end{itemize}
 
 \begin{thebibliography}{00}
 \bibitem{bornjordan25}
@@ -89,6 +104,13 @@ The aims for my project are, provisionally:
 	Born, M.; Heisenberg, W. \& Jordan, P.,
 	\emph{Zur Quantenmechanik. II.}
 	Z. Physik (1926) 35: 557.
+
+\bibitem{dixmier77}
+
+
+\bibitem{dixmier81}
+
+
 
 \bibitem{gelfand43}
 	Gelfand, I. \& Neumark, M.,
@@ -105,12 +127,18 @@ The aims for my project are, provisionally:
 	\emph{Heisenberg, Models, and the Rise of Matrix Mechanics.}
 	Hist. Stud. Phys. Sci., Vol. 8 (1977), pp.~137--188
 
+\bibitem{sakai71}
 
 \bibitem{schroer03}
 	Schroer, B.,
 	\emph{Pascual Jordan, Glory and Demise and his legacy in contemporary local quantum physics.}
 	(no idea where published)
-
+	
+\bibitem{simmons83}
+	Simmons, G.,
+	\emph{Introduction to Topology and Modern Analysis.}
+	Robert E. Krieger Publishing Co., Inc., Melbourne, Fla., (1983).
+	
 \bibitem{vonneumann35}
 	Murray, F. J. \& von Neumann, J.,
 	\emph{On rings of operators.}
