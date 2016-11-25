@@ -23,11 +23,11 @@
 %%% figure out how to cite schroer03
 %%% 
 %%% 
-%%%	write definition section - how quick an overview?
+%%%	write definition section - how quick an overview? what should i include?
 %%% write about prereq knowledge
 %%%	write about further/recent research
 %%% which statement of [thm] do i want use?
-%%% write about GNS in first section too
+%%% 
 
 \begin{document}
 \maketitle
@@ -57,24 +57,38 @@
 	Some texts which cover C$^\ast$-algebras: 
 	Dixmier \cite{dixmier77} presents a summary of the general theory up to that time, with \cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
 	Sakai \cite{sakai71} gives a treatment of C$^\ast$- and von Neumann algebras from a more topological point of view.
-	In \cite{kadison83}, \cite{kadison86}, the authors aim to make accessible the ``vast recent research literature'' this subsection of functional analysis.
+	In \cite{kadison83}, \cite{kadison86}, the authors aim to make accessible the ``vast recent research literature'' in this subsection of functional analysis.
 	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator algebras, and covering more specialised material and applications.
 	
 
 	
 \subsection{C$^\ast$-Algebras}
-	A brief overview of what a C$^\ast$-algebra is.
+	To get to the abstract definition of a C$^\ast$-algebra, we need to know about the following.
 \begin{itemize}
-	\item banach space
-	\item banach algebra
-	\item *-algebra
-	\item C* algebra
-	\item representations
+	\item Banach spaces.
+	\item Banach algebras.
+	\item $\ast$-algebras.
+	\item Banach $\ast$-algebras.
 \end{itemize}
-\begin{defn}
-A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution $\ast : A \to A$ with the condition that
+\iffalse
+A Banach space is a complete normed linear space. 
+A Banach algebra is a Banach space A which forms an algebra, such that 
 \begin{align*}
-	\|x ^\ast x\| = \|x\|^2 \mbox{ for all } x \in A.
+	\|ab\| \leq \|a\| \|b\| \mbox{ for all } a,b \in A.
+\end{align*}
+A $\ast$-algebra is an algebra A with an \emph{involution} $\ast : A \to A $ such that, for all $a,b \in A$,
+\begin{align*}
+	 a^{\ast\ast} = (a^\ast)^\ast = a,\\
+	(a+b)^\ast = a^\ast + b^\ast,\\	
+	(ab)^\ast = b^\ast a^\ast.
+\end{align*}
+A Banach $\ast$-algebra is a Banach algebra which is also a $\ast$-algebra such that 
+\fi
+
+\begin{defn}
+A \emph{C$^\ast$-algebra} is a Banach $\ast$-algebra $(A, \| \cdot \|)$ with the condition that
+\begin{align*}
+	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 \end{align*}
 \end{defn}
  
@@ -89,13 +103,17 @@ The theorem first appeared in [gelfand-naimark] in a form relating `normed rings
 
 
 \subsection{Aims}
-The aims for my project are, provisionally:
+The aims for this project are, provisionally:
 \begin{itemize}
-
 	\item Take the Gelfand-Naimark theorem, and understand its contents and proof.
 	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
-	\item (as 'further reading') Give an overview of areas in which operator algebra theory can be taken (for example, Cuntz algebras and operator K-theory, von Neumann algebras and Factors, abstract harmonic analysis).
 \end{itemize}
+
+\subsection{Further research and applications}
+\begin{itemize}
+	\item Give an overview of areas in which operator algebra theory can be taken (for example, Cuntz algebras and operator K-theory, von Neumann algebras and Factors, abstract harmonic analysis).
+\end{itemize}
+
 
 \begin{thebibliography}{00}
 \bibitem{blackadar06}
