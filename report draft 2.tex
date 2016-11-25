@@ -6,7 +6,7 @@
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
-\theoremstyle{defn}
+\theoremstyle{definition}
 \newtheorem{defn}{Definition}
 
 
@@ -20,15 +20,14 @@
 
 %%% think about [other thing]
 %%% add more references to bibliography
-%%% 
-%%% find a better word to replace convey, line 37
-%%% finish sentence line 37
+%%% figure out how to cite schroer03
+%%% find a better word to replace convey, history section
+%%% finish sentence in history section
 %%%	write definition section - how quick an overview?
 %%% write about prereq knowledge
 %%%	write about further/recent research
 %%% which statement of [thm] do i want use?
-
-
+%%% write about GNS in first section too
 
 \begin{document}
 \maketitle
@@ -36,9 +35,12 @@
 \subsection{History of C$^\ast$-Algebras}
 	The noncommutative nature of W. Heisenberg's work on (finish sentence) \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely convey the new quantum mechanical model. 
 	From 1930-1943, J. von Neumann, together with F. J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35}, \cite{vonneumann37}, \cite{vonneumann40}, \cite{vonneumann43}, in an attempt to establish a general framework for this matrix mechanics.
-	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory.
+	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory. 
+	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and likewise in \cite{schroer03}, for the works of Jordan expanding on this.
+	
 	In \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of C$^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.
-	The Gelfand-Naimark, which we will be considering here at length, gives the link between these abstract C$^\ast$-algebras and the rings of operators previously studied.
+	The Gelfand-Naimark theorem, which we will be considering here at length, gives the link between these abstract C$^\ast$-algebras and the rings of operators previously studied.
+	Used in the proof of the G-N theorem is the Gelfand-Naimark-Segal construction, a pair of results relating cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
 	
 	
 \subsection{C$^\ast$-Algebras}
@@ -59,7 +61,8 @@ A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution
  
 This condition is known as the \emph{C$^\ast$ axiom}. The study of C$^\ast$-algebras started with the consideration of matrix mechanics by H
 
-There are many statements of the theorem; this here comes from [ref].
+\clearpage
+
 \begin{thm*}[Gelfand-Naimark, Commutative]
 	Every commutative, unital C*-algebra A is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
 
@@ -96,6 +99,17 @@ The aims for my project are, provisionally:
 	Heisenberg, W.,
 	\emph{{\"U}ber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen.}
 	Z. Physik (1925) 33: 879. 
+
+\bibitem{mackinnon77}
+	MacKinnon, E.,
+	\emph{Heisenberg, Models, and the Rise of Matrix Mechanics.}
+	Hist. Stud. Phys. Sci., Vol. 8 (1977), pp.~137--188
+
+
+\bibitem{schroer03}
+	Schroer, B.,
+	\emph{Pascual Jordan, Glory and Demise and his legacy in contemporary local quantum physics.}
+	(no idea where published)
 
 \bibitem{vonneumann35}
 	Murray, F. J. \& von Neumann, J.,
