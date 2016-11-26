@@ -62,11 +62,17 @@
 	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator algebras, and covering more specialised material and applications.
 	
 
+\subsection{Aims}
+The aims for this project are:
+\begin{itemize}
+	\item Give a good background understanding on C$^\ast$-algebras, including topological and geometric interpretation of results where possible.
+	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	\item Consider the Gelfand-Naimark theorem, and understand its contents and proof.
+\end{itemize}
 	
 \subsection{C$^\ast$-Algebras}
 We can define C$^\ast$-algebras in two ways - either as an algebra of bounded linear operators acting on a Hilbert space satisfying two conditions, or abstractly as a normed algebra together with an involution map satisfying four axioms.
 
-\iftrue
 	To get to the abstract definition of a C$^\ast$-algebra, we need to know about the following.
 \begin{itemize}
 	\item Banach spaces.
@@ -90,7 +96,7 @@ A Banach $\ast$-algebra is a Banach algebra which is also a $\ast$-algebra such 
 \begin{align*}
 	\|a ^\ast \| = \|a\| \mbox{ for all } a \in A.
 \end{align*}
-\fi
+
 
 \begin{defn}
 A \emph{C$^\ast$-algebra} is a Banach $\ast$-algebra $(A, \| \cdot \|)$ with the condition that
@@ -98,26 +104,25 @@ A \emph{C$^\ast$-algebra} is a Banach $\ast$-algebra $(A, \| \cdot \|)$ with the
 	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 \end{align*}
 \end{defn}
- 
-This condition is known as the \emph{C$^\ast$ axiom}. 
+\noindent This condition is known as the \emph{C$^\ast$ axiom}. 
 
 
 \begin{thm*}[Gelfand-Naimark, Commutative]
 	Every commutative, unital C*-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
 
 \end{thm*}
-The theorem first appeared in \cite{gelfand43} in a form relating `normed rings' and closed subrings of the set of bounded operators on a Hilbert space.
+The theorem first appeared in \cite{gelfand43} in a form relating normed rings and closed subrings of the set of bounded operators on a Hilbert space.
 
 
-\subsection{Aims}
-The aims for this project are:
-\begin{itemize}
-	\item Take the Gelfand-Naimark theorem, and understand its contents and proof.
-	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
-\end{itemize}
 
 \subsection{Further research}
-	Research in C*-algebras is still very much active, with much work going into, for example: amenable C* algebras and classification of approximately-finite dimensional (AF) C* algebras;  actions of compact groups on C* algebras; classification of separable simple nuclear C* algebras; single operator theory and spectral theory; operator K-theory, K-homology and KK-theory; *-derivations.
+	Research in C*-algebras is still very much active, with much work going into, for example: 
+	amenable C* algebras and classification of approximately-finite dimensional (AF) C* algebras; 
+	actions of compact groups on C* algebras; 
+	classification of separable simple nuclear C* algebras; 
+	single operator theory and spectral theory; 
+	operator K-theory, K-homology and KK-theory; 
+	*-derivations.
 	
 	
 	Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C*-algebras, building on Elliott's summary \cite{elliott94} of the topic. 
