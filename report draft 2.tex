@@ -2,14 +2,13 @@
 
 %\usepackage{fullpage}
 \usepackage{graphicx}
-\usepackage{bm}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
-
+\newtheorem*{defn*}{Definition}
 
 
 \author{Luke Armitage}
@@ -19,15 +18,15 @@
 
 %%% TODO:
 
-%%% REARRANGE / REORDER
-%%% add more references to bibliography
-%%% figure out how to cite schroer03
+%%% definition section - how quick an overview? what should i include?
 %%% 
-%%% 
-%%%	write definition section - how quick an overview? what should i include?
-%%% write about prereq knowledge
-%%%	write about further/recent research
 %%% which statement of [thm] do i want use?
+%%% 
+%%% 
+%%%	
+%%% 
+%%%	
+%%% 
 %%% 
 
 \begin{document}
@@ -35,7 +34,7 @@
 \section{Introduction}
 \subsection{History of C$^\ast$-Algebras}
 	The noncommutative nature of W. Heisenberg's work on a new quantum mechanics \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
-	From 1935-1943, J. von Neumann, together with F. J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35}, \cite{vonneumann37}, \cite{vonneumann43}, \cite{vonneumann40}, in an attempt to establish a general framework for this matrix mechanics.
+	From 1935-1943, J. von Neumann, together with F. J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to establish a general framework for this matrix mechanics.
 	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory. 
 	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and likewise in \cite{schroer03}, for the works of Jordan expanding on this.
 	
@@ -58,7 +57,7 @@
 	Some texts which cover C$^\ast$-algebras: 
 	Dixmier \cite{dixmier77} presents a summary of the general theory up to that time, with \cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
 	Sakai \cite{sakai71} gives a treatment of C$^\ast$- and von Neumann algebras from a more topological point of view.
-	In \cite{kadison83}, \cite{kadison86}, the authors aim to make accessible the ``vast recent research literature'' in this subsection of functional analysis.
+	In \cite{kadison83,kadison86}, the authors aim to make accessible the ``vast recent research literature'' in this subsection of functional analysis.
 	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator algebras, and covering more specialised material and applications.
 	
 
@@ -98,12 +97,12 @@ A Banach $\ast$-algebra is a Banach algebra which is also a $\ast$-algebra such 
 \end{align*}
 
 
-\begin{defn}
+\begin{defn*}
 A \emph{C$^\ast$-algebra} is a Banach $\ast$-algebra $(A, \| \cdot \|)$ with the condition that
 \begin{align*}
 	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 \end{align*}
-\end{defn}
+\end{defn*}
 \noindent This condition is known as the \emph{C$^\ast$ axiom}. 
 
 
@@ -126,7 +125,7 @@ The theorem first appeared in \cite{gelfand43} in a form relating normed rings a
 	
 	
 	Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C*-algebras, building on Elliott's summary \cite{elliott94} of the topic. 
-	Lin is also prolific in research on classification of C*-algebras in general, for example \cite{lin08}, \cite{lin11} are considered important papers on the topic.
+	Lin is also prolific in research on classification of C*-algebras in general, for example \cite{lin08,lin11} are considered important papers on the topic.
 	The Ph.D. thesis of Gardella \cite{gardella15} concerns itself in part with classifying the actions of compact groups on C*-algebras.
 	Pedersen \cite{pedersen79} covers most of the usual basic theory before moving on to cover a great deal of advanced theory, including automorphism groups of C*-algebras and spectral theory for such groups.
 	
