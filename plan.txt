@@ -1,4 +1,4 @@
-PLAN:
+PLAN: (TO REORDER)
 	-brief history (including motivation)
 	-defn - talk about abstract defn vs practical uses i.e. operator algebras
 	-prerequisite knowledge - i.e. references to sources for extra background and such
