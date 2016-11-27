@@ -1,0 +1,251 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage{graphicx}
+\theoremstyle{plain}
+
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem*{defn*}{Definition}
+
+\author{Luke Armitage}
+\title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\subsection{History of C$^\ast$-Algebras}
+	The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
+	From 1935-1943, John von Neumann, together with F.J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to establish a general framework for this matrix mechanics.
+	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory. 
+	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and similarly \cite{schroer03} gives a summary of the works of Jordan expanding on this.
+	
+	In 1943 \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of C$^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.
+	The Gelfand-Naimark theorem, which we will be considering here at length, gives the link between these abstract C$^\ast$-algebras and the rings of operators previously studied.
+	Used in the proof of the GN theorem is the Gelfand-Naimark-Segal construction, a pair of results relating cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
+	
+	
+\subsection{Background Mathematics and Resources.}	
+	The following is some mathematics which may prove useful throughout the project, with relevant resources; we will of course be making definitions as needed, this is for further background and related theory.
+
+	We will be assuming some familiarity with the following theory, giving some explanation as necessary:
+\begin{itemize}
+	\item Rings, algebras and linear spaces.
+	\item Normed spaces, inner product spaces, Banach and Hilbert spaces.
+	\item Point-set topology.
+\end{itemize}
+	A good broad background on all of these can be found in \cite{simmons83}.
+
+	Some texts which cover C$^\ast$-algebras: 
+	Dixmier \cite{dixmier77} presents a summary of the general theory up to that time (1977), with \cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
+	Sakai \cite{sakai71} gives a treatment of C$^\ast$- and von Neumann algebras from a more topological point of view.
+	In \cite{kadison83,kadison86}, the authors aim to make accessible the ``vast recent research literature'' in this subsection of functional analysis.
+	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator algebras, and covering more specialised material and applications.
+	
+
+\subsection{Aims}
+	The aims for this project are:
+\begin{itemize}
+	\item Give a good background understanding on C$^\ast$-algebras, including topological and geometric interpretation of results where possible.
+	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	\item Consider the commutative and general versions of the Gelfand-Naimark theorem, and understand their contents and proof.
+\end{itemize}
+	
+	
+\subsection{The Gelfand-Naimark theorem}
+	We can define C$^\ast$-algebras in two ways -- either as an algebra of bounded linear operators acting on a Hilbert space satisfying two conditions, or abstractly as a normed algebra together with an involution map satisfying four axioms.
+
+	To get to the abstract definition of a C$^\ast$-algebra, we need to know about the following.
+\begin{itemize}
+	\item Banach spaces.
+	\item Banach algebras.
+	\item $\ast$-algebras.
+\end{itemize}
+
+	A Banach space is a complete normed linear space. 
+	A Banach algebra is a Banach space $(A,\| \cdot \|)$ which forms an algebra, such that 
+\begin{align*}
+	\|ab\| \leq \|a\| \|b\| \mbox{ for all } a,b \in A.
+\end{align*}
+	A $\ast$-algebra is an algebra $A$ with an \emph{involution} map $a \mapsto a^\ast$ on $A$ such that, for all $a,b \in A$,
+\begin{align*}
+	 a^{\ast\ast} = (a^\ast)^\ast = a,\\
+	(a+b)^\ast = a^\ast + b^\ast,\\	
+	(ab)^\ast = b^\ast a^\ast.
+\end{align*}
+
+\begin{defn*}
+	A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map $a \mapsto a^\ast$, with the condition
+\begin{align*}
+	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
+\end{align*}
+\end{defn*}
+\noindent This condition is known as the \emph{C* axiom}. 
+
+	We are now, finally, in a position to state the theorems we're interested in.
+
+\begin{thm*}[Gelfand-Naimark, Commutative]
+	Every commutative, unital C$^\ast$-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
+\end{thm*}
+
+	This theorem first appeared in \cite{gelfand43} in a form relating normed rings to subrings of the set of bounded operators on a Hilbert space.
+
+	A \emph{faithful representation} of a C$^\ast$-algebra $A$ on a Hilbert space $\mathcal{H}$ is an isomorphism of $\ast$-algebras from $A$ to the algebra of bounded operators on $\mathcal{H}$.
+
+\begin{thm*}[Gelfand-Naimark]
+	Each C*-algebra has a faithful representation.
+\end{thm*}
+
+
+\subsection{Further research}
+	Research in C$^\ast$-algebras is still very much active, with much work going into, for example: 
+	amenable C$^\ast$ algebras and classification of approximately-finite dimensional (AF) C$^\ast$ algebras; 
+	actions of compact groups on C$^\ast$ algebras; 
+	classification of separable simple nuclear C$^\ast$ algebras; 
+	single operator theory and spectral theory; 
+	operator K-theory, K-homology and KK-theory; 
+	*-derivations;
+	homogeneous C$^\ast$-algebras.
+	
+	
+	Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C$^\ast$-algebras, building on Elliott's summary \cite{elliott94} of research on the topic. 
+	Lin is also prolific in research on classification of C$^\ast$-algebras in general, for example \cite{lin08,lin11} are considered important papers on the topic.
+	The Ph.D. thesis \cite{gardella15} of Gardella concerns itself in part with classifying the actions of compact groups on C$^\ast$-algebras.
+	Pedersen \cite{pedersen79} covers most of the usual basic theory before moving on to cover a great deal of advanced theory, including automorphism groups of C$^\ast$-algebras and spectral theory for such groups.
+	J.M.G. Fell \cite{fell61} uses theory of fibre bundles, homogeneous algebras and algebras of continuous trace, to get at the group C$^\ast$-algebra for SL$(2,\mathbb{C})$.
+	Niemiec \cite{niemiec12} gives an elementary proof of a result \cite[Theorem 3.2]{fell61} from Fell, on $n$-homogeneous C$^\ast$-algebras, and proposes a spectral theorem for these $n$-homogeneous systems.
+	
+	
+
+
+\begin{thebibliography}{00}
+\bibitem{blackadar06}
+	Blackadar, B.,
+	\emph{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras.}
+	Encyclopaedia of Mathematical Sciences, 122. Operator Algebras and Non-commutative Geometry, III. Springer-Verlag, Berlin (2006).
+	
+\bibitem{bornjordan25}
+	Born, M. \& Jordan, P.,
+	\emph{Zur Quantenmechanik.}
+	Z. Physik (1925) 34: 858.
+	
+\bibitem{bornjordanheisenberg25}
+	Born, M.; Heisenberg, W. \& Jordan, P.,
+	\emph{Zur Quantenmechanik. II.}
+	Z. Physik (1926) 35: 557.
+
+\bibitem{dixmier77}
+	Dixmier, J.,
+	\emph{C*-algebras.}
+	Holland Mathematical Library, Vol. 15. North-Holland Publishing Co., Amsterdam -- New York -- Oxford (1977).
+
+\bibitem{dixmier81}
+	Dixmier, J.,
+	\emph{von Neumann algebras.}
+	North-Holland Publishing Co., Amsterdam -- New York (1981).
+		
+\bibitem{elliott94}
+	Elliott, G. A.,
+	\emph{The classification problem for amenable C*-algebras.}
+	Proceedings of the International Congress of Mathematicians, Vol. 1, 2 (Z\"{u}rich, 1994), pp.~922-–932, Birkhäuser, Basel (1995).
+
+\bibitem{fell61}
+	Fell, J. M. G.,
+	\emph{The structure of algebras of operator fields. }
+	Acta Math. 106, 1961, 233–280. 
+
+
+\bibitem{gardella15}
+	Gardella, E. E.,
+	\emph{Compact group actions on C*-algebras: classification, non-classifiability, and crossed products and rigidity results for L$^p$-operator algebras. }
+	Thesis (Ph.D.) -– University of Oregon (2015).
+
+\bibitem{gelfand43}
+	Gelfand, I. \& Neumark, M.,
+	\emph{On the imbedding of normed rings into the ring of operators in Hilbert space.}
+	Rec. Math. [Mat. Sbornik] N.S. 12(54) (1943), pp.~197–-213.
+
+\bibitem{heisenberg25}
+	Heisenberg, W.,
+	\emph{{\"U}ber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen.}
+	Z. Physik (1925) 33: 879. 
+	
+\bibitem{kadison83}
+	Kadison, R. V. \& Ringrose, J. R.,
+	\emph{Fundamentals of the theory of operator algebras: Vol. I. Elementary theory.}
+	Pure and Applied Mathematics, 100. Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], New York (1983).
+
+\bibitem{kadison86}	
+	Kadison, R. V. \& Ringrose, J. R.,
+	\emph{Fundamentals of the theory of operator algebras: Vol. II. Advanced theory.}
+	Pure and Applied Mathematics, 100. Academic Press, Inc., Orlando, FL (1986).
+	
+\bibitem{lin01}
+	Lin, H.,
+	\emph{An introduction to the classification of amenable C*-algebras.}
+	World Scientific Publishing Co., Inc., River Edge, NJ (2001).
+\bibitem{lin08}
+	Lin, H. \& Niu, Z.,
+	\emph{Lifting KK-elements, asymptotic unitary equivalence and classification of simple C*-algebras.}
+	Adv. Math. 219 (2008), no. 5, pp.~1729-–1769. 
+	
+\bibitem{lin11}
+	Lin, H.,
+	\emph{Asymptotic unitary equivalence and classification of simple amenable C*-algebras.}
+	Invent. Math. 183 (2011), no. 2, pp.~385-–450. 
+
+\bibitem{mackinnon77}
+	MacKinnon, E.,
+	\emph{Heisenberg, Models, and the Rise of Matrix Mechanics.}
+	Hist. Stud. Phys. Sci., Vol. 8 (1977), pp.~137--188
+	
+\bibitem{vonneumann35}
+	Murray, F. J. \& von Neumann, J.,
+	\emph{On rings of operators.}
+	Ann. of Math. (2) 37 (1936), no. 1, pp.~116–-229.
+
+\bibitem{vonneumann37}
+	Murray, F. J. \& von Neumann, J.,
+	\emph{On rings of operators. II.}
+	Trans. Amer. Math. Soc. 41 (1937), no. 2, pp.~208-–248. 
+
+\bibitem{vonneumann43}
+	Murray, F. J. \& von Neumann, J.,
+	\emph{On rings of operators. IV.}
+	Ann. of Math. (2) 44, (1943), pp.~716-–808.
+	
+\bibitem{niemiec12}
+	Niemiec, P.,
+	\emph{Elementary Approach to Homogeneous C*-algebras.}
+	Rocky Mountain J. Math. 45 (2015), no. 5, pp~1591--1630.	
+	
+\bibitem{pedersen79}
+	Pedersen, G. K.,
+	\emph{C*-algebras and their automorphism groups.}
+	Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], London-New York (1979).
+
+\bibitem{sakai71}
+	Sakai, S.,
+	\emph{C*-algebras and W*-algebras.}
+	Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 60. Springer-Verlag, New York-Heidelberg (1971).
+
+\bibitem{schroer03}
+	Schroer, B.,
+	\emph{Pascual Jordan, Glory and Demise and his legacy in contemporary local quantum physics.}
+	Unpublished manuscript (2003).
+	
+\bibitem{simmons83}
+	Simmons, G.,
+	\emph{Introduction to Topology and Modern Analysis.}
+	Robert E. Krieger Publishing Co., Inc., Melbourne, Fl. (1983).
+
+\bibitem{vonneumann40}
+	von Neumann, J.,
+	\emph{On rings of operators. III.}
+	Ann. of Math. (2) 41, (1940), pp.~94–-161.
+
+	
+\end{thebibliography}
+
+\end{document}
