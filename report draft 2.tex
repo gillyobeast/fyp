@@ -18,9 +18,9 @@
 
 %%% TODO:
 
-%%% definition section - how quick an overview? what should i include?
 %%% 
-%%% which statement of [thm] do i want use?
+%%% 
+%%% 
 %%% 
 %%% 
 %%%	
@@ -34,17 +34,17 @@
 \section{Introduction}
 \subsection{History of C$^\ast$-Algebras}
 	The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
-	From 1935-1943, John von Neumann, together with F. J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to establish a general framework for this matrix mechanics.
+	From 1935-1943, John von Neumann, together with F.J. Murray, developed the theory of \emph{rings of operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to establish a general framework for this matrix mechanics.
 	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection of C$^\ast$-algebra theory. 
 	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and likewise in \cite{schroer03}, for the works of Jordan expanding on this.
 	
 	In 1943 \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of C$^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.
 	The Gelfand-Naimark theorem, which we will be considering here at length, gives the link between these abstract C$^\ast$-algebras and the rings of operators previously studied.
-	Used in the proof of the G-N theorem is the Gelfand-Naimark-Segal construction, a pair of results relating cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
+	Used in the proof of the GN theorem is the Gelfand-Naimark-Segal construction, a pair of results relating cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
 	
 	
 \subsection{Background Mathematics and Resources.}	
-	The following is some mathematics which may prove useful throughout the project, with relevant resources; we will of course be making definitions as needed, this is just for further background and related theory.
+	The following is some mathematics which may prove useful throughout the project, with relevant resources; we will of course be making definitions as needed, this is for further background and related theory.
 
 	We will be assuming some familiarity with the following theory, giving some explanation as necessary as we go:
 \begin{itemize}
@@ -95,45 +95,45 @@ A $\ast$-algebra is an algebra $A$ with an \emph{involution} map $a \mapsto a^\a
 
 
 \begin{defn*}
-A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map $a \mapsto a^\ast$, with the condition that
+A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map $a \mapsto a^\ast$, with the condition that
 \begin{align*}
 	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 \end{align*}
 \end{defn*}
-\noindent This condition is known as the \emph{C$^\ast$ axiom}. 
+\noindent This condition is known as the \emph{C* axiom}. 
 
 
 We are now, finally, in a position to state the theorems we're interested in.
 
 \begin{thm*}[Gelfand-Naimark, Commutative]
-	Every commutative, unital C*-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
+	Every commutative, unital C$^\ast$-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
 \end{thm*}
 
 This theorem first appeared in \cite{gelfand43} in a form relating normed rings to subrings of the set of bounded operators on a Hilbert space.
 
-A \emph{faithful representation} of a C*-algebra $A$ on a Hilbert space $\mathcal{H}$ is an isomorphism of $\ast$-algebras from $A$ to the algebra of bounded operators on $\mathcal{H}$.
+A \emph{faithful representation} of a C$^\ast$-algebra $A$ on a Hilbert space $\mathcal{H}$ is an isomorphism of $\ast$-algebras from $A$ to the algebra of bounded operators on $\mathcal{H}$.
 \begin{thm*}[Gelfand-Naimark]
 	Each C*-algebra has a faithful representation.
 \end{thm*}
 
 
 \subsection{Further research}
-	Research in C*-algebras is still very much active, with much work going into, for example: 
-	amenable C* algebras and classification of approximately-finite dimensional (AF) C* algebras; 
-	actions of compact groups on C* algebras; 
-	classification of separable simple nuclear C* algebras; 
+	Research in C$^\ast$-algebras is still very much active, with much work going into, for example: 
+	amenable C$^\ast$ algebras and classification of approximately-finite dimensional (AF) C$^\ast$ algebras; 
+	actions of compact groups on C$^\ast$ algebras; 
+	classification of separable simple nuclear C$^\ast$ algebras; 
 	single operator theory and spectral theory; 
 	operator K-theory, K-homology and KK-theory; 
 	*-derivations;
-	homogeneous C*-algebras.
+	homogeneous C$^\ast$-algebras.
 	
 	
-	Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C*-algebras, building on Elliott's summary \cite{elliott94} of the topic. 
-	Lin is also prolific in research on classification of C*-algebras in general, for example \cite{lin08,lin11} are considered important papers on the topic.
-	The Ph.D. thesis of Gardella \cite{gardella15} concerns itself in part with classifying the actions of compact groups on C*-algebras.
-	Pedersen \cite{pedersen79} covers most of the usual basic theory before moving on to cover a great deal of advanced theory, including automorphism groups of C*-algebras and spectral theory for such groups.
-	J.M.G. Fell \cite{fell61} uses theory of fibre bundles, homogeneous algebras and algebras of continuous trace, to get at the group C*-algebra for SL$(2,\mathbb{C})$.
-	Niemiec \cite{niemiec12} gives an elementary proof of a result \cite[Theorem 3.2]{fell61} from Fell, on $n$-homogeneous C*-algebras, and proposes a spectral theorem for these $n$-homogeneous systems.
+	Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C$^\ast$-algebras, building on Elliott's summary \cite{elliott94} of research on the topic. 
+	Lin is also prolific in research on classification of C$^\ast$-algebras in general, for example \cite{lin08,lin11} are considered important papers on the topic.
+	The Ph.D. thesis \cite{gardella15} of Gardella concerns itself in part with classifying the actions of compact groups on C$^\ast$-algebras.
+	Pedersen \cite{pedersen79} covers most of the usual basic theory before moving on to cover a great deal of advanced theory, including automorphism groups of C$^\ast$-algebras and spectral theory for such groups.
+	J.M.G. Fell \cite{fell61} uses theory of fibre bundles, homogeneous algebras and algebras of continuous trace, to get at the group C$^\ast$-algebra for SL$(2,\mathbb{C})$.
+	Niemiec \cite{niemiec12} gives an elementary proof of a result \cite[Theorem 3.2]{fell61} from Fell, on $n$-homogeneous C$^\ast$-algebras, and proposes a spectral theorem for these $n$-homogeneous systems.
 	
 	
 
