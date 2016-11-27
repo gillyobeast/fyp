@@ -1,36 +1,19 @@
 \documentclass[12pt,a4paper]{amsart}
-
-%\usepackage{fullpage}
 \usepackage{graphicx}
-
 \theoremstyle{plain}
+
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \newtheorem*{defn*}{Definition}
 
-
 \author{Luke Armitage}
 \title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
 
-%%% note on style: use C$^\ast$ unless italicised
-
-%%% TODO:
-
-%%% 
-%%% 
-%%% 
-%%% 
-%%% 
-%%%	
-%%% 
-%%%	
-%%% 
-%%% 
-
 \begin{document}
 \maketitle
+
 \section{Introduction}
 \subsection{History of C$^\ast$-Algebras}
 	The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics \cite{heisenberg25} lead to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
@@ -62,17 +45,16 @@
 	
 
 \subsection{Aims}
-The aims for this project are:
+	The aims for this project are:
 \begin{itemize}
 	\item Give a good background understanding on C$^\ast$-algebras, including topological and geometric interpretation of results where possible.
 	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
 	\item Consider the commutative and general versions of the Gelfand-Naimark theorem, and understand their contents and proof.
 \end{itemize}
 	
+	
 \subsection{The Gelfand-Naimark theorem}
-
-
-We can define C$^\ast$-algebras in two ways -- either as an algebra of bounded linear operators acting on a Hilbert space satisfying two conditions, or abstractly as a normed algebra together with an involution map satisfying four axioms.
+	We can define C$^\ast$-algebras in two ways -- either as an algebra of bounded linear operators acting on a Hilbert space satisfying two conditions, or abstractly as a normed algebra together with an involution map satisfying four axioms.
 
 	To get to the abstract definition of a C$^\ast$-algebra, we need to know about the following.
 \begin{itemize}
@@ -81,37 +63,36 @@ We can define C$^\ast$-algebras in two ways -- either as an algebra of bounded l
 	\item $\ast$-algebras.
 \end{itemize}
 
-A Banach space is a complete normed linear space. 
-A Banach algebra is a Banach space $A$ which forms an algebra, such that 
+	A Banach space is a complete normed linear space. 
+	A Banach algebra is a Banach space $A$ which forms an algebra, such that 
 \begin{align*}
 	\|ab\| \leq \|a\| \|b\| \mbox{ for all } a,b \in A.
 \end{align*}
-A $\ast$-algebra is an algebra $A$ with an \emph{involution} map $a \mapsto a^\ast$ on $A$ such that, for all $a,b \in A$,
+	A $\ast$-algebra is an algebra $A$ with an \emph{involution} map $a \mapsto a^\ast$ on $A$ such that, for all $a,b \in A$,
 \begin{align*}
 	 a^{\ast\ast} = (a^\ast)^\ast = a,\\
 	(a+b)^\ast = a^\ast + b^\ast,\\	
 	(ab)^\ast = b^\ast a^\ast.
 \end{align*}
 
-
 \begin{defn*}
-A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map $a \mapsto a^\ast$, with the condition that
+	A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map $a \mapsto a^\ast$, with the condition
 \begin{align*}
 	\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 \end{align*}
 \end{defn*}
 \noindent This condition is known as the \emph{C* axiom}. 
 
-
-We are now, finally, in a position to state the theorems we're interested in.
+	We are now, finally, in a position to state the theorems we're interested in.
 
 \begin{thm*}[Gelfand-Naimark, Commutative]
 	Every commutative, unital C$^\ast$-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.
 \end{thm*}
 
-This theorem first appeared in \cite{gelfand43} in a form relating normed rings to subrings of the set of bounded operators on a Hilbert space.
+	This theorem first appeared in \cite{gelfand43} in a form relating normed rings to subrings of the set of bounded operators on a Hilbert space.
 
-A \emph{faithful representation} of a C$^\ast$-algebra $A$ on a Hilbert space $\mathcal{H}$ is an isomorphism of $\ast$-algebras from $A$ to the algebra of bounded operators on $\mathcal{H}$.
+	A \emph{faithful representation} of a C$^\ast$-algebra $A$ on a Hilbert space $\mathcal{H}$ is an isomorphism of $\ast$-algebras from $A$ to the algebra of bounded operators on $\mathcal{H}$.
+
 \begin{thm*}[Gelfand-Naimark]
 	Each C*-algebra has a faithful representation.
 \end{thm*}
