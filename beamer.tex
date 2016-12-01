@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\mode<presentation>{ \usetheme{Frankfurt} \setbeamercovered{invisible}}
+\mode<presentation>{ \usetheme{} \setbeamercovered{invisible}}
 
 \usepackage[english]{babel}
 
@@ -10,7 +10,7 @@
 \usepackage{hyperref}
 
 \title[Hypergraphs]
-{C$^\ast$-algebras, and The~Gelfand-Naimark~theorem}
+{C$^\ast$-algebras, and the Gelfand-Naimark theorems}
  
 \author[L. Armitage] 
 {Luke Armitage}
@@ -28,39 +28,33 @@
 
 
 \section{Introduction}
-\subsection{}
-\begin{frame}{A Brief History}{}
+\subsection{History}
+\begin{frame}{A Brief History}{} %% why C* algebras are an interesting topic of study
  \begin{itemize}
 	\item 1925 -- Heisenberg, 					
 				%% authored paper
-		\emph{\"{U}ber quantentheoretische...}\\
+		\emph{\"{U}ber quantentheoretische...}.
 				%% presenting a
-		 new QM model.						
+		 New QM model.						
 		 		%% which turned out to have noncommutative properties, 
-		\[PQ-QP= \frac{h} {2 \pi i}.\]			
-				%% for example
-											
+		\[pq-qp= \frac{h} {2 \pi i}.\]			
+				%% for example. q = displacement, p = momentum
+										
 	\item 1925 -- Born \& Jordan,
-		\emph{Zur Quantenmechanik}\\			
+		\emph{Zur Quantenmechanik}.		
 				%% took the noncommutative properties and 
 				%% developed in terms of matrices
-		 developed matrix mechanics.		
-			
+		 Developed matrix mechanics.		
+		 		
 	\item 1935-1943 -- Murray \& von Neumann,
-		\emph{On rings of operators}\\			
-				%% developed a more general framework
-		 a general framework. 					
+		\emph{On rings of operators}.
+				%% developed a more general framework	
+			A general framework. 				
 		 		%% for this matrix mechanics
- \end{itemize}
-\end{frame}
-
-\subsection{}
-\begin{frame}{A Brief History}{}
- \begin{itemize}
-  	\item 1943 -- Gelfand \& Naimark,
-  		\emph{On the embedding of normed rings...}\\  
+ 	\item 1943 -- Gelfand \& Naimark,
+  		\emph{On the embedding of normed rings...}.
   				%% into the ring of operators on a Hilbert Space
-  		 abstract C$^\ast$-algebras. 				  
+  		 Abstract C$^\ast$-algebras. 				  
   		 		%% free from dependence on operators 
 				%% on a Hilbert space
   		
@@ -68,53 +62,83 @@
 \end{frame}
 
 
-\section{Aims}
-\subsection{}
+\subsection{Aims}
 \begin{frame}{Aims} 
  In my project
  		% i aim to give
  \begin{itemize}
- 	\item Background understanding on C$^\ast$-algebras, standard results,	
- 		% including geometric and topological discussion of results where possible
- 	\item Representation theory, considering GNS construction, 				
- 		% which i will discuss next, and
- 	\item Commutative and general GN theorems and proofs.					
+ 	\item Background understanding of C$^\ast$-algebras, standard results,	
+ 		% including geometric and topological discussion of results where possible.
+ 	\item Representation theory, considering the Gelfand-Naimark-Segal construction, 				
+ 		% which is an important step in the proof of:
+ 	\item Commutative and general GN theorems and their proofs.					
  		% giving a link between the operator algebras and abstract C* algbebras
  \end{itemize}
 \end{frame}
 
-%% define (quickly) a state and a *-rep here
+%% define C* algebras, and (quickly) states and *-reps here
 
 
-\section{Gelfand-Naimark Theorems}
+\section{Gelfand-Naimark theorems}
 \subsection{•}
-\begin{frame}{Gelfand-Naimark-Segal construction}
- Two theorems:
+\begin{frame}{C$^\ast$-algebras}
  \begin{itemize}
- 	\item Existence, for every state $\rho$ of a C$^\ast$-algebra, of a cyclic $\ast$-representation $\pi$ and a unit cyclic vector $x$, such that 
- 		\[
- 			\rho (A) = \langle \pi _{\rho} (A) x_{\rho}, x_{\rho} \rangle.
- 		\]
- 	\item Uniqueness of these representations and vectors.
+ 	\item A \emph{C$^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution map 
+	$a \mapsto a^\ast$, with the condition that
+	\begin{align*}
+		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
+	\end{align*}
+	
+	%% verbally expand on banach algebra and involution:
+	%%		a banach algebra is a banach space which forms an algebra, such that ||a.b|| <= ||a||.||b||
+	%%		involution is a linear, antisymmetric map 
+	%%			such that if you do it twice, then you get back what you started with
  \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Gelfand-Naimark theorem}{Commutative}
+ \begin{itemize}
+ 	\item \emph{Every commutative, unital C$^\ast$-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of continuous functions on the algebra of characters on A.} 
+ \end{itemize}
+ A relation between commutative C$^\ast$-algebras, and the space of continuous functions on a compact topological space.  %% that space being the character space of A
+ %% give defn of isometric *-isomorphism f:
+ %% 	||f(x)|| = ||x|| for x in A
+ %% 	algebra isomorphism such that f(x*) = f(x)*, all x in a 
  
-\begin{frame}{Gelfand-Naimark theorems}
- 
+  Gives us a way to explore non-commutative analogues to geometry and topology.
+\end{frame}
+
+
+
+
+\begin{frame}{Gelfand-Naimark theorem}{General}
+ \begin{itemize}
+ 	\item \emph{Every C$^\ast$-algebra $A$ is isometrically $\ast$-isomorphic to the algebra of bounded operators on a Hilbert space.} 
+ \end{itemize} 
+
 \end{frame}
 
 
 \appendix{}
 \section{References}
 \begin{frame}{References}{}
- 
+\begin{itemize}
+\item{}
+	Kadison, R. V. \& Ringrose, J. R.,
+	\emph{Fundamentals of the theory of operator algebras: Vol. I. Elementary theory.}
+	
+\item{}
+	MacKinnon, E.,
+	\emph{Heisenberg, Models, and the Rise of Matrix Mechanics.}
+
+\item{}
+	Schroer, B.,
+	\emph{Pascual Jordan, Glory and Demise and his legacy in contemporary local quantum physics.}
+\end{itemize}
 \end{frame}
 
 
 
 
 \end{document}
-
-
-
-
