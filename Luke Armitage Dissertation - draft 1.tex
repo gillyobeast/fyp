@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{amsart}
 \usepackage{graphicx}
 \usepackage[color=purple!40]{todonotes} %% does the to do stuff
+\usepackage{enumitem}
 
 \theoremstyle{plain}
 
@@ -41,7 +42,60 @@ brief(er than asst 3) history
 \todo[inline]{to include all representation theory, including GNS, CGN and GN}
 
 
-
+\begin{thm} [Gelfand- Naimark-Segal]
+	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
+	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
+	\[ 
+		\rho(a)~=~ \langle \pi_\rho (a) x_\rho, x_\rho \rangle, ~~~~ \forall a \in A.
+	\]
+\end{thm}
+\begin{proof}
+	We will construct from $\rho$ the space $H_rho$,  representation $\pi_\rho$, and vector $x_\rho$, and demonstrate the required properties.
+	
+	Consider the \emph{left kernel} of $\rho$:
+	\[
+		L_\rho := \{t \in A | \rho (t ^\ast t) = 0 \}.
+	\]	
+	For $a,b \in A$, define $\langle a , b \rangle_0 := \rho(b^\ast a)$.
+	Then $L_\rho = \{t\in A | \langle t , t \rangle _0 = 0 \} $, and $\langle \cdot, \cdot \rangle_0$ satisfies
+	\begin{enumerate}[label=(\roman*)]
+	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
+		\begin{align*}
+		   \langle \alpha a + \beta b, c \rangle_0 
+		&= \rho (c^\ast(\alpha a + \beta b)   								\\
+		&= \rho (\alpha c^\ast a + \beta c^\ast b)  						\\
+		&= \alpha \rho (c^\ast a) + \beta \rho (c^\ast b)					\\
+		&= \alpha \langle a , c \rangle_0 + \beta \langle b, c \rangle_0.
+		\end{align*}
+	  \item Conjugate symmetric: for $a,b \in A$:
+	  	\begin{align*}
+	  	   \langle b,a \rangle _0 
+	  	&= \rho (a^\ast b)													\\
+	  	&= \rho ((b^\ast a)^\ast)											\\
+	  	&= \overline{\rho (b^\ast a)}										\\
+	  	&= \overline{\langle a,b \rangle _0 }.
+	  	\end{align*}
+	  \item Positive semi-definite. \todo{why?}
+	  	\begin{align*}
+	  	\end{align*}
+	\end{enumerate}
+	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on $A$ -- $L_\rho$ is exactly where this fails.
+	
+	$L_\rho$ is a linear subspace of $A$: Consider 
+	\[
+		L:= \{t \in A  | \langle t,a \rangle _0 = 0 \forall a \in A \}\subseteq L_\rho.
+	\]
+	
+	For $t \in L_\rho$, by Cauchy-Schwarz we have 
+	\[ 
+		|\langle t,a \rangle_0|^2 \leq \langle t,t \rangle_0 \langle a,a\rangle_0,~~ \forall a \in A;
+	\]
+	that is,
+	\[
+		\langle t,a \rangle _0 = 0, ~~~ \forall a \in A,
+	\]
+	so $t\in L$ and $L_\rho =L$.
+\end{proof}
 
 
 
