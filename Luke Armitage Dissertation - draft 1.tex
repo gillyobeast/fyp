@@ -2,6 +2,8 @@
 \usepackage{graphicx}
 \usepackage[color=purple!40]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{bbm}
 
 \theoremstyle{plain}
 
@@ -10,6 +12,12 @@
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \newtheorem*{defn*}{Definition}
+
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Hrho}{\mathcal{H}_\rho}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\Vr}{V_\rho}
+\newcommand{\Lr}{L_\rho}
 
 \author{Luke Armitage}
 \title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
@@ -50,14 +58,16 @@ brief(er than asst 3) history
 	\]
 \end{thm}
 \begin{proof}
-	We will construct from $\rho$ the space $H_rho$,  representation $\pi_\rho$, and vector $x_\rho$, and demonstrate the required properties.
+	We will construct from $\rho$ the space $\Hrho$,  representation $\pi_\rho$, 
+	and vector $x_\rho$, and demonstrate the required properties.
 	
 	Consider the \emph{left kernel} of $\rho$:
 	\[
 		L_\rho := \{t \in A | \rho (t ^\ast t) = 0 \}.
 	\]	
 	For $a,b \in A$, define $\langle a , b \rangle_0 := \rho(b^\ast a)$.
-	Then $L_\rho = \{t\in A | \langle t , t \rangle _0 = 0 \} $, and $\langle \cdot, \cdot \rangle_0$ satisfies
+	Then $L_\rho = \{t\in A | \langle t , t \rangle _0 = 0 \} $, and 
+	$\langle \cdot, \cdot \rangle_0$ satisfies
 	\begin{enumerate}[label=(\roman*)]
 	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
 		\begin{align*}
@@ -79,11 +89,12 @@ brief(er than asst 3) history
 	  	\begin{align*}
 	  	\end{align*}
 	\end{enumerate}
-	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on $A$ -- $L_\rho$ is exactly where this fails.
+	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on 
+	$A$ -- $L_\rho$ is exactly where this fails.
 	
 	$L_\rho$ is a linear subspace of $A$: Consider 
 	\[
-		L:= \{t \in A  | \langle t,a \rangle _0 = 0 \forall a \in A \}\subseteq L_\rho.
+		L:= \{t \in A  | \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
 	
 	For $t \in L_\rho$, by Cauchy-Schwarz we have 
@@ -95,6 +106,98 @@ brief(er than asst 3) history
 		\langle t,a \rangle _0 = 0, ~~~ \forall a \in A,
 	\]
 	so $t\in L$ and $L_\rho =L$.
+	
+	Now, for $a,b \in L$, $\alpha \in \mathbb{C}$ and $c \in A$:
+	\[
+		\langle \alpha a + b, c \rangle _0 = \alpha \langle a,c \rangle _0 + \langle b,c\rangle _0 = 0,
+	\]
+	so $\alpha a +b \in L$; also, $\langle 0,c\rangle _0 = 0$ so $0 \in L$. 
+	Hence, $L ( =L_\rho ) $ is a linear subspace of $A$.
+	
+	For $s \in A$, $t\in L_\rho$, by the Cauchy Schwarz inequality [ref] we have 
+	\begin{align*}
+		|\rho (s^\ast t) |^2 
+		&= 		|\langle t,s\rangle_0 |^2 										\\
+		&\leq 	\langle t,t\rangle_0 \cdot \langle s,s\rangle_0  				\\
+		&= 		\rho (t^\ast t) \cdot \rho (s^\ast s)							\\
+		&=		0,
+	\end{align*}
+	so $\rho (s^\ast t) = 0$. Letting $s = a^\ast a t$ for $a \in A$, then
+	\begin{align*}
+		\rho ((at)^\ast at) 
+		&= 		\rho (at^\ast a^\ast at) 										\\
+		&= 		\rho ((a^\ast at)^\ast t) 										\\
+		&= 		\rho (s^\ast t) 												\\
+		&=		0,
+	\end{align*}
+	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
+	we conclude that $L_\rho$ is a left ideal in $A$.
+	$L_\rho$ is \todo{start sentence properly} the preimage in $A$ of $\{0\}$ under the continuous map 
+	$t \mapsto \rho (t^\ast t)$, so is closed.
+	
+	Consider now $V_\rho := A / L_\rho$, with $\langle \cdot,\cdot\rangle$ defined by 
+	\[
+		\langle a+L_\rho,b+L_\rho \rangle := \langle a,b\rangle_0, ~~~~ 
+		\mbox{for}~~a+L_\rho,b+L_\rho \in V_\rho.
+	\]
+	It follows from properties $i),ii)$ and $iii)$ of $\langle \cdot,\cdot  \rangle _0$ that
+	$\langle \cdot,\cdot  \rangle$ is an inner product on $V_\rho$ - with
+	\begin{align*}
+				\langle a + L^\rho, a + L^\rho \rangle = 0
+		&\iff 	\langle a,a\rangle=0										\\
+		&\iff 	a \in L_\rho												\\
+		&\iff 	a+L_\rho = 0+L_\rho
+	\end{align*}
+	giving positive definiteness.
+	The completion of $V_\rho$ with respect to $\langle \cdot,\cdot  \rangle$ is a Hilbert space -
+	this is the Hilbert space $\Hrho$ we're looking for.
+	
+	Now we fix $a \in A$, and consider the map 
+	\[
+		\pi_a : V_\rho \to V_\rho; b+L_\rho \mapsto ab+L_\rho.
+	\]
+	Let $b_1, b_2 \in A$ be such that $b_1+L_\rho = b_2+L_\rho$. Then:
+	\begin{align*}
+		&\implies	b_1-b_2 \in L_\rho										\\	
+		&\implies	a(b_1-b_2) \in L_\rho									\\	
+		&\implies	ab_1-ab_2 \in L_\rho									\\	
+		&\implies	ab_1 + L_\rho = ab_2+L_\rho								\\	
+		&\implies	\pi_a(b_1+L_\rho) = \pi_a(b_2+L_\rho).
+	\end{align*}
+	Hence $\pi_a$ defines a linear operator on $V_\rho$.
+	
+	For $b+L_\rho \in V_\rho$:
+	\begin{align*}
+				\|a\|^2 \cdot \|b+L_\rho\| - \| \pi_a(b+L_\rho) \|
+		&=		\|a\|^2 \cdot \|b+L_\rho\| - \| ab+L_\rho \|				\\
+		&=		\|a\|^2 \cdot \langle b+L_\rho,b+L_\rho \rangle - 
+									\langle ab+L_\rho,ab+L_\rho \rangle		\\
+		&=		\|a\|^2 \cdot \rho(b^\ast b) - \rho ((ab)^\ast ab)			\\
+		&= 		\rho (\|a\|^2 b^\ast b-b^\ast a^\ast ab)					\\
+		&=		\rho (b^\ast (\|a\|^{2} \mathbbm{1} - a ^\ast a)b)			\\
+		&\geq 	0.
+	\end{align*}
+	
+	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity, 
+	$\pi_a$ extends to a bounded operator on $\Hrho$ -- say $\pi_\rho(a):\Hrho \to \Hrho$ 
+	such that \[ \pi_\rho(a)(v) = \pi_a(v) \] for $v\in \Vr$. 
+	Then $\pi_\rho(a) \in \B(\Hrho)$ for each $a \in A$, so $\pi_\rho$ defines a map 
+	$A \to \B(\Hrho)$ such that $ a \mapsto \pi_\rho(a)$. This will be our representation.
+	
+	Now, for $a,b \in A$, $c+ L_\rho \in \Vr$ and $\alpha \in \mathbb{C}$:
+	\begin{align*}
+				\pi_{\alpha a+b}(c+\Lr)
+		&=		(\alpha a+b) (c+\Lr)										\\
+		&=		(\alpha ac +\Lr) + (bc+\Lr)									\\
+		&=		\alpha \pi_a
+	\end{align*}
+	
+	
+	
+	
+	
+	
+	
 \end{proof}
 
 
