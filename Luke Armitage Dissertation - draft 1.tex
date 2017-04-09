@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage[color=purple!40]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
-\usepackage{fullpage}
+%% \usepackage{fullpage}
 \usepackage{bbm}
 
 \theoremstyle{plain}
@@ -14,10 +14,11 @@
 \newtheorem*{defn*}{Definition}
 
 \newcommand{\B}{\mathcal{B}}
-\newcommand{\Hrho}{\mathcal{H}_\rho}
+\newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\1}{\mathbbm{1}}
 \newcommand{\Vr}{V_\rho}
 \newcommand{\Lr}{L_\rho}
+\newcommand{\xr}{x_\rho}
 
 \author{Luke Armitage}
 \title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
@@ -58,7 +59,7 @@ brief(er than asst 3) history
 	\]
 \end{thm}
 \begin{proof}
-	We will construct from $\rho$ the space $\Hrho$,  representation $\pi_\rho$, 
+	We will construct from $\rho$ the space $\Hr$,  representation $\pi_\rho$, 
 	and vector $x_\rho$, and demonstrate the required properties.
 	
 	Consider the \emph{left kernel} of $\rho$:
@@ -92,7 +93,7 @@ brief(er than asst 3) history
 	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on 
 	$A$ -- $L_\rho$ is exactly where this fails.
 	
-	$L_\rho$ is a linear subspace of $A$: Consider 
+	$L_\rho$ is \todo{sentence} a linear subspace of $A$: Consider 
 	\[
 		L:= \{t \in A  | \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
@@ -150,7 +151,7 @@ brief(er than asst 3) history
 	\end{align*}
 	giving positive definiteness.
 	The completion of $V_\rho$ with respect to $\langle \cdot,\cdot  \rangle$ is a Hilbert space -
-	this is the Hilbert space $\Hrho$ we're looking for.
+	this is the Hilbert space $\Hr$ we're looking for.
 	
 	Now we fix $a \in A$, and consider the map 
 	\[
@@ -178,26 +179,54 @@ brief(er than asst 3) history
 		&\geq 	0.
 	\end{align*}
 	
-	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity, 
-	$\pi_a$ extends to a bounded operator on $\Hrho$ -- say $\pi_\rho(a):\Hrho \to \Hrho$ 
+	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity, \todo {of what?} 
+	$\pi_a$ extends to a bounded operator on $\Hr$ -- say $\pi_\rho(a):\Hr \to \Hr$ 
 	such that \[ \pi_\rho(a)(v) = \pi_a(v) \] for $v\in \Vr$. 
-	Then $\pi_\rho(a) \in \B(\Hrho)$ for each $a \in A$, so $\pi_\rho$ defines a map 
-	$A \to \B(\Hrho)$ such that $ a \mapsto \pi_\rho(a)$. This will be our representation.
+	Then $\pi_\rho(a) \in \B(\Hr)$ for each $a \in A$, so $\pi_\rho$ defines a map 
+	$A \to \B(\Hr)$ such that $ a \mapsto \pi_\rho(a)$. This will be our representation.
 	
 	Now, for $a,b \in A$, $c+ L_\rho \in \Vr$ and $\alpha \in \mathbb{C}$:
 	\begin{align*}
 				\pi_{\alpha a+b}(c+\Lr)
 		&=		(\alpha a+b) (c+\Lr)										\\
 		&=		(\alpha ac +\Lr) + (bc+\Lr)									\\
-		&=		\alpha \pi_a
+		&=		\alpha \pi_a (c+\Lr) + \pi_b(c+\Lr),
 	\end{align*}
+	so that $\pi_{\alpha a + b} = \alpha \pi_a +\pi_b$ on $\Vr$.
+	
+	For $a,b \in A$ and $c+ L_\rho \in \Vr$:
+	\begin{align*}
+		\pi_{ab}(c+\Lr)
+		&=		abc+\Lr														\\
+		&=		\pi_a (bc+\Lr)												\\
+		&=		\pi_a (\pi_b (c+\Lr))										\\
+		&=		(\pi_a \cdot \pi_b) (c+\Lr),
+	\end{align*}
+	so that $\pi_{a b} = \pi_a \cdot \pi_b$ on $\Vr$.
 	
 	
+	For $a\in A$ and $b+ L_\rho,~c+ L_\rho \in \Vr$:
+	\begin{align*}
+				\langle b+\Lr, \pi_a^\ast (c+\Lr) \rangle 
+		&=		\langle \pi_a (b+\Lr), c+\Lr \rangle						\\
+		&=		\langle ab +Lr, c+\Lr \rangle								\\
+		&=		\rho(c^\ast ab)												\\
+		&=		\rho((a^\ast c)^\ast b)										\\
+		&=		\langle b+\Lr, a^\ast c+\Lr \rangle							\\
+		&=		\langle b+\Lr, \pi_{a^\ast}(c+\Lr),
+	\end{align*}
+	so that $ \pi_a^\ast = \pi_{a^\ast}$ on $\Vr$.
 	
-	
-	
-	
-	
+	$\Vr \subset \Hr$ is a dense subset, so the three properties above hold on 
+	$\Hr$ by continuity. \todo {of what?} Hence, $\pi_\rho: A \to \B(\Hr)$ is a representation of $A$.
+	As to the unit vector, consider $\xr := \1 + \Lr \in \Vr$. Then for $a \in A$,
+	\begin{align*}
+				\langle \pi_\rho(a)\xr ,\xr \rangle 
+		&=		\langle \pi_a(\1+\Lr), \1+\Lr \rangle						\\
+		&=		\langle a+\Lr \1+\Lr \rangle								\\
+		&=		\rho(a);
+	\end{align*}
+	in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$.	
 \end{proof}
 
 
