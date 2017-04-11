@@ -1,57 +1,186 @@
 \documentclass[12pt,a4paper]{amsart}
 \usepackage{graphicx}
-\usepackage[color=purple!40]{todonotes} %% does the to do stuff
+\usepackage[color=purple!80]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
-%% \usepackage{fullpage}
+%%\usepackage{fullpage}
 \usepackage{bbm}
+
+
+
 
 \theoremstyle{plain}
 
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem*{prop*}{Proposition}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \newtheorem*{defn*}{Definition}
 
+\renewcommand{\H}{\mathcal{H}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\1}{\mathbbm{1}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\Vr}{V_\rho}
 \newcommand{\Lr}{L_\rho}
 \newcommand{\xr}{x_\rho}
+\renewcommand{\phi}{\varphi}
 
 \author{Luke Armitage}
-\title{C$^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
+\title{$C^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
 
 \begin{document}
 \maketitle
-
+\makeatletter  %%todonotes magic
+    \providecommand\@dotsep{5}
+  \makeatother
+\listoftodos\relax
 
 \section{Preliminaries}
-we will assume knowledge on... \\
+we will assume knowledge on... (algebra homos map 1 to 1,)\\
 brief(er than asst 3) history
 
 
 
+\section{Definitions}
 
-\section{Basics}
-
-\subsection{Definitions}
-\begin{defn}[C*-algebra]
-	
+\subsection*{}
+\begin{defn}
+	A \emph{Banach algebra} is a complex Banach space $(A,\|\cdot\|)$ which forms an 
+	algebra, such that 
+	\begin{align*}
+		\|ab\| \leq \|a\| \|b\| \mbox{ for all } a,b \in A.
+	\end{align*}
+	A \emph{$\ast$-algebra} is an algebra $A$ with an \emph{involution} map 
+	$a \mapsto a^\ast$ on $A$ such that, for all $a,b \in A$ and for $\alpha \in \C$,
+	\renewcommand{\labelenumi}{(\roman{enumi})}
+	\begin{enumerate}
+		\item $a^{\ast\ast} = (a^\ast)^\ast = a$,
+		\item $(\alpha a+b)^\ast = \overline{\alpha} a^\ast + b^\ast$,
+		\item $(ab)^\ast = b^\ast a^\ast$.
+	\end{enumerate}
+	The element $a^\ast$ is referred to as the \emph{adjoint} of $a$. 		\\
+	A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution 
+	map $a \mapsto a^\ast$, with the condition
+	\begin{align*}
+		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
+	\end{align*}
+	This condition is known as the \emph{C* axiom}. 
 \end{defn}
+Here we consider complex $C^\ast$-algebras. The theory of real $C^\ast$-algebras has advanced....
+\todo[inline]{remark on work in real $C^\ast$-algebras}
 
-\todo[inline] {define C*algebras, states, representations, the weak* topology}
+Unless specified otherwise, by an \emph{ideal} of a Banach algebra, we mean a two-sided ideal.
+A $\ast$-ideal in a Banach $\ast$-algebra is a $\ast$-closed ideal. 
+For $C^\ast$-algebras, it turns out that any ideal is automatically a $\ast$-ideal.
+
+\subsection{Unitization}
+If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
+$a\cdot \1 = a = \1 \cdot a$ for all $a \in A$, call $\1$ the \emph{unit} 
+in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
+
+\begin{prop}
+	Any non-unital $C^\ast$-algebra $A$ can be isometrically embedded 
+	in a unital $C^\ast$-algebra $\tilde{A}$ as a maximal ideal.
+\end{prop}
+\todo[inline]{tidy up proof}
+\begin{proof}
+	Let $\tilde{A} = A \oplus \C$ with pointwise addition, and define
+	\begin{align*}
+		(a,\lambda) (b,\mu) &:= (ab+\lambda b + \mu a, \lambda \mu),		\\
+		(a,\lambda)^\ast &:= (a^\ast,\overline{\lambda}),					\\
+		\|(a,\lambda)\| &:= \sup_{\|b\|=1}{\|ab+\lambda b\|}.
+	\end{align*}
+	Then $\tilde{A}$ is a $\ast$-algebra. The norm $\|(a,\lambda)\|$ is the norm 
+	in $\B(A)$ of left-multiplication by $a$ on something iunno???
+	Thus $\tilde{A}$ is a Banach $\ast$-algebra with unit $(0,1)$. 
+	By design, $A$ is a maximal ideal of codimension 1. 
+	The embedding $a\mapsto(a,\lambda)$ is isometric as 
+	\[
+		\|a\| = \|a\cdot\frac{a}{\|a\|}\| \leq \|(a,0)\| \leq \sup_{\|b\|=1}{\|ab\|} \leq \|a\|.
+	\]
+	It remains to verify the $C^\ast$-axiom:
+	\begin{align*}
+				\|(a,\lambda)\|^2 
+		&=		\sup_{\|b\|=1}{\|ab+\lambda b\|^2}								\\
+		&=		\sup_{\|b\|=1}{\|b^\ast a^\ast ab 
+								+\lambda b^\ast a^\ast b
+								+\overline{\lambda}b^\ast a b
+								+|\lambda|^2 b^\ast b}							\\
+		&\leq	\sup_{\|b\|=1}{\|a^\ast ab 
+								+\lambda a^\ast b
+								+\overline{\lambda}a b
+								+|\lambda|^2 b\|}									\\
+		&=		\|(a^\ast a + \lambda a^\ast +\overline{\lambda}a,|\lambda|^2)	\\
+		&= 		\|(a,\lambda)^\ast(a,\lambda)\|									\\
+		&\leq	\|(a,\lambda)^\ast\| \|(a,\lambda)\|.
+	\end{align*}
+	By symmetry of $\ast$, $\|(a,\lambda)^\ast\| = \|(a,\lambda)\|$. 
+	Hence, the above inequality becomes equality and we have that
+	\begin{align*}
+		\|(a,\lambda)^\ast(a,\lambda)\| = \|(a,\lambda)\|^2. 
+	\end{align*}		
+	
+\end{proof}
+
+In light of this result, we take all $C^\ast$-algebras from here to be unital. 
+For the results we will consider, we can simply consider the unital case. 
+However, there are important circumstances in which we need to relax the unital condition, 
+\todo[inline]{does the following theory carry from a unital C*alg to any non-unital ideal? a remark}
+
+\subsection{the spectrum}
+Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum sp$(a)$:
+\[
+	\mbox{spec}(a):=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
+\]
 
 
+\subsection{more definitions}
+An element $a\in A$ of a $C^\ast$-algebra is called 
+\begin{itemize}
+	\item \emph{self-adjoint} if $a^\ast=a$;
+	\item \emph{unitary} if $aa^\ast=a^\ast a = \1$;
+	\item \emph{positive} if it is self-adjoint and sp$(a)$ $\subseteq \R^+$.
+\end{itemize}
+Denote the set of positive elements in $A$ by $A^+$.
 
 
+	Given Banach $\ast$-algebras $A$ and $B$, a map $\phi:A\to B$ is a \emph{$\ast$-homomorphism} 
+	if it is an algebra homomorphism for which $\phi(a^\ast) = \phi(a)^\ast$ for all $a \in A$.
+	If a $\ast$-homomorphism $\phi$ is one-to-one, call it a \emph{$\ast$-isomorphism}.
+
+
+\todo[inline]{norm preservation theorem here?}
+
+
+	A \emph{linear functional} on a $C^\ast$-algebra $A$ is a linear operator $\rho:A \to \C$.
+	A \emph{state} on $A$ is a linear functional $\rho$ 
+	such that \todo{is this right? what of $\rho(\1)=1$?}$\|\rho\|=1$ and $\rho (a) \geq 0$ 
+	for all positive elements $a \in A^+$. 
+
+
+	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
+	is a $\ast$-homomorphism $\phi: A \to \B(\H)$. 
+	An isomorphic representation is called \emph{faithful}.
+
+
+\todo [inline]{normal(?), the weak* topology(?), cauchy-schwarz}
+\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation.}
+
+\subsection{$\B(\H)$ - an example.}
+This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
+linear operators on a Hilbert space $\H$. You will notice that $\B(\H)$ has already come up, 
+as we consider representations of a $C^\ast$-algebra as homomorphisms into this algebra. 
+Here we will demonstrate that $\B(\H)$ is indeed a $C^\ast$-algebra and give some basic results.
 
 \section{Representations of C*-algebras}
 \todo[inline]{to include all representation theory, including GNS, CGN and GN}
 
 
-\begin{thm} [Gelfand- Naimark-Segal]
+\begin{thm} [Gelfand-Naimark-Segal]
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
 	\[ 
@@ -64,10 +193,10 @@ brief(er than asst 3) history
 	
 	Consider the \emph{left kernel} of $\rho$:
 	\[
-		L_\rho := \{t \in A | \rho (t ^\ast t) = 0 \}.
+		L_\rho := \{t \in A ~|~ \rho (t ^\ast t) = 0 \}.
 	\]	
 	For $a,b \in A$, define $\langle a , b \rangle_0 := \rho(b^\ast a)$.
-	Then $L_\rho = \{t\in A | \langle t , t \rangle _0 = 0 \} $, and 
+	Then $L_\rho = \{t\in A ~|~ \langle t , t \rangle _0 = 0 \} $, and 
 	$\langle \cdot, \cdot \rangle_0$ satisfies
 	\begin{enumerate}[label=(\roman*)]
 	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
@@ -95,7 +224,7 @@ brief(er than asst 3) history
 	
 	$L_\rho$ is \todo{sentence} a linear subspace of $A$: Consider 
 	\[
-		L:= \{t \in A  | \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
+		L:= \{t \in A  ~|~ \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
 	
 	For $t \in L_\rho$, by Cauchy-Schwarz we have 
@@ -118,17 +247,17 @@ brief(er than asst 3) history
 	For $s \in A$, $t\in L_\rho$, by the Cauchy Schwarz inequality [ref] we have 
 	\begin{align*}
 		|\rho (s^\ast t) |^2 
-		&= 		|\langle t,s\rangle_0 |^2 										\\
-		&\leq 	\langle t,t\rangle_0 \cdot \langle s,s\rangle_0  				\\
-		&= 		\rho (t^\ast t) \cdot \rho (s^\ast s)							\\
+		&= 		|\langle t,s\rangle_0 |^2 									\\
+		&\leq 	\langle t,t\rangle_0 \cdot \langle s,s\rangle_0  			\\
+		&= 		\rho (t^\ast t) \cdot \rho (s^\ast s)						\\
 		&=		0,
 	\end{align*}
 	so $\rho (s^\ast t) = 0$. Letting $s = a^\ast a t$ for $a \in A$, then
 	\begin{align*}
 		\rho ((at)^\ast at) 
-		&= 		\rho (at^\ast a^\ast at) 										\\
-		&= 		\rho ((a^\ast at)^\ast t) 										\\
-		&= 		\rho (s^\ast t) 												\\
+		&= 		\rho (at^\ast a^\ast at) 									\\
+		&= 		\rho ((a^\ast at)^\ast t) 									\\
+		&= 		\rho (s^\ast t) 											\\
 		&=		0,
 	\end{align*}
 	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
@@ -228,8 +357,6 @@ brief(er than asst 3) history
 	\end{align*}
 	in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$.	
 \end{proof}
-
-
 
 
 \end{document}
