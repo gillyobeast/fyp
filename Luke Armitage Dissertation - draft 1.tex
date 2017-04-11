@@ -162,24 +162,30 @@ Denote the set of positive elements in $A$ by $A^+$.
 	for all positive elements $a \in A^+$. 
 
 
-	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
-	is a $\ast$-homomorphism $\phi: A \to \B(\H)$. 
-	An isomorphic representation is called \emph{faithful}.
-
 
 \todo [inline]{normal(?), the weak* topology(?), cauchy-schwarz}
-\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation.}
 
 \subsection{$\B(\H)$ - an example.}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
-linear operators on a Hilbert space $\H$. You will notice that $\B(\H)$ has already come up, 
-as we consider representations of a $C^\ast$-algebra as homomorphisms into this algebra. 
-Here we will demonstrate that $\B(\H)$ is indeed a $C^\ast$-algebra and give some basic results.
+linear operators on a Hilbert space $\H$.  
+Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra and give some basic results.
 
+\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation.}
 \section{Representations of C*-algebras}
 \todo[inline]{to include all representation theory, including GNS, CGN and GN}
 
-
+\begin{defn}
+	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
+	is a $\ast$-homomorphism $\phi: A \to \B(\H)$. 
+	An isomorphic representation is called \emph{faithful}.
+\end{defn}
+	
+\begin{thm}[Gelfand-Naimark for commutative algebras] \todo {find correct name - Gelfand Representation theorem?}
+	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\mathcal{P}(A))$,
+	 the continuous functions on the topological space of pure states on $A$.
+\end{thm}	
+	\todo{remark about nonunital commutative.}
+	
 \begin{thm} [Gelfand-Naimark-Segal]
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
@@ -358,5 +364,9 @@ Here we will demonstrate that $\B(\H)$ is indeed a $C^\ast$-algebra and give som
 	in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$.	
 \end{proof}
 
+
+\begin{thm}[Gelfand-Naimark]
+	Every $C^\ast$-algebra has a faithful representation.
+\end{thm}
 
 \end{document}
