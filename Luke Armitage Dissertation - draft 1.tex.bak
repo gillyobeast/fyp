@@ -34,6 +34,7 @@
 \newcommand{\xr}{x_\rho}
 \renewcommand{\phi}{\varphi}
 \newcommand{\CX}{C(X)}
+\renewcommand{\S}[1]{\mathscr{S}(#1)}
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
 
 \author{Luke Armitage}
@@ -50,6 +51,14 @@
   \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
 
 \section{Preliminaries}
+
+
+List of stuff we're gonna go right ahead an assume:
+\begin{itemize}
+\item	Familiarity with algebras, Banach spaces, Hilbert spaces and other guff.
+\end{itemize}
+
+
 we will assume knowledge on... (algebra homos map 1 to 1,hausdorff/compact spaces)\\
 brief(er than asst 3) history \\
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
@@ -58,7 +67,6 @@ most texts start from $\BH$ to justify the whole thing. we're algebraists, who d
 
 \section{Definitions}
 
-\subsection*{}
 \begin{defn}
 	A \emph{Banach algebra} is a complex Banach space $(A,\|\cdot\|)$ which forms an 
 	algebra, such that 
@@ -75,7 +83,7 @@ most texts start from $\BH$ to justify the whole thing. we're algebraists, who d
 	\end{enumerate}
 	The element $a^\ast$ is referred to as the \emph{adjoint} of $a$. 		\\
 	A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution 
-	map $a \mapsto a^\ast$, with the condition
+	map $a \mapsto a^\ast$ making it a $\ast$-algebra, with the condition that
 	\begin{align*}
 		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 	\end{align*}
@@ -83,11 +91,12 @@ most texts start from $\BH$ to justify the whole thing. we're algebraists, who d
 	ultimately equivalent, axiom called the \emph{$B^\ast$ axiom}.\todo{state and prove} %%
 \end{defn}
 Here we consider complex $C^\ast$-algebras. The theory of real $C^\ast$-algebras has advanced....
-\todo[inline]{remark on work in real $C^\ast$-algebras} %%
+\todo[inline]{remark on work in real $C^\ast$-algebras?} %%
 
 Unless specified otherwise, by an \emph{ideal} of a Banach algebra, we mean a two-sided ideal.
 A $\ast$-ideal in a Banach $\ast$-algebra is a $\ast$-closed ideal. 
 For $C^\ast$-algebras, it turns out that any ideal is automatically a $\ast$-ideal\todo{prove}.%%
+\todo[inline]{cauchy-schwarz}
 
 \subsection{Unitization}
 If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
@@ -138,44 +147,82 @@ in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 	
 \end{proof}
 
-In light of this result, we take all $C^\ast$-algebras from here to be unital. 
+In light of this result, we take all $C^\ast$-algebras from here to be unital unless
+specified otherwise.
 For the results we will consider, we can simply consider the unital case. 
-However, there are important circumstances in which we need to relax the unital condition, 
-\todo[inline]{does the following theory carry from a unital C*alg to any non-unital ideal? a remark}%%
+However, there are important circumstances in advanced theory in which we 
+need to relax the unital condition.
+
 
 \subsection{the spectrum}
 Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum sp$(a)$:
 \[
-	\mbox{spec}(a):=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
+	\mbox{sp}(a):=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
 \]
-
+AAAAAAAAAAH I NEED SO MUCH SPECTRAL THEORY AND I DON'T KNOW ANY
 
 \subsection{more definitions}
-An element $a\in A$ of a $C^\ast$-algebra is called 
+An element $a\in A$ of a $C^\ast$-algebra is called \todo{normal?} %%
 \begin{itemize}
 	\item \emph{self-adjoint} if $a^\ast=a$;
 	\item \emph{unitary} if $aa^\ast=a^\ast a = \1$;
 	\item \emph{positive} if it is self-adjoint and sp$(a)$ $\subseteq \R^+$.
 \end{itemize}
-Denote the set of positive elements in $A$ by $A^+$.
+Denote the set of self-adjoing elements in $A$ by $A_{sa}$, and the subset of positive 
+elements in $A_{sa}$ by $A^+$.\todo{order structure on $A^+$}
 
 
 	Given Banach $\ast$-algebras $A$ and $B$, a map $\phi:A\to B$ is a \emph{$\ast$-homomorphism} 
 	if it is an algebra homomorphism for which $\phi(a^\ast) = \phi(a)^\ast$ for all $a \in A$.
+	If $A$ and $B$ are both unital algebras and a homomorphism $\phi$ maps $\1_A$ to $\1_B$, 
+	say $\phi$ is a \emph{unital} homomorphism.   
 	If a $\ast$-homomorphism $\phi$ is one-to-one, call it a \emph{$\ast$-isomorphism}.
 
+\begin{prop}
+	Suppose $A$ and $B$ are $C^\ast$-algebras and $\phi:A\to B$ is a $\ast$-homomorphism. Then
+	$\|\phi(a)\| \leq \|a\|$ for all $a \in A$. If $\phi$ is a $\ast$-isomporphism, then
+	$\|\phi(a)\| = \|a\|$ for all $a \in A$.
+\end{prop}
+\begin{proof}
+	
+\end{proof}
 
 \todo[inline]{norm preservation theorem here?}%%
 
 
 	A \emph{linear functional} on a $C^\ast$-algebra $A$ is a linear operator $\rho:A \to \C$.
-	A \emph{state} on $A$ is a linear functional $\rho$ 
-	such that \todo{is this right? what of $\rho(\1)=1$?}$\|\rho\|=1$ and $\rho (a) \geq 0$  %%
-	for all positive elements $a \in A^+$. 
+	A \emph{multiplicative} linear functional $\rho$ satisfies $\rho(ab) =\rho(a)\rho(b)$ 
+	for all $a,b\in A$.
+	A \emph{state} on $A$ is a linear functional $\rho$ such that $\|\rho\|=1$ and 
+	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
+	Denote by $\S{A}$ the set of all states on $A$.
+	A (topologically) extreme point of $\S{A}$ is called a \emph{pure} state of $A$, 
+	and the set of pure states on $A$ is denoted by $\P{A}$.
+
+\begin{prop}
+	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the set 
+	of multiplicative linear functionals on $A$.
+\end{prop}
+\begin{proof}[Proof.(Adapted from K\&R, 4.4.1)]
+	Suppose $\rho$ is a pure state on $A$. To show that $\rho(ab)=\rho(a)\rho(b)$ for $a,b,\in A$,
+	we restrict attention to the case where $0\leq b\leq\1$. Linearity gives us the general case.\todo{show} ~%%
+	In this case, for $h\in A^+$ we have that $0\leq hb\leq h$, so $0\leq\rho(hb)\leq\rho(h)$.
+	Hence $\rho_0(a):=\rho(ab)$ for $a\in A$ defines a positive linear functional on $A$ 
+	with $\rho_0\leq\rho$. 
+	The restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$ \todo{show}%%
+	and $\rho_0|_{A_{sa}} \leq \rho|_{A_{sa}}$, and it follows \todo{via what?} %%
+	that $\rho_0|_{A_{sa}} = \alpha \rho|_{A_{sa}}$ for some $\alpha \in \R^+$.
+	Hence $\rho_0 = \alpha\rho$  and 
+	
+	
+\end{proof}
 
 
 
-\todo [inline]{normal(?), the weak* topology(?), cauchy-schwarz}%%
+
+\todo[inline]{pure states are precisely multiplicative linear functionals.
+							define weak* topology on P(S)}  %%
+
 
 \subsection{$\B(\H)$ - an example.}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
@@ -274,9 +321,10 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 
 
 
-\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation. }%%
+\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation.
+				discuss nomenclature (state etc) coming from QM}%%
 
-\subsection{$\CX$ - another example.}
+\subsection{$\CX$ - another example.}\todo{maybe move this to as early as we can?}%%
 Given a locally compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
 $f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
 \[
@@ -294,23 +342,29 @@ that is the norm inherited from the Banach space $\ell^2(X,\C)$.
 \section{Representations of C*-algebras}
 \todo[inline]{to include all representation theory, including GNS, CGN and GN}%%
 
-\begin{defn}
-	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
-	is a $\ast$-homomorphism $\phi: A \to \B(\H)$. 
-	An isomorphic representation is called \emph{faithful}.
-\end{defn}
 	
-\begin{thm}[Gelfand-Naimark for commutative algebras] \todo {find correct name - Gelfand Representation theorem?}%%
-	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P{A})$,
-	 the continuous functions on the topological space of pure states on $A$.
-\end{thm}	
+\begin{thm}[Gelfand-Naimark, commutative] 
+	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$,
+	the algebra of continuous functions a compact Hausdorff space $X$.
+\end{thm}
+\begin{proof}
+	Our compact topological space will be the set $\P{A}$ of pure states, endowed 
+	with the weak$^\ast$ topology as defined above. 
+\end{proof}
 
-
-From [subsection on \CX], $C(\P{A})$ is unital if and only if $\P{A}$ is compact. In the case that 
-$\P{A}$ is noncompact but locally compact, the unitization of $C(\P{A})$ corresponds to $C(\P{A}^\dagger)$ where $X^\dagger$ is the one-point compactification of the topological space $X$.
 	\todo{remark about nonunital commutative.}%%
 	
-\begin{thm} [Gelfand-Naimark-Segal]
+
+\begin{defn}
+	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
+	is a $\ast$-homomorphism $\phi: A \to \BH$. 
+	An isomorphic representation is called \emph{faithful}.
+	If there exists an element $x\in\H$ such that the set $\{\phi(a) ~|~ a\in A\}$ is
+	everywhere-dense in $\H$, say that $\phi$ is a \emph{cyclic} representation, 
+	with \emph{cyclic vector} $x$.
+\end{defn}	
+	
+\begin{thm} [Gelfand-Naimark-Segal construction]
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
 	\[ 
@@ -488,12 +542,17 @@ $\P{A}$ is noncompact but locally compact, the unitization of $C(\P{A})$ corresp
 	\end{align*}
 	in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$.	
 \end{proof}
-
+\todo[inline]{example of this construction on C(X)? may just be a short explanation of how B(H) and 
+C(X) link together. can then talk about noncommutative topology!} %%
 
 \begin{thm}[Gelfand-Naimark]
 	Every $C^\ast$-algebra has a faithful representation.
 \end{thm}
-
+\begin{proof}
+	for this we just take the direct sum representation of the representations given from GNS
+	by some set of states containing all pure states.
+\end{proof}
+\todo[inline]{further topics: K-theory, group C* algebras, amenable algebras, von neumann algebras,}
 \todo[inline]{references!!!!}
 
 \end{document}
