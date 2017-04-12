@@ -1,0 +1,5 @@
+"The principle objective of this project is to understand the definition of a C*-algebra and the proof of this remarkable theorem about commutative C*-algebras."
+The aims for this project are to:
+ Give a good background understanding on C*-algebra, including topological and geometric interpretation of results where possible.
+ Consider the representation theory of C*-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+ Consider the commutative and general versions of the Gelfand-Naimark theorem, and understand their contents and proof.
