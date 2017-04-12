@@ -5,6 +5,8 @@
 %%\usepackage{fullpage}
 \usepackage{bbm}
 \usepackage{hyperref}
+\usepackage{mathrsfs}
+
 
 
 
@@ -12,6 +14,7 @@
 
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
+\newtheorem*{claim}{Claim}
 \newtheorem{prop}{Proposition}
 \newtheorem*{prop*}{Proposition}
 \theoremstyle{definition}
@@ -30,6 +33,8 @@
 \newcommand{\Lr}{L_\rho}
 \newcommand{\xr}{x_\rho}
 \renewcommand{\phi}{\varphi}
+\newcommand{\CX}{C(X)}
+\renewcommand{\P}[1]{\mathscr{P}(#1)}
 
 \author{Luke Armitage}
 \title{$C^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
@@ -40,9 +45,12 @@
     \providecommand\@dotsep{5}
   \makeatother
 \listoftodos\relax
+\newcommand\Item[1][]{ %% enumerate magic
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
 
 \section{Preliminaries}
-we will assume knowledge on... (algebra homos map 1 to 1,)\\
+we will assume knowledge on... (algebra homos map 1 to 1,hausdorff/compact spaces)\\
 brief(er than asst 3) history \\
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
 \todo[inline]{write this!} %%
@@ -71,14 +79,15 @@ most texts start from $\BH$ to justify the whole thing. we're algebraists, who d
 	\begin{align*}
 		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 	\end{align*}
-	This condition is known as the \emph{C* axiom}. 
+	This condition is known as the \emph{$C^\ast$ axiom}. There is a weaker, but 
+	ultimately equivalent, axiom called the \emph{$B^\ast$ axiom}.\todo{state and prove} %%
 \end{defn}
 Here we consider complex $C^\ast$-algebras. The theory of real $C^\ast$-algebras has advanced....
 \todo[inline]{remark on work in real $C^\ast$-algebras} %%
 
 Unless specified otherwise, by an \emph{ideal} of a Banach algebra, we mean a two-sided ideal.
 A $\ast$-ideal in a Banach $\ast$-algebra is a $\ast$-closed ideal. 
-For $C^\ast$-algebras, it turns out that any ideal is automatically a $\ast$-ideal.
+For $C^\ast$-algebras, it turns out that any ideal is automatically a $\ast$-ideal\todo{prove}.%%
 
 \subsection{Unitization}
 If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
@@ -173,79 +182,115 @@ This section concerns the fundamental example of a $C^\ast$-algebra - the set $\
 linear operators on a Hilbert space $\H$.  
 Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra and give some basic results.
 
-\emph{Claim.} $\B(\H)$ is a Banach $\ast$-algebra with the operator norm 
+\begin{claim} $\B(\H)$ is a $C^\ast$-algebra with the operator norm 
 \[
 	\|T\|:= \sup_{\|x\|=1}{\|Tx\|}
 \]
-and involution taking $T$ to its adjoint map $T^\ast$.
+and involution taking $T$ to its adjoint map $T^\ast$. 
+The identity map $I:x\mapsto x$ is a unit for $\BH$
+\end{claim}
 \begin{proof}
-$\|\cdot\|$ is a norm on $\BH$. Let $\{T_n\}_{n\in\N}$ be a Cauchy sequence 
-in $\BH$. Then for any positive $\epsilon$, there is a positive integer $N$ such that 
-\begin{align*}
-	\|T_m-T_n\| < \epsilon \mbox{ for all } m,n \geq N.
-\end{align*}
-Applying $T_m-T_n$ to $x \in \H$, we have 
-\begin{align}\label{cauchyTn}
-	\|T_mx-T_nx\| \leq \|T_m-T_n\| \|x\| < \epsilon \|x\|,
-\end{align}
-so $\{T_nx\}_{n\in\N}$ is a Cauchy sequence in $\H$, converging to an element in $\H$.
-Define a linear operator $T:\H \to \H$ by 
-\begin{align*}
-	T\:= \lim_{n\to\infty}{T_nx}.
-\end{align*}
-Taking limits as $m$ tends to infinity in equation \eqref{cauchyTn}, we obtain
-\begin{align*}
-	\|Tx-T_nx\| < \epsilon \|x\| \mbox{ for all }n \geq N,
-\end{align*}
-and so we have that $T-T_n$ (and hence $T=(T-T_n)+T_n$) is a bounded operator and  
-\begin{align*}
-	\|T-T_n\| <\epsilon \mbox{ for all }n \geq N.
-\end{align*}
-We conclude that $T_n \to T$, and so $\BH$ is complete.
-
-Since boundedness is equivalent to continuity on $\H$, given $S,T\in\BH$, the operator 
-$ST:\H \to \H; x \mapsto (S\circ T)(x)$ is bounded on $\H$.
-Given $x\in\H$ and $\lambda\in\C$, 
-\begin{align*}
-		((\lambda S)T)(x)
-	&=	((\lambda S)\circ T)(x)												\\
-	&=	\lambda S(Tx)														\\
-	&=	\lambda (S\circ T)(x)												\\
-	&=	\lambda ST(x),
-\end{align*} 
-so that $(\lambda S)T = \lambda ST$ in $\BH$, whence $\BH$ is an algebra.
-We have 
-\begin{align*}
-			\|ST\|
-	&=		\sup_{\|x\|=1}{\|STx\|} 										\\
-	&=		\sup_{\|x\|=1}{\|S(Tx)\|} 										\\
-	&\leq	\|S\| \sup_{\|x\|=1}{\|Tx\|} 									\\
-	&=		\|S\| \|T\|.
-\end{align*}
-
-To see that $^\ast$ is an involution:
-\begin{enumerate}
-
-\item[i)] 	\begin{align*}
-			\langle (T^\ast)^\ast x,y\rangle 
-		&=	\langle x, T^\ast y \rangle										\\
-		&=	\langle Tx,y\rangle.
+	$\|\cdot\|$ is a norm on $\BH$. Let $\{T_n\}_{n\in\N}$ be a Cauchy sequence 
+	in $\BH$. Then for any positive $\epsilon$, there is a positive integer $N$ such that 
+	\begin{align*}
+		\|T_m-T_n\| < \epsilon \mbox{ for all } m,n \geq N.
+	\end{align*}
+	Applying $T_m-T_n$ to $x \in \H$, we have 
+	\begin{align}\label{cauchyTn}
+		\|T_mx-T_nx\| \leq \|T_m-T_n\| \|x\| < \epsilon \|x\|,
+	\end{align}
+	so $\{T_nx\}_{n\in\N}$ is a Cauchy sequence in $\H$, converging to an element in $\H$.
+	Define a linear operator $T:\H \to \H$ by 
+	\begin{align*}
+		Tx:= \lim_{n\to\infty}{T_nx} \mbox{ for } x \in \H.
+	\end{align*}
+	Taking limits as $m$ tends to infinity in equation \eqref{cauchyTn}, we obtain
+	\begin{align*}
+		\|Tx-T_nx\| < \epsilon \|x\| \mbox{ for all }n \geq N,
+	\end{align*}
+	and so we have that $T-T_n$ (and hence $T=(T-T_n)+T_n$) is a bounded operator and  
+	\begin{align*}
+		\|T-T_n\| <\epsilon \mbox{ for all }n \geq N.
+	\end{align*}
+	We conclude that $T_n \to T$, and so $\BH$ is complete.
+	
+	Since boundedness is equivalent to continuity on $\H$, given $S,T\in\BH$, the operator 
+	$ST:\H \to \H; x \mapsto (S\circ T)(x)$ is bounded on $\H$.
+	Given $x\in\H$ and $\lambda\in\C$, 
+	\begin{align*}
+			((\lambda S)T)(x)
+		&=	((\lambda S)\circ T)(x)												\\
+		&=	\lambda S(Tx)														\\
+		&=	\lambda (S\circ T)(x)												\\
+		&=	\lambda ST(x),
+	\end{align*} 
+	so that $(\lambda S)T = \lambda ST$ in $\BH$, whence $\BH$ is an algebra.
+	We have 
+	\begin{align*}
+				\|ST\|
+		&=		\sup_{\|x\|=1}{\|STx\|} 										\\
+		&=		\sup_{\|x\|=1}{\|S(Tx)\|} 										\\
+		&\leq	\|S\| \sup_{\|x\|=1}{\|Tx\|} 									\\
+		&=		\|S\| \|T\|.
+	\end{align*}
+	
+	To see that $^\ast$ is an involution, use the fact that the adjoint 
+	operator is unique for each operator and the following equalities.
+	\begin{enumerate}[label=(\roman*)]
+	\Item	\begin{align*}
+				\langle (\alpha T+S)^\ast x,y\rangle 
+			&=	\langle x, \alpha T+S y \rangle									\\
+			&=	\overline{\alpha}\langle x,Ty\rangle + \langle x, Sy \rangle	\\
+			&=	\overline{\alpha}\langle T^\ast x,y\rangle +
+										 \langle S^\ast x, y \rangle			\\
+			&=	\langle(\overline{\alpha} T^\ast + S^\ast) x, y \rangle.
+			\end{align*}
+	\Item 	\begin{align*}
+				\langle (T^\ast)^\ast x,y\rangle 
+			&=	\langle x, T^\ast y \rangle										\\
+			&=	\overline{\langle T^\ast y,x \rangle}							\\
+			&=	\overline{\langle y, Tx \rangle}								\\
+			&=	\langle Tx,y\rangle.
+			\end{align*}
+	\Item	\begin{align*}
+				\langle (ST)^\ast x,y \rangle
+			&=	\langle x, STy \rangle											\\
+			&=	\langle	S^\ast x,Ty \rangle										\\
+			&=	\langle T^\ast S^\ast x,y \rangle.
 		\end{align*}
-\item[ii)] 	\begin{align*}
-			\langle (\alpha T+S)^\ast x,y\rangle 
-		&=	\langle x, \alpha T+S y \rangle										\\
-		&=	\langle Tx,y\rangle.
-		\end{align*}
-
-\end{enumerate}
-Hence, the claim.
+	\end{enumerate}
+	It remains to demonstrate the $C^\ast$-axiom on $\BH$. For all $x\in\H$, we have
+	\begin{align*}
+		\|Tx\|^2 = \langle Tx,Tx\rangle = \langle T^\ast Tx,x\rangle \leq \|T^\ast T\| \|x\|^2,
+	\end{align*}
+	so that
+	\begin{align*}
+		\|T\|^2 \leq \|T^\ast T\| \leq \|T^\ast\| \|T\| = \|T\|^2.
+	\end{align*}
+	It is clear that $I$ is a unit.
+	Hence, the claim.
 \end{proof} 
 
 
 
 
 \todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation. }%%
+
+\subsection{$\CX$ - another example.}
+Given a locally compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
+$f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
+\[
+	\|f\|:= \sup_{x\in X}{|f(x)|},
+\]
+that is the norm inherited from the Banach space $\ell^2(X,\C)$.
+
+
+
+
+
 \todo [inline]{example of $C(X)$?} %%
+
+
 \section{Representations of C*-algebras}
 \todo[inline]{to include all representation theory, including GNS, CGN and GN}%%
 
@@ -256,9 +301,13 @@ Hence, the claim.
 \end{defn}
 	
 \begin{thm}[Gelfand-Naimark for commutative algebras] \todo {find correct name - Gelfand Representation theorem?}%%
-	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\mathcal{P}(A))$,
+	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P{A})$,
 	 the continuous functions on the topological space of pure states on $A$.
 \end{thm}	
+
+
+From [subsection on \CX], $C(\P{A})$ is unital if and only if $\P{A}$ is compact. In the case that 
+$\P{A}$ is noncompact but locally compact, the unitization of $C(\P{A})$ corresponds to $C(\P{A}^\dagger)$ where $X^\dagger$ is the one-point compactification of the topological space $X$.
 	\todo{remark about nonunital commutative.}%%
 	
 \begin{thm} [Gelfand-Naimark-Segal]
