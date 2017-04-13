@@ -1,11 +1,15 @@
-\documentclass[12pt,a4paper]{amsart}
+\documentclass[12pt,a4paper]{report}
 \usepackage{graphicx}
 \usepackage[color=purple!80]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
-%%\usepackage{fullpage}
-\usepackage{bbm}
+\usepackage{fullpage}
+\usepackage{bbm}	%% makes \1 look good
 \usepackage{hyperref}
 \usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
 
 
 
@@ -37,43 +41,44 @@
 \renewcommand{\S}[1]{\mathscr{S}(#1)}
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
 \newcommand{\spec}[1]{\mbox{sp}(#1)}
-\renewcommand{\labelenumi}{(\roman{enumi})}
+\renewcommand{\labelenumi}{(\roman{enumi})} %% makes top layer enum numbers roman
 
 \author{Luke Armitage}
-\title{$C^\ast$-Algebras, and the~Gelfand-Naimark~Theorem}
+\title{$C^\ast$-algebras, and the~Gelfand-Naimark~Theorem}
 
 \begin{document}
 \maketitle
-\makeatletter  %%todonotes magic
+\makeatletter  						%%todonotes magic
     \providecommand\@dotsep{5}
   \makeatother
 \listoftodos\relax
-\newcommand\Item[1][]{ %% enumerate magic
+\newcommand\Item[1][]{ 				%% enumerate magic
   \ifx\relax#1\relax  \item \else \item[#1] \fi
   \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
+\tableofcontents
 
-\section{Preliminaries}
+\chapter{Preliminaries}
 
-\subsection{History of C$^\ast$-Algebras}
+\section{History of $C^\ast$-Algebras}
 	The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics \cite{heisenberg25} 
 	led to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, 
 	developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
 	From 1935-1943, John von Neumann, together with F.J. Murray, developed the theory of \emph{rings of 
 	operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an 
 	attempt to establish a general framework for this matrix mechanics.
-	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a subsection 
-	of C$^\ast$-algebra theory. 
+	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a 
+	subsection of $C^\ast$-algebra theory. 
 	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and 
 	similarly \cite{schroer03} gives a summary of the works of Jordan expanding on this.
 	
-	In 1943 \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of C$^\ast$-algebras, 
-	free from dependence on the operators acting on a Hilbert space.
+	In 1943 \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of 
+	$C^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.
 	The Gelfand-Naimark theorem, which we will be considering here at length, gives the link between these 
-	abstract C$^\ast$-algebras and the rings of operators previously studied.
+	abstract $C^\ast$-algebras and the rings of operators previously studied.
 	Used in the proof of the GN theorem is the Gelfand-Naimark-Segal construction, a pair of results relating 
-	cyclic $\ast$-representations of C$^\ast$-algebras to certain linear functionals on that algebra. 
+	cyclic $\ast$-representations of $C^\ast$-algebras to certain linear functionals on that algebra. 
 	
-\subsection{Background Mathematics and Resources.}	
+\section{Background Mathematics and Resources.}	
 	The following is some mathematics which may prove useful throughout the project, with relevant resources; 
 	we will of course be making definitions as needed, this is for further background and related theory.
 
@@ -85,37 +90,32 @@
 \end{itemize}
 	A good broad background on all of these can be found in \cite{simmons83}.
 
-	Some texts which cover C$^\ast$-algebras: 
+	Some texts which cover $C^\ast$-algebras: 
 	Dixmier \cite{dixmier77} presents a summary of the general theory up to that time (1977), with 
 	\cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
-	Sakai \cite{sakai71} gives a treatment of C$^\ast$- and von Neumann algebras from a more topological point 
+	Sakai \cite{sakai71} gives a treatment of $C^\ast$- and von Neumann algebras from a more topological point 
 	of view. In \cite{kadison83,kadison86}, the authors aim to make accessible the ``vast recent research 
 	literature'' in this subsection of functional analysis.
 	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator 
 	algebras, and covering more specialised material and applications.
 	
-\subsection{Aims}
+\section{Aims}
 	The aims for this project are:
 \begin{itemize}
-	\item Give a good background understanding on C$^\ast$-algebras, including topological and geometric interpretation of results where possible.
-	\item Consider the representation theory of C$^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
+	\item Give a good background understanding on $C^\ast$-algebras, including topological and geometric interpretation of results where possible.
+	\item Consider the representation theory of $C^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
 	\item Consider the commutative and general versions of the Gelfand-Naimark theorem, and understand their contents and proof.
 \end{itemize}
 
-List of stuff we're gonna go right ahead an assume:
-\begin{itemize}
-\item	Familiarity with algebras, Banach spaces, Hilbert spaces and other guff.
-\end{itemize}
 
 
-we will assume knowledge on... (algebra homos map 1 to 1,hausdorff/compact spaces)\\
-brief(er than asst 3) history \\
+
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
-\todo[inline]{write this!} %%
+\todo[inline]{rewrite this!} %%
 
 
-\section{Definitions}
-We begin this section with some definitions and an example, then give some results we will need later and finish 
+\chapter{$C^\ast$-algebras}
+We begin this chapter with some definitions and an example, then give some results we will need later and finish 
 with a fundamental example.
 \begin{defn}
 	A \emph{Banach algebra} is a complex Banach space $(A,\|\cdot\|)$ which forms an 
@@ -132,13 +132,12 @@ with a fundamental example.
 		\item $(ab)^\ast = b^\ast a^\ast$.
 	\end{enumerate}
 	The element $a^\ast$ is referred to as the \emph{adjoint} of $a$. 		\\
-	A \emph{C*-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution 
+	A \emph{$C^\ast$-algebra} is a Banach algebra $(A, \| \cdot \|)$ with involution 
 	map $a \mapsto a^\ast$ making it a $\ast$-algebra, with the condition that
 	\begin{align*}
 		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 	\end{align*}
-	This condition is known as the \emph{$C^\ast$ axiom}. There is a weaker, but 
-	ultimately equivalent, axiom called the \emph{$B^\ast$ axiom}.\todo{state and prove} %%
+	This condition is known as the \emph{$C^\ast$ axiom}.
 \end{defn}
 Here we consider complex $C^\ast$-algebras. The theory of real $C^\ast$-algebras has advanced....
 \todo[inline]{remark on work in real $C^\ast$-algebras?} %%
@@ -149,7 +148,7 @@ $A$ generated by $S$}, which is the smallest $S^\ast$-subalgebra of $A$ containi
 \todo[inline]{cauchy-schwarz, C* subalgebra generated by a set}
 
 
-\subsection{$\CX$ - an example.}\todo{maybe move this to as early as we can?}%%
+\section{$\CX$ - an example.}
 Given a locally compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
 $f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
 \[
@@ -164,7 +163,7 @@ that is the norm inherited from the Banach space $\ell^2(X,\C)$.
 \todo [inline]{example of $C(X)$?} %%
 
 
-\subsection{Unitization}
+\section{Unitization}
 If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
 $a\cdot \1 = a = \1 \cdot a$ for all $a \in A$, call $\1$ the \emph{unit} 
 in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
@@ -220,16 +219,18 @@ However, there are important circumstances in advanced theory in which one
 needs to relax the unital condition.
 
 
-\subsection{the spectrum}
+\section{the spectrum}
+state without proof results?
+
 Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum $\spec{a}$:
 \[
 	\spec{a}:=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
 \]
 
-state without proof results?
+
 AAAAAAAAAAH I NEED SO MUCH SPECTRAL THEORY AND I DON'T KNOW ANY
 
-\subsection{more definitions}
+\section{more definitions}
 An element $a\in A$ of a $C^\ast$-algebra is called \todo{normal?} %%
 \begin{itemize}
 	\item \emph{self-adjoint} if $a^\ast=a$;
@@ -244,7 +245,7 @@ elements in $A_{sa}$ by $A^+$. The set of positive elements $A_{sa}$ forms a \em
 	\item	$\alpha f\in A^+$ for all $\alpha\in \R^+$,
 	\item	$f+g \in A^+$.
 \end{enumerate}
-The unit $\1$ is positive, and for any $a\in A_{sa}$ we have $-\|a\|\1 \leq a \leq \|a\|\1$. 
+The unit $\1$ is positive, and for any $a\in A_{sa}$ we have $-\|a\|\1 \leq a \leq \|a\|\1$. \todo{justify.}
 With commuting elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba = ab$, so 
 $ab$ is self-adjoint. Since $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
 $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have \todo{state in 'spectrum' - 4.1.5}
@@ -279,11 +280,18 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have \todo{state
 	An extreme point of $\S{A}$ is called a \emph{pure} state on $A$, and the set of pure 
 	states on $A$ is denoted by $\P{A}$.
 \end{defn}
-\todo{show that $\|\rho\| = \rho(\1)$. explain extreme point.} %%
+Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for which 
+an expression
+\begin{align*}
+	x = \alpha x_1 +(1-\alpha)x_2,
+\end{align*}
+for $0\leq\alpha\leq1$ and $x_1,x_2\in X$, implies that $x_1=x=x_2$ -- for example, the vertices of a polygon 
+embedded in $\R^2$ are extreme points of that polygon.
+\todo{show that $\|\rho\| = \rho(\1)$.} %%
 
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear functional 
 $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$.
-Every pure state on $A_{sa}$ extends to a pure state on $A$. \todo{justify. 4.3.13.} %%
+Every pure state on $A_{sa}$ extends to a pure state on $A$. \todo{justify. 4.3.13. geometric interpretation - for $A=\C$, self adjoint elements are real numbers } %%
 We will need the following few results on pure states later.
 \begin{prop}\label{pure1}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on $A_{sa}$
@@ -309,7 +317,7 @@ We will need the following few results on pure states later.
 	
 \end{proof}
 
-\begin{prop}\label{pure2}
+\begin{prop}\label{puremult}
 	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the set 
 	of multiplicative linear functionals on $A$.
 \end{prop}
@@ -356,7 +364,7 @@ We will need the following few results on pure states later.
 \todo[inline]{define weak* topology on P(S)}  %%
 
 
-\subsection{$\B(\H)$ - an example.}
+\section{$\B(\H)$ - an example.}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
 linear operators on a Hilbert space $\H$.  
 Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra and give some basic results.
@@ -459,21 +467,42 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 
 
 
-\section{Representations of C*-algebras}
-\todo[inline]{to include all representation theory, including GNS, CGN and GN}%%
+\chapter{Representations of $C^\ast$-algebras}
+\todo[inline]{to include all representation theory, including  CGN, GNS and GN}%%
+\section{Abelian $C^\ast$-algebras}
+Let $A$ be an Abelian $C^\ast$-algebra. For $a$ in $A$, define a complex-valued function $\hat{a}$ on $\P{A}$
+by $\hat{a}(\rho):= \rho(a)$. The \emph{weak$^\ast$-topology} is the coarsest topology \todo{why should this exist?} on $\P{A}$ for which
+all of the maps $\hat{a}$ are continuous, so that $\hat{a} \in C(\P{A})$ for all $a\in A$. The map
+\[
+	\Gamma:A \to C(\P{A}) : a\mapsto \hat{a}
+\]
+is called the \emph{Gelfand representation} of $A$. For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
+\begin{align*}
+	\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
+	=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 	\\
+	\widehat{a^\ast}(\rho) = \rho(a^\ast) = \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
+\end{align*}
+Since by Proposition \ref{puremult},
+\begin{align*}
+	\P{A} = \{\rho \in \S{A} ~|~ \rho(ab) = \rho(a)\rho(b)\},
+\end{align*}
+we have that 
+\begin{align*}
+	\widehat{(ab)} (\rho)= \rho(ab) = \rho(a)\rho(b) = \hat{a}(\rho)\hat{b}(\rho).
+\end{align*}
+Hence the Gelfand representation is a $\ast$-homomorphism. The following theorem gives us that it is in fact
+an isometric $\ast$-isomorphism.
 
-	
 \begin{thm}[Gelfand-Naimark, commutative] 
 	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$,
 	the algebra of continuous functions a compact Hausdorff space $X$.
 \end{thm}
 \begin{proof}
-	Our compact topological space will be the set $\P{A}$ of pure states, endowed 
-	with the weak$^\ast$ topology as defined above. 
 \end{proof}
 
 	\todo{remark about nonunital commutative.}%%
 	
+\section{The Gelfand-Naimark Theorem}
 
 \begin{defn}
 	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
@@ -483,12 +512,12 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 	everywhere-dense in $\H$, say that $\phi$ is a \emph{cyclic} representation, 
 	with \emph{cyclic vector} $x$.
 \end{defn}	
-	
-\begin{thm} [Gelfand-Naimark-Segal construction]
+The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) construction.
+\begin{thm}
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
 	\[ 
-		\rho(a)~=~ \langle \pi_\rho (a) x_\rho, x_\rho \rangle, ~~~~ \forall a \in A.
+		\rho(a)= \langle \pi_\rho (a) x_\rho, x_\rho \rangle, ~~~~ \forall a \in A.
 	\]
 \end{thm}
 \begin{proof}
@@ -524,7 +553,7 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 	  	\end{align*}
 	\end{enumerate}
 	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on 
-	$A$ -- $L_\rho$ is exactly where this fails.
+	$A$ -- the left kernel is exactly where this fails.
 	
 	$L_\rho$ is \todo{sentence} a linear subspace of $A$: Consider  %%
 	\[
@@ -563,9 +592,9 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 		&=		0,
 	\end{align*}
 	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
-	we conclude that $L_\rho$ is a left ideal in $A$.
-	$L_\rho$ is \todo{start sentence properly} the preimage in $A$ of $\{0\}$ under the continuous map%%
-	$t \mapsto \rho (t^\ast t)$, so is closed.
+	we conclude that $L_\rho$ is a left ideal in $A$. \todo{who do we need closure?}
+	Closure  of $L_\rho$ follows from the fact that it is the preimage in $A$ of $\{0\}$ under 
+	the continuous map $t \mapsto \rho (t^\ast t)$. 
 	
 	Consider now $V_\rho := A / L_\rho$, with $\langle \cdot,\cdot\rangle$ defined by 
 	\[
@@ -610,7 +639,7 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 		&\geq 	0.
 	\end{align*}
 	
-	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity, \todo {cont of what?} %%
+	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity,
 	$\pi_a$ extends to a bounded operator on $\Hr$ -- say $\pi_\rho(a):\Hr \to \Hr$ 
 	such that \[ \pi_\rho(a)(v) = \pi_a(v) \] for $v\in \Vr$. 
 	Then $\pi_\rho(a) \in \B(\Hr)$ for each $a \in A$, so $\pi_\rho$ defines a map 
@@ -649,7 +678,7 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 	so that $ \pi_a^\ast = \pi_{a^\ast}$ on $\Vr$.
 	
 	$\Vr \subset \Hr$ is a dense subset, so the three properties above hold on 
-	$\Hr$ by continuity. \todo {cont of what?} %%
+	$\Hr$ by continuity of $\pi_\rho$. 
 	Hence, $\pi_\rho: A \to \B(\Hr)$ is a representation of $A$.
 	As to the unit vector, consider $\xr := \1 + \Lr \in \Vr$. Then for $a \in A$,
 	\begin{align*}
@@ -670,7 +699,7 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	for this we just take the direct sum representation of the representations given from GNS
 	by some set of states containing all pure states.
 \end{proof}
-\todo[inline]{further topics: K-theory, group C* algebras, amenable algebras, von neumann algebras,}
+\todo[inline]{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }
 \todo[inline]{references!!!!}
 
 

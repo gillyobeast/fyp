@@ -1,11 +1,13 @@
-\BOOKMARK [1][-]{section.0.1}{Preliminaries}{}% 1
-\BOOKMARK [2][-]{subsection.0.1.1}{History of C-Algebras}{section.0.1}% 2
-\BOOKMARK [2][-]{subsection.0.1.2}{Background Mathematics and Resources.}{section.0.1}% 3
-\BOOKMARK [2][-]{subsection.0.1.3}{Aims}{section.0.1}% 4
-\BOOKMARK [1][-]{section.0.2}{Definitions}{}% 5
-\BOOKMARK [2][-]{subsection.0.2.1}{C\(X\) - an example.}{section.0.2}% 6
-\BOOKMARK [2][-]{subsection.0.2.2}{Unitization}{section.0.2}% 7
-\BOOKMARK [2][-]{subsection.0.2.3}{the spectrum}{section.0.2}% 8
-\BOOKMARK [2][-]{subsection.0.2.4}{more definitions}{section.0.2}% 9
-\BOOKMARK [2][-]{subsection.0.2.5}{B\(H\) - an example.}{section.0.2}% 10
-\BOOKMARK [1][-]{section.0.3}{Representations of C*-algebras}{}% 11
+\BOOKMARK [0][-]{chapter.1}{Preliminaries}{}% 1
+\BOOKMARK [1][-]{section.1.1}{History of C-Algebras}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Background Mathematics and Resources.}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Aims}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{C-algebras}{}% 5
+\BOOKMARK [1][-]{section.2.1}{C\(X\) - an example.}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Unitization}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{the spectrum}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{more definitions}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.5}{B\(H\) - an example.}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Representations of C-algebras}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Abelian C-algebras}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{The Gelfand-Naimark Theorem}{chapter.3}% 13
