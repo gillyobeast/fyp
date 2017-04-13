@@ -212,13 +212,14 @@ $C^\ast$-subalgebra $C^\ast(a,b,\1)$, by our spectral theory we have \todo{state
 	A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\|\rho\|=1$ and 
 	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
 	Denote by $\S{A}$ the set of all states on $A$.
-	A (topologically) extreme point of $\S{A}$ is called a \emph{pure} state on $A$, 
-	and the set of pure states on $A$ is denoted by $\P{A}$.
+	An extreme point of $\S{A}$ is called a \emph{pure} state on $A$, and the set of pure 
+	states on $A$ is denoted by $\P{A}$.
 \end{defn}
-\todo{show that $\|\rho\| = \rho(\1)$} %%
+\todo{show that $\|\rho\| = \rho(\1)$. explain extreme point.} %%
 
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear functional 
 $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$.
+Every pure state on $A_{sa}$ extends to a pure state on $A$. \todo{justify. 4.3.13.} %%
 We will need the following few results on pure states later.
 \begin{prop}\label{pure1}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on $A_{sa}$
@@ -263,14 +264,27 @@ We will need the following few results on pure states later.
 							\alpha\rho(\1)\rho(a) = \rho_b(\1)\rho(a) = \rho(b)\rho(a)
 	\end{align*}
 	
-	Conversely, xx
+	Conversely, suppose $\rho$ is a multiplicative linear functional. \todo{show a state.} %% 
+	Suppose we can write $\rho=\alpha\rho_1+\beta\rho_2$ for states $\rho_1,\rho_2$ on $A$ and 
+	$\alpha,\beta >0$ such that $\alpha+\beta=1$. For $c\in A_{sa}$, by the Cauchy-Schwarz inequality we have
+	for $j=1,2$:
+	\begin{align*}
+		\big(\rho_j(c)\big)^2 = \big(\rho_j(\1 c)\big)^2 \leq \rho_j(\1)\rho(c^2)=\rho(c^2).
+	\end{align*}
+	Then:
+	\begin{align*}
+				0
+		&=		\rho(c^2)-\rho(c)^2 											\\
+		&=		\alpha\rho_1(c^2)+\beta\rho_2(c^2) - 
+							\big(\alpha\rho_1(c)+\beta\rho_2(c)\big)			\\
+		&\geq	\alpha(\alpha+\beta)\rho_1(c^2) 
+	\end{align*}
 \end{proof}
 
 
 
 
-\todo[inline]{pure states are precisely multiplicative linear functionals.
-							define weak* topology on P(S)}  %%
+\todo[inline]{define weak* topology on P(S)}  %%
 
 
 \subsection{$\B(\H)$ - an example.}
@@ -459,7 +473,6 @@ that is the norm inherited from the Banach space $\ell^2(X,\C)$.
 	\[
 		L:= \{t \in A  ~|~ \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
-	
 	For $t \in L_\rho$, by Cauchy-Schwarz we have 
 	\[ 
 		|\langle t,a \rangle_0|^2 \leq \langle t,t \rangle_0 \langle a,a\rangle_0,~~ \forall a \in A;
@@ -469,7 +482,6 @@ that is the norm inherited from the Banach space $\ell^2(X,\C)$.
 		\langle t,a \rangle _0 = 0, ~~~ \forall a \in A,
 	\]
 	so $t\in L$ and $L_\rho =L$.
-	
 	Now, for $a,b \in L$, $\alpha \in \mathbb{C}$ and $c \in A$:
 	\[
 		\langle \alpha a + b, c \rangle _0 = \alpha \langle a,c \rangle _0 + \langle b,c\rangle _0 = 0,
