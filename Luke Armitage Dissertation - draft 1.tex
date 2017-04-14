@@ -160,7 +160,7 @@ that is the norm inherited from the Banach space $\ell^2(X,\C)$.
 
 
 
-\todo [inline]{example of $C(X)$?} %%
+\todo [inline]{example of $C(X)$? could define states and stuff preemptively} %%
 
 
 \section{Unitization}
@@ -180,8 +180,7 @@ in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 		(a,\lambda)^\ast &:= (a^\ast,\overline{\lambda}),					\\
 		\|(a,\lambda)\| &:= \sup_{\|b\|=1}{\|ab+\lambda b\|}.
 	\end{align*}
-	Then $\tilde{A}$ is a $\ast$-algebra. The norm $\|(a,\lambda)\|$ is the norm 
-	in $\B(A)$ of left-multiplication by $a$ on something iunno???
+	Then $\tilde{A}$ is a $\ast$-algebra. The norm $\|(a,\lambda)\|$ is... \todo{justify norm} %%
 	Thus $\tilde{A}$ is a Banach $\ast$-algebra with unit $(0,1)$. 
 	By design, $A$ is a maximal ideal of codimension 1. 
 	The embedding $a\mapsto(a,\lambda)$ is isometric as 
@@ -272,14 +271,12 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have \todo{state
 \begin{defn}
 	A \emph{linear functional} on a $C^\ast$-algebra $A$ is a linear operator $\rho:A \to \C$.
 	A linear functional $\rho$ is \emph{positive} if $\rho(a)\geq 0$ for all $a\in A^+$.
-	A \emph{multiplicative} linear functional $\rho$ satisfies $\rho(ab) =\rho(a)\rho(b)$ 
-	for all $a,b\in A$.
-	A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\|\rho\|=1$ and 
+	A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\|\rho\|=1$ and \todo{show that $\|\rho\| = \rho(\1)$.} %%
 	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
 	Denote by $\S{A}$ the set of all states on $A$.
 	An extreme point of $\S{A}$ is called a \emph{pure} state on $A$, and the set of pure 
 	states on $A$ is denoted by $\P{A}$.
-\end{defn}\todo{show that $\|\rho\| = \rho(\1)$.} %%
+\end{defn}
 Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for which 
 an expression
 \begin{align*}
@@ -288,7 +285,7 @@ an expression
 for $0\leq\alpha\leq1$ and $x_1,x_2\in X$, implies that $x_1=x=x_2$ -- for example, the vertices of a polygon 
 embedded in $\R^2$ are extreme points of that polygon.
 
-\todo[inline]{geometric interpretation - for $A=\C$, self adjoint elements are real numbers and the positive cone is $\R^+$} %%
+\todo[inline]{geometric interpretation - for $A=\C$, self adjoint elements are real numbers and the positive cone is $\R^+$. explain $\geq$ notation } %%
 
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear functional 
 $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$.
@@ -296,7 +293,7 @@ Every pure state on $A_{sa}$ extends to a pure state on $A$. \todo{justify(4.3.1
 We will need the following few results on pure states later.
 \begin{prop}\label{pure1}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on $A_{sa}$
-	such that $0\leq\tau\leq\rho$, we have $\tau =\lambda\rho$ for some $\lambda\in\R$.
+	such that $0\leq\tau\leq\rho$, we have $\tau =\lambda\rho$ for some $\lambda\in\R$. 
 \end{prop}
 \begin{proof}[Proof. (Adapted from 3.4.6)]
 	Suppose that $\tau =\lambda\rho$ for all $0\leq\tau\leq\rho$, and suppose we can write 
@@ -320,6 +317,9 @@ We will need the following few results on pure states later.
 
 \begin{prop}\label{puremult}
 	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the set 
+	\[
+		\{\rho:A \to \C ~|~ \rho(ab) =\rho(a)\rho(b)\mbox{ for all } a,b\in A\}
+	\]
 	of multiplicative linear functionals on $A$.
 \end{prop}
 \begin{proof}[Proof.(Adapted from K\&R, 4.4.1)]
@@ -496,12 +496,19 @@ an isometric $\ast$-isomorphism.
 
 \begin{thm}[Gelfand-Naimark, commutative] 
 	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$,
-	the algebra of continuous functions a compact Hausdorff space $X$.
+	the algebra of continuous functions on a compact Hausdorff space $X$.
 \end{thm}
 \begin{proof}
 \end{proof}
 
-	\todo{remark about nonunital commutative.}%%
+
+The previous result generalises to not-necessarily-unital Abelian $C^\ast$-algebras as follows:
+\begin{thm*}
+	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C_0(X)$, the algebra of 
+	continuous functions on a locally compact Hausdorff space $X$ which vanish at infinity.
+\end{thm*}
+The proof -- not dissimilar from the proof above -- can be found in [reference]. The unitization of this 
+algebra corresponds to the one-point compactificaton of $X$.
 	
 \section{The Gelfand-Naimark Theorem}
 
