@@ -38,7 +38,7 @@
 \newcommand{\xr}{x_\rho}
 \renewcommand{\phi}{\varphi}
 \newcommand{\CX}{C(X)}
-\renewcommand{\S}[1]{\mathscr{S}(#1)}
+\renewcommand{\S}{\mathscr{S}}
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
 \newcommand{\spec}[1]{\mbox{sp}(#1)}
 \renewcommand{\labelenumi}{(\roman{enumi})} %% makes top layer enum numbers roman
@@ -113,7 +113,7 @@
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
 \todo[inline]{rewrite this!} %%
 
-
+\section{Constructions on Hilbert spaces}\label{hscons}
 We need some Hilbert spaces constructions; particularly, the direct sum of a collection of Hilbert 
 spaces and the direct sum of bounded operators on these Hilbert spaces.
 Given a finite collection $\{\H_1,\dots,\H_n\}$ of Hilbert spaces, let $\H$ denote the set
@@ -131,7 +131,7 @@ given by
 	\|x\|^2 = \|x_1\|^2 + \dots + \|x_n\|^2.
 \]
 It is easy to show that $\H$ is a Hilbert space with these operations, and we call it the
-\emph{direct sum} of the collection $\{\H_1,\dots,\H_n\}$, denoted $\bigoplus\H_i$.
+\emph{direct sum} of the collection $\{\H_1,\dots,\H_n\}$, denoted $\oplus\H_i$.
 
 Similarly, we can construct a Hilbert space direct sum of an infinite collection 
 $\{\H_i ~|~ i\in I\}$ of Hilbert spaces. Let $\H$ be the set
@@ -194,22 +194,24 @@ and so $(x_i-x^n_i)$ and $x^n_i$ are in $\H$ for $n\geq N$.
 Then $(x_i)$ is in $\H$ and by \ref{sum2}, $x^n$ converges to $(x_i)$ as $n$ tends 
 to infinity. We conclude that $\H$ is complete and therefore a Hilbert space. Just like in the finite 
 case, we call $\H$ the \emph{direct sum} of the collection $\{\H_i ~|~ i\in I\}$ of Hilbert spaces, 
-denoted $\bigoplus\H_i$.
+denoted $\oplus\H_i$.
 
-Suppose now we have a collection of bounded operators $\{T_i\in\B{(\H_i)} ~|~ i\in I\}$ such that 
+Suppose now we have a (finite or infinite) collection of bounded operators 
+$\{T_i\in\B{(\H_i)} ~|~ i\in I\}$ such that 
 \[
-	\sup_{i\in I} {\|T_i\|} < \infty.
+	\sup_{i\in I} {\|T_i\|} < \infty
 \] 
-For $x=(x_i)$ in $\bigoplus\H_i$, define an element $Tx$ in $\bigoplus\H_i$ by 
+(note that this is automatically true for finite $I$).
+For $x=(x_i)$ in $\oplus\H_i$, define an element $Tx$ in $\oplus\H_i$ by 
 $Tx=(T_ix_i)$. Then $T:\H\to\H:x\mapsto Tx$ is a bounded linear operator, called the \emph{direct
-sum} of the collection $\{T_i\in\B{(\H_i)} ~|~ i \in I\}$, denoted $\bigoplus T_i$. For $S_i,T_i$
-in $\B(\H_i)$, $\alp we have 
+sum} of the collection $\{T_i\in\B{(\H_i)} ~|~ i \in I\}$, denoted $\oplus T_i$. For $S_i,T_i$
+in $\B(\H_i)$, $\alpha,\beta$ in $\C$, we have 
 \begin{align*}
-		\|\bigoplus T_i\| &= \sup_{i\in I} {\|T_i\|},				\\
-		\left(\bigoplus T_i\right)^\ast &= \bigoplus T_i^\ast,		\\
-		\bigoplus (\alpha S_i+\beta T_i) &= 
-					\alpha \bigoplus S_i + \beta \bigoplus T_i, 	\\
-		\bigoplus (S_i T_i) &= \bigoplus S_i \bigoplus T_i.
+		\left(\oplus T_i\right)^\ast &= \oplus T_i^\ast,		\\
+		\oplus (\alpha S_i+\beta T_i) &= 
+					\alpha \oplus S_i + \beta \oplus T_i, 		\\
+		\oplus (S_i T_i) &= \oplus S_i \oplus T_i,				\\
+		\|\oplus T_i\| &= \sup_{i\in I} {\|T_i\|}.				\\
 \end{align*}
 
 
@@ -378,10 +380,9 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	A \emph{linear functional} on a $C^\ast$-algebra $A$ is a linear operator $\rho:A \to \C$.
 	A linear functional $\rho$ is \emph{positive} if $\rho(a)\geq 0$ for all $a\in A^+$.
 	A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\|\rho\|=1$ and
-	\todo{show that $\|\rho\| = \rho(\1)$.} %% 
 	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
-	Denote by $\S{A}$ the set of all states on $A$.
-	An extreme point of $\S{A}$ is called a \emph{pure} state on $A$, and the set of pure 
+	Denote by $\S(A)$ the set of all states on $A$.
+	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
 	states on $A$ is denoted by $\P{A}$.
 \end{defn}
 Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for 
@@ -408,7 +409,7 @@ We will need the following few results on pure states later.
 \begin{proof}[Proof. (Adapted from 3.4.6)]
 	Suppose that $\tau =\lambda\rho$ for all $0\leq\tau\leq\rho$, and suppose we can write 
 	$\rho=\alpha\rho_1+(1-\alpha)\rho_2$ for some $0\leq\alpha\leq1$ and some $\rho_1,\rho_2 \in
-	\S{A_{sa}}$. Then $0\leq\alpha\rho_1\leq\rho$, so $\alpha\rho_0 = \lambda\rho$. Then 
+	\S(A_{sa})$. Then $0\leq\alpha\rho_1\leq\rho$, so $\alpha\rho_0 = \lambda\rho$. Then 
 	$\rho_1(\1)=1=\rho(\1)$, so 
 	$\alpha = \lambda$ so $\rho_0 =\rho$. Similarly, we can show that $\rho_2=\rho$, and so we
 	 conclude that $\rho$ is pure.
@@ -594,12 +595,12 @@ is called the \emph{Gelfand representation} of $A$.
 For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
 \begin{align*}
 	\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
-	=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 	\\
-	\widehat{a^\ast}(\rho) = \rho(a^\ast) = \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
+	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 	\\
+	\widehat{a^\ast}(\rho) = \rho(a^\ast) &= \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
 \end{align*}
 Since by Proposition \ref{puremult},
 \begin{align*}
-	\P{A} = \{\rho \in \S{A} ~|~ \rho(ab) = \rho(a)\rho(b)\},
+	\P{A} = \{\rho \in \S(A) ~|~ \rho(ab) = \rho(a)\rho(b)\},
 \end{align*}
 we have that 
 \begin{align*}
@@ -677,7 +678,7 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on 
 	$A$ -- the left kernel is exactly where this fails.
 	
-	$L_\rho$ is \todo{sentence} a linear subspace of $A$: Consider  %%
+	To see that $L_\rho$ is a linear subspace of $A$, consider 
 	\[
 		L:= \{t \in A  ~|~ \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
@@ -715,7 +716,7 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 		&=		0,
 	\end{align*}
 	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
-	we conclude that $L_\rho$ is a left ideal in $A$. \todo{who do we need closure?}
+	we conclude that $L_\rho$ is a left ideal in $A$. \todo{why do we need closure?}
 	Closure  of $L_\rho$ follows from the fact that it is the preimage in $A$ of $\{0\}$ under 
 	the continuous map $t \mapsto \rho (t^\ast t)$. 
 	
@@ -815,18 +816,35 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 \todo[inline]{example of this construction on C(X)? may just be a short explanation of how B(H) and 
 C(X) link together. can then talk about noncommutative topology!} %%
 
-Suppose we have a $C^\ast$-algebra $A$ and a collection $\{\H_i\}_{i\in I}$ of Hilbert spaces for each of which 
-we have a representation $\pi_i$ of $A$ on $\H_i$. Let $K$ denote the direct sum of the collection of 
-Hilbert spaces, which is a Hilbert space with pointwise addition and scalar multiplication and
-norm $\|\{x_n\}\| = \big(\sum{\|x_n\|^2}\big)^{1/2}$ 
+
 
 \begin{thm}[Gelfand-Naimark]
 	Every $C^\ast$-algebra has a faithful representation.
 \end{thm}
 \begin{proof}
-	for this we just take the direct sum representation of the representations given from GNS
-	by some set of states containing all pure states.
+	Let $A$ be a $C^\ast$-algebra. Suppose we have a collection $\{\phi_i ~|~i\in I\}$ of 
+	representations of $A$ on Hilbert spaces $\{\H_i ~|~ i\in I\}$.
+	For $a$ in $A$, we have $\|\phi_i(a)\|\leq \|a\|$ (as each $\phi_i$ is a $\ast$-homomorphism),
+	so we have a bounded operator $\oplus\phi_i(a)$ on $\oplus \H_i$ by section \ref{hscons}. By the
+	properties of $\oplus\phi_i(a)$ stated therein, the map 
+	\[
+		\phi:A\to \B(\oplus\H_i):a\mapsto\oplus\phi_i(a)
+	\]
+	is a $\ast$-homomorphism, and so a representation of $A$ on $\oplus\H_i$. Call $\phi$ the 
+	\emph{direct sum representation} of $A$ on $\oplus\H_i$, denoted $\oplus\phi_i$.
+	
+	With $\S_0$ any collection of states on $A$ containing $\P{A}$, let $\phi$ be the direct sum of
+	the collection $\{\pi_\rho ~|~ \rho\in\S_0\}$ of representations as constructed by the GNS
+	construction. 
+	
+	Now for any $a\not=0$ in $A$, there is a pure state on $A$ such that $\rho(a)\not=0$. By the GNS
+	construction, $\rho(a)= \langle \pi_\rho (a) x_\rho, x_\rho \rangle$, so $\pi_\rho\not=0$.
+	
 \end{proof}
+
+
+
+
 \todo[inline]{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }
 \todo[inline]{references!!!!}
 
