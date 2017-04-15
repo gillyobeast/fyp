@@ -480,12 +480,12 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	the previous result, and $\rho(a)=\alpha$.
 \end{proof}
 
-\begin{lemma}[{\cite[4.3.4]{kadison83}}]
+\begin{lemma}[{\cite[4.3.4,(i)]{kadison83}}]\label{state1}
 	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all states $\rho$ on $A$, then $a=0$.
 \end{lemma}
 \begin{proof}
 	Suppose first that $a$ is self-adjoint, and $\rho(a)=0$ for all states $\rho$. By the previous
-	result, $\spec a=\{0\}$, so $\|a\|=r(a)=0\|$. Hence $a=0$.			\\
+	result, $\spec{a}=\{0\}$, so $\|a\|=r(a)=0\|$. Hence $a=0$.			\\
 	Now write $a=h+ik$, for $h$ and $k$ the real and imaginary part of $a$ respectively. Then
 	\begin{align*}
 		0=\rho(a)=\rho(h)+i\rho(k),
@@ -504,7 +504,14 @@ state on $A_{sa}$.
 Every pure state on $A_{sa}$ extends to a pure state on $A$, by the Hahn-Banach theorem.
 We will need the following few results on pure states later.
 
-\begin{prop}[{\cite[3.4.6]{kadison83}}]\label{pure1}
+\begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{pure1}
+	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all \emph{pure} states $\rho$ on $A$, then $a=0$.
+\end{lemma}
+\begin{proof}
+	Since every state is the limit of a sequence of linear combinations of pure states, if $\rho(a)=0$ for all pure states $\rho$ on $A$, then $\rho(a)=0$ for \emph{all} states $\rho$ on $A$. The result follows immediately from Lemma \ref{state1}.
+\end{proof}
+
+\begin{prop}[{\cite[3.4.6]{kadison83}}]\label{pure2}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on
 	 $A_{sa}$ such that $0\leq\tau\leq\rho$, we have $\tau =\lambda\rho$ for some $\lambda\in\R$. 
 \end{prop}
@@ -544,7 +551,7 @@ We will need the following few results on pure states later.
 	In this case, for $h\in A^+$ we have that $0\leq hb\leq h$, so $0\leq\rho(hb)\leq\rho(h)$.
 	Hence $\rho_b(a):=\rho(ab)$ for $a\in A$ defines a positive linear functional on $A$ with 
 	$\rho_b\leq\rho$. The restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$ and 
-	$\rho_b|_{A_{sa}} \leq \rho|_{A_{sa}}$, and it follows from Proposition \ref{pure1} that 
+	$\rho_b|_{A_{sa}} \leq \rho|_{A_{sa}}$, and it follows from Proposition \ref{pure2} that 
 	$\rho_b|_{A_{sa}} = \alpha \rho|_{A_{sa}}$ for some $\alpha \in \R^+$.
 	Hence $\rho_b = \alpha\rho$  and so for $a\in A$:
 	\begin{align*}
@@ -552,7 +559,7 @@ We will need the following few results on pure states later.
 							\alpha\rho(\1)\rho(a) = \rho_b(\1)\rho(a) = \rho(b)\rho(a)
 	\end{align*}
 	
-	Conversely, suppose $\rho$ is a multiplicative linear functional. \todo{show a state.} %% 
+	Conversely, suppose $\rho$ is a multiplicative linear functional. \todo[inline]{show a state.} %% 
 	Suppose we can write $\rho=\alpha\rho_1+\beta\rho_2$ for states $\rho_1,\rho_2$ on $A$ and 
 	$\alpha,\beta >0$ such that $\alpha+\beta=1$. For $c\in A_{sa}$, by the Cauchy-Schwarz inequality
 	 we have for $j=1,2$:
@@ -937,12 +944,12 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	
 	With $\S_0$ any collection of states on $A$ containing $\P{A}$, let $\phi$ be the direct sum of
 	the collection $\{\pi_\rho ~|~ \rho\in\S_0\}$ of representations as constructed by the GNS
-	construction. We show that $\phi$ is a faithful representation.
+	construction. We will show that $\phi$ is a faithful representation.
 	
-	Now for any $a\not=0$ in $A$, there \todo{show}%%
-	is a pure state on $A$ such that $\rho(a)\not=0$. By the GNS
-	construction, $\rho(a)= \langle \pi_\rho (a) x_\rho, x_\rho \rangle$, so $\pi_\rho\not=0$.
-	
+	Given $a$ in $A$, if $\phi(a)=0$ then $\pi_\rho(a)=0$ for all pure states $\rho$ on $A$. But then,
+	since $\rho(a)=\langle \pi_\rho (a) x_\rho, x_\rho \rangle$ by the GNS construction, we have 
+	$\rho(a)=0$, and then by Lemma \ref{pure1}, $a=0$. Thus, $\phi$ is one-to-one and hence a faithful
+	representation of $A$.
 \end{proof}
 
 

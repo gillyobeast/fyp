@@ -11,6 +11,6 @@
 \contentsline {section}{\numberline {3.3}the spectrum}{11}{section.3.3}
 \contentsline {section}{\numberline {3.4}Further structure}{11}{section.3.4}
 \contentsline {section}{\numberline {3.5}$\mathcal {B}(\mathcal {H})$ - an example.}{16}{section.3.5}
-\contentsline {chapter}{\numberline {4}Representations of $C^\ast $-algebras}{18}{chapter.4}
-\contentsline {section}{\numberline {4.1}Abelian $C^\ast $-algebras}{18}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Gelfand-Naimark Theorem}{19}{section.4.2}
+\contentsline {chapter}{\numberline {4}Representations of $C^\ast $-algebras}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Abelian $C^\ast $-algebras}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Gelfand-Naimark Theorem}{20}{section.4.2}
