@@ -1,8 +1,7 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage{graphicx}
-\usepackage[color=purple!80]{todonotes} %% does the to do stuff
+\usepackage[disable,color=purple!80]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
-\usepackage{fullpage}
 \usepackage{bbm}	%% makes \1 look good
 \usepackage{hyperref}
 \usepackage{mathrsfs}
@@ -15,9 +14,10 @@
 
 
 \theoremstyle{plain}
-
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm*}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{lemma*}{Lemma}
 \newtheorem*{claim}{Claim}
 \newtheorem{prop}{Proposition}
 \newtheorem*{prop*}{Proposition}
@@ -40,8 +40,9 @@
 \newcommand{\CX}{C(X)}
 \renewcommand{\S}{\mathscr{S}}
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
-\newcommand{\spec}[1]{\mbox{sp}(#1)}
+\newcommand{\spec}[1]{\sigma(#1)}
 \renewcommand{\labelenumi}{(\roman{enumi})} %% makes top layer enum numbers roman
+
 
 \author{Luke Armitage}
 \title{$C^\ast$-algebras, and the~Gelfand-Naimark~Theorems}
@@ -113,12 +114,20 @@
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
 \todo[inline]{rewrite this!} %%
 
-\chapter{Starter mathematics. Mathematical Pikachu, if you will.}
+\chapter{Starter mathematics}
 
-\todo[inline]{define here: Banach/Hilbert space. algebra/subalgebra/ideal/homomorphism. linear functional on a linear space. topological space/hausdorff/compact/locally compact/extreme point. partially ordered vector space?}
+\todo[inline]{notation: $\R^+$ non neg reals. define here: Banach/Hilbert space. algebra/subalgebra/ideal/homomorphism. linear functional on a linear space. topological space/hausdorff/compact/locally compact/extreme point. partially ordered vector space?}
+
+Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for 
+which an expression
+\begin{align*}
+	x = \alpha x_1 +(1-\alpha)x_2,
+\end{align*}
+for $0\leq\alpha\leq1$ and $x_1,x_2\in X$, implies that $x_1=x=x_2$ -- for example, the vertices of a 
+polygon embedded in $\R^2$ are extreme points of that polygon.
 
 \section{Normed linear spaces}
-\begin{thm}[Hahn-Banach Extension theorem]
+\begin{thm}[Hahn-Banach Extension theorem] \label{hahnbanach}
 	If $\rho_0$ is a bounded linear functional on a subspace $X_0$ of a normed linear space $X$,
 	then there is a bounded linear functional $\rho$ on $X$ such that $\|\rho\|=\|\rho_0\|$ and 
 	$\rho=\rho_0$ on $X_0$.
@@ -215,11 +224,11 @@ $\{T_i\in\B{(\H_i)} ~|~ i\in I\}$ such that
 \[
 	\sup_{i\in I} {\|T_i\|} < \infty
 \] 
-(note that this is automatically true for finite $I$).
-For $x=(x_i)$ in $\oplus\H_i$, define an element $Tx$ in $\oplus\H_i$ by 
-$Tx=(T_ix_i)$. Then $T:\H\to\H:x\mapsto Tx$ is a bounded linear operator, called the \emph{direct
-sum} of the collection $\{T_i\in\B{(\H_i)} ~|~ i \in I\}$, denoted $\oplus T_i$. For $S_i,T_i$
-in $\B(\H_i)$, $\alpha,\beta$ in $\C$, we have 
+(by convention this is true when $I$ is a finite set).
+For $x=(x_i)$ in $\oplus\H_i$, define an element $Tx$ in $\oplus\H_i$ by $Tx=(T_ix_i)$. 
+Then $T:\H\to\H:x\mapsto Tx$ is a bounded linear operator, called the \emph{directsum} of the 
+collection $\{T_i\in\B{(\H_i)} ~|~ i \in I\}$, denoted $\oplus T_i$. For $S_i,T_i$ in 
+$\B(\H_i)$, $\alpha,\beta$ in $\C$, we have 
 \begin{align*}
 		\left(\oplus T_i\right)^\ast &= \oplus T_i^\ast,		\\
 		\oplus (\alpha S_i+\beta T_i) &= 
@@ -289,7 +298,7 @@ If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that
 $a\cdot \1 = a = \1 \cdot a$ for all $a \in A$, call $\1$ the \emph{unit} 
 in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 
-\begin{prop}
+\begin{prop}[{\cite[I.1.3]{davidson96}}]
 	Any non-unital $C^\ast$-algebra $A$ can be isometrically embedded 
 	in a unital $C^\ast$-algebra $\tilde{A}$ as a maximal ideal.
 \end{prop}
@@ -340,7 +349,7 @@ needs to relax the unital condition.
 
 
 \section{the spectrum}
-state without proof results?
+state without proof results? need spectral radius and stuff
 
 Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum $\spec{a}$:
 \[
@@ -350,15 +359,15 @@ Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum $\spec{a}$
 
 AAAAAAAAAAH I NEED SO MUCH SPECTRAL THEORY AND I DON'T KNOW ANY
 
-\section{Further definitions}
+\section{Further structure}
 An element $a\in A$ of a $C^\ast$-algebra is called \todo{normal?} %%
 \begin{itemize}
 	\item \emph{self-adjoint} if $a^\ast=a$;
 	\item \emph{unitary} if $aa^\ast=a^\ast a = \1$;
-	\item \emph{positive} if it is self-adjoint and sp$(a)$ $\subseteq \R^+$.
+	\item \emph{positive} if it is self-adjoint and $\spec(a)$ $\subseteq \R^+$.
 \end{itemize}
 The set of self-adjoint elements $A_{sa}$ forms a vector space over $\R$.
-For $a$ in $A$, let $h:=\frac{1}{2}(a+a^\ast)$ and $k:=\frac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
+For $a$ in $A$, let $h:=\tfrac{1}{2}(a+a^\ast)$ and $k:=\tfrac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
 self-adjoint and we can write $a=h+ik$ -- call $h$ and $k$ the \emph{real} and \emph{imaginary} part of
 $a$, respectively.
 Denote the subset of positive elements in $A_{sa}$ by $A^+$. Then $A_{sa}$ is what's called a
@@ -366,11 +375,10 @@ Denote the subset of positive elements in $A_{sa}$ by $A^+$. Then $A_{sa}$ is wh
 That is to say, all $a,b \in A^+$ satisfy
 \begin{enumerate}
 	\item 	$a,-a\in A^+$ implies $a=0$,
-	\item	$\alpha a\in A^+$ for all $\alpha\in \R^+$,
-	\item	$a+b \in A^+$.
+	\item	$\alpha a+b\in A^+$ for all $\alpha\in \R^+$.
 \end{enumerate}
 The unit $\1$ is positive, and for any $a\in A_{sa}$ we have $-\|a\|\1 \leq a \leq \|a\|\1$.
-\todo{justify.} With commuting elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba =
+\todo{justify (4.2.3(ii))} With commuting elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba =
 ab$, so $ab$ is self-adjoint. Since $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
 $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have 
 \todo{state in 'spectrum' - 4.1.5}
@@ -398,34 +406,109 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 
 \begin{defn}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{positive} if $\rho(a)\geq 0$ for all 
-	$a\in A^+$. A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\|\rho\|=1$ and
+	$a\in A^+$. A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\rho(\1)=1$ and
 	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
-	Denote by $\S(A)$ the set of all states on $A$.
-	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
-	states on $A$ is denoted by $\P{A}$.
+	Denote by $\S(A)$ the set of all states on $A$. \todo{states are real on self-adjoint elements}
 \end{defn}
-Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for 
-which an expression
-\begin{align*}
-	x = \alpha x_1 +(1-\alpha)x_2,
-\end{align*}
-for $0\leq\alpha\leq1$ and $x_1,x_2\in X$, implies that $x_1=x=x_2$ -- for example, the vertices of a 
-polygon embedded in $\R^2$ are extreme points of that polygon.
 
 \todo[inline]{geometric interpretation - for $A=\C$, self adjoint elements are real numbers and the
  positive cone is $\R^+$. explain $\geq$ notation } %%
 
+\begin{prop}[{\cite[4.3.2]{kadison83}}]
+	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is positive if and only if $\rho$ is bounded
+	and $\|\rho\| = \rho(\1)$.
+\end{prop}
+\begin{proof} \todo{rework; explain further.}
+	Suppose that $\rho$ is positive. With $a$ in $A$, let $\alpha$ be a scalar of modulus $1$ 
+	\todo{why does this exist?} such that $\alpha\rho(a)\geq)$, and let $h$ be the real part of $a$.
+	Since $h$ is self adjoint, (by 4.2.3(ii)) we have $h \leq \|h\|\1 \leq \|a\|\1$. Thus, $\|a\|\1-h$
+	is positive and 
+	\[
+		\rho(\|a\|\1-h) = \|a\|\rho(\1)-\rho(h) \geq 0.
+	\]
+	Therefore,
+	\begin{align*}
+		|\rho(a)| = \rho(\alpha a) = \overline{\rho(\alpha a)} = \rho(\overline{\alpha}a^\ast) = 
+					\rho(\tfrac{1}{2}(\alpha a +\overline{\alpha}a^\ast)) =
+					\rho(h) \leq \rho(\1) \|a\|,
+	\end{align*}
+	so $\rho$ is bounded and $\|\rho\| \leq \rho(\1)$. We also have $\|\rho\| = \sup\{\rho(a)~|~\|a\|=
+	1\} \geq \rho(\1)$, so $\|\rho\|=\rho(\1)$.
+	
+	Conversely, suppose $\rho$ is bounded and $\|\rho\| = \rho(\1)$ -- we can assume without loss that 
+	$\rho(\1)=1$. With $a$ a positive element of $A$, let $\rho(a)=\alpha+i\beta$ for real $\alpha
+	,\beta$. Then $\rho$ is positive if and only if $\alpha \geq 0$ and $\beta =0$.
+	For small positive $s$, 
+	\begin{align*}
+		\spec{\1-sa} = \{1-st ~|~ t\in \spec{a} \subseteq \R^+\} \subseteq [0,1],
+	\end{align*}
+	so $\|\1-sa\| = r(\1-sa) \leq 1$. Hence
+	\begin{align*}
+		1-s\alpha \leq |1-s(\alpha+i\beta)| = |\rho(\1 - sa)| \leq 1,
+	\end{align*}
+	so $\alpha\geq0$. With $b_n$ in $A$ defined by $b_n:= a+(in\beta-\alpha)\1$ for each positive
+	integer $n$,
+	\begin{align*}
+				\|b_n\|^2 = \|b_n^\ast b_n\| 
+		&= 		\|(a-\alpha\1)^2 + n^2\beta^2\1\| 									\\
+		&\leq 	\|a-\alpha\1\|^2 +n^2\beta^2.
+	\end{align*}
+	Hence for all positive integers $n$, we have
+	\begin{align*}
+				(n^2+2n+1)\beta 
+		&=	 	|\rho(b_n)|^2  														\\
+		&\leq 	\|a-\beta\1\|^2 +n^2\beta^2,
+	\end{align*}
+	so that $\beta=0$. We conclude that $\rho$ is positive.
+\end{proof}
+
+\begin{lemma}[{\cite[4.3.3]{kadison83}}]
+	Let $A$ be a $C^\ast$-algebra. For any $a$ in $A$ and $\alpha\in\spec{a}$, there exists a state
+	$\rho$ on $A$ such that $\rho(a)=\alpha$.
+\end{lemma}
+\begin{proof}
+	For all complex numbers $\beta$ and $\gamma$, $\alpha\beta+\gamma$ is a spectral value for the 
+	element $\beta a+\gamma\1$ of $A$, so 
+	\[
+		|\alpha\beta+\gamma|\leq r(\beta a+\gamma\1)=\|\beta a+\gamma\1\|.
+	\] 
+	Hence the equation $\rho_0(s)=\alpha\beta+\gamma$ defines a bounded linear functional
+	$\rho_0$ on the linear subspace $B= \{\beta a+\gamma\1 ~|~ \beta,\gamma\in\C\}$ of $A$, with 
+	$\rho_0(a) =\alpha$ and $\rho_0(\1)=1=\|\rho_0\|$. By the Hahn-Banach theorem, 
+	$\rho_0$ extends to a bounded linear functional $\rho$ on $A$, with $\|\rho\|=1$, such that 
+	$\rho=\rho_0$ on the subspace $B$. In particular, $\rho(\1)=1=\|\rho\|$ so $\rho$ is positive by 
+	the previous result, and $\rho(a)=\alpha$.
+\end{proof}
+
+\begin{lemma}[{\cite[4.3.4]{kadison83}}]
+	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all states $\rho$ on $A$, then $a=0$.
+\end{lemma}
+\begin{proof}
+	Suppose first that $a$ is self-adjoint, and $\rho(a)=0$ for all states $\rho$. By the previous
+	result, $\spec a=\{0\}$, so $\|a\|=r(a)=0\|$. Hence $a=0$.			\\
+	Now write $a=h+ik$, for $h$ and $k$ the real and imaginary part of $a$ respectively. Then
+	\begin{align*}
+		0=\rho(a)=\rho(h)+i\rho(k),
+	\end{align*}
+	and as $h,k$ are self-adjoint, we must have $\rho(h)=0=\rho(k)$. By previous statement, $h=0=k$, 
+	and we conclude that $a=0$.
+\end{proof}
+
+\begin{defn}
+	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
+	states on $A$ is denoted by $\P{A}$.
+\end{defn}
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear 
 functional $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure
- state on $A_{sa}$.
-Every pure state on $A_{sa}$ extends to a pure state on $A$. \todo{justify (4.3.13, Hahn-Banach.)}
+state on $A_{sa}$.
+Every pure state on $A_{sa}$ extends to a pure state on $A$, by the Hahn-Banach theorem.
 We will need the following few results on pure states later.
 
-\begin{prop}\label{pure1}
+\begin{prop}[{\cite[3.4.6]{kadison83}}]\label{pure1}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on
 	 $A_{sa}$ such that $0\leq\tau\leq\rho$, we have $\tau =\lambda\rho$ for some $\lambda\in\R$. 
 \end{prop}
-\begin{proof}[Proof. (Adapted from 3.4.6)]
+\begin{proof}
 	Suppose that $\tau =\lambda\rho$ for all $0\leq\tau\leq\rho$, and suppose we can write 
 	$\rho=\alpha\rho_1+(1-\alpha)\rho_2$ for some $0\leq\alpha\leq1$ and some $\rho_1,\rho_2 \in
 	\S(A_{sa})$. Then $0\leq\alpha\rho_1\leq\rho$, so $\alpha\rho_0 = \lambda\rho$. Then 
@@ -434,13 +517,13 @@ We will need the following few results on pure states later.
 	 conclude that $\rho$ is pure.
 	
 	Conversely, suppose that $\rho$ is a pure state and $0\leq\tau\leq\rho$. Applying this to $\1$,
-	we get $0\leq\tau(\1)\leq\rho(\1) = 1$. Let $\lambda = \tau(\1)$. If $\lambda=0$, then for any 
-	$a\in A_{sa}$, applying $\tau$ to $-\|a\|\1\leq a\leq\|a\|\1$ gives
+	we get $0\leq\tau(\1)\leq\rho(\1) = 1$. Let $\lambda = \tau(\1)$. We work case-by-case: \\
+	If $\lambda=0$, then for any $a\in A_{sa}$, applying $\tau$ to $-\|a\|\1\leq a\leq\|a\|\1$ gives
 	\begin{align*}
 		0=-\|a\|\lambda=\tau(-\|a\|\1)\leq\tau(a)\leq\tau(\|a\|\1)=\|a\|\lambda=0,
 	\end{align*}
-	so $\tau=0=\lambda\rho$. 
-	A similar argument shows that $\lambda=1$ implies $\tau-\rho=0$ so that $\tau=\rho=\lambda\rho$.
+	so $\tau=0=\lambda\rho$. \\
+	A similar argument shows that $\lambda=1$ implies $\tau-\rho=0$ so that $\tau=\rho=\lambda\rho$.\\
 	If $0\leq\lambda\leq 1$, we can write $\rho=\lambda\rho_1+(1-\lambda)\rho_2$ for 
 	$\rho_1=\lambda^{-1}\tau$ and $\rho_2=(1-\lambda)^{-1}(\rho-\tau)$. $\rho$ is pure so 
 	$\tau=\lambda\rho_1=\lambda\rho$.
@@ -850,13 +933,14 @@ C(X) link together. can then talk about noncommutative topology!} %%
 		\phi:A\to \B(\oplus\H_i):a\mapsto\oplus\phi_i(a)
 	\]
 	is a $\ast$-homomorphism, and so is a representation of $A$ on $\oplus\H_i$. Call $\phi$ the 
-	\emph{direct sum representation} of $A$ on $\oplus\H_i$, denoted $\oplus\phi_i$.
+	\emph{direct sum} of the collection $\{\phi_i ~|~i\in I\}$, denoted $\oplus\phi_i$.
 	
 	With $\S_0$ any collection of states on $A$ containing $\P{A}$, let $\phi$ be the direct sum of
 	the collection $\{\pi_\rho ~|~ \rho\in\S_0\}$ of representations as constructed by the GNS
 	construction. We show that $\phi$ is a faithful representation.
 	
-	Now for any $a\not=0$ in $A$, there is a pure state on $A$ such that $\rho(a)\not=0$. By the GNS
+	Now for any $a\not=0$ in $A$, there \todo{show}%%
+	is a pure state on $A$ such that $\rho(a)\not=0$. By the GNS
 	construction, $\rho(a)= \langle \pi_\rho (a) x_\rho, x_\rho \rangle$, so $\pi_\rho\not=0$.
 	
 \end{proof}
@@ -883,6 +967,11 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	Born, M.; Heisenberg, W. \& Jordan, P.,
 	\emph{Zur Quantenmechanik. II.}
 	Z. Physik (1926) 35: 557.
+
+\bibitem{davidson96}
+	Davidson, K.R.,
+	\emph{C*-Algebras by example.}
+	Fields Institute Monographs, 6. American Mathematical Society, Providence, RI (1996).
 
 \bibitem{dixmier77}
 	Dixmier, J.,
