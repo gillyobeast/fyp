@@ -25,14 +25,15 @@
 \newtheorem{defn}{Definition}
 \newtheorem*{defn*}{Definition}
 
-\renewcommand{\H}{\mathcal{H}}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\BH}{\mathcal{\B(\H)}}
-\newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\1}{\mathbbm{1}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\BH}{\mathcal{\B(\H)}}
+\newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\Vr}{V_\rho}
 \newcommand{\Lr}{L_\rho}
 \newcommand{\xr}{x_\rho}
@@ -113,35 +114,43 @@
 
 most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
 \todo[inline]{rewrite this!} %%
+\todo[inline]{summarise entire project chapter by chapter.} %%
 
-\chapter{Starter mathematics}
 
-\todo[inline]{notation: $\R^+$ non neg reals. define here: Banach/Hilbert space. algebra/subalgebra/ideal/homomorphism. linear functional on a linear space. topological space/hausdorff/compact/locally compact/extreme point. partially ordered vector space?}
+\chapter{Foundational definitions and results}
 
-Recall that an \emph{extreme} point $x$ of a convex subset $X$ of a topological space is one for 
-which an expression
-\begin{align*}
-	x = \alpha x_1 +(1-\alpha)x_2,
-\end{align*}
-for $0\leq\alpha\leq1$ and $x_1,x_2\in X$, implies that $x_1=x=x_2$ -- for example, the vertices of a 
-polygon embedded in $\R^2$ are extreme points of that polygon.
+\todo[inline]{notation: $\R^+$ non neg reals. define here:  hausdorff/compact/locally compact/extreme point/denseness/weak*-topology. partially ordered vector space?
+results: banach-alaoglu} %%
+
+
+
 
 \section{Normed linear spaces}
-\begin{thm}[Hahn-Banach Extension theorem] \label{hahnbanach}
+
+Given a linear space $X$ over a field $\mathbb K$, a \emph{linear functional} on $X$ is a linear map 
+$\rho:X\to\mathbb K$. The set $X^\ast$ of linear functionals on $X$ is itself a linear space, called
+the \emph{dual space} of $X$.
+
+A normed linear space $(V,\|\cdot\|)$ is a \emph{Banach space} if it is complete with respect to 
+$\|\cdot\|$, in the sense that all Cauchy sequences in $V$ converge with respect to the norm. An inner 
+product space $(V,\langle\cdot,\cdot\rangle)$ is a \emph{Hilbert space} if it is a Banach space with 
+respect to the norm induced by $\langle\cdot,\cdot\rangle$.
+
+\begin{thm*}[Hahn-Banach Extension theorem] 
 	If $\rho_0$ is a bounded linear functional on a subspace $X_0$ of a normed linear space $X$,
 	then there is a bounded linear functional $\rho$ on $X$ such that $\|\rho\|=\|\rho_0\|$ and 
 	$\rho=\rho_0$ on $X_0$.
-\end{thm}
+\end{thm*}
 \begin{proof}
 	Can be found in \cite[Theorem 1.6.1, p.~44]{kadison83}
 \end{proof}
 
-\section{Constructions on Hilbert spaces}\label{hscons}
+\section{Constructions on Hilbert spaces}\label{section:hscons}
 We need some Hilbert spaces constructions; particularly, the direct sum of a collection of Hilbert 
 spaces and the direct sum of bounded operators on these Hilbert spaces.
 Given a finite collection $\{\H_1,\dots,\H_n\}$ of Hilbert spaces, let $\H$ denote the set
 \[
-	\H : = \{(x_1,\dots,x_n) ~|~ x_i \in \H_i \mbox { for } i=1,\dots,n\}.
+	\H  = \{(x_1,\dots,x_n) ~|~ x_i \in \H_i \mbox { for } i=1,\dots,n\}.
 \]
 Define addition and scalar multiplication coordinatewise, and given $x=(x_1,\dots,x_n)$ and 
 $y=(y_1,\dots,y_n) \in \H$, the equation
@@ -159,7 +168,7 @@ It is easy to show that $\H$ is a Hilbert space with these operations, and we ca
 Similarly, we can construct a Hilbert space direct sum of an infinite collection 
 $\{\H_i ~|~ i\in I\}$ of Hilbert spaces. Let $\H$ be the set
 \[
-	\H:= \{x=(x_i) ~|~ x_i \in \H_i \mbox{ for each }i 
+	\H= \{x=(x_i) ~|~ x_i \in \H_i \mbox{ for each }i 
 									\mbox{ and } \sum_{i\in I}{\|x_i\|^2} < \infty \}.
 \]
 Given $x=(x_i)$ and $y=(y_i)\in\H$, we have that
@@ -183,7 +192,7 @@ We also have
 so that we can define an inner product $\langle\cdot,\cdot\rangle$, with induced norm $\|\cdot\|$, 
 on $\H$ by
 \begin{align*}
-	\langle x,y\rangle := \sum_{i\in I}{|\langle x,y\rangle|}, 
+	\langle x,y\rangle = \sum_{i\in I}{|\langle x,y\rangle|}, 
 					&& \|x\| = \Big(\sum_{i\in I}{\|x_i\|^2}\Big)^{1/2}.
 \end{align*}
 To see that $\H$ is complete with respect to $\|\cdot\|$, suppose that $(x^{n})_{n\in\N}$ is a 
@@ -193,7 +202,7 @@ $\epsilon$ there exists a positive integer $N$ such that
 	\|x^m-x^n\| < \epsilon \mbox{ for all } m,n\geq N,
 \]
 that is,
-\begin{align}\label{sum1}
+\begin{align}\label{eqn:sum1}
 	\sum_{i\in I}{\|x^m_i-x^n_i\|^2} < \epsilon^2 \mbox{ for all } m,n\geq N.
 \end{align}
 Hence for each $i\in I$,
@@ -201,12 +210,12 @@ Hence for each $i\in I$,
 	\|x^m_i-x^n_i\| < \epsilon \mbox{ for all } m,n\geq N
 \]
 so that $(x^n_i)_{n\in\N}$ is a Cauchy sequence in $\H_i$, having a limit $x_i\in\H_i$.
-For any finite subset $J\subset I$, it follows from \ref{sum1} that 
+For any finite subset $J\subset I$, it follows from \ref{eqn:sum1} that 
 \[
 	\sum_{j\in J}{\|x^m_j-x^n_j\|^2} < \epsilon^2  \mbox{ for all } m,n\geq N,
 \]
 and letting $m$ tend to infinity,
-\begin{align}\label{sum2}
+\begin{align}\label{eqn:sum2}
 	\sum_{j\in J}{\|x_j-x^n_j\|^2} < \epsilon^2  \mbox{ for all } n\geq N.
 \end{align}
 This holds for any finite subset $J$, so
@@ -214,7 +223,7 @@ This holds for any finite subset $J$, so
 	\sum_{i\in I}{\|x_i-x^n_i\|^2} < \epsilon^2  \mbox{ for all } n\geq N,
 \end{align*}
 and so $(x_i-x^n_i)$ and $x^n_i$ are in $\H$ for $n\geq N$. 
-Then $(x_i)$ is in $\H$ and by \ref{sum2}, $x^n$ converges to $(x_i)$ as $n$ tends 
+Then $(x_i)$ is in $\H$ and by \ref{eqn:sum2}, $x^n$ converges to $(x_i)$ as $n$ tends 
 to infinity. We conclude that $\H$ is complete and therefore a Hilbert space. Just like in the finite 
 case, we call $\H$ the \emph{direct sum} of the collection $\{\H_i ~|~ i\in I\}$ of Hilbert spaces, 
 denoted $\oplus\H_i$.
@@ -237,12 +246,32 @@ $\B(\H_i)$, $\alpha,\beta$ in $\C$, we have
 		\|\oplus T_i\| &= \sup_{i\in I} {\|T_i\|}.				\\
 \end{align*}
 
+\section{Topological stuff}
 
+Recall that an \emph{extreme point} $x$ of a convex subset $X_0$ of a topological space is one for 
+which an expression
+\begin{align*}
+	x = \alpha x_1 +(1-\alpha)x_2,
+\end{align*}
+for $0\leq\alpha\leq1$ and $x_1,x_2\in X_0$, implies that $x_1=x=x_2$ -- for example, the vertices of a 
+polygon embedded in $\R^2$ are extreme points of that polygon.
 
-
-
-
-
+\begin{defn*}[{\cite{rudin91}}]
+Let $X$ be a topological vector space (over $\mathbb K$), with dual space $X^\ast$. Every $x$ in $X$ 
+induces a linear functional $f_x$ on $X^\ast$ defined by $f_x(\rho)=\rho(x)$. The \emph{weak$^\ast$ 
+topology} on $X^\ast$ is the topology generated by the sets 
+\begin{align*}
+	\{f^{-1}_x(V) ~|~ x \in X, V\subseteq \mathbb K \mbox{ open}\}.
+\end{align*}
+This is the weakest topology on $X$ such that each functional $f_x$ is continuous. 
+\end{defn*}
+\begin{thm*}[{The Banach-Alaoglu theorem \cite{rudin91}}]
+	If $V$ is a neighbourhood of $0$ in a topological vector space $X$, and
+	\begin{align*}
+		K=\{\rho\in X^\ast ~|~ |\rho(x)|\geq 1 \mbox{ for all } x \in V \},
+	\end{align*}
+	then $K$ is compact in the weak$^\ast$ topology.
+\end{thm*}
 
 \chapter{$C^\ast$-algebras}
 We begin this chapter with some definitions and an example, then give some results we 
@@ -267,30 +296,34 @@ will need later and finish with a fundamental example.
 	\begin{align*}
 		\|a ^\ast a\| = \|a\|^2 \mbox{ for all } a \in A.
 	\end{align*}
-	This condition is known as the \emph{$C^\ast$ axiom}.
+	This condition is known as the \emph{$C^\ast$-axiom}.
 \end{defn}
-Here we consider complex $C^\ast$-algebras. The theory of real $C^\ast$-algebras has advanced....
-\todo[inline]{remark on work in real $C^\ast$-algebras?} %%
 
 Unless specified otherwise, by an \emph{ideal} of a Banach algebra, we mean a two-sided ideal.
 Given a subset $S$ of a $C^\ast$-algebra $A$, let $C^\ast (S)$ denote the \emph{$C^\ast$-subalgebra
-of $A$ generated by $S$}, which is the smallest $S^\ast$-subalgebra of $A$ containing $S$.
-\todo[inline]{cauchy-schwarz}
+of $A$ generated by $S$}, which is the smallest $C^\ast$-subalgebra of $A$ containing $S$.
+\todo[inline]{cauchy-schwarz, quotient algebra}%%%
 
-
-\section{$\CX$ - an example.}
-Given a locally compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
-$f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
-\[
-	\|f\|:= \sup_{x\in X}{|f(x)|},
-\]
-that is the norm inherited from the Banach space $\ell^2(X,\C)$.
-
-
-
-
-
-\todo [inline]{example of $C(X)$? could define states and stuff preemptively} %%
+An element $a\in A$ of a $C^\ast$-algebra is called
+\begin{itemize}
+	\item	\emph{normal} if $a^\ast a=aa^\ast$;
+	\item 	\emph{self-adjoint} if $a^\ast=a$;
+	\item 	\emph{unitary} if $aa^\ast=a^\ast a = \1$;
+	\item 	\emph{positive} if it is self-adjoint and $\spec a$ $\subseteq \R^+$.
+\end{itemize}
+The set of self-adjoint elements $A_{sa}$ forms a vector space over $\R$.
+For $a$ in $A$, let $h=\tfrac{1}{2}(a+a^\ast)$ and $k=\tfrac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
+self-adjoint and we can write $a=h+ik$ -- call $h$ and $k$ the \emph{real} and \emph{imaginary} part of
+$a$, respectively.
+Denote the subset of positive elements in $A_{sa}$ by $A^+$. Then $A_{sa}$ is what's called a
+\emph{partially ordered vector space}, with \emph{positive cone} $A^+$. 
+That is to say, all $a,b \in A^+$ satisfy
+\begin{enumerate}
+	\item 	$a,-a\in A^+$ implies $a=0$,
+	\item	$\alpha a+b\in A^+$ for all $\alpha\in \R^+$.
+\end{enumerate}
+The unit $\1$ is positive, and for any $a\in A_{sa}$ we have $-\|a\|\1\leq a\leq\|a\|\1$.
+\todo{justify (4.2.3(ii))} %%
 
 
 \section{Unitization}
@@ -298,21 +331,29 @@ If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that
 $a\cdot \1 = a = \1 \cdot a$ for all $a \in A$, call $\1$ the \emph{unit} 
 in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 
-\begin{prop}[{\cite[I.1.3]{davidson96}}]
-	Any non-unital $C^\ast$-algebra $A$ can be isometrically embedded 
-	in a unital $C^\ast$-algebra $\tilde{A}$ as a maximal ideal.
-\end{prop}
-\todo[inline]{tidy up proof}%%
+\begin{prop*}[{\cite[I.1.3]{davidson96}}]
+	Any non-unital $C^\ast$-algebra $A$ can be isometrically embedded in a unital $C^\ast$-algebra 
+	$\tilde{A}$.
+\end{prop*}
 \begin{proof}
 	Let $\tilde{A} = A \oplus \C$ with pointwise addition, and define
 	\begin{align*}
-		(a,\lambda) (b,\mu) &:= (ab+\lambda b + \mu a, \lambda \mu),		\\
-		(a,\lambda)^\ast &:= (a^\ast,\overline{\lambda}),					\\
-		\|(a,\lambda)\| &:= \sup_{\|b\|=1}{\|ab+\lambda b\|}.
+		(a,\lambda) (b,\mu) &= (ab+\lambda b + \mu a, \lambda \mu),				\\
+		(a,\lambda)^\ast &= (a^\ast,\overline{\lambda}).
 	\end{align*}
-	Then $\tilde{A}$ is a $\ast$-algebra. The norm $\|(a,\lambda)\|$ is... \todo{justify norm} %%
-	Thus $\tilde{A}$ is a Banach $\ast$-algebra with unit $(0,1)$. 
-	By design, $A$ is a maximal ideal of codimension 1. 
+	Then $\tilde{A}$ is a $\ast$-algebra. 
+	Consider $(a,\lambda)$ as an operator acting on $A$ by $b\mapsto ab+\lambda b$ for $b$ in $A$. It is 
+	easy to see that this operator is linear, and 
+	\begin{align*}
+				\sup_{\|b\|=1}\|ab+\lambda b\| 
+		&\leq 	\sup_{\|b\|=1} (\|ab\|+ \lambda\|b\|)							\\
+		&=		\sup_{\|b\|=1} \|ab\|+ \lambda < \infty
+	\end{align*}
+	so that the operator $(a,\lambda)$ is bounded. It follows that
+	\begin{align*}
+		\|(a,\lambda)\| = \sup_{\|b\|=1}\|ab+\lambda b\|
+	\end{align*}
+	is a norm on $\tilde{A}$, and so $\tilde{A}$ is a Banach $\ast$-algebra with unit $(0,1)$.
 	The embedding $a\mapsto(a,\lambda)$ is isometric as 
 	\[
 		\|a\| = \|a\cdot\frac{a}{\|a\|}\| \leq \|(a,0)\| \leq \sup_{\|b\|=1}{\|ab\|} \leq \|a\|.
@@ -328,7 +369,7 @@ in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 		&\leq	\sup_{\|b\|=1}{\|a^\ast ab 
 								+\lambda a^\ast b
 								+\overline{\lambda}a b
-								+|\lambda|^2 b\|}									\\
+								+|\lambda|^2 b\|}								\\
 		&=		\|(a^\ast a + \lambda a^\ast +\overline{\lambda}a,|\lambda|^2)	\\
 		&= 		\|(a,\lambda)^\ast(a,\lambda)\|									\\
 		&\leq	\|(a,\lambda)^\ast\| \|(a,\lambda)\|.
@@ -337,8 +378,7 @@ in $A$, and $A$ is then a \emph{unital} $C^\ast$-algebra.
 	Hence, the above inequality becomes equality and we have that
 	\begin{align*}
 		\|(a,\lambda)^\ast(a,\lambda)\| = \|(a,\lambda)\|^2. 
-	\end{align*}		
-	
+	\end{align*}
 \end{proof}
 
 In light of this result, we take all $C^\ast$-algebras from here to be unital unless
@@ -348,67 +388,81 @@ However, there are important circumstances in advanced theory in which one
 needs to relax the unital condition.
 
 
-\section{the spectrum}
-state without proof results? need spectral radius and stuff
+\section{$\CX$ - an example.}
+Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
+$f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
+\[
+	\|f\|= \sup_{x\in X}{|f(x)|}.
+\]
+We will demonstrate that $\CX$ is an Abelian $C^\ast$-algebra and use it to prototype the theory
+we will build up in later sections. Later, in Section \ref{section:abelian}, we will show that $\CX$ is 
+essentially \emph{the} Abelian $C^\ast$-algebra.
 
+
+
+
+
+\todo [inline]{example of $C(X)$? could define states and stuff preemptively} %%
+
+
+
+\section{The Spectrum}
+\todo[inline]{write spectral theory section.} %%
 Given an element $a \in A$ of a $C^\ast$-algebra, define its spectrum $\spec{a}$:
 \[
-	\spec{a}:=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
+	\spec a=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\}.
 \]
+Say that $\lambda\in\spec a$ is a \emph{spectral value} of $a$ in $A$. 
+
+\begin{thm*}[{\cite[3.2.3]{kadison83}}]
+	If $a$ is an element of a $C^\ast$-algebra $A$ then $\spec a$ is a non-empty closed subset of the
+	closed disk in $\C$ with center $0$ and radius $\|a\|$.
+\end{thm*}
+
+The \emph{spectral radius}, $r(a)$, of $a$ is the radius of the smallest disk in $\C$ containing 
+$\spec a$; that is, 
+\begin{align*}
+	r(a)=\sup_{\lambda\in\spec a}{|\lambda|}.
+\end{align*}
+By the above theorem, $r(a)\leq\|a\|$.
+
+\todo[inline]{spectrum of an element is the same in a subalgebra containing it}%%
 
 
-AAAAAAAAAAH I NEED SO MUCH SPECTRAL THEORY AND I DON'T KNOW ANY
 
-\section{Further structure}
-An element $a\in A$ of a $C^\ast$-algebra is called \todo{normal?} %%
-\begin{itemize}
-	\item \emph{self-adjoint} if $a^\ast=a$;
-	\item \emph{unitary} if $aa^\ast=a^\ast a = \1$;
-	\item \emph{positive} if it is self-adjoint and $\spec(a)$ $\subseteq \R^+$.
-\end{itemize}
-The set of self-adjoint elements $A_{sa}$ forms a vector space over $\R$.
-For $a$ in $A$, let $h:=\tfrac{1}{2}(a+a^\ast)$ and $k:=\tfrac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
-self-adjoint and we can write $a=h+ik$ -- call $h$ and $k$ the \emph{real} and \emph{imaginary} part of
-$a$, respectively.
-Denote the subset of positive elements in $A_{sa}$ by $A^+$. Then $A_{sa}$ is what's called a
-\emph{partially ordered vector space}, with \emph{positive cone} $A^+$. 
-That is to say, all $a,b \in A^+$ satisfy
-\begin{enumerate}
-	\item 	$a,-a\in A^+$ implies $a=0$,
-	\item	$\alpha a+b\in A^+$ for all $\alpha\in \R^+$.
-\end{enumerate}
-The unit $\1$ is positive, and for any $a\in A_{sa}$ we have $-\|a\|\1 \leq a \leq \|a\|\1$.
-\todo{justify (4.2.3(ii))} With commuting elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba =
+With commuting elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba =
 ab$, so $ab$ is self-adjoint. Since $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
-$C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have 
-\todo{state in 'spectrum' - 4.1.5}
+$C^\ast$-subalgebra $C^\ast(\1,a,b)$, we have
 \begin{align*}
 	\spec{ab} \subseteq \spec{a}\spec{b}.
 \end{align*}
 
+
+
+\section{Further Definitions}
+
+
 \begin{defn}
 	Given Banach $\ast$-algebras $A$ and $B$, a map $\phi:A\to B$ is a \emph{$\ast$-homomorphism} 
 	if it is an algebra homomorphism for which $\phi(a^\ast) = \phi(a)^\ast$ for all $a \in A$.
-	If $A$ and $B$ are both unital algebras and a homomorphism $\phi$ maps $\1_A$ to $\1_B$, 
-	say $\phi$ is a \emph{unital} homomorphism.    \todo{is unital necessary?} %%
 	If a $\ast$-homomorphism $\phi$ is one-to-one, call it a \emph{$\ast$-isomorphism}.
 \end{defn}
 
-\begin{prop}
+\begin{prop}[{\cite[4.1.8]{kadison83}}]
 	Suppose $A$ and $B$ are $C^\ast$-algebras and $\phi:A\to B$ is a $\ast$-homomorphism. Then
 	$\|\phi(a)\| \leq \|a\|$ for all $a \in A$. If $\phi$ is a $\ast$-isomorphism, then
 	$\|\phi(a)\| = \|a\|$ for all $a \in A$.
 \end{prop}
 \begin{proof}
 	
-\end{proof}
+\end{proof}\todo[inline]{prove}%%
 
 
 \begin{defn}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{positive} if $\rho(a)\geq 0$ for all 
 	$a\in A^+$. A \emph{state} on $A$ is a positive linear functional $\rho$ such that $\rho(\1)=1$ and
 	$\rho (a) \geq 0$  for all positive elements $a \in A^+$. 
-	Denote by $\S(A)$ the set of all states on $A$. \todo{states are real on self-adjoint elements}
+	Denote by $\S(A)$ the set of all states on $A$. \todo{states are real on self-adjoint elements}%%
 \end{defn}
 
 \todo[inline]{geometric interpretation - for $A=\C$, self adjoint elements are real numbers and the
@@ -418,9 +472,10 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is positive if and only if $\rho$ is bounded
 	and $\|\rho\| = \rho(\1)$.
 \end{prop}
-\begin{proof} \todo{rework; explain further.}
+\begin{proof} \todo{rework; explain further.}%%
 	Suppose that $\rho$ is positive. With $a$ in $A$, let $\alpha$ be a scalar of modulus $1$ 
-	\todo{why does this exist?} such that $\alpha\rho(a)\geq)$, and let $h$ be the real part of $a$.
+	\todo{why does this exist?} %%
+	such that $\alpha\rho(a)\geq)$, and let $h$ be the real part of $a$.
 	Since $h$ is self adjoint, (by 4.2.3(ii)) we have $h \leq \|h\|\1 \leq \|a\|\1$. Thus, $\|a\|\1-h$
 	is positive and 
 	\[
@@ -446,7 +501,7 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	\begin{align*}
 		1-s\alpha \leq |1-s(\alpha+i\beta)| = |\rho(\1 - sa)| \leq 1,
 	\end{align*}
-	so $\alpha\geq0$. With $b_n$ in $A$ defined by $b_n:= a+(in\beta-\alpha)\1$ for each positive
+	so $\alpha\geq0$. With $b_n$ in $A$ defined by $b_n= a+(in\beta-\alpha)\1$ for each positive
 	integer $n$,
 	\begin{align*}
 				\|b_n\|^2 = \|b_n^\ast b_n\| 
@@ -480,7 +535,7 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	the previous result, and $\rho(a)=\alpha$.
 \end{proof}
 
-\begin{lemma}[{\cite[4.3.4,(i)]{kadison83}}]\label{state1}
+\begin{lemma}[{\cite[4.3.4,(i)]{kadison83}}]\label{lemma:state1}
 	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all states $\rho$ on $A$, then $a=0$.
 \end{lemma}
 \begin{proof}
@@ -498,20 +553,24 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, by our spectral theory we have
 	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
 	states on $A$ is denoted by $\P{A}$.
 \end{defn}
+The state space $\S(A)$ is then the weak$^\ast$-closure of the set of convex linear combinations of pure 
+states.\todo{verify} %%
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear 
 functional $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure
 state on $A_{sa}$.
 Every pure state on $A_{sa}$ extends to a pure state on $A$, by the Hahn-Banach theorem.
 We will need the following few results on pure states later.
 
-\begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{pure1}
+\begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{lemma:pure1}
 	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all \emph{pure} states $\rho$ on $A$, then $a=0$.
 \end{lemma}
 \begin{proof}
-	Since every state is the limit of a sequence of linear combinations of pure states, if $\rho(a)=0$ for all pure states $\rho$ on $A$, then $\rho(a)=0$ for \emph{all} states $\rho$ on $A$. The result follows immediately from Lemma \ref{state1}.
+	Since every state is the limit of a sequence of linear combinations of pure states, if $\rho(a)=0$ 
+	for all pure states $\rho$ on $A$, then $\rho(a)=0$ for \emph{all} states $\rho$ on $A$. The result 
+	follows immediately from Lemma \ref{lemma:state1}.
 \end{proof}
 
-\begin{prop}[{\cite[3.4.6]{kadison83}}]\label{pure2}
+\begin{prop}[{\cite[3.4.6]{kadison83}}]\label{prop:pure2}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on
 	 $A_{sa}$ such that $0\leq\tau\leq\rho$, we have $\tau =\lambda\rho$ for some $\lambda\in\R$. 
 \end{prop}
@@ -536,22 +595,21 @@ We will need the following few results on pure states later.
 	$\tau=\lambda\rho_1=\lambda\rho$.
 	
 \end{proof}
-
-\begin{prop}\label{puremult}
-	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the set 
-	\[
-		\{\rho:A \to \C ~|~ \rho(ab) =\rho(a)\rho(b)\mbox{ for all } a,b\in A\}
-	\]
-	of multiplicative linear functionals on $A$.
+A linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{multiplicative} if $\rho(ab)=\rho(a)
+\rho(b)$ for all $a,b$ in $A$. The set of all multiplicative linear functionals on $A$ is called the 
+\emph{maximal ideal space} of $A$, denoted $\M_A$. \cite{davidson96}
+\begin{prop}[{\cite[4.4.1]{kadison83}}]\label{prop:puremult}
+	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the maximal ideal space of 
+	$A$.
 \end{prop}
-\begin{proof}[Proof.(Adapted from K\&R, 4.4.1)]
+\begin{proof}
 	Suppose $\rho$ is a pure state on $A$. To show that $\rho(ab)=\rho(a)\rho(b)$ for $a,b,\in A$,
 	we restrict attention to the case where $0\leq b\leq\1$. Linearity gives us the general case.
-	\todo{show} ~%%
+	\todo{show} %%
 	In this case, for $h\in A^+$ we have that $0\leq hb\leq h$, so $0\leq\rho(hb)\leq\rho(h)$.
-	Hence $\rho_b(a):=\rho(ab)$ for $a\in A$ defines a positive linear functional on $A$ with 
+	Hence $\rho_b(a)=\rho(ab)$ for $a\in A$ defines a positive linear functional on $A$ with 
 	$\rho_b\leq\rho$. The restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$ and 
-	$\rho_b|_{A_{sa}} \leq \rho|_{A_{sa}}$, and it follows from Proposition \ref{pure2} that 
+	$\rho_b|_{A_{sa}} \leq \rho|_{A_{sa}}$, and it follows from Proposition \ref{prop:pure2} that 
 	$\rho_b|_{A_{sa}} = \alpha \rho|_{A_{sa}}$ for some $\alpha \in \R^+$.
 	Hence $\rho_b = \alpha\rho$  and so for $a\in A$:
 	\begin{align*}
@@ -594,7 +652,7 @@ Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra and give some basic
 
 \begin{claim} $\B(\H)$ is a $C^\ast$-algebra with the operator norm 
 \[
-	\|T\|:= \sup_{\|x\|=1}{\|Tx\|}
+	\|T\|= \sup_{\|x\|=1}{\|Tx\|}
 \]
 and involution taking $T$ to its adjoint map $T^\ast$. 
 The identity map $I:x\mapsto x$ is a unit for $\BH$
@@ -606,15 +664,15 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 		\|T_m-T_n\| < \epsilon \mbox{ for all } m,n \geq N.
 	\end{align*}
 	Applying $T_m-T_n$ to $x \in \H$, we have 
-	\begin{align}\label{cauchyTn}
+	\begin{align}\label{eqn:cauchyTn}
 		\|T_mx-T_nx\| \leq \|T_m-T_n\| \|x\| < \epsilon \|x\|,
 	\end{align}
 	so $\{T_nx\}_{n\in\N}$ is a Cauchy sequence in $\H$, converging to an element in $\H$.
 	Define a linear operator $T:\H \to \H$ by 
 	\begin{align*}
-		Tx:= \lim_{n\to\infty}{T_nx} \mbox{ for } x \in \H.
+		Tx= \lim_{n\to\infty}{T_nx} \mbox{ for } x \in \H.
 	\end{align*}
-	Taking limits as $m$ tends to infinity in equation \eqref{cauchyTn}, we obtain
+	Taking limits as $m$ tends to infinity in equation \eqref{eqn:cauchyTn}, we obtain
 	\begin{align*}
 		\|Tx-T_nx\| < \epsilon \|x\| \mbox{ for all }n \geq N,
 	\end{align*}
@@ -646,7 +704,7 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 	
 	To see that $^\ast$ is an involution, use the fact that the adjoint 
 	operator is unique for each operator and the following equalities.
-	\begin{enumerate}[label=(\roman*)]
+	\begin{enumerate}
 	\Item	\begin{align*}
 				\langle (\alpha T+S)^\ast x,y\rangle 
 			&=	\langle x, \alpha T+S y \rangle									\\
@@ -691,23 +749,25 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 
 
 \chapter{Representations of $C^\ast$-algebras}
-\todo[inline]{to include all representation theory, including  CGN, GNS and GN}%%
-\section{Abelian $C^\ast$-algebras}
+\section{Abelian $C^\ast$-algebras}\label{section:abelian}
+
+\todo[inline]{rewrite}%%
+
 Let $A$ be an Abelian $C^\ast$-algebra. For $a$ in $A$, define a complex-valued function $\hat{a}$ on
-$\P{A}$ by $\hat{a}(\rho):= \rho(a)$. The \emph{weak$^\ast$-topology} is the coarsest topology
-\todo{why should this exist?} on $\P{A}$ for which
-all of the maps $\hat{a}$ are continuous, so that $\hat{a} \in C(\P{A})$ for all $a\in A$. The map
+$\P{A}$ by $\hat{a}(\rho)= \rho(a)$. The weak$^\ast$-topology is the coarsest topology on 
+$\P{A}$ for which all of the maps $\hat{a}$ are continuous, so that $\hat{a} \in C(\P{A})$ for all 
+$a\in A$. The map
 \[
 	\Gamma:A \to C(\P{A}) : a\mapsto \hat{a}
 \]
-is called the \emph{Gelfand representation} of $A$. 
+is called the \emph{Gelfand transform} of $A$ \cite{davidson96}.
 For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
 \begin{align*}
 	\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
 	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 	\\
 	\widehat{a^\ast}(\rho) = \rho(a^\ast) &= \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
 \end{align*}
-Since by Proposition \ref{puremult},
+Since by Proposition \ref{prop:puremult},
 \begin{align*}
 	\P{A} = \{\rho \in \S(A) ~|~ \rho(ab) = \rho(a)\rho(b)\},
 \end{align*}
@@ -715,24 +775,28 @@ we have that
 \begin{align*}
 	\widehat{(ab)} (\rho)= \rho(ab) = \rho(a)\rho(b) = \hat{a}(\rho)\hat{b}(\rho).
 \end{align*}
-Hence the Gelfand representation is a $\ast$-homomorphism. The following theorem gives us that it is
+Hence the Gelfand transform is a $\ast$-homomorphism. The following theorem gives us that it is
 in fact an isometric $\ast$-isomorphism.
 
-\begin{thm}[Gelfand-Naimark, commutative] 
-	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$,
-	the algebra of continuous functions on a compact Hausdorff space $X$.
+\begin{thm}[{Gelfand-Naimark, commutative \cite[4.4.3]{kadison83}}] 
+	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$, the algebra of continuous
+	 functions on a compact Hausdorff space $X$.
 \end{thm}
 \begin{proof}
-\end{proof}
+	
+	
+\end{proof}\todo[inline]{prove this.}%%
 
 
 The previous result generalises to not-necessarily-unital Abelian $C^\ast$-algebras as follows:
-\begin{thm*}
-	Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C_0(X)$, the algebra of 
+\begin{thm*}[{\cite[I.2.7]{davidson96}}]
+	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C_0(X)$, the algebra of 
 	continuous functions on a locally compact Hausdorff space $X$ which vanish at infinity.
 \end{thm*}
-The proof -- not dissimilar from the proof above -- can be found in [reference]. The unitization of
-this algebra corresponds to the one-point compactificaton of $X$.
+\begin{proof}
+	\todo[inline]{citation needed}%%
+\end{proof}
+The unitization of this algebra then corresponds to the one-point compactificaton of $X$.
 	
 \section{The Gelfand-Naimark Theorem}
 
@@ -744,7 +808,8 @@ this algebra corresponds to the one-point compactificaton of $X$.
 	everywhere-dense in $\H$, say that $\phi$ is a \emph{cyclic} representation, 
 	with \emph{cyclic vector} $x$.
 \end{defn}	
-The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) construction.
+The construction used in the proof of the following theorem is known as the Gelfand-Naimark-Segal (GNS)
+construction.
 \begin{thm}
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
@@ -758,12 +823,10 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 	
 	Consider the \emph{left kernel} of $\rho$:
 	\[
-		L_\rho := \{t \in A ~|~ \rho (t ^\ast t) = 0 \}.
+		L_\rho = \{t \in A ~|~ \rho (t ^\ast t) = 0 \}.
 	\]	
-	For $a,b \in A$, define $\langle a , b \rangle_0 := \rho(b^\ast a)$.
-	Then $L_\rho = \{t\in A ~|~ \langle t , t \rangle _0 = 0 \} $, and 
-	$\langle \cdot, \cdot \rangle_0$ satisfies
-	\begin{enumerate}[label=(\roman*)]
+	For $a,b \in A$, define $\langle a , b \rangle_0 = \rho(b^\ast a)$, then $\langle \cdot, \cdot \rangle_0$ satisfies
+	\begin{enumerate}
 	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
 		\begin{align*}
 		   \langle \alpha a + \beta b, c \rangle_0 
@@ -780,16 +843,18 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 	  	&= \overline{\rho (b^\ast a)}										\\
 	  	&= \overline{\langle a,b \rangle _0 }.
 	  	\end{align*}
-	  \item Positive semi-definite. \todo{why?} %%
+	  \item Positive semi-definite: for $a \in A$:
 	  	\begin{align*}
+	  	&=	\langle a,a\rangle_0 = \rho(a^\ast a) \geq 0,
 	  	\end{align*}
+	  	since $a^\ast a$ is positive for all $a$. \todo{show: 4.2.6}%%
 	\end{enumerate}
 	Note that $\langle \cdot, \cdot \rangle$ is not necessarily positive definite on 
 	$A$ -- the left kernel is exactly where this fails.
 	
 	To see that $L_\rho$ is a linear subspace of $A$, consider 
 	\[
-		L:= \{t \in A  ~|~ \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
+		L= \{t \in A  ~|~ \langle t,a \rangle _0 = 0, ~\forall a \in A \}\subseteq L_\rho.
 	\]
 	For $t \in L_\rho$, by Cauchy-Schwarz we have 
 	\[ 
@@ -825,16 +890,15 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 		&=		0,
 	\end{align*}
 	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
-	we conclude that $L_\rho$ is a left ideal in $A$. \todo{why do we need closure?}
-	Closure  of $L_\rho$ follows from the fact that it is the preimage in $A$ of $\{0\}$ under 
-	the continuous map $t \mapsto \rho (t^\ast t)$. 
+	we conclude that $L_\rho$ is a left ideal in $A$. Closure  of $L_\rho$ follows from the fact that 
+	it is the preimage in $A$ of $\{0\}$ under the continuous map $t \mapsto \rho (t^\ast t)$. 
 	
-	Consider now $V_\rho := A / L_\rho$, with $\langle \cdot,\cdot\rangle$ defined by 
+	Consider now the quotient space $V_\rho = A / L_\rho$, with $\langle \cdot,\cdot\rangle$ defined by 
 	\[
-		\langle a+L_\rho,b+L_\rho \rangle := \langle a,b\rangle_0, ~~~~ 
+		\langle a+L_\rho,b+L_\rho \rangle = \langle a,b\rangle_0, ~~~~ 
 		\mbox{for}~~a+L_\rho,b+L_\rho \in V_\rho.
 	\]
-	It follows from properties $i),ii)$ and $iii)$ of $\langle \cdot,\cdot  \rangle _0$ that
+	It follows from properties $i),~ii)$ and $iii)$ of $\langle \cdot,\cdot  \rangle _0$ that
 	$\langle \cdot,\cdot  \rangle$ is an inner product on $V_\rho$ -- with
 	\begin{align*}
 				\langle a + L^\rho, a + L^\rho \rangle = 0
@@ -859,7 +923,6 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 		&\implies	\pi_a(b_1+L_\rho) = \pi_a(b_2+L_\rho).
 	\end{align*}
 	Hence $\pi_a$ defines a linear operator on $V_\rho$.
-	
 	For $b+L_\rho \in V_\rho$:
 	\begin{align*}
 				\|a\|^2 \cdot \|b+L_\rho\| - \| \pi_a(b+L_\rho) \|
@@ -871,7 +934,6 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 		&=		\rho (b^\ast (\|a\|^{2} \mathbbm{1} - a ^\ast a)b)			\\
 		&\geq 	0.
 	\end{align*}
-	
 	Thus $\pi_a$ is a bounded operator, with $\|\pi_a\| \leq \|a\|$. By continuity,
 	$\pi_a$ extends to a bounded operator on $\Hr$ -- say $\pi_\rho(a):\Hr \to \Hr$ 
 	such that \[ \pi_\rho(a)(v) = \pi_a(v) \] for $v\in \Vr$. 
@@ -897,7 +959,6 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 	\end{align*}
 	so that $\pi_{a b} = \pi_a \cdot \pi_b$ on $\Vr$.
 	
-	
 	For $a\in A$ and $b+ L_\rho,~c+ L_\rho \in \Vr$:
 	\begin{align*}
 				\langle b+\Lr, \pi_a^\ast (c+\Lr) \rangle 
@@ -909,11 +970,10 @@ The following theorem is proved using the Gelfand-Naimark-Segal (or GNS) constru
 		&=		\langle b+\Lr, \pi_{a^\ast}(c+\Lr),
 	\end{align*}
 	so that $ \pi_a^\ast = \pi_{a^\ast}$ on $\Vr$.
-	
 	$\Vr \subset \Hr$ is a dense subset, so the three properties above hold on 
 	$\Hr$ by continuity of $\pi_\rho$. 
 	Hence, $\pi_\rho: A \to \B(\Hr)$ is a representation of $A$.
-	As to the unit vector, consider $\xr := \1 + \Lr \in \Vr$. Then for $a \in A$,
+	As to the unit vector, consider $\xr = \1 + \Lr \in \Vr$. Then for $a \in A$,
 	\begin{align*}
 				\langle \pi_\rho(a)\xr ,\xr \rangle 
 		&=		\langle \pi_a(\1+\Lr), \1+\Lr \rangle						\\
@@ -934,8 +994,8 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	Let $A$ be a $C^\ast$-algebra. Suppose we have a collection $\{\phi_i ~|~i\in I\}$ of 
 	representations of $A$ on Hilbert spaces $\{\H_i ~|~ i\in I\}$.
 	For $a$ in $A$, we have $\|\phi_i(a)\|\leq \|a\|$ (as each $\phi_i$ is a $\ast$-homomorphism),
-	so we have a bounded operator $\oplus\phi_i(a)$ on $\oplus \H_i$ by section \ref{hscons}. By the
-	properties of $\oplus\phi_i(a)$ stated therein, the map 
+	so we have a bounded operator $\oplus\phi_i(a)$ on $\oplus \H_i$ by section \ref{section:hscons}. By 
+	the properties of $\oplus\phi_i(a)$ stated therein, the map 
 	\[
 		\phi:A\to \B(\oplus\H_i):a\mapsto\oplus\phi_i(a)
 	\]
@@ -948,19 +1008,15 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	
 	Given $a$ in $A$, if $\phi(a)=0$ then $\pi_\rho(a)=0$ for all pure states $\rho$ on $A$. But then,
 	since $\rho(a)=\langle \pi_\rho (a) x_\rho, x_\rho \rangle$ by the GNS construction, we have 
-	$\rho(a)=0$, and then by Lemma \ref{pure1}, $a=0$. Thus, $\phi$ is one-to-one and hence a faithful
-	 representation of $A$.
-	
-	
-	
-	
+	$\rho(a)=0$, and then by Lemma \ref{lemma:pure1}, $a=0$. Thus, $\phi$ is one-to-one and hence a 
+	faithful representation of $A$.
 \end{proof}
 
 
 
 
-\todo[inline]{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }
-\todo[inline]{references!!!!}
+\todo[inline]{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, } %%
+\todo[inline]{references!!!!}%%
 
 
 \begin{thebibliography}{00}
@@ -1073,6 +1129,11 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	Pedersen, G. K.,
 	\emph{C*-algebras and their automorphism groups.}
 	Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], London-New York (1979).
+
+\bibitem{rudin91}
+	Rudin, W.,
+	\emph{Functional Analysis (2nd Ed.).}
+	McGraw-Hill (1991).
 
 \bibitem{sakai71}
 	Sakai, S.,

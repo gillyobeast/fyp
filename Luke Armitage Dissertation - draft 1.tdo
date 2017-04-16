@@ -1,26 +1,25 @@
 \contentsline {todo}{rewrite this!}{5}{section*.3}
-\contentsline {todo}{notation: $\mathbb {R}^+$ non neg reals. define here: Banach/Hilbert space. algebra/subalgebra/ideal/homomorphism. linear functional on a linear space. topological space/hausdorff/compact/locally compact/extreme point. partially ordered vector space?}{6}{section*.4}
-\contentsline {todo}{remark on work in real $C^\ast $-algebras?}{9}{section*.5}
-\contentsline {todo}{cauchy-schwarz}{9}{section*.6}
-\contentsline {todo}{example of $C(X)$? could define states and stuff preemptively}{10}{section*.7}
-\contentsline {todo}{tidy up proof}{10}{section*.8}
-\contentsline {todo}{justify norm}{10}{section*.9}
-\contentsline {todo}{normal?}{11}{section*.10}
-\contentsline {todo}{justify (4.2.3(ii))}{12}{section*.11}
-\contentsline {todo}{state in 'spectrum' - 4.1.5}{12}{section*.12}
-\contentsline {todo}{is unital necessary?}{12}{section*.13}
-\contentsline {todo}{states are real on self-adjoint elements}{12}{section*.14}
-\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. explain $\geq $ notation }{12}{section*.15}
-\contentsline {todo}{rework; explain further.}{13}{section*.16}
-\contentsline {todo}{why does this exist?}{13}{section*.17}
-\contentsline {todo}{show}{15}{section*.18}
-\contentsline {todo}{show a state.}{15}{section*.19}
-\contentsline {todo}{define weak* topology on P(S)}{16}{section*.20}
-\contentsline {todo}{example of $\mathcal {B}(\mathcal {H})$ at end of section to retro-motivate notation. discuss nomenclature (state etc) coming from QM}{18}{section*.21}
-\contentsline {todo}{to include all representation theory, including CGN, GNS and GN}{19}{section*.22}
-\contentsline {todo}{why should this exist?}{19}{section*.23}
-\contentsline {todo}{why?}{21}{section*.24}
-\contentsline {todo}{why do we need closure?}{22}{section*.25}
-\contentsline {todo}{example of this construction on C(X)? may just be a short explanation of how B(H) and C(X) link together. can then talk about noncommutative topology!}{23}{section*.26}
-\contentsline {todo}{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{24}{section*.27}
-\contentsline {todo}{references!!!!}{24}{section*.28}
+\contentsline {todo}{summarise entire project chapter by chapter.}{5}{section*.4}
+\contentsline {todo}{notation: $\mathbb {R}^+$ non neg reals. define here: hausdorff/compact/locally compact/extreme point/denseness/weak*-topology. partially ordered vector space? results: banach-alaoglu}{6}{section*.5}
+\contentsline {todo}{cauchy-schwarz, quotient algebra}{10}{section*.6}
+\contentsline {todo}{justify (4.2.3(ii))}{11}{section*.7}
+\contentsline {todo}{example of $C(X)$? could define states and stuff preemptively}{12}{section*.8}
+\contentsline {todo}{write spectral theory section.}{13}{section*.9}
+\contentsline {todo}{spectrum of an element is the same in a subalgebra containing it}{13}{section*.10}
+\contentsline {todo}{prove}{13}{section*.11}
+\contentsline {todo}{states are real on self-adjoint elements}{13}{section*.12}
+\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. explain $\geq $ notation }{14}{section*.13}
+\contentsline {todo}{rework; explain further.}{14}{section*.14}
+\contentsline {todo}{why does this exist?}{14}{section*.15}
+\contentsline {todo}{verify}{15}{section*.16}
+\contentsline {todo}{show}{16}{section*.17}
+\contentsline {todo}{show a state.}{16}{section*.18}
+\contentsline {todo}{define weak* topology on P(S)}{17}{section*.19}
+\contentsline {todo}{example of $\mathcal {B}(\mathcal {H})$ at end of section to retro-motivate notation. discuss nomenclature (state etc) coming from QM}{19}{section*.20}
+\contentsline {todo}{rewrite}{20}{section*.21}
+\contentsline {todo}{prove this.}{21}{section*.22}
+\contentsline {todo}{citation needed}{21}{section*.23}
+\contentsline {todo}{show: 4.2.6}{22}{section*.24}
+\contentsline {todo}{example of this construction on C(X)? may just be a short explanation of how B(H) and C(X) link together. can then talk about noncommutative topology!}{25}{section*.25}
+\contentsline {todo}{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{25}{section*.26}
+\contentsline {todo}{references!!!!}{25}{section*.27}
