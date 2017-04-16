@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.4.9)  16 APR 2017 18:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.4.9)  16 APR 2017 23:19
 entering extended mode
 **"./Luke Armitage Dissertation - draft 1.tex"
 ("Luke Armitage Dissertation - draft 1.tex"
@@ -641,27 +641,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] ("Luke Armitage Dissertat
-ion - draft 1.tdo"pdfTeX warning (ext4): destination with the same identifier (
-name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.27 ...ne {todo}{references!!!!}{25}{section*.29}
-                                                   [1
-
-])
+ion - draft 1.tdo")
 \tf@tdo=\write5
 \openout5 = `"Luke Armitage Dissertation - draft 1.tdo"'.
 
- [2]
-("Luke Armitage Dissertation - draft 1.toc")
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.60 \tableofcontents
+                      [1
+
+] ("Luke Armitage Dissertation - draft 1.toc")
 \tf@toc=\write6
 \openout6 = `"Luke Armitage Dissertation - draft 1.toc"'.
 
- [3
+ [2
 
 ]
 Chapter 1.
-[4
+[3
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
@@ -672,308 +671,323 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 116.
- [5]
+ [4]
 Chapter 2.
+[5
 
-Underfull \hbox (badness 1297) in paragraph at lines 122--122
-[][][][]\OT1/cmr/m/n/12 notation: $\U/msb/m/n/12 R[]$ \OT1/cmr/m/n/12 non neg r
-e-als. ide-als are two sided. de-fine: haus- 
- []
-
-[6
-
-] [7] [8] [9]
+] [6] [7] [8] [9]
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 290.
+(hyperref)                removing `math shift' on input line 298.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 290.
+(hyperref)                removing `superscript' on input line 298.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\ast' on input line 290.
+(hyperref)                removing `\ast' on input line 298.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 290.
+(hyperref)                removing `math shift' on input line 298.
 
-LaTeX Font Info:    Try loading font information for U+bbm on input line 324.
-(C:\TEX\MiKTeX\tex\latex\bbm\ubbm.fd
+[10
+
+]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 334.
+ (C:\TEX\MiKTeX\tex\latex\bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [10
-
-] [11]
+) [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 395.
+(hyperref)                removing `math shift' on input line 405.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 395.
+(hyperref)                removing `math shift' on input line 405.
 
 [12]
-Overfull \hbox (2.00946pt too wide) in paragraph at lines 436--436
-[][][][]\OT1/cmr/m/n/12 prove  
+Overfull \hbox (7.23163pt too wide) in paragraph at lines 480--480
+\OT1/cmr/m/n/12 again?  
  []
 
 
-Overfull \hbox (2.00946pt too wide) in paragraph at lines 436--436
-[][][][]\OT1/cmr/m/n/12 prove  
+Overfull \hbox (7.23163pt too wide) in paragraph at lines 480--480
+\OT1/cmr/m/n/12 again?  
  []
 
 
-Overfull \hbox (2.00946pt too wide) in paragraph at lines 436--436
-[][][][]\OT1/cmr/m/n/12 prove  
+Overfull \hbox (7.23163pt too wide) in paragraph at lines 480--480
+\OT1/cmr/m/n/12 again?  
  []
 
 
-Overfull \hbox (2.00946pt too wide) in paragraph at lines 436--436
-[][][][]\OT1/cmr/m/n/12 prove  
- []
-
-
-Overfull \hbox (6.64413pt too wide) in paragraph at lines 466--466
-[][][][]\OT1/cmr/m/n/12 justify 
- []
-
-
-Overfull \hbox (23.22452pt too wide) in paragraph at lines 466--466
-\OT1/cmr/m/n/12 (4.2.3(ii))  
- []
-
-
-Overfull \hbox (6.64413pt too wide) in paragraph at lines 466--466
-[][][][]\OT1/cmr/m/n/12 justify 
- []
-
-
-Overfull \hbox (23.22452pt too wide) in paragraph at lines 466--466
-\OT1/cmr/m/n/12 (4.2.3(ii))  
- []
-
-
-Overfull \hbox (6.64413pt too wide) in paragraph at lines 466--466
-[][][][]\OT1/cmr/m/n/12 justify 
- []
-
-
-Overfull \hbox (23.22452pt too wide) in paragraph at lines 466--466
-\OT1/cmr/m/n/12 (4.2.3(ii))  
- []
-
-
-Overfull \hbox (6.64413pt too wide) in paragraph at lines 466--466
-[][][][]\OT1/cmr/m/n/12 justify 
- []
-
-
-Overfull \hbox (23.22452pt too wide) in paragraph at lines 466--466
-\OT1/cmr/m/n/12 (4.2.3(ii))  
+Overfull \hbox (7.23163pt too wide) in paragraph at lines 480--480
+\OT1/cmr/m/n/12 again?  
  []
 
 [13]
-Overfull \hbox (3.77194pt too wide) in paragraph at lines 488--488
+Overfull \hbox (6.64413pt too wide) in paragraph at lines 498--498
+[][][][]\OT1/cmr/m/n/12 justify 
+ []
+
+
+Overfull \hbox (23.22452pt too wide) in paragraph at lines 498--498
+\OT1/cmr/m/n/12 (4.2.3(ii))  
+ []
+
+
+Overfull \hbox (6.64413pt too wide) in paragraph at lines 498--498
+[][][][]\OT1/cmr/m/n/12 justify 
+ []
+
+
+Overfull \hbox (23.22452pt too wide) in paragraph at lines 498--498
+\OT1/cmr/m/n/12 (4.2.3(ii))  
+ []
+
+
+Overfull \hbox (6.64413pt too wide) in paragraph at lines 498--498
+[][][][]\OT1/cmr/m/n/12 justify 
+ []
+
+
+Overfull \hbox (23.22452pt too wide) in paragraph at lines 498--498
+\OT1/cmr/m/n/12 (4.2.3(ii))  
+ []
+
+
+Overfull \hbox (6.64413pt too wide) in paragraph at lines 498--498
+[][][][]\OT1/cmr/m/n/12 justify 
+ []
+
+
+Overfull \hbox (23.22452pt too wide) in paragraph at lines 498--498
+\OT1/cmr/m/n/12 (4.2.3(ii))  
+ []
+
+
+Overfull \hbox (3.77194pt too wide) in paragraph at lines 520--520
 [][][][]\OT1/cmr/m/n/12 states 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 488--488
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 adjoint 
  []
 
 
-Overfull \hbox (4.68582pt too wide) in paragraph at lines 488--488
+Overfull \hbox (4.68582pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 ments  
  []
 
 
-Overfull \hbox (3.77194pt too wide) in paragraph at lines 488--488
+Overfull \hbox (3.77194pt too wide) in paragraph at lines 520--520
 [][][][]\OT1/cmr/m/n/12 states 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 488--488
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 adjoint 
  []
 
 
-Overfull \hbox (4.68582pt too wide) in paragraph at lines 488--488
+Overfull \hbox (4.68582pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 ments  
  []
 
 
-Overfull \hbox (3.77194pt too wide) in paragraph at lines 488--488
+Overfull \hbox (3.77194pt too wide) in paragraph at lines 520--520
 [][][][]\OT1/cmr/m/n/12 states 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 488--488
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 adjoint 
  []
 
 
-Overfull \hbox (4.68582pt too wide) in paragraph at lines 488--488
+Overfull \hbox (4.68582pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 ments  
  []
 
 
-Overfull \hbox (3.77194pt too wide) in paragraph at lines 488--488
+Overfull \hbox (3.77194pt too wide) in paragraph at lines 520--520
 [][][][]\OT1/cmr/m/n/12 states 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 488--488
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 adjoint 
  []
 
 
-Overfull \hbox (4.68582pt too wide) in paragraph at lines 488--488
+Overfull \hbox (4.68582pt too wide) in paragraph at lines 520--520
 \OT1/cmr/m/n/12 ments  
  []
 
 
-Overfull \hbox (12.12741pt too wide) in paragraph at lines 503--503
+Overfull \hbox (12.12741pt too wide) in paragraph at lines 535--535
 [][][][]\OT1/cmr/m/n/12 rework; 
  []
 
 
-Overfull \hbox (12.12741pt too wide) in paragraph at lines 503--503
+Overfull \hbox (12.12741pt too wide) in paragraph at lines 535--535
 [][][][]\OT1/cmr/m/n/12 rework; 
  []
 
 
-Overfull \hbox (12.12741pt too wide) in paragraph at lines 503--503
+Overfull \hbox (12.12741pt too wide) in paragraph at lines 535--535
 [][][][]\OT1/cmr/m/n/12 rework; 
  []
 
 
-Overfull \hbox (12.12741pt too wide) in paragraph at lines 503--503
+Overfull \hbox (12.12741pt too wide) in paragraph at lines 535--535
 [][][][]\OT1/cmr/m/n/12 rework; 
  []
 
 
 LaTeX Warning: Marginpar on page 14 moved.
 
-[14] [15] [16]
+[14]
+Overfull \hbox (7.55801pt too wide) in paragraph at lines 586--586
+[][][][]\OT1/cmr/m/n/12 prove?  
+ []
+
+
+Overfull \hbox (7.55801pt too wide) in paragraph at lines 586--586
+[][][][]\OT1/cmr/m/n/12 prove?  
+ []
+
+
+Overfull \hbox (7.55801pt too wide) in paragraph at lines 586--586
+[][][][]\OT1/cmr/m/n/12 prove?  
+ []
+
+
+Overfull \hbox (7.55801pt too wide) in paragraph at lines 586--586
+[][][][]\OT1/cmr/m/n/12 prove?  
+ []
+
+[15] [16] [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 678.
+(hyperref)                removing `math shift' on input line 719.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 678.
+(hyperref)                removing `math shift' on input line 719.
 
-[17] [18] [19]
+[18] [19] [20]
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 781.
+(hyperref)                removing `math shift' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 781.
+(hyperref)                removing `superscript' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\ast' on input line 781.
+(hyperref)                removing `\ast' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 781.
+(hyperref)                removing `math shift' on input line 822.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `math shift' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 782.
+(hyperref)                removing `superscript' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\ast' on input line 782.
+(hyperref)                removing `\ast' on input line 823.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `math shift' on input line 823.
 
 
-Overfull \hbox (11.56427pt too wide) in paragraph at lines 821--822
+Overfull \hbox (11.56427pt too wide) in paragraph at lines 862--863
 []\OT1/cmr/m/n/12 The pre-vi-ous re-sult gen-er-alises to not-necessarily-unita
 l Abelian $\OML/cmm/m/it/12 C[]$\OT1/cmr/m/n/12 -algebras
  []
 
-[20
+[21
 
 ]
-Overfull \hbox (36.28635pt too wide) in paragraph at lines 827--827
+Overfull \hbox (36.28635pt too wide) in paragraph at lines 868--868
 [][] 
  []
 
-[21]
-Overfull \hbox (2.72751pt too wide) in paragraph at lines 879--879
+[22]
+Overfull \hbox (2.72751pt too wide) in paragraph at lines 920--920
 [][][][]\OT1/cmr/m/n/12 show: 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 879--879
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 920--920
 \OT1/cmr/m/n/12 4.2.5/6  
  []
 
 
-Overfull \hbox (2.72751pt too wide) in paragraph at lines 879--879
+Overfull \hbox (2.72751pt too wide) in paragraph at lines 920--920
 [][][][]\OT1/cmr/m/n/12 show: 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 879--879
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 920--920
 \OT1/cmr/m/n/12 4.2.5/6  
  []
 
 
-Overfull \hbox (2.72751pt too wide) in paragraph at lines 879--879
+Overfull \hbox (2.72751pt too wide) in paragraph at lines 920--920
 [][][][]\OT1/cmr/m/n/12 show: 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 879--879
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 920--920
 \OT1/cmr/m/n/12 4.2.5/6  
  []
 
 
-Overfull \hbox (2.72751pt too wide) in paragraph at lines 879--879
+Overfull \hbox (2.72751pt too wide) in paragraph at lines 920--920
 [][][][]\OT1/cmr/m/n/12 show: 
  []
 
 
-Overfull \hbox (10.1691pt too wide) in paragraph at lines 879--879
+Overfull \hbox (10.1691pt too wide) in paragraph at lines 920--920
 \OT1/cmr/m/n/12 4.2.5/6  
  []
 
 
-Overfull \hbox (0.7692pt too wide) in paragraph at lines 922--922
+Overfull \hbox (0.7692pt too wide) in paragraph at lines 963--963
 \OT1/cmr/m/n/12 sure?  
  []
 
 
-Overfull \hbox (0.7692pt too wide) in paragraph at lines 922--922
+Overfull \hbox (0.7692pt too wide) in paragraph at lines 963--963
 \OT1/cmr/m/n/12 sure?  
  []
 
 
-Overfull \hbox (0.7692pt too wide) in paragraph at lines 922--922
+Overfull \hbox (0.7692pt too wide) in paragraph at lines 963--963
 \OT1/cmr/m/n/12 sure?  
  []
 
 
-Overfull \hbox (0.7692pt too wide) in paragraph at lines 922--922
+Overfull \hbox (0.7692pt too wide) in paragraph at lines 963--963
 \OT1/cmr/m/n/12 sure?  
  []
 
-[22] [23] [24] [25]
+[23] [24] [25] [26]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -988,7 +1002,7 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [26
+ [27
 
 ]
 Missing character: There is no â in font cmr12!
@@ -1006,27 +1020,27 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [27]
+ [28]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1189.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1189.
+ [29]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1230.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1230.
  ("Luke Armitage Dissertation - draft 1.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1189.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1189.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1230.
 
 Package rerunfilecheck Info: File `"Luke Armitage Dissertation - draft 1".out' 
 has not changed.
 (rerunfilecheck)             Checksum: BC48CD8EA0A6855B29840474FD3827C9;1128.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1189.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1230.
  ) 
 Here is how much of TeX's memory you used:
- 16976 strings out of 493334
- 314086 string characters out of 3145294
- 403536 words of memory out of 3000000
- 20058 multiletter control sequences out of 15000+200000
+ 16985 strings out of 493334
+ 314253 string characters out of 3145294
+ 406048 words of memory out of 3000000
+ 20065 multiletter control sequences out of 15000+200000
  19195 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,80p,472b,996s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1042,10 +1056,10 @@ onts/cm/cmsy6.pfb><C:/TEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/T
 EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/TEX/MiKTeX/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb><C:/TEX/MiKTeX/fonts/type1/public/rsfs/rsfs1
 0.pfb>
-Output written on "Luke Armitage Dissertation - draft 1.pdf" (29 pages, 287736 
+Output written on "Luke Armitage Dissertation - draft 1.pdf" (30 pages, 292599 
 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
+ 476 PDF objects out of 1000 (max. 8388607)
+ 135 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

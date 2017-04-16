@@ -1,27 +1,27 @@
-\contentsline {todo}{rewrite this!}{5}{section*.3}
-\contentsline {todo}{summarise entire project chapter by chapter.}{5}{section*.4}
-\contentsline {todo}{notation: $\mathbb {R}^+$ non neg reals. ideals are two sided. define: hausdorff/compact/locally compact/extreme point/denseness. partially ordered vector space? results:}{6}{section*.5}
-\contentsline {todo}{cauchy-schwarz, quotient algebra}{10}{section*.6}
+\contentsline {todo}{rewrite this!}{4}{section*.3}
+\contentsline {todo}{summarise entire project chapter by chapter.}{4}{section*.4}
+\contentsline {todo}{define: hausdorff/compact/locally compact/denseness}{8}{section*.5}
+\contentsline {todo}{quotient algebra}{10}{section*.6}
 \contentsline {todo}{example of $C(X)$? could define states and stuff preemptively}{12}{section*.7}
-\contentsline {todo}{write spectral theory section.}{12}{section*.8}
-\contentsline {todo}{prove}{13}{section*.9}
-\contentsline {todo}{spectrum of an element is the same in a subalgebra containing it. mention spectrum in nonunital algebras}{13}{section*.10}
-\contentsline {todo}{justify (4.2.3(ii))}{13}{section*.11}
-\contentsline {todo}{prove}{14}{section*.12}
-\contentsline {todo}{states are real on self-adjoint elements}{14}{section*.13}
-\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. explain $\geq $ notation }{14}{section*.14}
-\contentsline {todo}{rework; explain further.}{14}{section*.15}
-\contentsline {todo}{why does this exist?}{14}{section*.16}
+\contentsline {todo}{write spectral theory section.}{13}{section*.8}
+\contentsline {todo}{what is this for again?}{13}{section*.9}
+\contentsline {todo}{justify (4.2.3(ii))}{14}{section*.10}
+\contentsline {todo}{prove}{14}{section*.11}
+\contentsline {todo}{states are real on self-adjoint elements}{14}{section*.12}
+\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. }{14}{section*.13}
+\contentsline {todo}{rework; explain further.}{15}{section*.14}
+\contentsline {todo}{why does this exist?}{15}{section*.15}
+\contentsline {todo}{prove?}{15}{section*.16}
 \contentsline {todo}{show}{17}{section*.17}
 \contentsline {todo}{show a state.}{17}{section*.18}
-\contentsline {todo}{discuss weak* topology on P(S)}{17}{section*.19}
-\contentsline {todo}{example of $\mathcal {B}(\mathcal {H})$ at end of section to retro-motivate notation. discuss nomenclature (state etc) coming from QM}{19}{section*.20}
-\contentsline {todo}{rewrite}{20}{section*.21}
-\contentsline {todo}{prove this.}{21}{section*.22}
-\contentsline {todo}{citation needed}{21}{section*.23}
-\contentsline {todo}{show: 4.2.5/6}{22}{section*.24}
-\contentsline {todo}{why do we need closure?}{23}{section*.25}
-\contentsline {todo}{example of construction on C(X)? short explanation of how B(H) and C(X) link together. can then talk about noncommutative topology!}{24}{section*.26}
-\contentsline {todo}{different reps given by different $\mathscr {S}_0$s.}{25}{section*.27}
-\contentsline {todo}{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{25}{section*.28}
-\contentsline {todo}{references!!!!}{25}{section*.29}
+\contentsline {todo}{discuss weak* topology on P(S)}{18}{section*.19}
+\contentsline {todo}{example of $\mathcal {B}(\mathcal {H})$ at end of section to retro-motivate notation. discuss nomenclature (state etc) coming from QM}{20}{section*.20}
+\contentsline {todo}{rewrite}{21}{section*.21}
+\contentsline {todo}{prove this.}{22}{section*.22}
+\contentsline {todo}{citation needed}{22}{section*.23}
+\contentsline {todo}{show: 4.2.5/6}{23}{section*.24}
+\contentsline {todo}{why do we need closure?}{24}{section*.25}
+\contentsline {todo}{example of construction on C(X)? short explanation of how B(H) and C(X) link together. can then talk about noncommutative topology!}{25}{section*.26}
+\contentsline {todo}{different reps given by different $\mathscr {S}_0$s.}{26}{section*.27}
+\contentsline {todo}{further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{26}{section*.28}
+\contentsline {todo}{references!!!!}{26}{section*.29}
