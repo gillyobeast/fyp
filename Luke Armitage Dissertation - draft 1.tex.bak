@@ -430,7 +430,7 @@ We will just state the necessary definitions and results here, and defer proofs 
 \begin{defn}
 	Given an element $a$ of a Banach algebra $A$, define its spectrum $\sigma_A(a)$:
 	\[
-		\sigma_A(a)=\{\lambda\in \C ~|~ a-\lambda \1 \mbox{ is not invertible in }A\},
+		\sigma_A(a)=\{\lambda\in \C ~|~ a-\lambda\1 \mbox{ is not invertible in }A\},
 	\]
 	where $a$ is \emph{invertible in $A$} if there exists an element $b$ such that $ab=\1=ba$. 
 	Say that $\lambda\in\spec a$ is a \emph{spectral value} of $a$ in $A$. If it is clear from context 
@@ -460,13 +460,27 @@ By the above theorem, $r(a)\leq\|a\|$.
 	If $a$ is a normal element of in a $C^\ast$-algebra, then $r(a)=\|a\|$.
 \end{lemma}
 
+Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, complex valued 
+functions on the spectrum of $a$. There is a unique continuous mapping $f\mapsto f(a)$ into $A$ such 
+that
+\begin{thm*}[Spectral mapping theorem {\cite[4.1.6]{kadison83}}]
+	If $a$ is a self adjoint element of a $C^\ast$-algebra $A$, and $f\in C(\spec a)$, then
+	\begin{align*}
+		\spec{f(a)} = \{f(t) ~|~ t \in \spec a\}.
+	\end{align*}
+\end{thm*}
+
+\begin{prop}[{\cite[4.2.3(i)]{kadison83}}]\label{prop:423}
+	Given $f$ in $C(\spec a)$, $f(a)$ is positive if and only if $f(t)\geq0$ for all $t$ in $\spec a$.
+\end{prop}
 
 \begin{thm*}[{\cite[4.1.5]{kadison83}}]
 	If $B$ is a $C^\ast$-subalgebra of a $C^\ast$-algebra $A$, then $\sigma_B(b) =\sigma_A(b)$ for all 
 	$b$ in $B$.
 \end{thm*}
-As an aside, this theorem allows us to make the convention that the spectrum of an element $a$ in a 
-non-unital $C^\ast$-algebra $A$ is defined to be the spectrum of $a$ in the unitization of $A$.
+%As an aside, this theorem allows us to make the convention that the spectrum of an element $a$ in a 
+%non-unital $C^\ast$-algebra $A$ is defined to be the spectrum of $a$ in the unitization $\tilde A$ 
+%of $A$.
 
 
 
@@ -475,9 +489,10 @@ With commuting, self-adjoint elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\a
 ab$, so $ab$ is self-adjoint. Since each of $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
 $C^\ast$-subalgebra $C^\ast(\1,a,b)$, we have
 \begin{align*}
-	\spec{ab} \subseteq \spec{a}\spec{b}.
+	\spec{ab} \subseteq \spec{a}\spec{b}, \mbox { and} \\
+	r(ab) \leq r(a)r(b).
 \end{align*}
-\todo{what is this for again?}
+\todo{this is 3.2.10/3.3.4. used in 4.1.1}
 
 
 \section{Further Definitions}
@@ -487,15 +502,24 @@ An element $a$ of a $C^\ast$-algebra $A$ is \emph{positive} if it is self-adjoin
 Denote the set of positive elements in $A$ by $A^+$. Then there is a partial order $\leq$ on 
 $A_{sa}$ defined by 
 \begin{align*}
-	a\leq b ~~\iff~~ b-a \in A^+.
+	a\leq b ~~\iff~~ b-a \mbox{ is positive}.
 \end{align*}
 The set of positive elements form a \emph{positive cone} in $A_{sa}$, which means that 
 \begin{enumerate}
 	\item 	$a\in A^+$ and $-a\in A^+$ implies that $a=0$,
 	\item	$\alpha a+b\in A^+$ for all $a,b \in A^+$ and $\alpha\in \R^+$.
 \end{enumerate}
-The unit $\1$ is positive (with $\spec \1 = \{1\}$), and for any $a\in A_{sa}$ we have $-\|a\|\1\leq a\leq\|a\|\1$.
-\todo{justify (4.2.3(ii))} %%
+The unit $\1$ is positive (with $\spec \1 = \{1\}$). 
+
+\begin{lemma}[{\cite[4.2.3(ii)]{kadison83}}]\label{lemma:423}
+	For a self-adjoint element $a$ in a $C^\ast$-algebra $A$, 
+	\begin{align*}
+		-\|a\|\1\leq a\leq\|a\|\1.
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	Let $f$ in $C(\spec a)$ defined by $f(t) = \|a\| \pm t$, f takes non-negative values on $\spec a$, so by Proposition \ref{prop:423}, $f(a)$ is positive; that is, $\|a\|\1 \pm a$ is positive.
+\end{proof}
 	
 \begin{defn}
 	Given Banach $\ast$-algebras $A$ and $B$, a map $\phi:A\to B$ is a \emph{$\ast$-homomorphism} 
@@ -614,8 +638,8 @@ We can extend the partial order notation to linear functionals. Given linear fun
 	\begin{align*}
 		0=\rho(a)=\rho(h)+i\rho(k),
 	\end{align*}
-	and as $h,k$ are self-adjoint, $\rho(h)$ and $\rho(k)$ are real and we must have $\rho(h)=0=\rho(k)$. By previous statement, $h=0=k$, 
-	and we conclude that $a=0$.
+	and as $h,k$ are self-adjoint, $\rho(h)$ and $\rho(k)$ are real and we must have 
+	$\rho(h)=0=\rho(k)$. By previous statement, $h=0=k$, and we conclude that $a=0$.
 \end{proof}
 
 \begin{defn}
@@ -647,18 +671,18 @@ theorem. We will need the following few results on pure states later.
 	Suppose that $\tau =\lambda\rho$ for all $0\leq\tau\leq\rho$, and suppose we can write 
 	$\rho=\alpha\rho_1+(1-\alpha)\rho_2$ for some $0\leq\alpha\leq1$ and some $\rho_1,\rho_2 \in
 	\S(A_{sa})$. Then $0\leq\alpha\rho_1\leq\rho$, so $\alpha\rho_0 = \lambda\rho$. Then 
-	$\rho_1(\1)=1=\rho(\1)$, so 
-	$\alpha = \lambda$ so $\rho_0 =\rho$. Similarly, we can show that $\rho_2=\rho$, and so we
-	 conclude that $\rho$ is a pure state.
+	$\rho_1(\1)=1=\rho(\1)$, so $\alpha = \lambda$ and $\rho_0 =\rho$. Similarly, we can show that 
+	$\rho_2=\rho$, and so we conclude that $\rho$ is a pure state.
 	
 	Conversely, suppose that $\rho$ is a pure state and $0\leq\tau\leq\rho$. Applying this to $\1$,
 	we get $0\leq\tau(\1)\leq\rho(\1) = 1$. Let $\lambda = \tau(\1)$. We work case-by-case: \\
-	If $\lambda=0$, then for any $a\in A_{sa}$, applying $\tau$ to $-\|a\|\1\leq a\leq\|a\|\1$ gives
+	If $\lambda=0$, then for any $a\in A_{sa}$, applying $\tau$ to $-\|a\|\1\leq a\leq\|a\|\1$ 
+	(from Lemma \ref{lemma:423}) gives
 	\begin{align*}
 		0=-\|a\|\lambda=\tau(-\|a\|\1)\leq\tau(a)\leq\tau(\|a\|\1)=\|a\|\lambda=0,
 	\end{align*}
 	so $\tau=0=\lambda\rho$. \\
-	A similar argument shows that $\lambda=1$ implies $\tau-\rho=0$ so that $\tau=\rho=\lambda\rho$.\\
+	A similar argument shows that $\lambda=1$ implies $\tau-\rho=0$, so that $\tau=\rho=\lambda\rho$.\\
 	If $0\leq\lambda\leq 1$, we can write $\rho=\lambda\rho_1+(1-\lambda)\rho_2$ for 
 	$\rho_1=\lambda^{-1}\tau$ and $\rho_2=(1-\lambda)^{-1}(\rho-\tau)$. $\rho$ is pure so 
 	$\tau=\lambda\rho_1=\lambda\rho$.
@@ -847,11 +871,11 @@ we have that
 	\widehat{(ab)} (\rho)= \rho(ab) = \rho(a)\rho(b) = \hat{a}(\rho)\hat{b}(\rho).
 \end{align*}
 Hence the Gelfand transform is a $\ast$-homomorphism. The following theorem gives us that it is
-in fact an isometric $\ast$-isomorphism.
+in fact a $\ast$-isomorphism.
 
 \begin{thm}[{Gelfand-Naimark, commutative \cite[4.4.3]{kadison83}}] 
 	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$, the algebra of continuous
-	 functions on a compact Hausdorff space $X$.
+	functions on a compact Hausdorff space $X$.
 \end{thm}
 \begin{proof}
 	
