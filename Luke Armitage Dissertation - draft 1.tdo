@@ -1,25 +1,21 @@
-\contentsline {todo}{move 'background mathematics' to 'definitions and results'}{5}{section*.3}
-\contentsline {todo}{rewrite as a summary of project chapter by chapter.}{5}{section*.4}
-\contentsline {todo}{define: hausdorff/compact/locally compact/denseness/uniform continuity}{9}{section*.5}
-\contentsline {todo}{write spectral theory section.}{15}{section*.6}
-\contentsline {todo}{continuous functional calculus.}{16}{section*.7}
-\contentsline {todo}{this is 3.2.10/3.3.4. used in 4.1.1}{16}{section*.8}
-\contentsline {todo}{prove}{17}{section*.9}
-\contentsline {todo}{states are real on self-adjoint elements}{17}{section*.10}
-\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. }{17}{section*.11}
+\contentsline {todo}{move 'background mathematics' to 'definitions and results'}{4}{section*.3}
+\contentsline {todo}{rewrite as a summary of project chapter by chapter.}{4}{section*.4}
+\contentsline {todo}{define: hausdorff/compact/locally compact/denseness/uniform continuity}{8}{section*.5}
+\contentsline {todo}{write spectral theory section.}{14}{section*.6}
+\contentsline {todo}{continuous functional calculus.}{15}{section*.7}
+\contentsline {todo}{this is 3.2.10/3.3.4. used in 4.1.1}{15}{section*.8}
+\contentsline {todo}{prove}{16}{section*.9}
+\contentsline {todo}{states are real on self-adjoint elements}{16}{section*.10}
+\contentsline {todo}{geometric interpretation - for $A=\mathbb {C}$, self adjoint elements are real numbers and the positive cone is $\mathbb {R}^+$. }{16}{section*.11}
 \contentsline {todo}{rework; explain further.}{17}{section*.12}
 \contentsline {todo}{why does this exist?}{17}{section*.13}
-\contentsline {todo}{prove?}{18}{section*.14}
-\contentsline {todo}{show}{20}{section*.15}
-\contentsline {todo}{show a state.}{20}{section*.16}
+\contentsline {todo}{prove?}{17}{section*.14}
+\contentsline {todo}{show}{19}{section*.15}
+\contentsline {todo}{show a state.}{19}{section*.16}
 \contentsline {todo}{discuss weak* topology on P(S)}{20}{section*.17}
 \contentsline {todo}{example of $\mathcal {B}(\mathcal {H})$ at end of section to retro-motivate notation. define compact operators and discuss Calkin algebra? discuss nomenclature (state etc) coming from QM}{22}{section*.18}
 \contentsline {todo}{rewrite}{23}{section*.19}
 \contentsline {todo}{prove this.}{24}{section*.20}
-\contentsline {todo}{citation needed}{24}{section*.21}
-\contentsline {todo}{show: 4.2.5/6}{25}{section*.22}
-\contentsline {todo}{why do we need closure?}{26}{section*.23}
-\contentsline {todo}{example of construction on C(X)? short explanation of how B(H) and C(X) link together. can then talk about noncommutative topology!}{27}{section*.24}
-\contentsline {todo}{remark on different reps given by different $\mathscr {S}_0$s. the universal rep, the reduced atomic rep}{28}{section*.25}
-\contentsline {todo}{give reference to further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{28}{section*.26}
-\contentsline {todo}{references!!!!}{28}{section*.27}
+\contentsline {todo}{show: 4.2.5/6}{25}{section*.21}
+\contentsline {todo}{give reference to further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, }{28}{section*.22}
+\contentsline {todo}{references!!!!}{28}{section*.23}

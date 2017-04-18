@@ -401,20 +401,20 @@ condition, where properties do not pass from a $C^\ast$-algebra to its maximal i
 means a universal assumption that a $C^\ast$-algebra has a unit element.
 
 
-\section{$\CX$ - an example.}
+\section{$\CX$ - an example.} \label{section:CX}
 Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
 $f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
 \[
 	\|f\|= \sup_{x\in X}{|f(x)|},
 \]
 and let $\overline f$ be the function $\overline f(x) = \overline{f(x)}$ for $x$ in $X$.
-We will demonstrate that $\CX$ is an Abelian $C^\ast$-algebra and use it to prototype the theory
+We will demonstrate that $\CX$ is an Abelian $C^\ast$-algebra and preview some of the theory
 we will build up in later sections. Later, in Section \ref{section:abelian}, we will show that $\CX$ is 
 essentially \emph{the} Abelian $C^\ast$-algebra.
 
 \begin{claim}
-	The set $\CX$ of continuous complex valued functions on a compact Hausdorff space $X$ is an Abelian 
-	$C^\ast$-algebra.
+	The set $\CX$, of continuous complex valued functions on a compact Hausdorff space $X$, is an 
+	Abelian $C^\ast$-algebra.
 \end{claim}
 \begin{proof}
 	We take $\CX$ as an algebra with operations defined pointwise and norm defined as above.
@@ -438,13 +438,13 @@ essentially \emph{the} Abelian $C^\ast$-algebra.
 		&=		\sup_{x\in X}|f(x)|^2											\\
 		&=		\|f\|^2.
 	\end{align*}
-	The constant function $\1:X\to\C:x\mapsto 1$ is the unit in $X$, with $\|\1\| = 1$.
+	The constant function $\1:X\to\C:x\mapsto 1$ is the unit in $\CX$, with $\|\1\| = 1$.
 \end{proof}
 
-Suppose $f$ is a self-adjoint element of $\CX$ -- that is to say, $\bar f = f$. Then $\bar{f(x)} = f(x)$ 
-for all $x$ in $X$, so $f$ is real-valued on $X$. The set of all self-adjoints in $\CX$ is the algebra 
-$C(X,\R)$ of all real valued functions on $X$. Call $f$ \emph{positive} if $f(x)$ is positive for all $x
-$ in $X$. 
+Suppose that $f$ is a self-adjoint element of $\CX$ -- that is to say, $\bar f = f$. Then $\bar{f(x)} = 
+f(x)$ for all $x$ in $X$, so $f$ is real-valued on $X$. The set of all self-adjoints in $\CX$ is the 
+algebra $C(X,\R)$ of all real valued functions on $X$. Call $f$ \emph{positive} if $f(x)$ is positive 
+for all $x$ in $X$. 
 A linear functional $\rho$ on $\CX$ is \emph{positive} if $\rho(f)\geq 0$ for all positive elements $f$, 
 and a \emph{state} on $\CX$ if $\rho$ is positive and $\rho(\1)=1$. The \emph{state space} $\S$, the set 
 of all states on $\CX$, is a convex set, and extreme points of $\S$ are called \emph{pure states} on 
@@ -458,7 +458,7 @@ $X$, and the general fact that the non-zero multiplicative linear functionals ar
 states on a $C^\ast$-algebra (which we will show in Proposition \ref{prop:puremult}) shows that these 
 are in fact all of the pure states on $\CX$.
 
-We finish this section by remarking that if we take $X$ to be a noncompact, \emph{locally} compact 
+We finish this section by remarking that if we take $X$ to be a non-compact, \emph{locally} compact 
 space, then we are required to take $\CX$ to be the set of continuous complex valued functions which 
 \emph{vanish at infinity} in some sense\footnote
 {We say $f:X\to\C$ \emph{vanishes at infinity} if for all positive $\epsilon$ there exists a compact 
@@ -506,9 +506,14 @@ By the above theorem, $r(a)\leq\|a\|$.
 	If $a$ is a normal element of in a $C^\ast$-algebra, then $r(a)=\|a\|$.
 \end{lemma}
 
-Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, complex valued 
-functions on the spectrum of $a$. There is a unique continuous mapping $f\mapsto f(a)$ into $A$ such 
+Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, complex 
+valued functions on the spectrum of $a$. 
+
+
+There is a unique continuous mapping $f\mapsto f(a)$ into $A$ such 
 that \todo{continuous functional calculus.}
+
+
 \begin{thm*}[Spectral mapping theorem {\cite[4.1.6]{kadison83}}]
 	If $a$ is a self adjoint element of a $C^\ast$-algebra $A$, and $f\in C(\spec a)$, then
 	\begin{align*}
@@ -521,13 +526,16 @@ that \todo{continuous functional calculus.}
 \end{prop}
 
 \begin{thm*}[{\cite[4.1.5]{kadison83}}]
-	If $B$ is a $C^\ast$-subalgebra of a $C^\ast$-algebra $A$, then $\sigma_B(b) =\sigma_A(b)$ for all 
-	$b$ in $B$.
+	If $B$ is a $C^\ast$-subalgebra of a $C^\ast$-algebra $A$, and $b$ is an element of $B$, then 
+	\[
+		\sigma_B(b) =\sigma_A(b).
+	\]
 \end{thm*}
-%As an aside, this theorem allows us to make the convention that the spectrum of an element $a$ in a 
-%non-unital $C^\ast$-algebra $A$ is defined to be the spectrum of $a$ in the unitization $\tilde A$ 
-%of $A$.
 
+
+As an aside, this theorem allows us to make the convention that the spectrum of an element $a$ in a 
+non-unital $C^\ast$-algebra $A$ is defined to be the spectrum of $a$ in the unitization $\tilde A$ 
+of $A$.
 
 
 
@@ -535,26 +543,30 @@ With commuting, self-adjoint elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\a
 ab$, so $ab$ is self-adjoint. Since each of $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
 $C^\ast$-subalgebra $C^\ast(\1,a,b)$, we have
 \begin{align*}
-	\spec{ab} \subseteq \spec{a}\spec{b}, \mbox { and} \\
+	\spec{ab} \subseteq \spec{a}\spec{b}; \mbox { in particular,} \\
 	r(ab) \leq r(a)r(b).
 \end{align*}
 \todo{this is 3.2.10/3.3.4. used in 4.1.1}
 
 
 \section{Further Definitions}
+In this section we will set out some further definitions, some of which we have already seen in the context of $\CX$, and prove some cool results.
 
-An element $a$ of a $C^\ast$-algebra $A$ is \emph{positive} if it is self-adjoint and $\spec a
-\subseteq \R^+$. 
-Denote the set of positive elements in $A$ by $A^+$. Then there is a partial order $\leq$ on 
-$A_{sa}$ defined by 
-\begin{align*}
-	a\leq b ~~\iff~~ b-a \mbox{ is positive}.
-\end{align*}
-The set of positive elements form a \emph{positive cone} in $A_{sa}$, which means that 
-\begin{enumerate}
-	\item 	$a\in A^+$ and $-a\in A^+$ implies that $a=0$,
-	\item	$\alpha a+b\in A^+$ for all $a,b \in A^+$ and $\alpha\in \R^+$.
-\end{enumerate}
+\begin{defn}
+	An element $a$ of a $C^\ast$-algebra $A$ is \emph{positive} if it is self-adjoint and $\spec a
+	\subseteq \R^+$. 
+	Denote the set of positive elements in $A$ by $A^+$. Then there is a partial order $\leq$ on 
+	$A_{sa}$ defined by 
+	\begin{align*}
+		a\leq b ~~\iff~~ b-a \mbox{ is positive}.
+	\end{align*}
+	The set of positive elements form a \emph{positive cone} in $A_{sa}$, which means that 
+	\begin{enumerate}
+		\item 	$a\in A^+$ and $-a\in A^+$ implies that $a=0$,
+		\item	$\alpha a+b\in A^+$ for all $a,b \in A^+$ and $\alpha\in \R^+$.
+	\end{enumerate}
+\end{defn}
+
 The unit $\1$ is positive (with $\spec \1 = \{1\}$). 
 
 \begin{lemma}[{\cite[4.2.3(ii)]{kadison83}}]\label{lemma:423}
@@ -904,7 +916,7 @@ $a\in A$. The map
 \[
 	\Gamma:A \to C(\P{A}) : a\mapsto \hat{a}
 \]
-is called the \emph{Gelfand transform} of $A$ \cite{davidson96}.
+is called the \emph{Gelfand transform} on $A$ \cite{davidson96}.
 For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
 \begin{align*}
 	\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
@@ -932,15 +944,6 @@ in fact a $\ast$-isomorphism.
 \end{proof}\todo[inline]{prove this.}%%
 
 
-The previous result generalises to not-necessarily-unital Abelian $C^\ast$-algebras as follows:
-\begin{thm*}[{\cite[I.2.7]{davidson96}}]
-	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C_0(X)$, the algebra of 
-	continuous functions on a locally compact Hausdorff space $X$ which vanish at infinity.
-\end{thm*}
-\begin{proof}
-	\todo[inline]{citation needed}%%
-\end{proof}
-The unitization of this algebra then corresponds to the one-point compactificaton of $X$.
 	
 \section{The Gelfand-Naimark Theorem}
 
@@ -948,8 +951,8 @@ The unitization of this algebra then corresponds to the one-point compactificato
 	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
 	is a $\ast$-homomorphism $\phi: A \to \BH$. 
 	A $\ast$-isomorphic representation is called \emph{faithful}.
-	If there exists an element $x\in\H$ such that the set $\{\phi(a) ~|~ a\in A\}$ is dense in $\H$, say 
-	that $\phi$ is a \emph{cyclic} representation, with \emph{cyclic vector} $x$.
+	If there exists an element $x\in\H$ such that the set $\{\phi(a)x ~|~ a\in A\}$ is dense in $\H$, 
+	say that $\phi$ is a \emph{cyclic} representation, with \emph{cyclic vector} $x$.
 \end{defn}	
 The construction used in the proof of the following theorem is known as the Gelfand-Naimark-Segal (GNS)
 construction.
@@ -966,7 +969,7 @@ construction.
 	
 	Consider the \emph{left kernel} of $\rho$:
 	\[
-		L_\rho = \{t \in A ~|~ \rho (t ^\ast t) = 0 \}.
+		L_\rho = \{a \in A ~|~ \rho (a ^\ast a) = 0 \}.
 	\]	
 	For $a,b \in A$, define $\langle a , b \rangle_0 = \rho(b^\ast a)$, then $\langle \cdot, \cdot \rangle_0$ satisfies
 	\begin{enumerate}
@@ -1033,8 +1036,8 @@ construction.
 		&=		0,
 	\end{align*}
 	so that $at \in L_\rho$, for all $a \in A$ and $t \in L_\rho$; 
-	we conclude that $L_\rho$ is a left ideal in $A$. \todo{why do we need closure?} Closure  of $L_\rho$ follows from the fact that 
-	it is the preimage in $A$ of $\{0\}$ under the continuous map $t \mapsto \rho (t^\ast t)$. 
+	we conclude that $L_\rho$ is a left ideal in $A$. $L_\rho$ is closed as the preimage in $A$ of $
+	\{0\}$ under the continuous map $a \mapsto \rho (a^\ast a)$. 
 	
 	Consider now the quotient space $V_\rho = A / L_\rho$, with $\langle \cdot,\cdot\rangle$ defined by 
 	\[
@@ -1050,8 +1053,8 @@ construction.
 		&\iff 	a+L_\rho = 0+L_\rho
 	\end{align*}
 	giving positive definiteness.
-	The completion of $V_\rho$ with respect to the induced norm $\|\cdot\|$ is a Hilbert space -
-	this is the Hilbert space $\Hr$ we're looking for.
+	The completion of $V_\rho$, with respect to the norm $\|\cdot\|$ induced by $\langle\cdot,\cdot
+	\rangle$, is a Hilbert space -- this is the Hilbert space $\Hr$ we're looking for.
 	
 	Now we fix $a \in A$, and consider the map 
 	\[
@@ -1059,7 +1062,7 @@ construction.
 	\]
 	Let $b_1, b_2 \in A$ be such that $b_1+L_\rho = b_2+L_\rho$. Then:
 	\begin{align*}
-		&\implies	b_1-b_2 \in L_\rho										\\	
+		&~~~~~~~~	b_1-b_2 \in L_\rho										\\	
 		&\implies	a(b_1-b_2) \in L_\rho									\\	
 		&\implies	ab_1-ab_2 \in L_\rho									\\	
 		&\implies	ab_1 + L_\rho = ab_2+L_\rho								\\	
@@ -1108,30 +1111,55 @@ construction.
 		&=		\rho(c^\ast ab)												\\
 		&=		\rho((a^\ast c)^\ast b)										\\
 		&=		\langle b+\Lr, a^\ast c+\Lr \rangle							\\
-		&=		\langle b+\Lr, \pi_{a^\ast}(c+\Lr),
+		&=		\langle b+\Lr, \pi_{a^\ast}(c+\Lr)\rangle,
 	\end{align*}
 	so that $ \pi_a^\ast = \pi_{a^\ast}$ on $\Vr$.\\
-	$\Vr \subset \Hr$ is a dense subset, so the three properties above hold on 
-	$\Hr$ by continuity of $\pi_\rho$. 
-	Hence, $\pi_\rho: A \to \B(\Hr)$ is a representation of $A$.
+	The subset $\Vr$ is dense in $\Hr$, so the three properties above hold on $\Hr$ by continuity of 
+	$\pi_\rho$. Hence, $\pi_\rho: A \to \B(\Hr)$ is a representation of $A$.
 	As to the unit vector, consider $\xr = \1 + \Lr \in \Vr$. Then for $a \in A$,
 	\begin{align*}
 				\langle \pi_\rho(a)\xr ,\xr \rangle 
 		&=		\langle \pi_a(\1+\Lr), \1+\Lr \rangle						\\
-		&=		\langle a+\Lr \1+\Lr \rangle								\\
+		&=		\langle a+\Lr, \1+\Lr \rangle								\\
 		&=		\rho(a);
 	\end{align*}
-	and in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$.	
+	and in particular, $\langle \xr,\xr \rangle = \rho (\1) = 1$, so $\xr$ is a unit vector in $\Hr$. 
+	The set $\{\pi_\rho(a)x_\rho ~|~ a\in A\}$ is the dense subset $\Vr$ of $\Hr$, so $x_\rho$ is a 
+	cyclic vector for $\rho$.
 \end{proof}
-\todo[inline]{example of construction on C(X)? short explanation of how B(H) and 
-C(X) link together. can then talk about noncommutative topology!} %%
+
+We know from Section \ref{section:CX} that all functionals of the form $\rho_x(f) = f(x)$, for $x$ in 
+$X$, are pure states on the $C^\ast$-algebra $\CX$. So, what happens if we apply the GNS construction to 
+$\rho_x$?
+
+Fix $x$ in $X$. If $\rho_x(\bar f f)=0$, then $(\bar f f)(x)=0$ and $f(x)=0$. Then the left kernel
+$L_{\rho_x}$ reduces to the kernel (in the usual linear sense) of $\rho_x$:
+\begin{align*}
+	L_{\rho_x} = \{f\in\CX ~|~ f(x) = 0\} = \ker(\rho_x).
+\end{align*}
+The kernel of a non-zero linear functional is a proper ideal, with codimension $1$, so when we take the 
+quotient we find that 
+\begin{align*}
+	V_{\rho_x} = \CX/L_{\rho_x} \cong \C,
+\end{align*}
+which we identify with $\C$ in the natural way: $f+L_{\rho_x} \mapsto f(x)$.
+Then for $g$ in $\CX$, the map 
+\begin{align*}
+	\pi_g:\C\to\C:z\mapsto g(x)z
+\end{align*} 
+is a linear operator on $\C$, and the map 
+\begin{align*}
+	\pi_{\rho_x}:\CX\to\B(\C):g\mapsto\pi_g
+\end{align*} 
+is a representation of $\CX$ on $\C$.
+The unit in $\CX$ is the constant function $\1$, which in $V_{\rho_x}$ is identified with $\1(x)=1$; so 
+we have that $1$ is a cyclic vector for the representation $\pi_{\rho_x}$.
 
 
-
-\begin{thm}[Gelfand-Naimark, {\cite[4.5.6]{kadison83}}]
-	Every $C^\ast$-algebra has a faithful representation.
-\end{thm}
-\begin{proof}
+We finish this section with the big result; that every $C^\ast$-algebra can be isometrically embedded 
+as a $C^\ast$-subalgebra of $\BH$, the $C^\ast$-algebra of bounded linear operators on a Hilbert space 
+$\H$. First, we need another definition.
+\begin{defn}
 	Let $A$ be a $C^\ast$-algebra. Suppose we have a collection $\{\phi_i ~|~i\in I\}$ of 
 	representations of $A$ on Hilbert spaces $\{\H_i ~|~ i\in I\}$.
 	For $a$ in $A$, we have $\|\phi_i(a)\|\leq \|a\|$ (by Proposition \ref{prop:homo}, as each $\phi_i$ 
@@ -1142,7 +1170,13 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	\]
 	is a $\ast$-homomorphism, and so is a representation of $A$ on $\oplus\H_i$. Call $\phi$ the 
 	\emph{direct sum} of the collection $\{\phi_i ~|~i\in I\}$, denoted $\oplus\phi_i$.
-	
+\end{defn}
+
+
+\begin{thm}[Gelfand-Naimark, {\cite[4.5.6]{kadison83}}]
+	Every $C^\ast$-algebra has a faithful representation.
+\end{thm}
+\begin{proof}
 	With $\S_0$ any collection of states on $A$ containing $\P{A}$, let $\phi$ be the direct sum of
 	the collection $\{\pi_\rho ~|~ \rho\in\S_0\}$ of representations as constructed by the GNS
 	construction. We will show that $\phi$ is a faithful representation.
@@ -1153,10 +1187,12 @@ C(X) link together. can then talk about noncommutative topology!} %%
 	faithful representation of $A$.
 \end{proof}
 
+Note that the proof of the Gelfand-Naimark theorem depends on a choice of the set $\S_0$ of states on 
+$A$, with the only restriction being that it contains the set of pure states $\P A$. If we take the 
+direct sum over the representations associated with all of $\S (A)$, then $\phi$ is called \emph{the 
+universal representation} of $A$.
 
 
-
-\todo[inline]{remark on different reps given by different $\S_0$s. the universal rep, the reduced atomic rep}
 \todo[inline]{give reference to further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, } %%
 \todo[inline]{references!!!!}%%
 
