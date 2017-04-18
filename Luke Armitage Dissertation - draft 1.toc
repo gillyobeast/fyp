@@ -1,17 +1,17 @@
-\contentsline {chapter}{\numberline {1}Preliminaries}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}History of The Study of Operator Algebras}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Background Mathematics and Resources.}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Aims}{4}{section.1.3}
-\contentsline {chapter}{\numberline {2}Foundational definitions and results}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Normed linear spaces}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Constructions on Hilbert spaces}{6}{section.2.2}
-\contentsline {section}{\numberline {2.3}Topological stuff}{8}{section.2.3}
-\contentsline {chapter}{\numberline {3}$C^\ast $-algebras}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Unitization}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}$C(X)$ - an example.}{12}{section.3.2}
-\contentsline {section}{\numberline {3.3}The Spectrum}{13}{section.3.3}
-\contentsline {section}{\numberline {3.4}Further Definitions}{14}{section.3.4}
-\contentsline {section}{\numberline {3.5}$\mathcal {B}(\mathcal {H})$ - an example.}{18}{section.3.5}
-\contentsline {chapter}{\numberline {4}Representations of $C^\ast $-algebras}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Abelian $C^\ast $-algebras}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Gelfand-Naimark Theorem}{22}{section.4.2}
+\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}History of The Study of Operator Algebras}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Background Mathematics and Resources.}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Summary of project}{5}{section.1.3}
+\contentsline {chapter}{\numberline {2}some definitions and results}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Normed linear spaces}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Constructions on Hilbert spaces}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Topological stuff}{9}{section.2.3}
+\contentsline {chapter}{\numberline {3}$C^\ast $-algebras}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Unitization}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}$C(X)$ - an example.}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}The Spectrum}{15}{section.3.3}
+\contentsline {section}{\numberline {3.4}Further Definitions}{16}{section.3.4}
+\contentsline {section}{\numberline {3.5}$\mathcal {B}(\mathcal {H})$ - an example.}{21}{section.3.5}
+\contentsline {chapter}{\numberline {4}Representations of $C^\ast $-algebras}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Abelian $C^\ast $-algebras}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Gelfand-Naimark Theorem}{24}{section.4.2}
