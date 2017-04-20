@@ -4,11 +4,12 @@
 \usepackage{enumitem}
 \usepackage{bbm}	%% makes \1 look good
 \usepackage{hyperref}
+%\usepackage{fullpage}
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
-
+\usepackage{csquotes}
 
 
 
@@ -32,6 +33,7 @@
 \renewcommand{\H}{\mathcal{H}}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\B}{\mathcal{B}}
+\newcommand{\K}{\mathcal{K}}
 \newcommand{\BH}{\mathcal{\B(\H)}}
 \newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\Vr}{V_\rho}
@@ -133,6 +135,7 @@ A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the con
 	\item for all $x,y$ and $z$ in $X$, if $x \leq y$ and $y\leq z$, then $x\leq z$. 
 												\hfill (transitivity)
 \end{itemize}
+\todo[inline]{define partial ordered vector space, give example of $\R$}
 
 \section{Normed linear spaces}
 
@@ -298,8 +301,9 @@ every point within the polygon can be written as a linear combination of the ver
 \end{thm*}
 
 \chapter{$C^\ast$-algebras}
-We begin this chapter with some definitions and an example, then give some results we 
-will need later and finish with a fundamental example.
+We begin this chapter with some definitions and an important example, then give some results we 
+will need later and finish with another fundamental example.
+\section{Definition}
 \begin{defn}
 	A \emph{Banach algebra} is a complex Banach space $A$ with norm $\|\cdot\|$ which forms an 
 	algebra, such that 
@@ -323,20 +327,18 @@ will need later and finish with a fundamental example.
 	This condition is known as the \emph{$C^\ast$ axiom}.\\
 	A subalgebra $B$ of a $C^\ast$-algebra $A$ is a \emph{$C^\ast$-subalgebra} if it is closed under the 
 	adjoint and complete with respect to the norm; equivalently, if $B$ is itself a $C^\ast$-algebra.
+	An element $a\in A$ of a $C^\ast$-algebra is called
+	\begin{itemize}
+		\item	\emph{normal} if $a^\ast a=aa^\ast$;
+		\item 	\emph{self-adjoint} if $a^\ast=a$.
+	\end{itemize}
 \end{defn}
-
-
-An element $a\in A$ of a $C^\ast$-algebra is called
-\begin{itemize}
-	\item	\emph{normal} if $a^\ast a=aa^\ast$;
-	\item 	\emph{self-adjoint} if $a^\ast=a$.
-\end{itemize}
 The set of self-adjoint elements $A_{sa}$ forms a vector space over $\R$.
 For $a$ in $A$, let $h=\tfrac{1}{2}(a+a^\ast)$ and $k=\tfrac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
 self-adjoint and we can write $a=h+ik$ -- call $h$ and $k$ the \emph{real} and \emph{imaginary} part of
 $a$, respectively.
 
-
+\todo[inline]{there is at most one $c^\ast$ norm on a $\ast$-algebra}
 
 \section{Unitization}
 If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
@@ -503,7 +505,7 @@ By the above theorem, $r(a)\leq\|a\|$.
 \end{thm*}
 
 \begin{lemma}[{\cite[4.1.1(i)]{kadison83}}]
-	If $a$ is a normal element of in a $C^\ast$-algebra, then $r(a)=\|a\|$.
+	If $a$ is a normal element of a $C^\ast$-algebra, then $r(a)=\|a\|$.
 \end{lemma}
 
 Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, complex 
@@ -511,7 +513,7 @@ valued functions on the spectrum of $a$.
 
 
 There is a unique continuous mapping $f\mapsto f(a)$ into $A$ such 
-that \todo{continuous functional calculus.}
+that [introduce continuous functional calculus] \todo{continuous functional calculus.}
 
 
 \begin{thm*}[Spectral mapping theorem {\cite[4.1.6]{kadison83}}]
@@ -534,7 +536,7 @@ that \todo{continuous functional calculus.}
 
 
 As an aside, this theorem allows us to make the convention that the spectrum of an element $a$ in a 
-non-unital $C^\ast$-algebra $A$ is defined to be the spectrum of $a$ in the unitization $\tilde A$ 
+non-unital $C^\ast$-algebra $A$ is defined to be the~spectrum of $a$ in the unitization $\tilde A$ 
 of $A$.
 
 
@@ -549,7 +551,7 @@ $C^\ast$-subalgebra $C^\ast(\1,a,b)$, we have
 \todo{this is 3.2.10/3.3.4. used in 4.1.1}
 
 
-\section{Further Definitions}
+\section{Further Definitions and results}
 In this section we will set out some further definitions, some of which we have already seen in the context of $\CX$, and prove some cool results.
 
 \begin{defn}
@@ -593,7 +595,9 @@ The unit $\1$ is positive (with $\spec \1 = \{1\}$).
 \begin{proof}
 	
 \end{proof}\todo[inline]{prove}%%
-
+This result shows that $\ast$-homomorphisms between $C^\ast$-algebras are automatically continuous, 
+showing that the algebraic an topological structure of these spaces are tied together by the $C^\ast$ 
+axiom.
 
 \begin{defn}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{positive} if $\rho(a)\geq 0$ for all 
@@ -802,8 +806,8 @@ this way.
 
 \section{$\B(\H)$ - an example.}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
-linear operators on a Hilbert space $\H$.  
-Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra and give some basic results.
+linear operators on a Hilbert space $\H$.  Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra 
+and show \todo[inline]{say what i end up doing here}
 
 \begin{claim} $\B(\H)$ is a $C^\ast$-algebra with the operator norm 
 \[
@@ -813,8 +817,9 @@ and involution taking $T$ to its adjoint map $T^\ast$.
 The identity map $I:x\mapsto x$ is a unit for $\BH$
 \end{claim}
 \begin{proof}
-	$\|\cdot\|$ is a norm on $\BH$. Let $\{T_n\}_{n\in\N}$ be a Cauchy sequence 
-	in $\BH$. Then for any positive $\epsilon$, there is a positive integer $N$ such that 
+	We know from functional analysis that $\|\cdot\|$ is a norm on $\BH$. Let $\{T_n\}_{n\in\N}$ be a 
+	Cauchy sequence in $\BH$. Then for any positive $\epsilon$, there is a positive integer $N$ such 
+	that 
 	\begin{align*}
 		\|T_m-T_n\| < \epsilon \mbox{ for all } m,n \geq N.
 	\end{align*}
@@ -837,8 +842,9 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 	\end{align*}
 	We conclude that $T_n \to T$, and so $\BH$ is complete.
 	
+	\todo{a bold claim}
 	Since boundedness is equivalent to continuity on $\H$, given $S,T\in\BH$, the operator 
-	$ST:\H \to \H; x \mapsto (S\circ T)(x)$ is bounded on $\H$.
+	$ST:\H \to \H: x \mapsto (S\circ T)(x)$ is bounded on $\H$.
 	Given $x\in\H$ and $\lambda\in\C$, 
 	\begin{align*}
 			((\lambda S)T)(x)
@@ -896,11 +902,30 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 
 
 
+\todo [inline]{define compact operators and discuss Calkin algebra?}%%
 
-\todo [inline]{example of $\B(\H)$ at end of section to retro-motivate notation.
-				define compact operators and discuss Calkin algebra?
-				discuss nomenclature (state etc) coming from QM}%%
 
+We make a remark now on how the theory of $C^\ast$-algebras relates to quantum mechanics, the very 
+subject which started the study of these objects, which explains a good deal of the terminology used 
+here. Paul Dirac's \emph{`Principles of Quantum Mechanics'} and von Neumann's \emph{`Mathematical 
+Foundations of Quantum Mechanics'} jointly established a formulation of Quantum Mechanics in terms of 
+Hilbert spaces and operators thereon. To summarise briefly, a physical quantity in a quantum mechanical 
+system has associated with it a self-adjoint operator $T$ on a Hilbert space $\H$,  while the state of 
+the system corresponds to a unit vector $\phi$ in $\H$. Then the expected outcome of measuring the 
+quantity corresponding to $T$ is given by evaluating $\langle\phi, T\phi\rangle$. In the context of $C^
+\ast$-algebras, these translate, in turn, to a self adjoint element $a$ of a $C^\ast$-algebra $A$, a 
+normalised positive linear functional $\rho$ (that is, a state) on $A$, and evaluation of $\rho(a)$.
+
+After stating his postulate, which he refers to as `\textbf{P.}', on the expectation value of a system 
+of observables $\mathscr{R_1},\dots,\mathscr{R_\ell}$ with corresponding operators $R_1,\dots, R_\ell$, 
+von Neumann makes a comment on a consequence in the model of the non-commutativity of operators on a 
+Hilbert space:
+\textquote[{\cite[p.~211]{vonneumann32}}]{In the case of noncommuting $R_1,\dots, R_\ell$, [...] 
+\textbf{P.} gave no information regarding the probability relations of $\mathscr{R_1},\dots,\mathscr{R_
+\ell}$. In this case, \textbf{P.} could be used only determine the probability distribution of each of 
+these quantities by itself, without consideration of the others.}
+
+\todo[inline]{probably just bin this, it's a load of crap $:^)$}
 
 
 
@@ -1316,7 +1341,8 @@ universal representation} of $A$.
 \bibitem{sakai71}
 	Sakai, S.,
 	\emph{C*-algebras and W*-algebras.}
-	Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 60. Springer-Verlag, New York-Heidelberg (1971).
+	Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 60. Springer-Verlag, New York-Heidelberg 
+	(1971).
 
 \bibitem{schroer03}
 	Schroer, B.,
@@ -1327,6 +1353,12 @@ universal representation} of $A$.
 	Simmons, G.,
 	\emph{Introduction to Topology and Modern Analysis.}
 	Robert E. Krieger Publishing Co., Inc., Melbourne, Fl. (1983).
+
+\bibitem{vonneumann32}
+	von Neumann, J.,
+	\emph{Mathematical Foundations of Quantum Mechanics.}
+	(as translated by Beyer, R.T.)
+	Princeton University Press (1955).
 
 \bibitem{vonneumann40}
 	von Neumann, J.,
