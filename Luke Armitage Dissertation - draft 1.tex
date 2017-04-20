@@ -8,6 +8,7 @@
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{csquotes}
 
@@ -34,6 +35,8 @@
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\K}{\mathcal{K}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\cover}{\mathcal{C}}
 \newcommand{\BH}{\mathcal{\B(\H)}}
 \newcommand{\Hr}{\mathcal{H}_\rho}
 \newcommand{\Vr}{V_\rho}
@@ -65,67 +68,71 @@
 \chapter{Introduction}
 
 \section{History of The Study of Operator Algebras}
-	The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics \cite{heisenberg25} 
-	led to Born and Jordan \cite{bornjordan25}, together with Heisenberg \cite{bornjordanheisenberg25}, 
-	developing the matrix mechanics required to concisely summarise the new quantum mechanical model. 
-	From 1935-1943, John von Neumann, together with F.J. Murray, developed the theory of \emph{rings of 
-	operators} acting on a Hilbert space \cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an 
-	attempt to establish a general framework for this matrix mechanics.
-	These rings of operators are now considered part of the theory of \emph{von Neumann algebras}, a 
-	subsection of $C^\ast$-algebra theory. 
-	Discussion of the seminal quantum mechanical works of Heisenberg can be found in \cite{mackinnon77}, and 
-	similarly \cite{schroer03} gives a summary of the works of Jordan expanding on this.
-	
-	In 1943 \cite{gelfand43}, Gelfand and Naimark established an abstract characterisation of 
-	$C^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.
-	The Gelfand-Naimark theorem, which we will be considering here at length, gives the link between these 
-	abstract $C^\ast$-algebras and the rings of operators previously studied.
-	Used in the proof of the GN theorem is the Gelfand-Naimark-Segal construction, a pair of results relating 
-	cyclic $\ast$-representations of $C^\ast$-algebras to certain linear functionals on that algebra. 
-	
-\section{Background Mathematics and Resources.}	
-	The following is some mathematics which may prove useful throughout the project, with relevant resources; 
-	we will of course be making definitions as needed, this is for further background and related theory.
+The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum mechanics 
+\cite{heisenberg25} led to Born and Jordan \cite{bornjordan25}, together with Heisenberg 
+\cite{bornjordanheisenberg25}, developing the matrix mechanics required to concisely summarise the new 
+quantum mechanical model. From 1935-1943, John von Neumann, together with F.J. Murray, developed the 
+theory of \emph{rings of operators} acting on a Hilbert space 
+\cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to establish a general 
+framework for this matrix mechanics.These rings of operators are now considered part of the theory of 
+\emph{von Neumann algebras}, a subsection of $C^\ast$-algebra theory. Discussion of Heisenberg's 
+discoveries in quantum mechanics can be found in \cite{mackinnon77}, and similarly \cite{schroer03} 
+gives a summary of the works of Jordan expanding on this. \todo [inline]{rework}
 
-	We will be assuming some familiarity with the following theory, giving some explanation as necessary:
+{In 1943, Gelfand and Naimark \cite{gelfand43} established an abstract characterisation of 
+$C^\ast$-algebras, free from dependence on the operators acting on a Hilbert space.The Gelfand-Naimark 
+theorem, which we will be considering here at length, gives the link between these abstract 
+$C^\ast$-algebras and the rings of operators previously studied. Used in the proof of the GN theorem is the 
+Gelfand-Naimark-Segal construction, a technique which, given a certain linear function on a $C^\ast$-
+algebra, yields a representation of that $C^\ast$-algebra as an algebra of operators on a Hilbert space.} 
+%%good, can stay
+	
+Some texts which cover $C^\ast$-algebras: 
+Dixmier \cite{dixmier77} presents a summary of the general theory up to that time (1977), with 
+\cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. Sakai 
+\cite{sakai71} gives a treatment of $C^\ast$- and von Neumann algebras from a more topological point of 
+view. Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of 
+operator algebras, and covering more specialised material and applications.
+Throughout this work we will be making extensive use of (the first volume of) \emph{`Fundamentals of the 
+Theory of Operator Algebras'}, by Kadison and Ringrose; the authors aim to make accessible the ``vast 
+recent research literature'', by first introducing and exploring the prototypical examples and 
+developing the abstract theory later.
+
+	
+\section{An Overview}
+
+After this introductory chapter, we give some definitions and results which will be used throughout, and 
+establish notation. Then the definition of a $C^\ast$-algebra is given, with some discussion of algebras 
+with a multiplicative identity, followed by an exploration of an example with some previews of concepts 
+later defined. We move on to discussing a powerful tool in this area, and indeed all of functional 
+analysis, which is the concept of the spectrum of an element; then we make some more definitions and 
+discuss how the topological and algebraic structures of $C^\ast$-algebras are related. We finish that 
+chapter with another example, with a remark on what makes the abstract study of $C^\ast$-algebras 
+applicable to quantum mechanics. The final chapter contains the statements and proofs of the Gelfand-Naimark theorems, and a discussion of how they relate to each other.
+
+
+
+
+\chapter{Background Mathematics and Resources}	
+The following is some mathematics which may prove useful throughout the project, with relevant 
+resources; we will of course be making definitions as needed.
+	
+We will be assuming some familiarity with the following theory:
 \begin{itemize}
 	\item Rings, algebras and linear spaces.
 	\item Normed spaces, inner product spaces, Banach and Hilbert spaces.
 	\item Point-set topology.
 \end{itemize}
-	A good broad background on all of these can be found in \cite{simmons83}.
+A good broad background on all of these can be found in \cite{simmons83}.
 
-	Some texts which cover $C^\ast$-algebras: 
-	Dixmier \cite{dixmier77} presents a summary of the general theory up to that time (1977), with 
-	\cite{dixmier81} focussing on reworking and developing the theory of von Neumann algebras. 
-	Sakai \cite{sakai71} gives a treatment of $C^\ast$- and von Neumann algebras from a more topological point 
-	of view. In \cite{kadison83,kadison86}, the authors aim to make accessible the ``vast recent research 
-	literature'' in this subsection of functional analysis.
-	Blackadar \cite{blackadar06} gives a much faster, more encyclopaedic coverage of the theory of operator 
-	algebras, and covering more specialised material and applications.
+
 	
-\todo[inline]{move 'background mathematics' to 'definitions and results'}
 	
-\section{Summary of project}
-	The aims for this project are:
-\begin{itemize}
-	\item Give a good background understanding on $C^\ast$-algebras, including topological and geometric interpretation of results where possible.
-	\item Consider the representation theory of $C^\ast$-algebras, using the Gelfand-Naimark-Segal construction as a starting point.
-	\item Consider the commutative and general versions of the Gelfand-Naimark theorem, and understand their contents and proof.
-\end{itemize}
-
-
-
-
-%  most texts start from $\BH$ to justify the whole thing. we're algebraists, who don't need no justification. we jump right in at the deep (abstract) end.
-\todo[inline]{rewrite as a summary of project chapter by chapter.} %%
-
-
-\chapter{some definitions and results}
-
-
 The following notation applies throughout:
-$\mathbb{K}$ denotes a field. $\R^+$ denotes the non-negative reals. An ideal of an algebra is, unless otherwise stated, taken to mean a two-sided ideal. 
+$\mathbb{K}$ denotes a field. $\R^+$ denotes the non-negative reals. An ideal of an algebra is, unless 
+otherwise stated, taken to mean a two-sided ideal. 
+
+\section{Linear spaces}
 
 A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the conditions
 \begin{itemize}
@@ -135,9 +142,14 @@ A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the con
 	\item for all $x,y$ and $z$ in $X$, if $x \leq y$ and $y\leq z$, then $x\leq z$. 
 												\hfill (transitivity)
 \end{itemize}
-\todo[inline]{define partial ordered vector space, give example of $\R$}
 
-\section{Normed linear spaces}
+A \emph{positive cone} in a real vector space $V$ is a subset $V^+$ that is closed under addition and scaling by positive scalars, and if $v,-v$ are in $V^+$, then $v=0$. A \emph{partially ordered vector space} is a real vector space $V$ with a positive cone $V^+$ -- the partial order on $V$ given by
+\begin{align*}
+	x\leq y ~~\iff~~ y-x \in V^+,
+\end{align*}
+for $x,y$ in $V$.
+A familiar example is the non-negative real numbers, which form a positive cone in $\R$.
+
 
 Given a linear space $X$ over a field $\mathbb K$, a \emph{linear functional} on $X$ is a linear map 
 $\rho:X\to\mathbb K$. The set $X^\ast$ of linear functionals on $X$ is itself a linear space, called
@@ -262,7 +274,23 @@ $\B(\H_i)$, $\alpha,\beta$ in $\C$, we have
 \end{align*}
 
 \section{Topological stuff}
-\todo[inline]{define: hausdorff/compact/locally compact/denseness/uniform continuity}
+By a \emph{topological space} we mean a set $X$ endowed with a collection $\T$ of subsets of $X$ such 
+that $\T$ is closed under finite intersections and arbitrary unions, and contains both $X$ and the empty 
+set. A \emph{neighbourhood} of a point $x$ is a subset of $X$ which contains an open set which itself 
+contains $x$. An \emph{open cover} of $X$ is a collection $\cover$ of open sets whose union contains $X
+$, and a subset of $\cover$ which still covers $X$ is called a \emph{subcover}. 
+A topological space $X$ is said to be:
+\begin{itemize}
+	\item \emph{Hausdorff} if, for every distinct pair of points $x,y$ of $X$, there is a neighbourhood 
+	of $x$ which is disjoint from some neighbourhood of $y$;
+	\item \emph{compact} if every open cover of $X$ has a finite subcover;
+	\item \emph{locally compact} if every point of $x$ has a compact neighbourhood.
+\end{itemize}
+Most of the topology we use will be compact and Hausdorff, and locally compact and Hausdorff at the 
+least.
+A subset $Y$ of $X$ is said to be \emph{dense} in $X$ every non-empty open set in $X$ contains an element of $A$ -- equivalently, if $X$ is the largest closed set containing $Y$.
+The topology \emph{generated by a collection $\B$} is the collection containing $\B$ and all finite 
+intersections and arbitrary unions over $\B$.
 
 A \emph{topological vector space} is a vector space $V$ over $\mathbb K$, together with a topology on 
 $V$ such that the vector space operations $V\times V\to V:(x,y)\mapsto x+y$ and $\mathbb{K}\times V\to 
@@ -330,15 +358,15 @@ will need later and finish with another fundamental example.
 	An element $a\in A$ of a $C^\ast$-algebra is called
 	\begin{itemize}
 		\item	\emph{normal} if $a^\ast a=aa^\ast$;
-		\item 	\emph{self-adjoint} if $a^\ast=a$.
+		\item 	\emph{self-adjoint} if $a^\ast=a$;
+		\item 	\emph{unitary} if $a^\ast a = aa^\ast =\1$. 
 	\end{itemize}
 \end{defn}
 The set of self-adjoint elements $A_{sa}$ forms a vector space over $\R$.
 For $a$ in $A$, let $h=\tfrac{1}{2}(a+a^\ast)$ and $k=\tfrac{i}{2}(a-a^\ast)$. Then $h$ and $k$ are 
 self-adjoint and we can write $a=h+ik$ -- call $h$ and $k$ the \emph{real} and \emph{imaginary} part of
-$a$, respectively.
+$a$, respectively. Note that an element being self-adjoint, or unitary, implies that it is normal.
 
-\todo[inline]{there is at most one $c^\ast$ norm on a $\ast$-algebra}
 
 \section{Unitization}
 If a $C^\ast$-algebra $A$ contains an identity element $\1$ such that 
@@ -403,7 +431,7 @@ condition, where properties do not pass from a $C^\ast$-algebra to its maximal i
 means a universal assumption that a $C^\ast$-algebra has a unit element.
 
 
-\section{$\CX$ - an example.} \label{section:CX}
+\section{$\CX$ - an example} \label{section:CX}
 Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
 $f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
 \[
@@ -461,18 +489,18 @@ states on a $C^\ast$-algebra (which we will show in Proposition \ref{prop:puremu
 are in fact all of the pure states on $\CX$.
 
 We finish this section by remarking that if we take $X$ to be a non-compact, \emph{locally} compact 
-space, then we are required to take $\CX$ to be the set of continuous complex valued functions which 
-\emph{vanish at infinity} in some sense\footnote
+Hausdorff space, then we are required to take $\CX$ to be the set of continuous complex valued functions 
+which \emph{vanish at infinity} in some sense\footnote
 {We say $f:X\to\C$ \emph{vanishes at infinity} if for all positive $\epsilon$ there exists a compact 
-subset $K$ of $X$ such that $|f(x)|<\epsilon$ for all $x$ outside of $K$.}. 
-With this restriction, we lose the constant function $\1$, so $\CX$ is no longer unital. 
+subset $K$ of $X$ such that $|f(x)|<\epsilon$ for all $x$ outside of $K$.}. This restriction ensures 
+that the supremum used to define the norm on $\CX$ exists -- however, we lose the constant function 
+$\1$, so $\CX$ is no longer unital. 
 It turns out that the unitization of $\CX$ corresponds to the continuous functions on the one-point 
-compactification of $X$ -- see [reference].
+compactification of $X$ -- see \cite[II.1.2.2]{blackadar06}.
 
 
 
 \section{The Spectrum}
-\todo[inline]{write spectral theory section.} %%
 We will just state the necessary definitions and results here, and defer proofs to sources.
 
 \begin{defn}
@@ -504,19 +532,32 @@ By the above theorem, $r(a)\leq\|a\|$.
 	\end{align*}
 \end{thm*}
 
-\begin{lemma}[{\cite[4.1.1(i)]{kadison83}}]
+\begin{lemma}[{\cite[4.1.1(i)]{kadison83}}]\label{lemma:411}
 	If $a$ is a normal element of a $C^\ast$-algebra, then $r(a)=\|a\|$.
 \end{lemma}
 
-Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, complex 
-valued functions on the spectrum of $a$. 
+From this it can be shown that the norm on a $C^\ast$ algebra $A$ is unique, in the sense that only one norm on $A$ can satisfy the $C^\ast$-axiom. \cite[II.1.6.5]{blackadar06}
 
 
-There is a unique continuous mapping $f\mapsto f(a)$ into $A$ such 
-that [introduce continuous functional calculus] \todo{continuous functional calculus.}
 
+\begin{thm*}[Continuous functional calculus, {\cite[4.1.3]{kadison83}}]
+	Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra of continuous, 
+	complex valued functions on the spectrum of $a$. There is a unique continuous mapping $C(\spec a):f
+	\mapsto f(a)$ such that:
+	\begin{enumerate}
+		\item	if $f$ is a polynomial, $f(z)=\alpha_1+\alpha_2z+\dots+\alpha_mz^m$, then 
+						\[f(a)=\alpha_1\1+\alpha_2a+\dots+\alpha_ma^m;\]
+		\item	$\|f(a)\| = \|f\|$;
+		\item	$(\alpha f+\beta G)(a) = \alpha f(a) + \beta g(a)$;
+		\item	$fg(a)=f(a)g(a)$;
+		\item	$\overline{f}(a) = (f(a))^\ast$;
+		\item	$f(a)$ is normal;
+		\item	$f(a)b=bf(a)$ for all $b$ in $A$ such that $ab=ba$.
+	\end{enumerate}
+	Moreover, each $f$ in $C(\spec a)$ is the limit of a sequence of polynomials over $\C$.
+\end{thm*}
 
-\begin{thm*}[Spectral mapping theorem {\cite[4.1.6]{kadison83}}]
+\begin{thm*}[Spectral mapping theorem, {\cite[4.1.6]{kadison83}}]
 	If $a$ is a self adjoint element of a $C^\ast$-algebra $A$, and $f\in C(\spec a)$, then
 	\begin{align*}
 		\spec{f(a)} = \{f(t) ~|~ t \in \spec a\}.
@@ -541,15 +582,6 @@ of $A$.
 
 
 
-With commuting, self-adjoint elements $a,b\in A_{sa}$, we have $(ab)^\ast = b^\ast a^\ast = ba =
-ab$, so $ab$ is self-adjoint. Since each of $a,b,ab$ have the same spectrum in $A$ as in the Abelian 
-$C^\ast$-subalgebra $C^\ast(\1,a,b)$, we have
-\begin{align*}
-	\spec{ab} \subseteq \spec{a}\spec{b}; \mbox { in particular,} \\
-	r(ab) \leq r(a)r(b).
-\end{align*}
-\todo{this is 3.2.10/3.3.4. used in 4.1.1}
-
 
 \section{Further Definitions and results}
 In this section we will set out some further definitions, some of which we have already seen in the context of $\CX$, and prove some cool results.
@@ -557,15 +589,16 @@ In this section we will set out some further definitions, some of which we have 
 \begin{defn}
 	An element $a$ of a $C^\ast$-algebra $A$ is \emph{positive} if it is self-adjoint and $\spec a
 	\subseteq \R^+$. 
-	Denote the set of positive elements in $A$ by $A^+$. Then there is a partial order $\leq$ on 
-	$A_{sa}$ defined by 
+	Denote the set of positive elements in $A$ by $A^+$. Then $A_{sa}$ is a partially ordered vector space 
+	with $\leq$ given by 
 	\begin{align*}
-		a\leq b ~~\iff~~ b-a \mbox{ is positive}.
+		a\leq b ~~\iff~~ b-a \mbox{ is positive}
 	\end{align*}
-	The set of positive elements form a \emph{positive cone} in $A_{sa}$, which means that 
+	for $a,b$ in $A_{sa}$.
+	The set of positive elements form a positive cone in $A_{sa}$, which means that 
 	\begin{enumerate}
-		\item 	$a\in A^+$ and $-a\in A^+$ implies that $a=0$,
-		\item	$\alpha a+b\in A^+$ for all $a,b \in A^+$ and $\alpha\in \R^+$.
+		\item 	$\alpha a+b\in A^+$ for all $a,b \in A^+$ and $\alpha\in \R^+$,
+		\item	$a\in A^+$ and $-a\in A^+$ implies that $a=0$.
 	\end{enumerate}
 \end{defn}
 
@@ -593,11 +626,28 @@ The unit $\1$ is positive (with $\spec \1 = \{1\}$).
 	$\|\phi(a)\| = \|a\|$ for all $a \in A$.
 \end{prop}
 \begin{proof}
+	With $a$ in $A$, if $\alpha$ is not a spectral value for $a$, $\alpha\1_A-a$ has an inverse $s$ in 
+	$A$. Since $\phi(\1_A) =\1_b$, $\alpha \1_A-\phi(a)$ has inverse $\phi(s)$ in $B$, so $\alpha$ is 
+	not a spectral value of $\phi(a)$; hence $\spec {\phi(a)}\subseteq \spec a$, and in particular, 
+	$r(\phi(a))\leq r(a)$. By Lemma \ref{lemma:411}, since $a^\ast a$ is normal, we have 
+	\begin{align*}
+		\|a\|^2			&=	\|a^\ast a\| 	= 	r(a^\ast a); 	\mbox{ and }	\\
+		\|\phi(a)\|^2 &=\|\phi(a)^\ast\phi(a)\| = 
+							 \|\phi(a^\ast a)\| = r(\phi(a^\ast a)).
+	\end{align*}
+	so $\|\phi(a)\|\leq \|a\|$.
 	
-\end{proof}\todo[inline]{prove}%%
-This result shows that $\ast$-homomorphisms between $C^\ast$-algebras are automatically continuous, 
-showing that the algebraic an topological structure of these spaces are tied together by the $C^\ast$ 
-axiom.
+	If $a$ is a self-adjoint element of $A$ and $f \in C(\spec a)$, then $\phi(f(a))=f(\phi(a))$. This 
+	follows from the final assertion of the continuous functional calculus.
+	
+	Now suppose $\phi$ is a $\ast$-isomorphism, and for a self-adjoint $a$ in $A$, suppose $
+	\spec{\phi(a)} \subsetneq \spec a$. Then there is a non-zero $f$ in $C(\spec a)$ whose restriction 
+	to $\spec{\phi(a)}$ is 0. From the previous paragraph, however, $\phi(f(a))=f(\phi(a))=0$, so that 
+	$f(a)\not= 0$ is in the kernel of $\phi$; thus contradicting the assumption that $\phi$ is 
+	one-to-one, and we conclude that $\spec{\phi(a)} = \spec a$. A similar argument to the one in the 
+	first half of this proof shows that $\|\phi(a)\|=\|a\|$ and completes the proof.
+\end{proof}
+This result shows that $\ast$-homomorphisms between $C^\ast$-algebras are automatically continuous, and $\ast$-isomorphisms are isometries, showing that the algebraic and topological structure of these spaces are tied together by the $C^\ast$ axiom.
 
 \begin{defn}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{positive} if $\rho(a)\geq 0$ for all 
@@ -610,18 +660,17 @@ We can extend the partial order notation to linear functionals. Given linear fun
 	\rho \leq \tau ~~\iff~~ \tau - \rho \mbox{ is positive}.
 \end{align*}
 
-Some of the concepts here may be very familiar to the reader as extensions of the theory of complex numbers -- $\C$ is in fact a $C^\ast$-algebra itself. We know from complex analysis that Cauchy sequences converge in $\C$ and 
+Some of the concepts here may be very familiar to the reader as extensions of the theory of complex numbers -- $\C$ is in fact a $C^\ast$-algebra itself. We know from complex analysis that Cauchy sequences converge in $\C$ and that complex conjugation is an involutive operation
 
 \todo[inline]{geometric interpretation - for $A=\C$, self adjoint elements are real numbers and the
  positive cone is $\R^+$. } %%
 
-\begin{prop}[{\cite[4.3.2]{kadison83}}]
+\begin{prop}[{\cite[4.3.2]{kadison83}}]\label{prop:432}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is positive if and only if $\rho$ is bounded
 	and $\|\rho\| = \rho(\1)$.
 \end{prop}
-\begin{proof} \todo[inline]{rework; explain further.}%%
+\begin{proof}
 	Suppose that $\rho$ is positive. With $a$ in $A$, let $\alpha$ be a scalar of modulus $1$ 
-	\todo{why does this exist?} %%
 	such that $\alpha\rho(a)\geq 0$, and let $h$ be the real part of $a$.
 	Since $h$ is self adjoint, (by 4.2.3(ii)) we have $h \leq \|h\|\1 \leq \|a\|\1$. Thus, $\|a\|\1-h$
 	is positive and 
@@ -664,16 +713,16 @@ Some of the concepts here may be very familiar to the reader as extensions of th
 	so that $\beta=0$. We conclude that $\rho$ is positive.
 \end{proof}
 
+The following result follows easily from the Cauchy-Schwarz inequality for inner products.
 \begin{prop*}[Cauchy-Schwarz inequality, {\cite[4.3.1]{kadison83}}]
 	If $\rho$ is a positive linear functional on $C^\ast$-algebra $A$, then for all $a$ and $b$ in $A$,
 	\begin{align*}
 		|\rho(b^\ast a)|^2 \leq \rho(a^\ast a)\rho(b^\ast b).
 	\end{align*}
 \end{prop*}
-\todo{prove?}
 
 
-\begin{lemma}[{\cite[4.3.3]{kadison83}}]
+\begin{lemma}[{\cite[4.3.3]{kadison83}}]\label{lemma:433}
 	Let $A$ be a $C^\ast$-algebra. For any $a$ in $A$ and $\alpha\in\spec{a}$, there exists a state
 	$\rho$ on $A$ such that $\rho(a)=\alpha$.
 \end{lemma}
@@ -696,7 +745,7 @@ Some of the concepts here may be very familiar to the reader as extensions of th
 \end{lemma}
 \begin{proof}
 	Suppose first that $a$ is self-adjoint, and $\rho(a)=0$ for all states $\rho$. By the previous
-	result, $\spec{a}=\{0\}$, so $\|a\|=r(a)=0$. Hence $a=0$.			\\
+	result, $\spec{a}=\{0\}$, so $\|a\|=r(a)=0$ (using Lemma \ref{lemma:411}). Hence $a=0$.			\\
 	Now write $a=h+ik$, for $h$ and $k$ the real and imaginary part of $a$ respectively. Then
 	\begin{align*}
 		0=\rho(a)=\rho(h)+i\rho(k),
@@ -714,8 +763,8 @@ states.
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear 
 functional $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure
 state on $A_{sa}$.
-Every pure state on $A_{sa}$ extends to a pure state on $A$ with the same norm, by the Hahn-Banach 
-theorem. We will need the following few results on pure states later.
+Conversely, every pure state on $A_{sa}$ extends to a pure state on $A$ with the same norm, by the Hahn-
+Banach theorem. 
 
 \begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{lemma:pure1}
 	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all \emph{pure} states $\rho$ on $A$, then $a=0$.
@@ -755,8 +804,16 @@ Recall that a linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{multip
 \rho(a)\rho(b)$ for all $a,b$ in $A$. The set of all non-zero multiplicative linear functionals on $A$ 
 is called the \emph{maximal ideal space} of $A$, denoted $\M_A$. This name hints at the fact that the 
 kernel of each of these functionals is a maximal ideal of $A$, and all maximal ideals of $A$ arise in 
-this way. 
-\cite[Theorem I.2.5]{davidson96}
+this way.\cite[Theorem I.2.5]{davidson96}
+
+\begin{lemma}[{\cite[3.2.20]{kadison83}}]\label{lemma:3220}
+	The maximal ideal space of Banach algebra $A$ form a compact subset of the unit ball of the dual 
+	space $A^\ast$, relative to the weak$^\ast$ topology.
+\end{lemma}
+\begin{proof}
+	Follows from the Banach-Alaoglu theorem.
+\end{proof}
+
 \begin{prop}[{\cite[4.4.1]{kadison83}}]\label{prop:puremult}
 	The set of pure states on an Abelian $C^\ast$-algebra $A$ is precisely the maximal ideal space of 
 	$A$.
@@ -764,7 +821,6 @@ this way.
 \begin{proof}
 	Suppose $\rho$ is a pure state on $A$. To show that $\rho(ab)=\rho(a)\rho(b)$ for $a,b,\in A$,
 	we restrict attention to the case where $0\leq b\leq\1$. Linearity gives us the general case.
-	\todo{show} %%
 	In this case, for $h\in A^+$ we have that $0\leq hb\leq h$, so $0\leq\rho(hb)\leq\rho(h)$.
 	Hence $\rho_b(a)=\rho(ab)$ for $a\in A$ defines a positive linear functional on $A$ with 
 	$\rho_b\leq\rho$. The restriction $\rho|_{A_{sa}}$ is a pure state on $A_{sa}$ and 
@@ -776,7 +832,8 @@ this way.
 							\alpha\rho(\1)\rho(a) = \rho_b(\1)\rho(a) = \rho(b)\rho(a)
 	\end{align*}
 	
-	Conversely, suppose $\rho$ is a multiplicative linear functional. \todo[inline]{show a state.} %% 
+	Conversely, suppose $\rho$ is a multiplicative linear functional. By Lemma \ref{lemma:3220}, $
+	\rho$ is bounded and $\|\rho\|=\rho(\1)=1$, so by Proposition \ref{prop:432}, $\rho$ is a state.
 	Suppose we can write $\rho=\alpha\rho_1+\beta\rho_2$ for states $\rho_1,\rho_2$ on $A$ and 
 	$\alpha,\beta >0$ such that $\alpha+\beta=1$. For $c\in A_{sa}$, by the Cauchy-Schwarz inequality
 	 we have for $j=1,2$:
@@ -804,10 +861,12 @@ this way.
 \todo[inline]{discuss weak* topology on P(S)}  %%
 
 
-\section{$\B(\H)$ - an example.}
+\section{$\B(\H)$ - an example}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
-linear operators on a Hilbert space $\H$.  Here we will demonstrate that $\B(\H)$ is a $C^\ast$-algebra 
-and show \todo[inline]{say what i end up doing here}
+linear operators on a Hilbert space $\H$, otherwise known as \emph{operator algebras}. Here we will 
+demonstrate that $\B(\H)$ is a $C^\ast$-algebra and show \todo[inline]{say what i end up doing here}
+
+
 
 \begin{claim} $\B(\H)$ is a $C^\ast$-algebra with the operator norm 
 \[
@@ -816,7 +875,7 @@ and show \todo[inline]{say what i end up doing here}
 and involution taking $T$ to its adjoint map $T^\ast$. 
 The identity map $I:x\mapsto x$ is a unit for $\BH$
 \end{claim}
-\begin{proof}
+\begin{proof}\todo{nah, show this}
 	We know from functional analysis that $\|\cdot\|$ is a norm on $\BH$. Let $\{T_n\}_{n\in\N}$ be a 
 	Cauchy sequence in $\BH$. Then for any positive $\epsilon$, there is a positive integer $N$ such 
 	that 
@@ -902,14 +961,13 @@ The identity map $I:x\mapsto x$ is a unit for $\BH$
 
 
 
-\todo [inline]{define compact operators and discuss Calkin algebra?}%%
-
-
 We make a remark now on how the theory of $C^\ast$-algebras relates to quantum mechanics, the very 
 subject which started the study of these objects, which explains a good deal of the terminology used 
-here. Paul Dirac's \emph{`Principles of Quantum Mechanics'} and von Neumann's \emph{`Mathematical 
-Foundations of Quantum Mechanics'} jointly established a formulation of Quantum Mechanics in terms of 
-Hilbert spaces and operators thereon. To summarise briefly, a physical quantity in a quantum mechanical 
+here. The terminology for normal, positive and unitary elements of a $C^\ast$-algebra comes from the 
+corresponding concepts when studying operator algebras. 
+Paul Dirac's \emph{`Principles of Quantum Mechanics'} and von Neumann's \emph{`Mathematical Foundations 
+of Quantum Mechanics'} jointly established a formulation of Quantum Mechanics in terms of 
+Hilbert spaces, and operators thereon. To summarise briefly, a physical quantity in a quantum mechanical 
 system has associated with it a self-adjoint operator $T$ on a Hilbert space $\H$,  while the state of 
 the system corresponds to a unit vector $\phi$ in $\H$. Then the expected outcome of measuring the 
 quantity corresponding to $T$ is given by evaluating $\langle\phi, T\phi\rangle$. In the context of $C^
@@ -925,7 +983,6 @@ Hilbert space:
 \ell}$. In this case, \textbf{P.} could be used only determine the probability distribution of each of 
 these quantities by itself, without consideration of the others.}
 
-\todo[inline]{probably just bin this, it's a load of crap $:^)$}
 
 
 
