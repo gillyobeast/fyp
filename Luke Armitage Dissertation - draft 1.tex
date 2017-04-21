@@ -130,29 +130,8 @@ Gelfand-Naimark theorems, and a discussion of how they relate to each other.
 Topics in $C^\ast$-algebra theory which follow on from this include the classification of different 
 types of $C^\ast$-algebras, such as \emph{approximately-finite dimensional} $C^\ast$-algebras, which are 
 made up in a certain way from finite dimensional $C^\ast$-algebras. 
-$K$-theory, on $C^\ast$-algebras, refers to the study of groups related to the structure of projective 
-elements.
-
-
-\iffalse 
-Research in C$^\ast$-algebras is still very much active, with much work going into, for example: 
-amenable C$^\ast$ algebras and classification of approximately-finite dimensional (AF) C$^\ast$ 
-algebras; 
-actions of compact groups on C$^\ast$ algebras; 
-classification of separable simple nuclear C$^\ast$ algebras; 
-single operator theory and spectral theory; 
-operator K-theory, K-homology and KK-theory; 
-*-derivations;
-homogeneous C$^\ast$-algebras.
-
-
-Lin \cite{lin01} gives a summary of the state of the K-theoretical classification of amenable C$^\ast$-algebras, building on Elliott's summary \cite{elliott94} of research on the topic. 
-Lin is also prolific in research on classification of C$^\ast$-algebras in general, for example \cite{lin08,lin11} are considered important papers on the topic.
-The Ph.D. thesis \cite{gardella15} of Gardella concerns itself in part with classifying the actions of compact groups on C$^\ast$-algebras.
-Pedersen \cite{pedersen79} covers most of the usual basic theory before moving on to cover a great deal of advanced theory, including automorphism groups of C$^\ast$-algebras and spectral theory for such groups.
-J.M.G. Fell \cite{fell61} uses theory of fibre bundles, homogeneous algebras and algebras of continuous trace, to get at the group C$^\ast$-algebra for SL$(2,\mathbb{C})$.
-Niemiec \cite{niemiec12} gives an elementary proof of a result \cite[Theorem 3.2]{fell61} from Fell, on $n$-homogeneous C$^\ast$-algebras, and proposes a spectral theorem for these $n$-homogeneous systems.
-\fi
+Another area of research is $K$-theory, which for $C^\ast$-algebras refers to the study of groups 
+related to the structure of projective elements.
 
 \chapter{Background Mathematics and Resources}	
 The following is some mathematics which may prove useful throughout the project, with relevant 
@@ -821,13 +800,27 @@ Conversely, every pure state on $A_{sa}$ extends to a pure state on $A$ with the
 Hahn-Banach theorem. 
 
 \begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{lemma:pure1}
-	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all \emph{pure} states $\rho$ on $A$, then $a=0$.
+	Let $a$ be an element of a $C^\ast$-algebra $A$. If $\rho(a)=0$ for all \emph{pure} states $\rho$ on 
+	$A$, then $a=0$.
 \end{lemma}
 \begin{proof}
 	Since every state is the limit of a sequence of linear combinations of pure states, if $\rho(a)=0$ 
 	for all pure states $\rho$ on $A$, then $\rho(a)=0$ for \emph{all} states $\rho$ on $A$. The result 
 	follows immediately from Lemma \ref{lemma:state1}.
 \end{proof}
+\begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{lemma:pure2}
+	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a pure state $\rho_0$ on $A$ such that $|\rho_0(a)|=\|a\|$.
+\end{lemma}
+\begin{proof}
+	By Lemma \ref{}, there is a scalar $\gamma$ and a state $\tau$ on $A$ such that $\tau(a)=\gamma$ and $|\gamma|=\|a\|$. Let $\hat t$ be the continuous linear functional on $A^\ast$ that takes $\rho$ to $\rho(t)$, and let $\alpha$ be a complex number such that $|\alpha|=1$ and $\tau(\alpha a) = |c| = \|a\|$. From \ref{}, there is a $\rho_0$ in $\P A$ such that 
+	\begin{align*}
+				\|a\|
+		&\geq 	|\rho_0(a)| \geq \mbox{Re } \widehat {\alpha a}(\rho_0)					\\
+		&\geq 	\sup_{\rho\in \S(A)} \mbox{Re }\widehat {\alpha a}(\rho) 				\\
+		&\geq	\mbox{Re }\widehat {\alpha a}(\tau) = \mbox{Re }\tau(\alpha a) = \|a\|	
+	\end{align*}
+\end{proof}
+\todo[inline]{finish by adding referred to lemmata}
 
 \begin{prop}[{\cite[3.4.6]{kadison83}}]\label{prop:pure2}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on
@@ -899,24 +892,22 @@ this way.\cite[Theorem I.2.5]{davidson96}
 						- \big(\alpha\rho_1(c)+\beta\rho_2(c)\big)^2			\\
 		&=		\alpha\beta\big(\rho_1(c) - \rho_2(c)\big)^2.
 	\end{align*}
-	Hence $\rho_1(c)=\rho_2(c)$, for all $c\in A_{sa}$, so $\rho_1=\rho_2$ and we conclude
+	Hence $\rho_1(c)=\rho_2(c)$, for all $c\in A_{sa}$, so $\rho_1=\rho_2 =\rho$ and we conclude
 	that $\rho$ is a pure state. 
 \end{proof}
 
 
-The set $\P A$ of pure states on $A$ is a subset of the dual space $A^\ast$, and when we take $A^\ast$ with the weak$^\ast$ topology, 
+The set $\P A$ of pure states on $A$ is a subset of the dual space $A^\ast$, and when we take $A^\ast$ with the weak$^\ast$ topology, we get a compact Hausdorff space, which is the object of study in the Gelfand-Naimark theorem for commutative algebras.
 
 \begin{lemma}[{\cite[3.2.20]{kadison83}}]\label{lemma:3220}
-	The maximal ideal space of Banach algebra $A$ form a compact subset of the unit ball of the dual 
-	space $A^\ast$, relative to the weak$^\ast$ topology.
+	The maximal ideal space of an Abelian Banach algebra $A$ form a compact subset of the unit ball of 
+	the dual space $A^\ast$, relative to the weak$^\ast$ topology.
 \end{lemma}
 \begin{proof}
 	Follows from the Banach-Alaoglu theorem.
 \end{proof}
 
 
-
-\todo[inline]{discuss weak* topology on P(A)}  %%
 
 
 \section{$\B(\H)$ - an example}
@@ -1047,7 +1038,6 @@ these quantities by itself, without consideration of the others.}
 \chapter{Representations of $C^\ast$-algebras}
 \section{Abelian $C^\ast$-algebras}\label{section:abelian}
 
-\todo[inline]{rewrite}%%
 
 Let $A$ be an Abelian $C^\ast$-algebra. For $a$ in $A$, define a complex-valued function $\hat{a}$ on
 $\P{A}$ by $\hat{a}(\rho)= \rho(a)$. The weak$^\ast$-topology is the weakest topology on 
@@ -1063,27 +1053,32 @@ For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
 	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 	\\
 	\widehat{a^\ast}(\rho) = \rho(a^\ast) &= \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
 \end{align*}
-Since by Proposition \ref{prop:puremult},
-\begin{align*}
-	\P{A} = \{\rho \in \S(A) ~|~ \rho(ab) = \rho(a)\rho(b)\},
-\end{align*}
-we have that 
+Since pure states are multiplicative by Proposition \ref{prop:puremult}, we have that 
 \begin{align*}
 	\widehat{(ab)} (\rho)= \rho(ab) = \rho(a)\rho(b) = \hat{a}(\rho)\hat{b}(\rho).
 \end{align*}
 Hence the Gelfand transform is a $\ast$-homomorphism. The following theorem gives us that it is
 in fact a $\ast$-isomorphism.
 
-\begin{thm}[{Gelfand-Naimark, commutative \cite[4.4.3]{kadison83}}] 
-	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $\CX$, the algebra of continuous
-	functions on a compact Hausdorff space $X$.
+\begin{thm}[{Gelfand-Naimark, commutative \cite[4.4.3]{kadison83}}] \label{thm:gnc}
+	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the algebra of continuous
+	functions on the compact Hausdorff space $\P A$ of pure states on $A$.
 \end{thm}
 \begin{proof}
-	
-	
-\end{proof}\todo[inline]{prove this.}%%
+	Since $A$ is Abelian, every $a$ in $A$ is normal, so by Lemma \ref{lemma:pure2} there is a pure 
+	state $\rho_0$ on $A$ such that $|\rho_0(a)|=\|a\|$. From this, 
+	\begin{align*}
+		\|a\|=|\hat a(\rho_0)|\leq \sup_{\rho\in\P A}|\hat a(\rho)|\leq\|a\|,
+	\end{align*}
+	so 
+	\begin{align*}
+		\|a\|=\sup_{\rho\in\P A} |\hat a (\rho)| = \|\hat a\|.
+	\end{align*}
+	Given any pure state $\rho$, $\hat \1(\rho) = \rho(\1) = 1$ (where $\1$ is the identity of $A$), so
+	$\hat\1$ is the constant function equal to $1$ on $\P A$ and thus the unit in $C(\P A)$.
+\end{proof}\todo[inline]{finish proof by showing one-to-one}%%
 
-
+\todo[inline]{comment on noncommutative topology}
 	
 \section{The Gelfand-Naimark Theorem}
 
@@ -1096,7 +1091,7 @@ in fact a $\ast$-isomorphism.
 \end{defn}	
 The construction used in the proof of the following theorem is known as the Gelfand-Naimark-Segal (GNS)
 construction.
-\begin{thm}[{\cite[4.5.2]{kadison83}}]
+\begin{thm}[{\cite[4.5.2]{kadison83}}]\label{thm:gns}
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
 	$\pi_\rho$ of $A$ on a Hilbert space ${H}_\rho$, with unit cyclic vector $x_\rho$, such that 
 	\[ 
@@ -1111,7 +1106,8 @@ construction.
 	\[
 		L_\rho = \{a \in A ~|~ \rho (a ^\ast a) = 0 \}.
 	\]	
-	For $a,b \in A$, define $\langle a , b \rangle_0 = \rho(b^\ast a)$, then $\langle \cdot, \cdot \rangle_0$ satisfies
+	For $a,b \in A$, define $\langle a , b \rangle_0 = \rho(b^\ast a)$, then 
+	$\langle \cdot, \cdot \rangle_0$ satisfies
 	\begin{enumerate}
 	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
 		\begin{align*}
@@ -1313,7 +1309,7 @@ $\H$. First, we need another definition.
 \end{defn}
 
 
-\begin{thm}[Gelfand-Naimark, {\cite[4.5.6]{kadison83}}]
+\begin{thm}[Gelfand-Naimark, {\cite[4.5.6]{kadison83}}] \label{thm:gn}
 	Every $C^\ast$-algebra has a faithful representation.
 \end{thm}
 \begin{proof}
@@ -1333,15 +1329,14 @@ direct sum over the representations associated with all of $\S (A)$, then $\phi$
 universal representation} of $A$.
 
 
-\todo[inline]{give reference to further topics: von neumann algebras (formal defn), K-theory, group C* algebras, amenable algebras, } %%
-\todo[inline]{references!!!!}%%
 
 
 \begin{thebibliography}{00}
 \bibitem{blackadar06}
 	Blackadar, B.,
 	\emph{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras.}
-	Encyclopaedia of Mathematical Sciences, 122. Operator Algebras and Non-commutative Geometry, III. Springer-Verlag, Berlin (2006).
+	Encyclopaedia of Mathematical Sciences, 122. Operator Algebras and Non-commutative Geometry, III. 
+	Springer-Verlag, Berlin (2006).
 	
 \bibitem{bornjordan25}
 	Born, M. \& Jordan, P.,
@@ -1361,28 +1356,13 @@ universal representation} of $A$.
 \bibitem{dixmier77}
 	Dixmier, J.,
 	\emph{C*-algebras.}
-	Holland Mathematical Library, Vol. 15. North-Holland Publishing Co., Amsterdam -- New York -- Oxford (1977).
+	Holland Mathematical Library, Vol. 15. North-Holland Publishing Co., Amsterdam -- New York -- Oxford 
+	(1977).
 
 \bibitem{dixmier81}
 	Dixmier, J.,
 	\emph{von Neumann algebras.}
 	North-Holland Publishing Co., Amsterdam -- New York (1981).
-		
-\bibitem{elliott94}
-	Elliott, G. A.,
-	\emph{The classification problem for amenable C*-algebras.}
-	Proceedings of the International Congress of Mathematicians, Vol. 1, 2 (Z\"{u}rich, 1994), pp.~922-–932, Birkhäuser, Basel (1995).
-
-\bibitem{fell61}
-	Fell, J. M. G.,
-	\emph{The structure of algebras of operator fields. }
-	Acta Math. 106, 1961, 233–280. 
-
-
-\bibitem{gardella15}
-	Gardella, E. E.,
-	\emph{Compact group actions on C*-algebras: classification, non-classifiability, and crossed products and rigidity results for L$^p$-operator algebras. }
-	Thesis (Ph.D.) -– University of Oregon (2015).
 
 \bibitem{gelfand43}
 	Gelfand, I. \& Neumark, M.,
@@ -1397,26 +1377,13 @@ universal representation} of $A$.
 \bibitem{kadison83}
 	Kadison, R. V. \& Ringrose, J. R.,
 	\emph{Fundamentals of the theory of operator algebras: Vol. I. Elementary theory.}
-	Pure and Applied Mathematics, 100. Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], New York (1983).
+	Pure and Applied Mathematics, 100. Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], New 
+	York (1983).
 
 \bibitem{kadison86}	
 	Kadison, R. V. \& Ringrose, J. R.,
 	\emph{Fundamentals of the theory of operator algebras: Vol. II. Advanced theory.}
 	Pure and Applied Mathematics, 100. Academic Press, Inc., Orlando, FL (1986).
-	
-\bibitem{lin01}
-	Lin, H.,
-	\emph{An introduction to the classification of amenable C*-algebras.}
-	World Scientific Publishing Co., Inc., River Edge, NJ (2001).
-\bibitem{lin08}
-	Lin, H. \& Niu, Z.,
-	\emph{Lifting KK-elements, asymptotic unitary equivalence and classification of simple C*-algebras.}
-	Adv. Math. 219 (2008), no. 5, pp.~1729-–1769. 
-	
-\bibitem{lin11}
-	Lin, H.,
-	\emph{Asymptotic unitary equivalence and classification of simple amenable C*-algebras.}
-	Invent. Math. 183 (2011), no. 2, pp.~385-–450. 
 
 \bibitem{mackinnon77}
 	MacKinnon, E.,
@@ -1437,16 +1404,6 @@ universal representation} of $A$.
 	Murray, F. J. \& von Neumann, J.,
 	\emph{On rings of operators. IV.}
 	Ann. of Math. (2) 44, (1943), pp.~716-–808.
-	
-\bibitem{niemiec12}
-	Niemiec, P.,
-	\emph{Elementary Approach to Homogeneous C*-algebras.}
-	Rocky Mountain J. Math. 45 (2015), no. 5, pp~1591--1630.	
-	
-\bibitem{pedersen79}
-	Pedersen, G. K.,
-	\emph{C*-algebras and their automorphism groups.}
-	Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers], London-New York (1979).
 
 \bibitem{rudin91}
 	Rudin, W.,
