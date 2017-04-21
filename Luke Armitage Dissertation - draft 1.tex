@@ -1,6 +1,5 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage{graphicx}
-\usepackage[color=purple!80]{todonotes} %% does the to do stuff
 \usepackage{enumitem}
 \usepackage{bbm}	%% makes \1 look good
 \usepackage{hyperref}
@@ -54,32 +53,54 @@
   \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
 
 
-\author{Luke Armitage}
-\title{$C^\ast$-algebras, and the~Gelfand-Naimark~Theorems}
+
 
 \begin{document}
-\maketitle
-\tableofcontents
-\listoftodos
+\begin{titlepage}
+	{\centering
+	{\includegraphics[width=0.5\textwidth]{UOY-Logo-Stacked-shield-PMS432.png}\par 
+		%% if this won't compile, comment out this line. i don't have permission to upload the 
+		%%		university logo with this, sozzle.
+		}
+	\vspace{0.5cm}
+	{\huge\bfseries $C^\ast$-Algebras, and the Gelfand-Naimark Theorems\par}
+	\vspace{1.5cm}
+	{\Large\itshape Luke Armitage\par}
+	\vspace{0.5cm}
+	{\large Supervised by Dr. Eli Hawkins\par}
+	\vfill
+	{\scshape\small Abstract\par}}
+	{\small The collection of bounded linear operators from a Hilbert space to itself 
+	forms an algebra, complete with respect to the operator norm and posessing an 
+	involution map taking an operator to its adjoint operator. These operations 
+	interact in a very strong way, leading to a linking of the algebraic and 
+	topological structures of such an operator algebra. These operator algebras are 
+	the prototype for a $C^\ast$-algebra, which we define as a complete normed 
+	algebra with an involution such that the involution and norm interact in the 
+	same way as in an operator algebra. In this report, we define an abstract 
+	$C^\ast$-algebra and discuss the standard examples -- operators on a Hilbert 
+	space and continuous functions on a compact Hausdorff space. We discuss some of 
+	the algebraic and topological structure of these spaces and go on to prove the 
+	Gelfand-Naimark theorems. The Gelfand-Naimark theorem says that all 
+	$C^\ast$-algebras are the same as an operator algebra on some Hilbert space, 
+	and the commutative Gelfand-Naimark theorem states that all commutative 
+	$C^\ast$-algebras are the same as an algebra of continuous functions on some 
+	compact Hausdorff space.}
+	\par
+	\vspace{1cm}
+	{\large\centering \today\par}
+\end{titlepage}
 
+\tableofcontents
+%% write abstract!
 
 
 \chapter{Introduction}
-\todo{abstractify!}
 \section{History of The Study of Operator Algebras}
-The noncommutative nature of Werner Heisenberg's work in 1925 on a new quantum 
-mechanics \cite{heisenberg25} led to Born and Jordan \cite{bornjordan25}, 
-together with Heisenberg \cite{bornjordanheisenberg25}, developing the matrix 
-mechanics required to concisely summarise the new quantum mechanical model. From 
-1935-1943, John von Neumann, together with F.J. Murray, developed the theory of 
-\emph{rings of operators} acting on a Hilbert space 
-\cite{vonneumann35,vonneumann37,vonneumann43,vonneumann40}, in an attempt to 
-establish a general framework for this matrix mechanics.These rings of operators 
-are now considered part of the theory of \emph{von Neumann algebras}, a 
-subsection of $C^\ast$-algebra theory. Discussion of Heisenberg's discoveries in 
-quantum mechanics can be found in \cite{mackinnon77}, and similarly 
-\cite{schroer03} gives a summary of the works of Jordan expanding on this. 
-\todo [inline]{cut down}
+The study of $C^\ast$-algebras started with the study of rings of operators acting on a Hilbert space, 
+which was introduced in the 1930s as a framework for John von Neumann's 1932 formulation of quantum 
+mechanics in \cite{vonneumann32}. These rings of operators are now considered part of the theory of 
+\emph{von Neumann algebras}, a subsection of $C^\ast$-algebra theory. 
 
 
 {In 1943, Gelfand and Naimark \cite{gelfand43} established an abstract 
@@ -92,12 +113,11 @@ which, given a certain linear function on a $C^\ast$-algebra, yields a
 representation of that $C^\ast$-algebra as an algebra of operators on a Hilbert 
 space.} 
 
-%%good, can stay
-	
+\section{Resources}
 Throughout this work we will be making extensive use of (the first volume of) \emph{`Fundamentals of the 
-Theory of Operator Algebras'}, by Kadison and Ringrose; the authors aim to make accessible the ``vast 
-recent research literature'', by first introducing and exploring the prototypical examples and 
-developing the abstract theory later. 
+Theory of Operator Algebras'} \cite{kadison83,kadison86}, by Kadison and Ringrose; the authors aim to 
+make accessible the ``vast recent research literature'', by first introducing and exploring the 
+prototypical examples and developing the abstract theory later. 
 	
 Some other texts which cover $C^\ast$-algebras: 
 \begin{itemize}
@@ -113,25 +133,43 @@ Some other texts which cover $C^\ast$-algebras:
 	
 \section{An Overview}
 
-After this introductory chapter, we give some definitions and results which will be used throughout, and 
-establish notation. Then the definition of a $C^\ast$-algebra is given, with some discussion of algebras 
-with a multiplicative identity, followed by an exploration of an example with some previews of concepts 
-later defined. We move on to discussing a powerful tool in this area, and indeed all of functional 
-analysis, which is the concept of the spectrum of an element; then we make some more definitions and 
-discuss how the topological and algebraic structures of $C^\ast$-algebras are related. We finish that 
-chapter with another example, with a remark on what makes the abstract study of $C^\ast$-algebras 
-applicable to quantum mechanics. The final chapter contains the statements and proofs of the 
-Gelfand-Naimark theorems, and a discussion of how they relate to each other.
+After this introductory chapter, we give some definitions and results which will 
+be used throughout, and establish notation. Then the definition of a 
+$C^\ast$-algebra is given, with some discussion of algebras with a 
+multiplicative identity, followed by an exploration of an example with some 
+previews of concepts later defined. 
+
+We move on to discussing a powerful tool in 
+this area, and indeed all of functional analysis, which is the concept of the 
+spectrum of an element; then we make some more definitions and discuss how the 
+topological and algebraic structures of $C^\ast$-algebras are related. 
+We finish that chapter with another example, with a remark on what makes the abstract 
+study of $C^\ast$-algebras applicable to quantum mechanics. 
+
+The final chapter 
+contains the statements and proofs of the Gelfand-Naimark theorems, and a 
+discussion of how they relate to each other. The Gelfand-Naimark theorem for 
+commutative $C^\ast$-algebras, discussed in Section \ref{section:abelian}, says 
+that an Abelian $C^\ast$-algebra is in some way `the same as' the algebra of 
+continuous complex valued functions on a compact, Hausdorff topological space. 
+The Gelfand-Naimark theorem for general $C^\ast$-algebras, discussed in Section 
+\ref{section:gn}, says that any $C^\ast$-algebra `the same as' the algebra of 
+bounded operators on a Hilbert space.
+
 
 
 
 \section{Further topics}
-
 Topics in $C^\ast$-algebra theory which follow on from this include the classification of different 
 types of $C^\ast$-algebras, such as \emph{approximately-finite dimensional} $C^\ast$-algebras, which are 
-made up in a certain way from finite dimensional $C^\ast$-algebras. 
+made up in a certain way from finite dimensional $C^\ast$-algebras.
+
+\emph{A von Neumann algebra }is a $C^\ast$-subalgebra of $\BH$ which is unital and closed in the \emph{weak operator topology}, the weakest topology such that the map $T\mapsto\langle Tx,y\rangle$ is continuous for all $x,y$ in $\H$. This enforces an even stricter structure on von Neumann algebras, giving results such as the von Neumann Double Commutant theorem.
+
 Another area of research is $K$-theory, which for $C^\ast$-algebras refers to the study of groups 
-related to the structure of projective elements.
+related to the structure of projective elements. 
+For more on all of these topics, see \cite{davidson96,dixmier81,sakai71}.
+
 
 \chapter{Background Mathematics and Resources}	
 The following is some mathematics which may prove useful throughout the project, with relevant 
@@ -143,7 +181,7 @@ We will be assuming some familiarity with the following theory:
 	\item Normed spaces, inner product spaces, Banach and Hilbert spaces.
 	\item Point-set topology.
 \end{itemize}
-A good broad background on all of these can be found in \cite{simmons83}.
+A good broad background on all of these can be found in \cite{rudin91,simmons83}.
 
 
 	
@@ -331,6 +369,15 @@ of its extreme points, where $\alpha_1,\dots,\alpha_n$ are positive scalars summ
 For example, for a polygon embedded in $\R^2$, the vertices of a polygon are its extreme points, and
 every point within the polygon can be written as a linear combination of the vertices.
 
+\begin{lemma}[{\cite[1.4.4]{kadison83}}]\label{lemma:144}
+	If $X$ is a non-empty, compact, convex subset of a locally convex space $V$, and $\rho$ is a 
+	continuous linear functional on $V$, then there is an extreme point $x_0$ of $X$ such that, for 
+	every $x$ in $X$,
+	\begin{align*}
+		\mbox{Re }\rho(x) \leq \mbox{Re }\rho(x_0).
+	\end{align*}
+\end{lemma}
+
 \begin{defn*}[{\cite[3.14]{rudin91}}]
 	Let $X$ be a topological vector space (over a field $\mathbb K$), with dual space $X^\ast$. Every 
 	$x$ in $X$ induces a linear functional $f_x$ on $X^\ast$ defined by $f_x(\rho)=\rho(x)$. The 
@@ -342,6 +389,7 @@ every point within the polygon can be written as a linear combination of the ver
 	collection $\{f_x ~|~ x\in X\}$ separate the points of $X^\ast$, so the weak$^\ast$ topology is 
 	Hausdorff.
 \end{defn*}
+
 \begin{thm*}[{The Banach-Alaoglu theorem \cite{rudin91}}]
 	If $V$ is a neighbourhood of $0$ in a topological vector space $X$, and
 	\begin{align*}
@@ -457,7 +505,7 @@ condition, where properties do not pass from a $C^\ast$-algebra to its maximal i
 means a universal assumption that a $C^\ast$-algebra has a unit element.
 
 
-\section{$\CX$ - an example} \label{section:CX}
+\section{$\CX$ -- an example} \label{section:CX}
 Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
 $f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
 \[
@@ -513,6 +561,21 @@ every non-zero multiplicative functional on $\CX$ arises in this way, as `evalua
 $X$, and the general fact that the non-zero multiplicative linear functionals are exactly the pure 
 states on a $C^\ast$-algebra (which we will show in Proposition \ref{prop:puremult}) shows that these 
 are in fact all of the pure states on $\CX$.
+
+The following is a result which is crucial in the proof of the commutative Gelfand-Naimark theorem. We 
+state it without proof here as the proof is long and involved, and doesn't contribute to understanding. 
+The proof, along with a discussion of other consequences of the theorem, can be found in Section 3.4 of 
+\cite{kadison83}.
+
+\begin{thm*}[Stone-Weierstrass theorem {\cite[3.4.15]{kadison83}}]
+	Let $A$ be a norm-closed subalgebra of $\CX$, containing the constant function $\1$ and the 
+	conjugate function $\bar f$ for each $f$ in $A$. If for each pair of distinct points $p\not=p'$ in 
+	$X$, there is an $f$ in $A$ such that $f(p)\not=f(p')$, then $A=\CX$.
+\end{thm*}
+
+The term `norm-closed' means that the set is closed in the norm topology, meaning it contains all its 
+limit points. If the condition in the statement of the theorem holds, say that \emph{$A$ separates the 
+points of $X$}.
 
 We finish this section by remarking that if we take $X$ to be a non-compact, \emph{locally} compact 
 Hausdorff space, then we are required to take $\CX$ to be the set of continuous complex valued functions 
@@ -787,12 +850,23 @@ The following result follows easily from the Cauchy-Schwarz inequality for inner
 	$\rho(h)=0=\rho(k)$. By previous statement, $h=0=k$, and we conclude that $a=0$.
 \end{proof}
 
+\begin{lemma}[{\cite[4.3.8,(iv)]{kadison83}}]\label{lemma:state2}
+	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a state $\rho$ on $A$ such 
+	that $|\rho(a)|=\|a\|$.
+\end{lemma}
+\begin{proof}
+	By Lemma \ref{lemma:411}, $r(a)=\|a\|$, so $\spec a$ contains a complex number $\alpha$ such that $|\alpha|=\|a\|$. By Lemma \ref{lemma:433}, $\alpha=\rho(a)$ for some state $\rho$, so 
+	\begin{align*}
+		|\rho(a)|=|\alpha|=\|a\|.
+	\end{align*}
+\end{proof}
+
 \begin{defn}
 	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
 	states on $A$ is denoted by $\P{A}$.
 \end{defn}
-The state space $\S(A)$ is then the weak$^\ast$-closure of the set of convex linear combinations of pure 
-states. 
+The state space $\S(A)$ is then the closure, relative to the weak$^\ast$ topology, of the set of convex 
+linear combinations of pure states. 
 It is a simple exercise, using the fact that $A^+\subseteq A_{sa}$, to verify that a linear 
 functional $\rho$ is a pure state on $A$ if and only if the restriction $\rho|_{A_{sa}}$ is a pure
 state on $A_{sa}$.
@@ -808,19 +882,25 @@ Hahn-Banach theorem.
 	for all pure states $\rho$ on $A$, then $\rho(a)=0$ for \emph{all} states $\rho$ on $A$. The result 
 	follows immediately from Lemma \ref{lemma:state1}.
 \end{proof}
-\begin{lemma}[{\cite[4.3.8,(i)]{kadison83}}]\label{lemma:pure2}
-	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a pure state $\rho_0$ on $A$ such that $|\rho_0(a)|=\|a\|$.
+
+The following is a useful characterisation of pure states.
+\begin{lemma}[{\cite[4.3.8,(iv)]{kadison83}}]\label{lemma:pure2}
+	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a pure state $\rho_0$ on $A$ such 
+	that $|\rho_0(a)|=\|a\|$.
 \end{lemma}
 \begin{proof}
-	By Lemma \ref{}, there is a scalar $\gamma$ and a state $\tau$ on $A$ such that $\tau(a)=\gamma$ and $|\gamma|=\|a\|$. Let $\hat t$ be the continuous linear functional on $A^\ast$ that takes $\rho$ to $\rho(t)$, and let $\alpha$ be a complex number such that $|\alpha|=1$ and $\tau(\alpha a) = |c| = \|a\|$. From \ref{}, there is a $\rho_0$ in $\P A$ such that 
+	By Lemma \ref{lemma:state2}, there is a scalar $\gamma$ and a state $\tau$ on $A$ such that $
+	\tau(a)=\gamma$ and $|\gamma|=\|a\|$. Define $\hat t :A^\ast\to\C:\rho \mapsto\rho(t)$, and let $
+	\alpha$ be a complex number such that $|\alpha|=1$ and $\tau(\alpha a) = |c| = \|a\|$. From 
+	Lemma \ref{lemma:144}, there is a $\rho_0$ in $\P A$ such that 
 	\begin{align*}
 				\|a\|
 		&\geq 	|\rho_0(a)| \geq \mbox{Re } \widehat {\alpha a}(\rho_0)					\\
 		&\geq 	\sup_{\rho\in \S(A)} \mbox{Re }\widehat {\alpha a}(\rho) 				\\
-		&\geq	\mbox{Re }\widehat {\alpha a}(\tau) = \mbox{Re }\tau(\alpha a) = \|a\|	
+		&\geq	\mbox{Re }\widehat {\alpha a}(\tau) = \mbox{Re }\tau(\alpha a) = \|a\|,
 	\end{align*}
+	so that $|\rho_0(a)|=\|a\|$.
 \end{proof}
-\todo[inline]{finish by adding referred to lemmata}
 
 \begin{prop}[{\cite[3.4.6]{kadison83}}]\label{prop:pure2}
 	A state $\rho$ on $A_{sa}$ is pure if and only if, for all positive linear functionals $\tau$ on
@@ -851,7 +931,7 @@ Recall that a linear functional $\rho$ on a $C^\ast$-algebra $A$ is \emph{multip
 \rho(a)\rho(b)$ for all $a,b$ in $A$. The set of all non-zero multiplicative linear functionals on $A$ 
 is called the \emph{maximal ideal space} of $A$, denoted $\M_A$. This name hints at the fact that the 
 kernel of each of these functionals is a maximal ideal of $A$, and all maximal ideals of $A$ arise in 
-this way.\cite[Theorem I.2.5]{davidson96}
+this way. \cite[Theorem I.2.5]{davidson96}
 
 
 
@@ -910,7 +990,7 @@ The set $\P A$ of pure states on $A$ is a subset of the dual space $A^\ast$, and
 
 
 
-\section{$\B(\H)$ - an example}
+\section{$\B(\H)$ -- an example}
 This section concerns the fundamental example of a $C^\ast$-algebra - the set $\B(\H)$ of bounded 
 linear operators on a Hilbert space $\H$, otherwise known as \emph{operator algebras}. Here we will 
 demonstrate that $\B(\H)$ is a $C^\ast$-algebra and discuss how the theory of $C^\ast$-algebras relates 
@@ -1040,9 +1120,9 @@ these quantities by itself, without consideration of the others.}
 
 
 Let $A$ be an Abelian $C^\ast$-algebra. For $a$ in $A$, define a complex-valued function $\hat{a}$ on
-$\P{A}$ by $\hat{a}(\rho)= \rho(a)$. The weak$^\ast$-topology is the weakest topology on 
-$\P{A}$ for which all of the maps $\hat{a}$ are continuous, so that $\hat{a} \in C(\P{A})$ for all 
-$a\in A$. The map
+$\P{A}$ by $\hat{a}(\rho)= \rho(a)$ -- that is, \emph{evaluation} at $a$. The weak$^\ast$-topology is 
+the weakest topology on $\P{A}$ for which all of the maps $\hat{a}$ are continuous, so that $\hat{a} \in 
+C(\P{A})$ for all $a\in A$. The map
 \[
 	\Gamma:A \to C(\P{A}) : a\mapsto \hat{a}
 \]
@@ -1057,8 +1137,8 @@ Since pure states are multiplicative by Proposition \ref{prop:puremult}, we have
 \begin{align*}
 	\widehat{(ab)} (\rho)= \rho(ab) = \rho(a)\rho(b) = \hat{a}(\rho)\hat{b}(\rho).
 \end{align*}
-Hence the Gelfand transform is a $\ast$-homomorphism. The following theorem gives us that it is
-in fact a $\ast$-isomorphism.
+Hence the Gelfand transform is a $\ast$-homomorphism, and the image $\Gamma(A)$ is a $C^\ast$-subalgebra 
+of $C(\P A)$. The following theorem gives us $\Gamma$ is in fact a $\ast$-isomorphism.
 
 \begin{thm}[{Gelfand-Naimark, commutative \cite[4.4.3]{kadison83}}] \label{thm:gnc}
 	Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the algebra of continuous
@@ -1074,14 +1154,26 @@ in fact a $\ast$-isomorphism.
 	\begin{align*}
 		\|a\|=\sup_{\rho\in\P A} |\hat a (\rho)| = \|\hat a\|.
 	\end{align*}
+	Hence $\Gamma$ is isometric.
 	Given any pure state $\rho$, $\hat \1(\rho) = \rho(\1) = 1$ (where $\1$ is the identity of $A$), so
 	$\hat\1$ is the constant function equal to $1$ on $\P A$ and thus the unit in $C(\P A)$.
-\end{proof}\todo[inline]{finish proof by showing one-to-one}%%
+	Given distinct pure states $\rho_1$ and $\rho_2$ on $A$, we can choose $a$ in $A$ such that 
+	\begin{align*}
+		\hat a(\rho_1) = \rho_1(a) \not= \rho_2(a) = \hat a(\rho_2),
+	\end{align*}
+	so the image $\Gamma(A)$ separates points of $\P A$, and so by the Stone-Weierstrass theorem (see 
+	Section \ref{section:CX}), $\Gamma(A)=C(\P A)$.
+\end{proof}
 
-\todo[inline]{comment on noncommutative topology}
+This theorem allows us to think of the study of $C^\ast$-algebras in general as 
+a sort of non-commutative topology; the `topological space' corresponds to the 
+pure state space on a $C^\ast$-algebra $A$, and the `topology' corresponds to 
+the preimages of the `evaluation at $a$' maps on states in the pure state space.
+
+
 	
-\section{The Gelfand-Naimark Theorem}
-
+\section{The Gelfand-Naimark-Segal construction}
+In this section, we show that corresponding to every state of a $C^\ast$-algebra, there is a $\ast$-homomorphism into the operator algebra $\B (\H)$ on some Hilbert space $\H$. 
 \begin{defn}
 	Given a $C^\ast$-algebra $A$, a \emph{representation of $A$ on a Hilbert space $\H$} 
 	is a $\ast$-homomorphism $\phi: A \to \BH$. 
@@ -1089,7 +1181,7 @@ in fact a $\ast$-isomorphism.
 	If there exists an element $x\in\H$ such that the set $\{\phi(a)x ~|~ a\in A\}$ is dense in $\H$, 
 	say that $\phi$ is a \emph{cyclic} representation, with \emph{cyclic vector} $x$.
 \end{defn}	
-The construction used in the proof of the following theorem is known as the Gelfand-Naimark-Segal (GNS)
+The construction used in the proof of this theorem is known as the Gelfand-Naimark-Segal (GNS)
 construction.
 \begin{thm}[{\cite[4.5.2]{kadison83}}]\label{thm:gns}
 	If $\rho$ is a state on a $C^\ast$-algebra $A$, then there exists a cyclic representation 
@@ -1291,8 +1383,8 @@ is a representation of $\CX$ on $\C$.
 The unit in $\CX$ is the constant function $\1$, which in $V_{\rho_x}$ is identified with $\1(x)=1$; so 
 we have that $1$ is a cyclic vector for the representation $\pi_{\rho_x}$.
 
-
-We finish this section with the big result; that every $C^\ast$-algebra can be isometrically embedded 
+\section{The Gelfand-Naimark theorem}\label{section:gn}
+We finish this chapter with the big result; that every $C^\ast$-algebra can be isometrically embedded 
 as a $C^\ast$-subalgebra of $\BH$, the $C^\ast$-algebra of bounded linear operators on a Hilbert space 
 $\H$. First, we need another definition.
 \begin{defn}
@@ -1337,18 +1429,8 @@ universal representation} of $A$.
 	\emph{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras.}
 	Encyclopaedia of Mathematical Sciences, 122. Operator Algebras and Non-commutative Geometry, III. 
 	Springer-Verlag, Berlin (2006).
-	
-\bibitem{bornjordan25}
-	Born, M. \& Jordan, P.,
-	\emph{Zur Quantenmechanik.}
-	Z. Physik (1925) 34: 858.
-	
-\bibitem{bornjordanheisenberg25}
-	Born, M.; Heisenberg, W. \& Jordan, P.,
-	\emph{Zur Quantenmechanik. II.}
-	Z. Physik (1926) 35: 557.
 
-\bibitem{davidson96}
+\bibitem{davidson96} 
 	Davidson, K.R.,
 	\emph{C*-Algebras by example.}
 	Fields Institute Monographs, 6. American Mathematical Society, Providence, RI (1996).
@@ -1368,11 +1450,6 @@ universal representation} of $A$.
 	Gelfand, I. \& Neumark, M.,
 	\emph{On the imbedding of normed rings into the ring of operators in Hilbert space.}
 	Rec. Math. [Mat. Sbornik] N.S. 12(54) (1943), pp.~197–-213.
-
-\bibitem{heisenberg25}
-	Heisenberg, W.,
-	\emph{{\"U}ber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen.}
-	Z. Physik (1925) 33: 879. 
 	
 \bibitem{kadison83}
 	Kadison, R. V. \& Ringrose, J. R.,
@@ -1385,26 +1462,6 @@ universal representation} of $A$.
 	\emph{Fundamentals of the theory of operator algebras: Vol. II. Advanced theory.}
 	Pure and Applied Mathematics, 100. Academic Press, Inc., Orlando, FL (1986).
 
-\bibitem{mackinnon77}
-	MacKinnon, E.,
-	\emph{Heisenberg, Models, and the Rise of Matrix Mechanics.}
-	Hist. Stud. Phys. Sci., Vol. 8 (1977), pp.~137--188
-	
-\bibitem{vonneumann35}
-	Murray, F. J. \& von Neumann, J.,
-	\emph{On rings of operators.}
-	Ann. of Math. (2) 37 (1936), no. 1, pp.~116–-229.
-
-\bibitem{vonneumann37}
-	Murray, F. J. \& von Neumann, J.,
-	\emph{On rings of operators. II.}
-	Trans. Amer. Math. Soc. 41 (1937), no. 2, pp.~208-–248. 
-
-\bibitem{vonneumann43}
-	Murray, F. J. \& von Neumann, J.,
-	\emph{On rings of operators. IV.}
-	Ann. of Math. (2) 44, (1943), pp.~716-–808.
-
 \bibitem{rudin91}
 	Rudin, W.,
 	\emph{Functional Analysis (2nd Ed.).}
@@ -1415,11 +1472,6 @@ universal representation} of $A$.
 	\emph{C*-algebras and W*-algebras.}
 	Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 60. Springer-Verlag, New York-Heidelberg 
 	(1971).
-
-\bibitem{schroer03}
-	Schroer, B.,
-	\emph{Pascual Jordan, Glory and Demise and his legacy in contemporary local quantum physics.}
-	Unpublished manuscript (2003).
 	
 \bibitem{simmons83}
 	Simmons, G.,
@@ -1431,12 +1483,6 @@ universal representation} of $A$.
 	\emph{Mathematical Foundations of Quantum Mechanics.}
 	(as translated by Beyer, R.T.)
 	Princeton University Press (1955).
-
-\bibitem{vonneumann40}
-	von Neumann, J.,
-	\emph{On rings of operators. III.}
-	Ann. of Math. (2) 41, (1940), pp.~94–-161.
-
 	
 \end{thebibliography}
 
