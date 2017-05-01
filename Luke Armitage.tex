@@ -97,11 +97,11 @@
 \end{titlepage}
 
 \tableofcontents
-\listoftodos
+
 
 
 \chapter{Introduction}
-\section{History of The Study of Operator Algebras}
+\section{History of the Study of Operator Algebras}
 The study of $C^\ast$-algebras started with the study of rings of operators 
 acting on a Hilbert space, which was introduced in the 1930s as a framework for 
 John von Neumann's 1932 formulation of quantum mechanics in \cite{vonneumann32}. 
@@ -172,14 +172,14 @@ space.
 
 
 
-\section{Further topics}
+\section{Further Topics}
 Topics in $C^\ast$-algebra theory which follow on from this include the 
 classification of different types of $C^\ast$-algebras, such as 
 \emph{approximately-finite dimensional} $C^\ast$-algebras, which are made up in 
 a certain way from finite dimensional $C^\ast$-algebras.
 
 
-\emph{A von Neumann algebra }is a $C^\ast$-subalgebra of $\BH$ which is unital 
+A \emph{von Neumann algebra }is a $C^\ast$-subalgebra of $\BH$ which is unital 
 and closed in the \emph{weak operator topology}, the weakest topology such that 
 the map $T\mapsto\langle Tx,y\rangle$ is continuous for all $x,y$ in $\H$. This 
 enforces an even stricter structure on von Neumann algebras, giving results such 
@@ -219,7 +219,7 @@ two-sided ideal. An algebra $A$ is \emph{commutative} or \emph{Abelian} if
 	ab = ba \mbox{ for all } a,b\in A.
 \end{align*}
 
-\section{Linear spaces}
+\section{Linear Spaces}
 
 A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the conditions
 \begin{itemize}
@@ -258,14 +258,25 @@ for all $x,y$ in $X$.
 	Can be found in \cite[Theorem 1.6.1, p.~44]{kadison83}.
 \end{proof}
 
-\section{Hilbert spaces}\label{section:hscons}
-\todo[inline]{define hilbert space here, introduce $\BH$, continuity and boundedness}
+\section{Hilbert Spaces}\label{section:hscons}
 A normed linear space $(V,\left\|\cdot\right\|)$ is a \emph{Banach space} if it 
 is complete with respect to $\left\|\cdot\right\|$, in the sense that all Cauchy 
 sequences in $V$ converge with respect to the norm. An inner product space 
 $(V,\langle\cdot,\cdot\rangle)$ is a \emph{Hilbert space} if it is a Banach 
 space with respect to the norm induced by $\langle\cdot,\cdot\rangle$.
 
+A linear map, or a \emph{linear operator}, $T:\H\to\H$, from a Hilbert space to 
+itself, is said to be \emph{bounded} if there exists a scalar $M$ such that 
+\begin{align*}
+	\left\|Tx\right\| \leq M \left\|x\right\|,
+\end{align*}
+for all $x$ in $\H$. Bounded linear operators are automatically continuous -- 
+see \cite[1.32]{rudin91}. The collection $\BH$ of all bounded linear operators 
+on a Hilbert space $\H$ is itself a Banach space with the operator norm 
+\begin{align*}
+	 \left\| T \right\| = \sup_{\|x\|=1} \left \|  Tx \right\|.
+\end{align*}
+We will discuss $\BH$ in more detail in Section \ref{section:bh}. 
 
 We need some Hilbert space constructions -- particularly, the direct sum of a 
 collection of Hilbert spaces and the direct sum of bounded operators on these 
@@ -341,7 +352,7 @@ Hence for each $i\in I$,
 	\left\|x^m_i-x^n_i\right\| < \epsilon \mbox{ for all } m,n\geq N
 \end{align*}
 so that $(x^n_i)_{n\in\N}$ is a Cauchy sequence in $\H_i$, having a limit $x_i\in\H_i$.
-For any finite subset $J\subset I$, it follows from \eqref{eqn:sum1} that 
+For any finite subset $J\subset I$, it follows from equation \eqref{eqn:sum1} that 
 \begin{align*}
 	\sum_{j\in J}{\left\|x^m_j-x^n_j\right\|^2} < \epsilon^2  \mbox{ for all } m,n\geq N,
 \end{align*}
@@ -354,14 +365,14 @@ This holds for any finite subset $J$, so
 	\sum_{i\in I}{\left\|x_i-x^n_i\right\|^2} < \epsilon^2  \mbox{ for all } n\geq N,
 \end{align*}
 and so $(x_i-x^n_i)$ and $x^n_i$ are in $\H$ for $n\geq N$. Then $(x_i)$ is in 
-$\H$ and by \eqref{eqn:sum2}, $x^n$ converges to $(x_i)$ as $n$ tends to 
+$\H$ and by equation \eqref{eqn:sum2}, $x^n$ converges to $(x_i)$ as $n$ tends to 
 infinity. We conclude that $\H$ is complete and therefore a Hilbert space. Just 
 like in the finite case, we call $\H$ the \emph{direct sum} of the collection 
 $\left\{\H_i \mid i\in I\right\}$ of Hilbert spaces, denoted $\oplus\H_i$.
 
 
 Suppose now we have a (finite or infinite) collection of bounded operators 
-$\left\{T_i\in\B{(\H_i)} \mid i\in I\right\}$ such that
+$\left\{T_i\in \B{(\H_i)} \mid i\in I\right\}$ such that
 \begin{align*}
 	\sup_{i\in I} {\left\|T_i\right\|} < \infty
 \end{align*} 
@@ -372,26 +383,27 @@ the \emph{direct sum} of the collection $\left\{T_i\in\B{(\H_i)} \mid i \in
 I\right\}$, denoted $\oplus T_i$. For $S_i,T_i$ in $\B(\H_i)$, $\alpha,\beta$ in 
 $\C$, we have 
 \begin{align*}
-		\left(\oplus T_i\right)^\ast &= \oplus T_i^\ast,								\\
+		\left(\oplus T_i\right)^\ast &= \oplus T_i^\ast,										\\
 		\oplus (\alpha S_i+\beta T_i) &= 
-					\alpha \oplus S_i + \beta \oplus T_i, 								\\
-		\oplus (S_i T_i) &= \oplus S_i \oplus T_i,										\\
-		\left\|\oplus T_i\right\| &= \sup_{i\in I} {\left\|T_i\right\|}.				\\
+					\alpha \oplus S_i + \beta \oplus T_i, 										\\
+		\oplus (S_i T_i) &= \oplus S_i \oplus T_i,												\\
+		\left\|\oplus T_i\right\| &= \sup_{i\in I} {\left\|T_i\right\|}.						\\
 \end{align*}
 
-\section{Topological stuff}
+\section{Topological Spaces}
 By a \emph{topological space} we mean a set $X$ endowed with a collection $\T$ 
 (a \emph{topology}) of subsets of $X$ such that $\T$ is closed under finite 
-intersections and arbitrary unions, and contains both $X$ and the empty set. A 
-\emph{neighbourhood} of a point $x$ is a subset of $X$ which contains an open 
+intersections and arbitrary unions, and contains both $X$ and the empty set. 
+Elements of $\T$ are referred to as \emph{open sets}.
+A \emph{neighbourhood} of a point $x$ is a subset of $X$ which contains an open 
 set which itself contains $x$. An \emph{open cover} of $X$ is a collection 
 $\cover$ of open sets whose union contains $X$, and a subset of $\cover$ which 
 still covers $X$ is called a \emph{subcover}. 
 
 A topological space $X$ is said to be:
 \begin{itemize}
-	\item \emph{Hausdorff} if, for every distinct pair of points $x,y$ of $X$, there 
-	is a neighbourhood of $x$ which is disjoint from some neighbourhood of $y$;
+	\item \emph{Hausdorff} if, for every distinct pair of points $x,y$ of $X$, 
+	there is a neighbourhood of $x$ which is disjoint from some neighbourhood of $y$;
 	\item \emph{compact} if every open cover of $X$ has a finite subcover;
 	\item \emph{locally compact} if every point of $x$ has a compact neighbourhood.
 \end{itemize}
@@ -405,7 +417,12 @@ collection $\T$ containing $\B$ and all finite intersections and arbitrary
 unions over $\B$. It is the weakest topology on $X$ containing $\B$, in the 
 sense that any topology containing $\B$ contains all of $\T$.
 
-A \emph{topological vector space} is a vector space $V$ over $\mathbb K$, together with a topology on $V$ such that the vector space operations $V\times V\to V:(x,y)\mapsto x+y$ and $\mathbb{K}\times V\to V:(\lambda,x)\mapsto \lambda x$ are continuous. Recall that an \emph{extreme point} of a convex subset $X_0$ of a topological vector space is a point $x$ for which an expression
+A \emph{topological vector space} is a vector space $V$ over $\R$ or $\C$, 
+together with a topology on $V$ such that the vector space operations $V\times 
+V\to V:(x,y)\mapsto x+y$ and $\mathbb{K}\times V\to V:(\lambda,x)\mapsto \lambda 
+x$ are continuous (with respect to $\left|\cdot\right|$). Recall that an 
+\emph{extreme point} of a convex subset $X_0$ of a topological vector space is a 
+point $x$ for which an expression
 \begin{align*}
 	x = \alpha x_1 +(1-\alpha)x_2,
 \end{align*}
@@ -445,12 +462,12 @@ $x_0$ of $X$ such that, for every $x$ in $X$,
 \begin{thm*}[{The Banach-Alaoglu theorem \cite{rudin91}}]
 	If $V$ is a neighbourhood of $0$ in a topological vector space $X$, and
 	\begin{align*}
-		K=\left\{\rho\in X^\ast \mid |\rho(x)|\geq 1 \mbox{ for all } x \in V \right\},
+		K=\left\{\rho\in X^\ast \mid |\rho(x)|\leq 1 \mbox{ for all } x \in V \right\},
 	\end{align*}
 	then $K$ is compact in the weak$^\ast$ topology.
 \end{thm*}
 
-\chapter{$C^\ast$-algebras}
+\chapter{$C^\ast$-Algebras}
 We begin this chapter with some definitions and an important example, then give 
 some results we will need later and finish with another fundamental example.
 
@@ -459,7 +476,8 @@ some results we will need later and finish with another fundamental example.
 	A \emph{Banach algebra} is a complex Banach space $A$, with norm 
 	$\left\|\cdot\right\|$, which forms an algebra, such that 
 	\begin{align*}
-		\left\|ab\right\| \leq \left\|a\right\| \left\|b\right\| \mbox{ for all } a,b \in A.
+		\left\|ab\right\| \leq 
+				\left\|a\right\| \left\|b\right\| \mbox{ for all } a,b \in A.
 	\end{align*}
 	
 	A \emph{$\ast$-algebra} is an algebra $A$ with an \emph{involution} map 
@@ -515,7 +533,7 @@ $A$ is then a \emph{unital} $C^\ast$-algebra.
 \begin{proof}
 	Let $\tilde{A} = A \oplus \C$ with pointwise addition, and define
 	\begin{align*}
-		(a,\lambda) (b,\mu) &= (ab+\lambda b + \mu a, \lambda \mu),				\\
+		(a,\lambda) (b,\mu) &= (ab+\lambda b + \mu a, \lambda \mu),								\\
 		(a,\lambda)^\ast &= (a^\ast,\overline{\lambda}).
 	\end{align*}
 	Then $\tilde{A}$ is a $\ast$-algebra. 
@@ -523,7 +541,7 @@ $A$ is then a \emph{unital} $C^\ast$-algebra.
 	for $b$ in $A$. It is easy to see that this operator is linear, and 
 	\begin{align*}
 				\sup_{\left\|b\right\|=1}\left\|ab+\lambda b\right\| 
-		&\leq 	\sup_{\left\|b\right\|=1} (\left\|ab\right\|+ \lambda\left\|b\right\|)		\\
+		&\leq 	\sup_{\left\|b\right\|=1} (\left\|ab\right\|+ \lambda\left\|b\right\|)			\\
 		&=		\sup_{\left\|b\right\|=1} \left\|ab\right\|+ \lambda < \infty
 	\end{align*}
 	so that the operator $(a,\lambda)$ is bounded. It follows that
@@ -571,20 +589,22 @@ $C^\ast$-algebra to its maximal ideals, so it is by no means a universal
 assumption that a $C^\ast$-algebra has a unit element.
 
 
-\section{$\CX$ -- an example} \label{section:CX}
-Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous functions
-$f:X\to\C$, with addition and multiplication defined pointwise. Define $\|\cdot\|$ on $\CX$ by
+\section{Continuous Functions on a Compact Hausdorff Space} \label{section:CX}
+Given a compact Hausdorff space $X$, let $\CX$ be the algebra of continuous 
+functions $f:X\to\C$, with addition and multiplication defined pointwise. 
+Define $\|\cdot\|$ on $\CX$ by
 \begin{align*}
-	\left\|f\right|= \sup_{x\in X}{\left|f(x)\right|},
+	\left\|f\right\|= \sup_{x\in X}{\left|f(x)\right|},
 \end{align*}
-and let $\overline f$ be the function $\overline f(x) = \overline{f(x)}$ for $x$ in $X$.
-We will demonstrate that $\CX$ is an Abelian $C^\ast$-algebra and preview some of the theory
-we will build up in later sections. Later, in Section \ref{section:abelian}, we will show that $\CX$ is 
-essentially \emph{the} Abelian $C^\ast$-algebra.
+and let $\overline f$ be the function $\overline f(x) = \overline{f(x)}$ for 
+$x$ in $X$. We will demonstrate that $\CX$ is an Abelian $C^\ast$-algebra and 
+preview some of the theory we will build up in later sections. Later, in 
+Section \ref{section:abelian}, we will show that $\CX$ is essentially \emph{the} 
+Abelian $C^\ast$-algebra.
 
 \begin{claim}
-	The set $\CX$, of continuous complex valued functions on a compact Hausdorff space $X$, is an 
-	Abelian $C^\ast$-algebra.
+	The set $\CX$, of continuous complex valued functions on a compact Hausdorff 
+	space $X$, is an Abelian $C^\ast$-algebra.
 \end{claim}
 \begin{proof}
 	We take $\CX$ as an algebra with operations defined pointwise and norm defined 
@@ -594,29 +614,32 @@ essentially \emph{the} Abelian $C^\ast$-algebra.
 	$f\mapsto\overline{f}$ is an involution, and that the norm satisfies the 
 	$C^\ast$ axiom.
 	
-	Given $f$ and $g$ in $\CX$, we have \todo{fix inequality}
+	Given $f$ and $g$ in $\CX$, we have $\left\|f(x)g(x)\right\| = 
+	\left\|f(x)\right\|\left\|g(x)\right\|$ for all $x$ in $X$, and so 
 	\begin{align*}
 				\left\|fg\right\| 
-		&= 		\sup_{x\in X}|(fg)(x)|												\\
-		&= 		\sup_{x\in X}|f(x)g(x)|												\\
-		&\leq	\sup_{x\in X}|f(x)||g(x)|											\\
-		&=		\left\|f\right\|\left\|g\right\|.
+		&= 		\sup_{x\in X}|(fg)(x)|														\\
+		&= 		\sup_{x\in X}|f(x)g(x)|														\\
+		&=		\sup_{x\in X}|f(x)||g(x)|													\\
+		&\leq	\left\|f\right\|\left\|g\right\|.
 	\end{align*}
+	
 	Since $f\mapsto\overline{f}$ is simply pointwise complex conjugation, and the 
 	algebraic operations are defined pointwise, it is clear that it is an 
 	involution. For the $C^\ast$ axiom: given $f$ in $\CX$,
 	\begin{align*}
 				\left\|\bar f f\right\| 
-		&= 		\sup_{x\in X}|(\bar f f)(x)|										\\
-		&= 		\sup_{x\in X}|\bar{f(x)} f(x)|										\\
-		&=		\sup_{x\in X}|f(x)|^2												\\
+		&= 		\sup_{x\in X}|(\bar f f)(x)|												\\
+		&= 		\sup_{x\in X}|\bar{f(x)} f(x)|												\\
+		&=		\sup_{x\in X}|f(x)|^2														\\
 		&=		\left\|f\right\|^2.
 	\end{align*}
-	The constant function $\1:X\to\C:x\mapsto 1$ is the unit in $\CX$, with $\left\|\1\right\| = 1$.
+	The constant function $\1:X\to\C:x\mapsto 1$ is the unit in $\CX$, 
+	with $\left\|\1\right\| = 1$.
 \end{proof}
 
 Suppose that $f$ is a self-adjoint element of $\CX$ -- that is to say, $\bar f = 
-f$. Then $\bar{f(x)} = f(x)$ for all $x$ in $X$, so $f$ is real-valued on $X$. 
+f$. Then~$\bar{f(x)} = f(x)$ for all $x$ in $X$, so $f$ is real-valued on $X$. 
 The set of all self-adjoints in $\CX$ is the algebra $C(X,\R)$ of all real 
 valued functions on $X$. Call $f$ \emph{positive} if $f(x)$ is positive for all 
 $x$ in $X$. 
@@ -672,8 +695,8 @@ functions on the one-point compactification of $X$ -- see
 
 
 \section{The Spectrum}
-We will just state the necessary definitions and results here, and give sources 
-for proofs.
+We will just state the necessary definitions and results here, proofs can be 
+found in the relevant sources.
 
 \begin{defn}
 	Given an element $a$ of a Banach algebra $A$, define its spectrum $\sigma_A(a)$:
@@ -711,7 +734,7 @@ By the above theorem, $r(a)\leq\left\|a\right\|$.
 	If $a$ is a normal element of a $C^\ast$-algebra, then $r(a)=\left\|a\right\|$.
 \end{lemma}
 
-From this it can be shown that the norm on a $C^\ast$ algebra $A$ is unique, in 
+From this it can be shown that the norm on a $C^\ast$-algebra $A$ is unique, in 
 the sense that only one norm on $A$ can satisfy the $C^\ast$-axiom. 
 \cite[II.1.6.5]{blackadar06}
 
@@ -722,36 +745,39 @@ the sense that only one norm on $A$ can satisfy the $C^\ast$-axiom.
 	Given a self-adjoint element $a$, we denote by $C(\spec a)$ the $C^\ast$-algebra 
 	of continuous, complex valued functions on the spectrum of $a$. There is a 
 	unique continuous mapping $C(\spec a):f\mapsto f(a)$ such that:
-	\begin{enumerate}
-		\item	if $f$ is a polynomial, $f(z)=\alpha_1+\alpha_2z+\dots+\alpha_mz^m$, then 
+	\emph{\begin{enumerate}
+		\item	\emph{if $f$ is a polynomial, }$f(z)=\alpha_1+\alpha_2z+\dots+
+			\alpha_mz^m$\emph{, then} 
 				\begin{align*}
 					f(a)=\alpha_1\1+\alpha_2a+\dots+\alpha_ma^m;
 				\end{align*}
 		\item	$\left\|f(a)\right\| = \left\|f\right\|$;
-		\item	$(\alpha f+\beta G)(a) = \alpha f(a) + \beta g(a)$;
+		\item	$(\alpha f+\beta g)(a) = \alpha f(a) + \beta g(a)$;
 		\item	$fg(a)=f(a)g(a)$;
 		\item	$\overline{f}(a) = (f(a))^\ast$;
-		\item	$f(a)$ is normal;
-		\item	$f(a)b=bf(a)$ for all $b$ in $A$ such that $ab=ba$.
-	\end{enumerate}
-	Moreover, each $f$ in $C(\spec a)$ is the limit of a sequence of polynomials over $\C$.
+		\item	$f(a)$ \emph{is normal};
+		\item	$f(a)b=bf(a)$ \emph{for all $b$ in $A$ such that} $ab=ba$.
+	\end{enumerate}}
+	Moreover, each $f$ in $C(\spec a)$ is the limit of a sequence of polynomials 
+	over $\C$.
 \end{thm*}
 
 \begin{thm*}[Spectral mapping theorem, {\cite[4.1.6]{kadison83}}]
-	If $a$ is a self adjoint element of a $C^\ast$-algebra $A$, and $f\in C(\spec a)$, then
+	If $a$ is a self adjoint element of a $C^\ast$-algebra $A$, and 
+	$f\in C(\spec a)$, then
 	\begin{align*}
 		\spec{f(a)} = \left\{f(t) \mid t \in \spec a\right\}.
 	\end{align*}
 \end{thm*}
 
 \begin{prop}[{\cite[4.2.3(i)]{kadison83}}]\label{prop:423}
-	Given $f$ in $C(\spec a)$, $f(a)$ is positive \todo{not yet defined} if and only 
-	if $f(t)\geq0$ for all $t$ in $\spec a$.
+	Given $f$ in $C(\spec a)$, $f(t)\geq0$ for all $t$ in $\spec a$ if and only if 
+	$f(a)$ is self-adjoint and $\spec{f(a)} \subseteq \R^+$.
 \end{prop}
 
 \begin{thm*}[{\cite[4.1.5]{kadison83}}]
-	If $B$ is a $C^\ast$-subalgebra of a $C^\ast$-algebra $A$, and $b$ is an element 
-	of $B$, then 
+	If $B$ is a $C^\ast$-subalgebra of a $C^\ast$-algebra $A$, and $b$ is an 
+	element of $B$, then 
 	\begin{align*}
 		\sigma_B(b) =\sigma_A(b).
 	\end{align*}
@@ -766,15 +792,15 @@ the~spectrum of $a$ in the unitization $\tilde A$ of $A$.
 
 
 
-\section{Further Definitions and results}
+\section{Further Definitions and Results}
 In this section we will set out some further definitions, some of which we have 
 already seen in the context of $\CX$, and prove some cool results.
 
 
 \begin{defn}
 	An element $a$ of a $C^\ast$-algebra $A$ is \emph{positive} if it is 
-	self-adjoint and $\spec a\subseteq \R^+$. Denote the set of positive elements in 
-	$A$ by $A^+$. Then $A_{sa}$ is a partially ordered vector space with $\leq$ 
+	self-adjoint and $\spec a\subseteq \R^+$. Denote the set of positive elements 
+	in $A$ by $A^+$. Then $A_{sa}$ is a partially ordered vector space with $\leq$ 
 	given by
 	\begin{align*}
 		a\leq b ~~\iff~~ b-a \mbox{ is positive}
@@ -808,7 +834,6 @@ The unit $\1$ is positive (with $\spec \1 = \left\{1\right\}$).
 	$\phi(a^\ast) = \phi(a)^\ast$ for all $a \in A$. If a $\ast$-homomorphism is 
 	bijective, call it a \emph{$\ast$-isomorphism}.
 \end{defn}
-\todo{isometric => }
 \begin{prop}[{\cite[4.1.8]{kadison83}}] \label{prop:homo}
 	Suppose $A$ and $B$ are $C^\ast$-algebras and $\phi:A\to B$ is a 
 	$\ast$-homomorphism. Then $\left\|\phi(a)\right\| \leq \left\|a\right\|$ for all 
@@ -825,7 +850,7 @@ The unit $\1$ is positive (with $\spec \1 = \left\{1\right\}$).
 	r(a)$. By Lemma \ref{lemma:411}, since $a^\ast a$ is normal, we have 
 	\begin{align*}
 		\left\|a\right\|^2			
-					&=	\left\|a^\ast a\right\|   = 	r(a^\ast a);  \mbox{ and }	\\
+					&=	\left\|a^\ast a\right\|   = 	r(a^\ast a);  \mbox{ and }			\\
 		\left\|\phi(a)\right\|^2 &=\left\|\phi(a)^\ast\phi(a)\right\| = 
 							 \left\|\phi(a^\ast a)\right\| = r(\phi(a^\ast a)).
 	\end{align*}
@@ -848,7 +873,7 @@ The unit $\1$ is positive (with $\spec \1 = \left\{1\right\}$).
 
 \end{proof}
 This result shows that $\ast$-homomorphisms between $C^\ast$-algebras are 
-automatically bounded (hence continuous), and $\ast$-isomorphisms are 
+automatically bound-ed (and hence continuous), and $\ast$-isomorphisms are 
 isometries, demonstrating how the algebraic and topological structure of these 
 spaces is tied together by the $C^\ast$ axiom.
 
@@ -923,13 +948,13 @@ is positive for all $a$ in $A$. (See \cite[4.2.5 and 4.2.6]{kadison83}).
 
 	\begin{align*}
 				\left\|b_n\right\|^2 = \left\|b_n^\ast b_n\right\| 
-		&= 		\left\|(a-\alpha\1)^2 + n^2\beta^2\1\right\| 							\\
+		&= 		\left\|(a-\alpha\1)^2 + n^2\beta^2\1\right\| 								\\
 		&\leq 	\left\|a-\alpha\1\right\|^2 +n^2\beta^2.
 	\end{align*}
 	Hence for all positive integers $n$, we have
 	\begin{align*}
 				(n^2+2n+1)\beta 
-		&=	 	|\rho(b_n)|^2  															\\
+		&=	 	|\rho(b_n)|^2  																\\
 		&\leq 	\left\|a-\beta\1\right\|^2 +n^2\beta^2,
 	\end{align*}
 	so that $\beta=0$. We conclude that $\rho$ is positive.
@@ -969,14 +994,16 @@ products.
 \end{proof}
 
 \begin{lemma}[{\cite[4.3.4,(i)]{kadison83}}]\label{lemma:state1}
-	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all states $\rho$ on $A$, then $a=0$.
+	Let $A$ be a $C^\ast$-algebra. If $\rho(a)=0$ for all states $\rho$ on $A$, 
+	then $a=0$.
 \end{lemma}
 \begin{proof}
 	Suppose first that $a$ is self-adjoint, and $\rho(a)=0$ for all states $\rho$. 
 	By the previous result, $\spec{a}=\left\{0\right\}$, so 
 	$\left\|a\right\|=r(a)=0$ (using Lemma \ref{lemma:411}). Hence $a=0$.
 
-	Now write $a=h+ik$, for $h$ and $k$ the real and imaginary part of $a$ respectively. Then
+	Now write $a=h+ik$, for $h$ and $k$ the real and imaginary part of $a$ 
+	respectively. Then
 	\begin{align*}
 		0=\rho(a)=\rho(h)+i\rho(k),
 	\end{align*}
@@ -985,8 +1012,8 @@ products.
 \end{proof}
 
 \begin{lemma}[{\cite[4.3.4,(iv)]{kadison83}}]\label{lemma:state2}
-	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a state $\rho$ on $A$ such 
-	that $|\rho(a)|=\left\|a\right\|$.
+	If $a$ is a normal element of a $C^\ast$-algebra $A$, there is a state $\rho$ 
+	on $A$ such that $|\rho(a)|=\left\|a\right\|$.
 \end{lemma}
 \begin{proof}
 	By Lemma \ref{lemma:411}, $r(a)=\left\|a\right\|$, so $\spec a$ contains a 
@@ -998,8 +1025,8 @@ products.
 \end{proof}
 
 \begin{defn}
-	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set of pure 
-	states on $A$ is denoted by $\P{A}$.
+	An extreme point of $\S(A)$ is called a \emph{pure} state on $A$, and the set 
+	of pure states on $A$ is denoted by $\P{A}$.
 \end{defn}
 The state space $\S(A)$ is then the closure, relative to the weak$^\ast$ 
 topology, of the set of convex linear combinations of pure states. 
@@ -1149,15 +1176,15 @@ commutative algebras.
 
 
 
-\section{$\B(\H)$ -- an example}
-This section concerns the fundamental example of a $C^\ast$-algebra -- the set 
+\section{Bounded Operators on a Hilbert Space}\label{section:bh}
+This section concerns the fundamental example of a $C^\ast$-algebra: the set 
 $\B(\H)$ of bounded linear operators on a Hilbert space $\H$, otherwise known as 
 \emph{operator algebras}. Here we will demonstrate that $\B(\H)$ is a 
 $C^\ast$-algebra and discuss how the theory of $C^\ast$-algebras relates to 
 quantum mechanics, the very subject which started the study of these objects, 
 explaining a good deal of the terminology used here. 
 
-%% potentially give a specific example of \H=\C^n
+\todo[inline]{potentially give a specific example of $\H=\C^n$}
 
 \begin{claim} 
 	$\B(\H)$ is a $C^\ast$-algebra with the operator norm 
@@ -1288,8 +1315,8 @@ these quantities by itself, without consideration of the others.}
 
 
 
-\chapter{Representations of $C^\ast$-algebras}
-\section{Abelian $C^\ast$-algebras}\label{section:abelian}
+\chapter{Representations of $C^\ast$-Algebras}
+\section{Abelian $C^\ast$-Algebras}\label{section:abelian}
 
 
 Let $A$ be an Abelian $C^\ast$-algebra. For $a$ in $A$, define a complex-valued 
@@ -1304,7 +1331,7 @@ is called the \emph{Gelfand transform} on $A$ \cite{davidson96}.
 For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
 \begin{align*}
 		\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
-	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 		\\
+	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 			\\
 		\widehat{a^\ast}(\rho) = \rho(a^\ast) 
 	&= \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
 \end{align*}
@@ -1356,7 +1383,7 @@ the preimages of the `evaluation at $a$' maps on states in the pure state space.
 
 
 	
-\section{The Gelfand-Naimark-Segal construction}
+\section{The Gelfand-Naimark-Segal Construction}
 In this section, we show that corresponding to every state of a 
 $C^\ast$-algebra, there is a $\ast$-homomorphism into the operator algebra 
 $\B(\H)$ on some Hilbert space $\H$. 
@@ -1467,7 +1494,7 @@ Gelfand-Naimark-Segal (GNS) construction.
 		\mbox{for}~~a+L_\rho,b+L_\rho \in V_\rho.
 	\end{align*}
 	It follows from properties $i),~ii)$ and $iii)$ of $\langle \cdot,\cdot  \rangle 
-	_0$ that $\langle \cdot,\cdot  \rangle$ is an inner product on $V_\rho$ -- with
+	_0$ that $\langle \cdot,\cdot  \rangle$ is an inner product on $V_\rho$, with
 	\begin{align*}
 				\langle a + L^\rho, a + L^\rho \rangle = 0
 		&\iff 	\langle a,a\rangle_0=0													\\
@@ -1593,9 +1620,9 @@ is a linear operator on $\C$, and the map
 is a representation of $\CX$ on $\C$. The unit in $\CX$ is the constant function 
 $\1$, which in $V_{\rho_x}$ is identified with $\1(x)=1$; so we have that $1$ is 
 a cyclic vector for the representation $\pi_{\rho_x}$.
+\todo[inline]{do this to a nonpure state on $\CX$}
 
-
-\section{The Gelfand-Naimark theorem}\label{section:gn}
+\section{The Gelfand-Naimark Theorem}\label{section:gn}
 We finish this chapter with the big result; that every $C^\ast$-algebra can be 
 isometrically embedded as a $C^\ast$-subalgebra of $\BH$, the $C^\ast$-algebra 
 of bounded linear operators on a Hilbert space $\H$. First, we need another 
@@ -1662,7 +1689,7 @@ universal representation} of $A$.
 	Oxford university press.
 
 \bibitem{dixmier77}
-	Dixmier, J., 1977. \emph{C*-algebras}. 
+	Dixmier, J., 1977. \emph{$C^\ast$-algebras}. 
 	Translated from the French by Francis Jellett. 
 	North-Holland Math. Library, 15.
 	
