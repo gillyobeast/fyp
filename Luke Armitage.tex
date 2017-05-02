@@ -7,7 +7,7 @@
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{csquotes}
@@ -78,15 +78,15 @@
 	itself forms an algebra, complete with respect to the operator norm and 
 	possessing an involution map taking an operator to its adjoint operator. These 
 	operations interact in a very strong way, leading to a linking of the algebraic 
-	and topological structures of such an operator algebra. These operator algebras 
+	and topological structures of such an operator algebra. These algebras 
 	are the prototype for a $C^\ast$-algebra, which we define as a complete normed 
 	algebra with an involution such that the involution and norm interact in the 
 	same way as in an operator algebra. In this report, we define an abstract 
 	$C^\ast$-algebra and discuss the standard examples -- operators on a Hilbert 
 	space and continuous functions on a compact Hausdorff space. We discuss some of 
 	the algebraic and topological structure of these spaces and go on to prove the 
-	Gelfand-Naimark theorems. The Gelfand-Naimark theorem says that all 
-	$C^\ast$-algebras are the same as an operator algebra on some Hilbert space, 
+	Gelfand-Naimark theorems. The Gelfand-Naimark theorem says that any 
+	$C^\ast$-algebra is the same as an operator algebra on some Hilbert space, 
 	and the commutative Gelfand-Naimark theorem states that any commutative 
 	$C^\ast$-algebra is the same as an algebra of continuous functions on some 
 	compact Hausdorff space.}\par
@@ -180,11 +180,11 @@ a certain way from finite dimensional $C^\ast$-algebras.
 
 
 A \emph{von Neumann algebra }is a $C^\ast$-subalgebra of $\BH$ which is unital 
-and closed in the \emph{weak operator topology}, the weakest topology such that 
-the map $T\mapsto\langle Tx,y\rangle$ is continuous for all $x,y$ in $\H$. This 
-enforces an even stricter structure on von Neumann algebras, giving results such 
-as the von Neumann Double Commutant theorem.
-
+and closed in the \emph{weak operator topology}, the weakest topology such that
+for all $T$ in the von Neumann algebra, the maps $T\mapsto\langle Tx,y\rangle$ 
+is continuous for all $x,y$ in $\H$. This enforces an even stricter structure 
+on von Neumann algebras, giving results such as the von Neumann Double 
+Commutant theorem.
 
 Another area of research is $K$-theory, which for $C^\ast$-algebras refers to 
 the study of groups related to the structure of projective elements. 
@@ -209,19 +209,20 @@ We will be assuming some familiarity with the following theory:
 A good broad background on all of these can be found in \cite{rudin91,simmons83}.
 
 
+	% $\mathbb{K}$ denotes a field.
 	
-	
-The following notation applies throughout: $\mathbb{K}$ denotes a field. $\R^+$ 
-denotes the non-negative reals. $\Real z$ refers to the real part of the complex 
-number $z$. An ideal of an algebra is, unless otherwise stated, taken to mean a 
-two-sided ideal. An algebra $A$ is \emph{commutative} or \emph{Abelian} if
+The following notation applies throughout: $\R^+$ denotes the non-negative 
+reals. $\Real z$ refers to the real part of the complex number $z$. An ideal of 
+an algebra is, unless otherwise stated, taken to mean a two-sided ideal. An 
+algebra $A$ is described as \emph{commutative} or \emph{Abelian} if
 \begin{align*}
 	ab = ba \mbox{ for all } a,b\in A.
 \end{align*}
 
 \section{Linear Spaces}
 
-A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the conditions
+A \emph{partial order} on a set $X$ is a relation $\leq$ which satisfies the 
+conditions
 \begin{itemize}
 	\item $x \leq x$ for all $x$ in $X$; 		\hfill (reflexivity)
 	\item for all $x$ and $y$ in $X$, if $x \leq y$ and $y\leq x$, then $x=y$; 
@@ -245,7 +246,7 @@ Given a linear space $X$ over a field $\mathbb K$, a \emph{linear functional} on
 $X$ is a linear map $\rho:X\to\mathbb K$. The set $X^\ast$ of linear functionals 
 on $X$ is itself a linear space, called the \emph{dual space} of $X$. A linear 
 functional $\rho$ is called \emph{multiplicative} if $\rho(xy) = \rho(x)\rho(y)$ 
-for all $x,y$ in $X$.
+for all $x,y$ in $X$. \todo{norm of a functional?}
 
 
 \begin{thm*}[Hahn-Banach Extension theorem] 
@@ -380,12 +381,12 @@ $\left\{T_i\in \B{(\H_i)} \mid i\in I\right\}$ such that
 For $x=(x_i)$ in $\oplus\H_i$, define an element $Tx$ in $\oplus\H_i$ by 
 $Tx=(T_ix_i)$. Then $T:\H\to\H:x\mapsto Tx$ is a bounded linear operator, called 
 the \emph{direct sum} of the collection $\left\{T_i\in\B{(\H_i)} \mid i \in 
-I\right\}$, denoted $\oplus T_i$. For $S_i,T_i$ in $\B(\H_i)$, $\alpha,\beta$ in 
+I\right\}$, denoted $\oplus T_i$. For $S_i,T_i$ in $\B(\H_i)$, $\alpha$ in 
 $\C$, we have 
 \begin{align*}
 		\left(\oplus T_i\right)^\ast &= \oplus T_i^\ast,										\\
-		\oplus (\alpha S_i+\beta T_i) &= 
-					\alpha \oplus S_i + \beta \oplus T_i, 										\\
+		\oplus (\alpha S_i+ T_i) &= 
+					\alpha \oplus S_i + \oplus T_i, 											\\
 		\oplus (S_i T_i) &= \oplus S_i \oplus T_i,												\\
 		\left\|\oplus T_i\right\| &= \sup_{i\in I} {\left\|T_i\right\|}.						\\
 \end{align*}
@@ -750,9 +751,10 @@ the sense that only one norm on $A$ can satisfy the $C^\ast$-axiom.
 			\alpha_mz^m$\emph{, then} 
 				\begin{align*}
 					f(a)=\alpha_1\1+\alpha_2a+\dots+\alpha_ma^m;
-				\end{align*}
+				\end{align*} \\
+				\emph{and for all $f, g$ in $\CX$ and $\alpha$ in $\C$:}
 		\item	$\left\|f(a)\right\| = \left\|f\right\|$;
-		\item	$(\alpha f+\beta g)(a) = \alpha f(a) + \beta g(a)$;
+		\item	$(\alpha f+ g)(a) = \alpha f(a) + g(a)$;
 		\item	$fg(a)=f(a)g(a)$;
 		\item	$\overline{f}(a) = (f(a))^\ast$;
 		\item	$f(a)$ \emph{is normal};
@@ -907,7 +909,8 @@ is positive for all $a$ in $A$. (See \cite[4.2.5 and 4.2.6]{kadison83}).
 
 \begin{prop}[{\cite[4.3.2]{kadison83}}]\label{prop:432}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is positive if and only if 
-	$\rho$ is bounded and $\left\|\rho\right\| = \rho(\1)$.
+	$\rho$ is bounded and $\left\|\rho\right\| = \rho(\1)$ (where 
+	$\left\|\cdot\right\|$ is the operator norm).
 \end{prop}
 \begin{proof}
 	Suppose that $\rho$ is positive. With $a$ in $A$, let $\alpha$ be a scalar of 
@@ -933,8 +936,7 @@ is positive for all $a$ in $A$. (See \cite[4.2.5 and 4.2.6]{kadison83}).
 	can assume without loss that $\rho(\1)=1$. With $a$ a positive element of $A$, 
 	let $\rho(a)=\alpha+i\beta$ for real $\alpha,\beta$. Then $\rho$ is positive if 
 	and only if $\alpha \geq 0$ and $\beta = 0$.
-
-	For small positive $s$, 
+	For small positive $s \in \R^+$, 
 	\begin{align*}
 		\spec{\1-sa} = \left\{1-st \mid t\in \spec{a} 
 							\subseteq \R^+\right\} \subseteq [0,1],
@@ -1166,7 +1168,7 @@ commutative algebras.
 
 
 \begin{lemma}[{\cite[3.2.20]{kadison83}}]\label{lemma:3220}
-	The maximal ideal space of an Abelian Banach algebra $A$ form a compact subset of 
+	The maximal ideal space of an Abelian Banach algebra $A$ forms a compact subset of 
 	the unit ball of the dual space $A^\ast$, relative to the weak$^\ast$ topology.
 \end{lemma}
 \begin{proof}
@@ -1328,10 +1330,10 @@ C(\P{A})$ for all $a\in A$. The map
 	\Gamma:A \to C(\P{A}) : a\mapsto \hat{a}
 \end{align*}
 is called the \emph{Gelfand transform} on $A$ \cite{davidson96}.
-For $a,b \in A$, $\alpha,\beta\in\C$ and $\rho\in\P{A}$:
+For $a,b \in A$, $\alpha\in\C$ and $\rho\in\P{A}$:
 \begin{align*}
-		\widehat{(\alpha a+\beta b)}(\rho) = \rho(\alpha a+\beta b) 
-	&=	\alpha\rho(a) +\beta\rho(b) = \alpha\hat{a}(\rho)+ \beta\hat{b}(\rho), 			\\
+		\widehat{(\alpha a+ b)}(\rho) = \rho(\alpha a+ b) 
+	&=	\alpha\rho(a) +\rho(b) = \alpha\hat{a}(\rho)+\hat{b}(\rho), 			\\
 		\widehat{a^\ast}(\rho) = \rho(a^\ast) 
 	&= \overline{\rho(a)} = \overline{\hat{a}(\rho)}.
 \end{align*}
@@ -1416,15 +1418,15 @@ Gelfand-Naimark-Segal (GNS) construction.
 		L_\rho = \left\{a \in A \mid \rho (a ^\ast a) = 0 \right\}.
 	\end{align*}	
 	For $a,b \in A$, define $\langle a , b \rangle_0 = \rho(b^\ast a)$, then 
-	$\langle \cdot, \cdot \rangle_0$ satisfies
+	$\langle \cdot, \cdot \rangle_0$ satisfies the following properties:
 	\begin{enumerate}
-	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha, \beta \in \mathbb{C}$:
+	  \item Linearity in 1st argument: for $a,b\in A$, $\alpha \in \mathbb{C}$:
 		\begin{align*}
-		   \langle \alpha a + \beta b, c \rangle_0 
-		&= \rho (c^\ast(\alpha a + \beta b)   											\\
-		&= \rho (\alpha c^\ast a + \beta c^\ast b)  									\\
-		&= \alpha \rho (c^\ast a) + \beta \rho (c^\ast b)								\\
-		&= \alpha \langle a , c \rangle_0 + \beta \langle b, c \rangle_0.
+		   \langle \alpha a +  b, c \rangle_0 
+		&= \rho (c^\ast(\alpha a +  b)   											\\
+		&= \rho (\alpha c^\ast a +  c^\ast b)  									\\
+		&= \alpha \rho (c^\ast a) +  \rho (c^\ast b)								\\
+		&= \alpha \langle a , c \rangle_0 +  \langle b, c \rangle_0.
 		\end{align*}
 	  \item Conjugate symmetric: for $a,b \in A$:
 	  	\begin{align*}
@@ -1436,7 +1438,7 @@ Gelfand-Naimark-Segal (GNS) construction.
 	  	\end{align*}
 	  \item Positive semi-definite: for $a \in A$:
 	  	\begin{align*}
-	  	&=	\langle a,a\rangle_0 = \rho(a^\ast a) \geq 0,
+	  		\langle a,a\rangle_0 = \rho(a^\ast a) \geq 0,
 	  	\end{align*}
 	  	since $a^\ast a$ is positive for all $a$.
 	\end{enumerate}
@@ -1493,7 +1495,7 @@ Gelfand-Naimark-Segal (GNS) construction.
 		\langle a+L_\rho,b+L_\rho \rangle = \langle a,b\rangle_0, ~~~~ 
 		\mbox{for}~~a+L_\rho,b+L_\rho \in V_\rho.
 	\end{align*}
-	It follows from properties $i),~ii)$ and $iii)$ of $\langle \cdot,\cdot  \rangle 
+	It follows from properties (i),~(ii) and (iii) of $\langle \cdot,\cdot  \rangle 
 	_0$ that $\langle \cdot,\cdot  \rangle$ is an inner product on $V_\rho$, with
 	\begin{align*}
 				\langle a + L^\rho, a + L^\rho \rangle = 0
@@ -1594,7 +1596,8 @@ Gelfand-Naimark-Segal (GNS) construction.
 
 We know from Section \ref{section:CX} that all functionals of the form 
 $\rho_x(f) = f(x)$, for $x$ in $X$, are pure states on the $C^\ast$-algebra 
-$\CX$. So, what happens if we apply the GNS construction to $\rho_x$?
+$\CX$. So, what happens if we apply the GNS construction to one of these 
+$\rho_x$?
 
 
 Fix $x$ in $X$. If $\rho_x(\bar f f)=0$, then $(\bar f f)(x)=0$ and $f(x)=0$. 
