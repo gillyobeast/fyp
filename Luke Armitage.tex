@@ -3,11 +3,10 @@
 \usepackage{enumitem}
 \usepackage{bbm}	%% makes \1 look good
 \usepackage{hyperref}
-\usepackage[margin=3cm]{geometry}
+\usepackage[hmargin=3cm,vmargin=2.5cm]{geometry}
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage[disable]{todonotes}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{csquotes}
@@ -53,6 +52,7 @@
   \ifx\relax#1\relax  \item \else \item[#1] \fi
   \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
 \DeclareMathOperator{\Real}{\operatorname{Re}}
+\DeclareMathOperator{\Mat}{\operatorname{Mat}}
 
 
 
@@ -99,7 +99,7 @@
 
 
 \tableofcontents
-\listoftodos
+
 
 
 \chapter{Introduction}
@@ -114,7 +114,7 @@ Neumann algebras}, a subsection of $C^\ast$-algebra theory.
 
 {In 1943, Gelfand and Naimark \cite{gelfand43} established an abstract 
 characterisation of $C^\ast$-algebras, free from dependence on the operators 
-acting on a Hilbert space. The Gelfand-Naimark theorem, which we will be 
+acting on a Hilbert space. The Gelfand-Naimark (GN) theorem, which we will be 
 considering here at length, gives the link between these abstract 
 $C^\ast$-algebras and the rings of operators previously studied. Used in the 
 proof of the GN theorem is the Gelfand-Naimark-Segal construction, a technique 
@@ -145,7 +145,7 @@ Some other texts which cover $C^\ast$-algebras:
 
 \end{itemize}
 	
-\section{An Overview}
+\section{Summary}
 
 After this introductory chapter, we give some definitions and results which will 
 be used throughout, and establish notation. Then the definition of a 
@@ -931,7 +931,7 @@ is positive for all $a$ in $A$. (See \cite[4.2.5 and 4.2.6]{kadison83}).
 \begin{prop}[{\cite[4.3.2]{kadison83}}]\label{prop:432}
 	A linear functional $\rho$ on a $C^\ast$-algebra $A$ is positive if and only if 
 	$\rho$ is bounded and $\left\|\rho\right\| = \rho(\1)$ (where 
-	$\left\|\cdot\right\|$ is the operator norm).
+	$\left\|\cdot\right\|$ is the operator norm on $A^\ast$).
 \end{prop}
 \begin{proof}
 	Suppose that $\rho$ is positive. With $a$ in $A$, let $\alpha$ be a scalar of 
@@ -1209,7 +1209,6 @@ $C^\ast$-algebra and discuss how the theory of $C^\ast$-algebras relates to
 quantum mechanics, the very subject which started the study of these objects, 
 which explains a good deal of the terminology used here. 
 
-\todo[inline]{potentially give a specific example of $\H=\C^n$}
 
 \begin{claim} 
 	$\B(\H)$ is a $C^\ast$-algebra with the operator norm 
@@ -1306,6 +1305,43 @@ which explains a good deal of the terminology used here.
 	It is clear that $I$ is a unit.
 	Hence, the claim.
 \end{proof} 
+
+A basic finite dimensional example of a Hilbert space is $\C^n$, and a linear 
+map $\C^n\to\C^n$ can be represented, given a choice of basis of $\C^n$, as an 
+element of the algebra $\Mat_n(\C)$ of $n\times n$ complex matrices. Since 
+$\C^n$ is finite dimensional, all linear maps on it are bounded so we can 
+identify, after choosing a basis, $\B(\C^n)$ with $\Mat_n(\C)$ -- in this way, 
+we see that $\Mat_n(\C)$ is a $C^\ast$-algebra.
+The spectrum of a map in $\B(\C^n)$ corresponds to the set of eigenvalues of 
+its matrix representation (recall from linear algebra that eigenvalues are 
+basis independent), so a self-adjoint operator is positive if it has 
+non-negative eigenvalues -- that is, it has a positive-semidefinite Hermitian
+matrix representation.
+
+We can consider $\Mat_n(\C)$ as an $n^2$-dimensional complex vector space, with 
+a basis $\left\{e_{ij} \mid i,j =1,\dots,n\right\}$. This there is a basis 
+$\left\{f_{pq} \mid p,q =1,\dots,n\right\}$ of the dual of $\Mat_n(\C)$, where 
+$f_{pq}$ is given by 
+\begin{align*}
+	f_{pq}(e_{ij}) = \delta_{ip}\delta_{jq}
+\end{align*}
+extended linearly, where the $\delta$ functions take value $1$ if the indices 
+are equal and $0$ otherwise. hence any linear functional $\rho$ can be written 
+in the form
+\begin{align*}
+	\rho = \sum_{i,j=1}^n \alpha_{ij}f_{ij}
+\end{align*}
+where $\alpha_{ij}=\rho(e_{ij})$.
+
+Writing the identity matrix $I_n$ in $\Mat_n(\C)$ as $I_n =
+\sum_{i,j=1}^n\delta_{ij}$, if a positive functional $\rho$ is a state then it 
+satisfies
+\begin{align*}
+	1 = \rho(I_n) = \sum_{i,j=1}^n\delta_{ij}\rho(e_{ij}) = \sum_{i=1}^n\rho(e_{ii}).
+\end{align*}
+Pure states on $\Mat_n(\C)$ are those $\rho$ for which $\rho(e_{ii})=1$ for 
+exactly one $i \in \left\{1,\dots,n\right\}$ and $0$ for the rest.
+
 
 
 
@@ -1644,7 +1680,7 @@ is a linear operator on $\C$, and the map
 is a representation of $\CX$ on $\C$. The unit in $\CX$ is the constant function 
 $\1$, which in $V_{\rho_x}$ is identified with $\1(x)=1$; so we have that $1$ is 
 a cyclic vector for the representation $\pi_{\rho_x}$.
-\todo[inline]{do this to a nonpure state on $\CX$}
+
 
 \section{The Gelfand-Naimark Theorem}\label{section:gn}
 We finish this chapter with the big result; that every $C^\ast$-algebra can be 
