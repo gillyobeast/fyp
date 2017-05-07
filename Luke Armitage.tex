@@ -154,7 +154,9 @@ properties, and to consider the Gelfand-Naimark theorems and the methods used
 to prove them.
 
 After this introductory chapter, we establish notation, and recall some 
-definitions and results which will be used throughout. [these include...]
+definitions and results which will be used throughout. This includes a revision
+of some Hilbert space theory and topology, together with a couple of results
+crucial reaching our aims: the Hahn-Banach theorem and the Banach-Alaoglu theorem.
 
 In Chapter~\ref{chapter:cstar}, we define a $C^\ast$-algebra, and some 
 important elements of a $C^\ast$-algebra: normal elements and self-adjoint 
@@ -558,7 +560,7 @@ If a $C^\ast$-algebra $A$ contains a multiplicative identity element $\1$, such
 that $a \1 = a = \1  a$ for all $a \in A$, call $\1$ the \emph{unit} in $A$, and 
 $A$ is then a \emph{unital} $C^\ast$-algebra.
 
-\begin{prop*}[{\cite[I.1.3]{davidson96}}]
+\begin{prop*}[{\cite[I.1.3]{davidson96}}]\label{prop:unit}
 	Any non-unital $C^\ast$-algebra $A$ can be isometrically embedded in a unital 
 	$C^\ast$-algebra $\tilde{A}$.
 
@@ -617,6 +619,7 @@ $A$ is then a \emph{unital} $C^\ast$-algebra.
 	and $\tilde A$ is a $C^\ast$-algebra.
 \end{proof}
 
+We call the algebra $\tilde A$ in Proposition~\ref{prop:unit} the \emph{unitization} of $A$.
 In light of this result, we take all $C^\ast$-algebras from here to be unital 
 unless specified otherwise. For the results we will consider, we can simply take 
 the unital case. However, there are circumstances in advanced theory in which 
@@ -1348,7 +1351,7 @@ any linear functional $\rho$ can be written in the form
 where $\alpha_{ij}=\rho(e_{ij})$.
 
 Writing the identity matrix $I_n$ in $\Mat_n(\C)$ as $I_n =
-\sum_{i,j=1}^n\delta_{ij}$, if a positive functional $\rho$ is a state then it 
+\sum_{i,j=1}^n\delta_{ij}e_{ij}$, if a positive functional $\rho$ is a state then it 
 satisfies
 \begin{align*}
 	1 = \rho(I_n) = \sum_{i,j=1}^n\delta_{ij}\rho(e_{ij}) = \sum_{i=1}^n\rho(e_{ii}).
