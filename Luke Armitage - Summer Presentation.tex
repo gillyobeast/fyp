@@ -8,11 +8,13 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+\usefonttheme[onlymath]{serif}
+
 \let\emph\relax 
 \DeclareTextFontCommand{\emph}{\bfseries\itshape}
 
 \author{Luke Armitage}
-\title{C$^\ast$-Algebras, and the Gelfand-Naimark Theorems}
+\title{$C^\ast$-Algebras, and the Gelfand-Naimark Theorems}
 \setbeamercovered{invisible} 
 \setbeamertemplate{navigation symbols}{} 
 \logo{\includegraphics[scale=0.15]{UOY-Logo.pdf}} 
@@ -22,7 +24,7 @@
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
-\theoremstyle{theorem}
+\theoremstyle{plain}
 \newtheorem{thm}{Theorem}
 
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
@@ -32,12 +34,24 @@
 \begin{frame}
 \titlepage
 \end{frame}
-
-%% just gonna say some cool stuff i found out about C*-Algebras	
-\begin{frame} {Definitions}
-	C* algebra, % write C* axiom on board next to slides..
+				% write C* axiom on board next to slides..
 				% '' just gonna write this here so we can remember that it's an innocuous
 				% seeming statement causing all these structures.''
+%% just gonna say some cool stuff i found out about C*-Algebras	
+\begin{frame} {Definitions}
+	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with norm $\|\cdot\|$ and an involution map 
+	$a \mapsto a^\ast$ satisfying the following: 
+	\begin{enumerate}
+		\item $a^{\ast\ast} = a$
+		\item $(\alpha a + b)^\ast = \bar\alpha a^\ast + b^\ast$ 
+		\item $(ab)^\ast = b^\ast a^\ast$
+		\item $\|a^\ast a\| = \|a\|^2$	~ ($C^\ast$ axiom) 
+			%% we will see how the $C^\ast$-axiom leads to lots of structure in these algebras.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame} {Definitions}
+	
 	spectrum, spectral radius, 
 	state, pure state,
 	* isomorphism,
