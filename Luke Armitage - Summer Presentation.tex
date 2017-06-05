@@ -10,7 +10,7 @@
 
 \author{Luke Armitage}
 \title{C$^\ast$-Algebras, and Gelfand-Naimark Theorems}
-%\setbeamercovered{transparent} 
+\setbeamercovered{invisible} 
 \setbeamertemplate{navigation symbols}{} 
 \logo{\includegraphics[scale=0.15]{UOY-Logo.pdf}} 
 \institute{University of York} 
@@ -32,10 +32,12 @@
 
 %% just gonna say some cool stuff i found out about C*-Algebras	
 \begin{frame} {Definitions}
-	C* algebra
-	state, pure state
-	* isomorphism
-	representation, faithful representation
+	C* algebra, % write C* axiom on board next to slides..
+				% '' just gonna write this here so we can remember that it's an innocuous
+				% seeming statement causing all these structures.''
+	state, pure state,
+	* isomorphism,
+	representation, faithful representation,
 \end{frame}
 
 \begin{frame} {Examples}
@@ -43,11 +45,13 @@
 \end{frame}
 
 \begin{frame} {Cool Asides}
-	how these are forced by C* axiom
+	how these are forced by C* axiom:
+	uniqueness of norm,
+	automatic continuity of bounded operators,
 \end{frame}
 
-\begin{frame} {G-N Theorems}
-	\begin{thm}[Commutative]
+\begin{frame} {Gelfand-Naimark Theorems}
+	\begin{thm}
 		Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the 
 		algebra of continuous functions on the compact Hausdorff space $\P A$ of pure 
 		states on $A$.
@@ -58,9 +62,11 @@
 	\end{thm}
 \end{frame}
 
-\begin{frame} {The GNS Construction}
-	The method used to prove the GN theorem. Given a state on a C* algebra, we can construct 
-	We take 
+\begin{frame} {The Gelfand-Naimark-Segal Construction}
+	Used to prove the GN theorem. \\
+	Given a state on a C* algebra, we can construct a Hilbert space and a representation on that space.
+	Given $a$ and $b$ in $A$, define $\langle a, b \rangle = \rho(b^\ast a)$. This is a semi-inner product -- basically an inner product, but there exist $a \neq 0$ such that $\langle a,a \rangle = 0$.
+	However, if we consider the quotient vector space of $A$ by the collection of such elements, this space completes to a Hilbert space with $\langle \cdot , \cdot \rangle$ as the inner product.
 \end{frame}
 
 \begin{frame} {References}
