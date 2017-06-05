@@ -8,8 +8,11 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+\let\emph\relax 
+\DeclareTextFontCommand{\emph}{\bfseries\itshape}
+
 \author{Luke Armitage}
-\title{C$^\ast$-Algebras, and Gelfand-Naimark Theorems}
+\title{C$^\ast$-Algebras, and the Gelfand-Naimark Theorems}
 \setbeamercovered{invisible} 
 \setbeamertemplate{navigation symbols}{} 
 \logo{\includegraphics[scale=0.15]{UOY-Logo.pdf}} 
@@ -35,6 +38,7 @@
 	C* algebra, % write C* axiom on board next to slides..
 				% '' just gonna write this here so we can remember that it's an innocuous
 				% seeming statement causing all these structures.''
+	spectrum, spectral radius, 
 	state, pure state,
 	* isomorphism,
 	representation, faithful representation,
@@ -45,9 +49,12 @@
 \end{frame}
 
 \begin{frame} {Cool Asides}
-	how these are forced by C* axiom:
-	uniqueness of norm,
-	automatic continuity of bounded operators,
+	%how these are forced by C* axiom:
+	\emph{Uniqueness of norm:} % lemma2
+	$\|a\|^2 = \|a^\ast a\| = r(a^\ast a)$. 
+	Requires spectral theory. The spectral radius of a normal element is equal to its norm. From this, and the C* axiom, we get that the norm of each element is given by the spectral radius, which is defined in terms of the spectrum which does not use the norm. \\
+	\emph{$\ast$-homomorphisms are continuous:} % prop2
+	homomorphisms do not increase norm, so are bounded and hence continuous. isomorphisms are isometric. again uses spectral theory, this time to show that spectral radius is not increased / is preserved.
 \end{frame}
 
 \begin{frame} {Gelfand-Naimark Theorems}
