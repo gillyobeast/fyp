@@ -24,7 +24,7 @@
 \date{June 8, 2017} 
 %\subject{} 
 
-
+\theoremstyle{definition}
 \newtheorem{thm}{Theorem}
 
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
@@ -36,23 +36,44 @@
 \begin{frame}
 \titlepage
 \end{frame}
-				% write C* axiom on board next to slides..
-				% '' just gonna write this here so we can remember that it's an innocuous
-				% seeming statement causing all these structures.''
 %% just gonna say some cool stuff i found out about C*-Algebras	
-\begin{frame} {Definitions}
-	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with norm $\left\|\cdot\right\|$ 
-	and an involution map $a \mapsto a^\ast$ satisfying the following: 
+
+\begin{frame} {Definitions} {Banach Algebra}
+	A \emph{Banach algebra} is a complete normed algebra $A$ such that
+	\[
+		 \left\|ab\right\| \leq \left\|a\right\| \cdot \left\|b\right\| ~~\forall a,b \in A. 
+		 %% submultiplicity
+	\]
+	
+	%% complete in the sense that all Cauchy sequences converge to a limit
+	%% normed algebra means normed linear space with ring structure
+\end{frame}
+
+\begin{frame} {Definitions} {$C^\ast$-Algebra}
+	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with involution map $a \mapsto a^\ast$ 
+	satisfying the following: 
 	\begin{enumerate}
-		\item $a^{\ast\ast} = a$
-		\item $(\alpha a + b)^\ast = \bar\alpha a^\ast + b^\ast$ 
-		\item $(ab)^\ast = b^\ast a^\ast$
-		\item $\left\|a^\ast a\right\| = \left\|a\right\|^2$	~ ($C^\ast$ axiom) 
+		\item $a^{\ast\ast} = a$ 									%% involution 
+		\item $(\alpha a + b)^\ast = \bar\alpha a^\ast + b^\ast$ 	%% anti-linear
+		\item $(ab)^\ast = b^\ast a^\ast$							%% anti-homomorphic  
+		\item $\left\|a^\ast a\right\| = \left\|a\right\|^2$		~ ($C^\ast$ axiom) 
 			%% we will see how the $C^\ast$-axiom leads to lots of structure in these algebras.
 	\end{enumerate}
+	%% define unit here
 \end{frame}
+
+\begin{frame} {Examples}
+	Continuous linear functionals on a compact, Hausdorff space.
 	
-\begin{frame} {Definitions}
+	Bounded operators on a Hilbert space, $\mathcal{B(H)}$. %% the prototypical example
+	
+	Ideal of compact operators, $\mathcal{K(H)}$.   % brief mention these two
+	
+	Calkin algebra, the quotient algebra $\mathcal{B(H)/K(H)}$.
+	
+\end{frame}
+
+\begin{frame} {Definitions} {Spectrum}
 	\emph{Spectrum} of $a \in A$ is 
 	\[
 		\sigma(a) = \left\{\lambda \in \mathbb C \mid a - \lambda 1  \mbox{ is not invertible} \right\}.
@@ -64,7 +85,7 @@
 	Say that $a \in A$ is \emph{positive} if $a^\ast = a$ and $\sigma(a) \subset \mathbb R$.
 \end{frame}
 	
-\begin{frame}{Definitions}
+\begin{frame}{Definitions} {States}
 	A \emph{state} is a linear map $\rho : A \to \mathbb C$ such that $\rho(a) \geq 0$
 	for all positive $a \in A$, and $\rho(1) = 1$.
 	
@@ -72,58 +93,112 @@
 	Call the extreme points of the state space \emph{pure states}.
 \end{frame}
 
-\begin{frame} {Examples}
-	\begin{itemize}
-		\item Continuous linear functionals on a compact, Hausdorff space.
-		\item Bounded operators on a Hilbert space, $\mathcal{B(H)}$. %% the prototypical example
-		\item Ideal of compact operators, $\mathcal{K(H)}$.   % brief mention these two
-		\item Calkin algebra, the quotient algebra $\mathcal{B(H)/K(H)}$.
-	\end{itemize}
-\end{frame}
-
-\begin{frame} {Definitions}
+\begin{frame} {Definitions} {Maps between $C^\ast$-algebras}
 	A \emph{$\ast$-homomorphism} is an algebra homomorphism such that $\varphi (a^\ast) = \varphi(a)^\ast$.
 	
 	A \emph{$\ast$-isomorphism} is a bijective $\ast$-homomorphism.
 \end{frame}
 
-\begin{frame} {Cool Results}
-	%how these are forced by C* axiom:
-	\emph{Uniqueness of norm:} % lemma2
+\begin{frame} {Cool Results} {Uniqueness of norm}
+	% lemma2
 	$\|a\|^2 = \|a^\ast a\| = r(a^\ast a)$. 
-	Requires spectral theory. The spectral radius of a normal element is equal to its norm. From this, and the C* axiom, we get that the norm of each element is given by the spectral radius, which is defined in terms of the spectrum which does not use the norm. 
-	
-	\emph{$\ast$-homomorphisms are continuous:} % prop2
+	The spectral radius of a normal element is equal to its norm. 
+	From this, and the C* axiom, we get that the norm of each element is given by 
+	the spectral radius, which is defined in terms of the spectrum which is not 
+	defined in terms of the norm. 
+\end{frame}		
+		
+\begin{frame} {Cool Results} {$\ast$-homomorphisms are continuous} 
+	% prop2
 	homomorphisms do not increase norm, so are bounded and hence continuous. isomorphisms are isometric. again uses spectral theory, this time to show that spectral radius is not increased / is preserved.
 \end{frame}
 
-\begin{frame}{Definitions}
+\begin{frame}{Definitions} {Representation}
 	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism $A \to \mathcal{B(H)}$.
 	
 	A bijective representation is called \emph{faithful}.
 \end{frame}
 
-\begin{frame} {Gelfand-Naimark Theorems}
+\begin{frame} {Gelfand-Naimark Theorem} 
+	\begin{thm}
+		Every $C^\ast$-algebra has a faithful representation. 
+	\end{thm}
+	\begin{proof}
+	Uses the Gelfand-Naimark-Segal construction.\renewcommand{\qedsymbol}{}
+	\end{proof}
+	%% to find a representation of A from each element of some collection of 
+	%% states containing all pure states. use something called the direct sum 
+	%% representation to stitch these together, and the result is a faithful 
+	%% representation of A on the direct sum of the resulting Hilbert spaces.
+	
+\end{frame}
+
+\begin{frame} {Gelfand-Naimark Theorem} {Proof: Gelfand-Naimark-Segal Construction}
+	%% Used to prove the Gelfand-Naimark theorem.
+	%% Given a state rho on A, we can construct a Hilbert space H and a representation
+	%% of A on that Hilbert space. 
+	
+	Let $L= \left\{a \in A \mid \rho (a^\ast a) = 0 \right\}$.
+	
+	$\mathcal H $ is the Hilbert space completion of $A / L$.
+	
+	%% the Hilbert space comes from considering the quotient space of A by the 
+	%% ideal L, defined here. Taking this quotient means we can then define an inner 
+	%% product by <a,b> = rho(b*a), and completing this quotient space to a Hilbert
+	%% space gives us what we need.
+	
+	Define operators 
+	\[
+		\pi_a : A/L \to A/L : b+L \mapsto ab + L,
+	\]
+	and extend to $\pi_a : \mathcal H \to \mathcal H$.
+	
+	%% now we define operators like this, extending them to H, and the representation
+	%% is given by sending each element of A to its corresponding 'extended
+	%% left-multiplication' operator on H.	
+	
+	Representation is given by
+	\[
+		\pi: A \to \mathcal{B(H)} : a \mapsto \pi_a.
+	\]
+\end{frame}
+
+\begin{frame} {Gelfand-Naimark Theorem} {Proof: Direct Sum}
+	Proof concludes by taking `direct sum' representation over the representations 
+	given by doing GNS construction to a subset of state space containing all pure 
+	states. This gives a faithful representation.
+\end{frame}
+
+\begin{frame} {Gelfand-Naimark Theorem} {For Commutative $C^\ast$-algebras}
 	\begin{thm}
 		Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the 
-		algebra of continuous functions on the compact Hausdorff space $\P A$ of pure 
-		states on $A$.
-	\end{thm}
-	\pause
-	\begin{thm}
-		Every $C^\ast$-algebra has a faithful representation.
+		algebra of continuous functions on the compact Hausdorff space $\P A$ containing 
+		all pure states on $A$. 
 	\end{thm}
 \end{frame}
 
-\begin{frame} {The Gelfand-Naimark-Segal Construction}
-	Used to prove the GN theorem. \\
-	Given a state on a C* algebra, we can construct a Hilbert space and a representation on that space.
-	Given $a$ and $b$ in $A$, define $\langle a, b \rangle = \rho(b^\ast a)$. This is a semi-inner product -- basically an inner product, but there exist $a \neq 0$ such that $\langle a,a \rangle = 0$.
-	However, if we consider the quotient vector space of $A$ by the collection of such elements, this space completes to a Hilbert space with $\langle \cdot , \cdot \rangle$ as the inner product.
-\end{frame}
+\begin{frame} {References -- Any Questions?}
 
-\begin{frame} {References -- Questions?}
-	My project report can be found at \texttt{goo.gl/[link]}
+	%% thank you for listening, hopefully i have convinced you that my project is at least 
+	%% remotely interesting. i have included a URL from which you can download my project.
+	%% finally -- any questions?
+	
+	Kadison, R.V. and Ringrose, J.R., 1983. 
+	\textit{Fundamentals of the Theory of Operator Algebras, Vol. I. Elementary Theory}. 
+	Springer.
+	
+	Blackadar, B., 2006. 
+	\textit{Algebras: Theory of $C^\ast$-Algebras and Von~Neumann 
+	Algebras} (Vol. 122). 
+	Springer Science \& Business Media.
+
+	\vfill
+
+	My project report can be downloaded from \texttt{goo.gl/Qv1zas}.
+	
 \end{frame}
 
 \end{document}
+
+
+
