@@ -10,6 +10,8 @@
 
 \usefonttheme[onlymath]{serif}
 
+\setlength{\parskip}{0.5em}
+
 \let\emph\relax 
 \DeclareTextFontCommand{\emph}{\bfseries\itshape}
 
@@ -22,9 +24,7 @@
 \date{June 8, 2017} 
 %\subject{} 
 
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}
-\theoremstyle{plain}
+
 \newtheorem{thm}{Theorem}
 
 \renewcommand{\P}[1]{\mathscr{P}(#1)}
@@ -62,7 +62,9 @@
 		 r(a) = \sup_{ \lambda \in \sigma(a)} \left| \lambda \right|.
 	\]
 	Say that $a \in A$ is \emph{positive} if $a^\ast = a$ and $\sigma(a) \subset \mathbb R$.
+\end{frame}
 	
+\begin{frame}{Definitions}
 	A \emph{state} is a linear map $\rho : A \to \mathbb C$ such that $\rho(a) \geq 0$
 	for all positive $a \in A$, and $\rho(1) = 1$.
 	
@@ -70,27 +72,35 @@
 	Call the extreme points of the state space \emph{pure states}.
 \end{frame}
 
-\begin{frame} {Definitions}
-	A \emph{$\ast$-homomorphism}: algebra homomorphism such that $\varphi (a^\ast) = \varphi(a)^\ast$.
-	
-	\emph{$\ast$-isomorphism}: bijective $\ast$-homomorphism.
-	
-	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism $A \to \mathcal{B(H)}$.
-	
-	A bijective representation is called \emph{faithful}.
-\end{frame}
-
 \begin{frame} {Examples}
-	
+	\begin{itemize}
+		\item Continuous linear functionals on a compact, Hausdorff space.
+		\item Bounded operators on a Hilbert space, $\mathcal{B(H)}$. %% the prototypical example
+		\item Ideal of compact operators, $\mathcal{K(H)}$.   % brief mention these two
+		\item Calkin algebra, the quotient algebra $\mathcal{B(H)/K(H)}$.
+	\end{itemize}
 \end{frame}
 
-\begin{frame} {Cool Asides}
+\begin{frame} {Definitions}
+	A \emph{$\ast$-homomorphism} is an algebra homomorphism such that $\varphi (a^\ast) = \varphi(a)^\ast$.
+	
+	A \emph{$\ast$-isomorphism} is a bijective $\ast$-homomorphism.
+\end{frame}
+
+\begin{frame} {Cool Results}
 	%how these are forced by C* axiom:
 	\emph{Uniqueness of norm:} % lemma2
 	$\|a\|^2 = \|a^\ast a\| = r(a^\ast a)$. 
-	Requires spectral theory. The spectral radius of a normal element is equal to its norm. From this, and the C* axiom, we get that the norm of each element is given by the spectral radius, which is defined in terms of the spectrum which does not use the norm. \\
+	Requires spectral theory. The spectral radius of a normal element is equal to its norm. From this, and the C* axiom, we get that the norm of each element is given by the spectral radius, which is defined in terms of the spectrum which does not use the norm. 
+	
 	\emph{$\ast$-homomorphisms are continuous:} % prop2
 	homomorphisms do not increase norm, so are bounded and hence continuous. isomorphisms are isometric. again uses spectral theory, this time to show that spectral radius is not increased / is preserved.
+\end{frame}
+
+\begin{frame}{Definitions}
+	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism $A \to \mathcal{B(H)}$.
+	
+	A bijective representation is called \emph{faithful}.
 \end{frame}
 
 \begin{frame} {Gelfand-Naimark Theorems}
@@ -112,8 +122,8 @@
 	However, if we consider the quotient vector space of $A$ by the collection of such elements, this space completes to a Hilbert space with $\langle \cdot , \cdot \rangle$ as the inner product.
 \end{frame}
 
-\begin{frame} {References}
-	
+\begin{frame} {References -- Questions?}
+	My project report can be found at \texttt{goo.gl/[link]}
 \end{frame}
 
 \end{document}
