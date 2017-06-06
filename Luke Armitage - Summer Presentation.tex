@@ -41,25 +41,43 @@
 				% seeming statement causing all these structures.''
 %% just gonna say some cool stuff i found out about C*-Algebras	
 \begin{frame} {Definitions}
-	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with norm $\|\cdot\|$ and an involution map 
-	$a \mapsto a^\ast$ satisfying the following: 
+	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with norm $\left\|\cdot\right\|$ 
+	and an involution map $a \mapsto a^\ast$ satisfying the following: 
 	\begin{enumerate}
 		\item $a^{\ast\ast} = a$
 		\item $(\alpha a + b)^\ast = \bar\alpha a^\ast + b^\ast$ 
 		\item $(ab)^\ast = b^\ast a^\ast$
-		\item $\|a^\ast a\| = \|a\|^2$	~ ($C^\ast$ axiom) 
+		\item $\left\|a^\ast a\right\| = \left\|a\right\|^2$	~ ($C^\ast$ axiom) 
 			%% we will see how the $C^\ast$-axiom leads to lots of structure in these algebras.
 	\end{enumerate}
 \end{frame}
+	
+\begin{frame} {Definitions}
+	\emph{Spectrum} of $a \in A$ is 
+	\[
+		\sigma(a) = \left\{\lambda \in \mathbb C \mid a - \lambda 1  \mbox{ is not invertible} \right\}.
+	\]
+	\emph{Spectral radius} of $a \in A$ is 
+	\[
+		 r(a) = \sup_{ \lambda \in \sigma(a)} \left| \lambda \right|.
+	\]
+	Say that $a \in A$ is \emph{positive} if $a^\ast = a$ and $\sigma(a) \subset \mathbb R$.
+	
+	A \emph{state} is a linear map $\rho : A \to \mathbb C$ such that $\rho(a) \geq 0$
+	for all positive $a \in A$, and $\rho(1) = 1$.
+	
+	The \emph{state space}, $\mathcal S (A)$, is a convex subset of the dual space of $A$. 
+	Call the extreme points of the state space \emph{pure states}.
+\end{frame}
 
 \begin{frame} {Definitions}
-	A \emph{state} is a positive linear functional $\rho : A \to \K$ such that $\rho(a) \geq 0$
-	for all positive $a \in A$.
+	A \emph{$\ast$-homomorphism}: algebra homomorphism such that $\varphi (a^\ast) = \varphi(a)^\ast$.
 	
-	spectrum, spectral radius, 
-	state, pure state,
-	* homo/isomorphism,
-	representation, faithful representation,
+	\emph{$\ast$-isomorphism}: bijective $\ast$-homomorphism.
+	
+	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism $A \to \mathcal{B(H)}$.
+	
+	A bijective representation is called \emph{faithful}.
 \end{frame}
 
 \begin{frame} {Examples}
