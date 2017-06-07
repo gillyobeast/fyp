@@ -33,45 +33,74 @@
 \begin{document}
 
 
+%%%% TODO
+%% write flashcards.
+%% practice a couple times
+
 \begin{frame}
 \titlepage
 \end{frame}
-%% just gonna say some cool stuff i found out about C*-Algebras	
+%% thank for coming. 
+%% my project is about some objects called C* algebras, which occur in 
+%% functional analysis. in my project i give an introduction to C* algebras
+%% and examined the proofs of the gelfand naimark theorems.
 
-\begin{frame} {Definitions} {Banach Algebra}
+%% in this talk, i hope to give a very brief idea of what a C* algebra is,
+%% talk about a couple of cool things i found out about them,
+%% discuss the main idea of the proof of one of the theorems,
+%% and hopefully convice you that you ought to read my project.
+
+\begin{frame} {Definitions} {Banach algebra}
 	A \emph{Banach algebra} is a complete normed algebra $A$ such that
 	\[
 		 \left\|ab\right\| \leq \left\|a\right\| \cdot \left\|b\right\| ~~\forall a,b \in A. 
 		 %% submultiplicity
 	\]
-	
-	%% complete in the sense that all Cauchy sequences converge to a limit
-	%% normed algebra means normed linear space with ring structure
 \end{frame}
+%% our first definition is that of a Banach algebra. a Banach algebra is a normed algebra,
+%% which means it's a normed linear space with a ring structure satifying this 
+%% submultiplicity relation, which is complete in the sense that all cauchy sequences converge.
+%% basic example, think of the complex numbers.
 
-\begin{frame} {Definitions} {$C^\ast$-Algebra}
-	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with involution map $a \mapsto a^\ast$ 
-	satisfying the following: 
+\begin{frame} {Definitions} {$C^\ast$-algebra}
+	A \emph{$C^\ast$-algebra} $A$ is a Banach algebra with \emph{adjoint} map 
+	$a \mapsto a^\ast$ on $A$, satisfying the following: 
 	\begin{enumerate}
 		\item $a^{\ast\ast} = a$ 									%% involution 
 		\item $(\alpha a + b)^\ast = \bar\alpha a^\ast + b^\ast$ 	%% anti-linear
 		\item $(ab)^\ast = b^\ast a^\ast$							%% anti-homomorphic  
 		\item $\left\|a^\ast a\right\| = \left\|a\right\|^2$		~ ($C^\ast$ axiom) 
-			%% we will see how the $C^\ast$-axiom leads to lots of structure in these algebras.
+		
 	\end{enumerate}
-	%% define unit here
+	
+	We assume here that $C^\ast$-algebras have an identity, denoted 1. 
 \end{frame}
+%% now for the major definition. a c* algebra is a Banach algebra with this funny star 
+%% operation defined on it, called the adjoint operation, which satisfies these axioms:
+%% it must be an involution, anti linear, anti homomorphic (or anti multiplicative if you like)
+%% and the all-important C* axiom. This ensures the adjoint map and norm behave in a nice way
+%% -- gives a lot of structure to C* algebras, which we will see shortly. [write c* axiom]
+%%
+%% for a basic example, again think of the complex numbers, with complex conjugation.
+%%
+%% we note that we assume an identity for purposes of this talk, tho it's not generally assumed.
+%% we also generally don't assume commutativity.
 
 \begin{frame} {Examples}
-	Continuous linear functionals on a compact, Hausdorff space.
+	Continuous complex-valued functions on a compact Hausdorff space.
 	
-	Bounded operators on a Hilbert space, $\mathcal{B(H)}$. %% the prototypical example
+	Bounded operators on a Hilbert space, $\mathcal{B(H)}$. 
 	
-	Ideal of compact operators, $\mathcal{K(H)}$.   % brief mention these two
+	Ideal of compact operators, $\mathcal{K(H)}$.   
 	
 	Calkin algebra, the quotient algebra $\mathcal{B(H)/K(H)}$.
-	
 \end{frame}
+%% these are important, fairly general examples. the first one will come up later,
+%% the second is the prototypical example, the bounded operators on some Hilbert space,
+%% which students who took functional analysis this year will be somewhat familiar with.
+%% two other examples which are important in funcitonal analysis are the compact operators,
+%% and the Calkin algebra, which is the quotient of the previous two examples taken on 
+%% the same Hilbert space.
 
 \begin{frame} {Definitions} {Spectrum}
 	\emph{Spectrum} of $a \in A$ is 
@@ -82,9 +111,28 @@
 	\[
 		 r(a) = \sup_{ \lambda \in \sigma(a)} \left| \lambda \right|.
 	\]
-	Say that $a \in A$ is \emph{positive} if $a^\ast = a$ and $\sigma(a) \subset \mathbb R$.
 \end{frame}
+%% we move on to some important further definitions. those familiar with functional analysis
+%% will be aware of the importance of the spectrum in the study of bounded operators, and 
+%% the spectrum is also important here. it turns out that the spectrum of an element is always
+%% a nonempty closed subset of the unit disk of radius ||a||.
+%% thus it makes sense to talk about the supremum of the spectral values, which we call the 
+%% spectral radius.
+
+\begin{frame}{Definitions} {Normal elements}
+	Say that $a \in A$ is \emph{self-adjoint} if $a^\ast = a$, and \emph{normal} 
+	if $a^\ast a = aa^\ast$.
 	
+	Say that a self-adjoint $a$ is \emph{positive} if $\sigma(a) \subset \mathbb R^+$.
+\end{frame}
+%% there are some distinguished elements of C* algberas we sould like to single out, 
+%% namely self-adjoint elements,
+%% normal elements and positive elements. self adjoint elements are exactly what they 
+%% sound like, normal elements commute with their adjoint and positive elements are 
+%% self adjoint with real, nonnegative spectrum.
+%% we note that self adjoint elements are normal, and that elements of the 
+%% form a*a are self adjoint by the third axiom. [write the a*a]
+
 \begin{frame}{Definitions} {States}
 	A \emph{state} is a linear map $\rho : A \to \mathbb C$ such that $\rho(a) \geq 0$
 	for all positive $a \in A$, and $\rho(1) = 1$.
@@ -92,32 +140,58 @@
 	The \emph{state space}, $\mathcal S (A)$, is a convex subset of the dual space of $A$. 
 	Call the extreme points of the state space \emph{pure states}.
 \end{frame}
+%% linear functionals are, unsurprisingly, an important thing in functional analysis.
+%% we call a linear functional, that is a linear map A to C, a state if it is posisive 
+%% on positive elements, and maps the identity to 1.
+%% the state space is the collection of all states on A, and  it is a convex subset 
+%% of the dual space. the extreme points of the state space are called pure states.
 
 \begin{frame} {Definitions} {Maps between $C^\ast$-algebras}
-	A \emph{$\ast$-homomorphism} is an algebra homomorphism such that $\varphi (a^\ast) = \varphi(a)^\ast$.
+	A \emph{$\ast$-homomorphism} is an algebra homomorphism $\varphi : A \to B$ such that $\varphi (a^\ast) = \varphi(a)^\ast$, for all $a \in A$.
 	
 	A \emph{$\ast$-isomorphism} is a bijective $\ast$-homomorphism.
 \end{frame}
+%% the definitions of *homomorphisms between C* algebras is pretty much exactly what you
+%% would expect it to be: preserves the adjoint operation. here A and B are C* algebras
+%% similarly we define a *-isomorphism in the way you would expect.
 
-\begin{frame} {Cool Results} {Uniqueness of norm}
-	% lemma2
-	$\|a\|^2 = \|a^\ast a\| = r(a^\ast a)$. 
-	The spectral radius of a normal element is equal to its norm. 
-	From this, and the C* axiom, we get that the norm of each element is given by 
-	the spectral radius, which is defined in terms of the spectrum which is not 
-	defined in terms of the norm. 
+\begin{frame} {Cool Results} {Uniqueness of norm} % lemma2
+	The norm of each element is given by the spectral radius, so the norm is unique.
+	
+	%% the spectral radius of a normal element is equal to its norm.
+		%% proved by showing that one of +-||a|| is in spec(a)
+	\begin{align*}
+		\|a\|^2 &= \|a^\ast a\| = r(a^\ast a) \\ 
+		\|a\| &= r(a^\ast a)^{1/2}
+	\end{align*}
 \end{frame}		
+%% we noted before that a*a is normal, and it turns out that the spectral radius
+%% of a normal element is equal to its norm. this allows us to show that the norm of a
+%% depends only on the spectral radius, i.e. there is only 
+%% one norm on the C* algebra for which the C* axiom will hold.
 		
-\begin{frame} {Cool Results} {$\ast$-homomorphisms are continuous} 
-	% prop2
-	homomorphisms do not increase norm, so are bounded and hence continuous. isomorphisms are isometric. again uses spectral theory, this time to show that spectral radius is not increased / is preserved.
+\begin{frame} {Cool Results} {$\ast$-homomorphisms are continuous} % prop2
+	Let $\varphi:A \to B$ be a $\ast$-homomorphism, then
+	\begin{align*}
+		\|\varphi(a)\| \leq \|a\| 
+	\end{align*}
+	for all $a \in A$. 
+	
+	Equality if $\varphi$ is a $\ast$-isomorphism.
 \end{frame}
+%% the second of our cool results is that *homomorphisms are continuous and that
+%% *isomorphisms are isometric. we prove this inequality by showing that spec phi(a) is 
+%% contained in spec a, and then since phi is a bounded linear map, it is continuous.
+%% the second part comes from showing that the spectra are equal in the bijective case.
 
 \begin{frame}{Definitions} {Representation}
-	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism $A \to \mathcal{B(H)}$.
+	A \emph{representation} of $A$ on a Hilbert Space $\mathcal H$ is a $\ast$-homomorphism 
+	$A \to \mathcal{B(H)}$.
 	
 	A bijective representation is called \emph{faithful}.
 \end{frame}
+%% a representation is a star homomorphisms into the bounded operators on some Hilbert space
+%% and we call it faithful if it's a star isomorphism
 
 \begin{frame} {Gelfand-Naimark Theorem} 
 	\begin{thm}
@@ -126,26 +200,19 @@
 	\begin{proof}
 	Uses the Gelfand-Naimark-Segal construction.\renewcommand{\qedsymbol}{}
 	\end{proof}
-	%% to find a representation of A from each element of some collection of 
-	%% states containing all pure states. use something called the direct sum 
-	%% representation to stitch these together, and the result is a faithful 
-	%% representation of A on the direct sum of the resulting Hilbert spaces.
-	
+
 \end{frame}
+%% this is the general gelfand naimark theorem, it means that these C* algebras
+%% we are studying are the same thing as an algebra of bounded operators.
+%% the proof uses the gelfand-naimark-segal construction 
+%% to find a representation of A from each element of some collection of 
+%% states containing all pure states. use something to stitch these together, 
+%% and the result is a faithful representation of A on some Hilbert space.
 
 \begin{frame} {Gelfand-Naimark Theorem} {Proof: Gelfand-Naimark-Segal Construction}
-	%% Used to prove the Gelfand-Naimark theorem.
-	%% Given a state rho on A, we can construct a Hilbert space H and a representation
-	%% of A on that Hilbert space. 
-	
 	Let $L= \left\{a \in A \mid \rho (a^\ast a) = 0 \right\}$.
 	
 	$\mathcal H $ is the Hilbert space completion of $A / L$.
-	
-	%% the Hilbert space comes from considering the quotient space of A by the 
-	%% ideal L, defined here. Taking this quotient means we can then define an inner 
-	%% product by <a,b> = rho(b*a), and completing this quotient space to a Hilbert
-	%% space gives us what we need.
 	
 	Define operators 
 	\[
@@ -153,36 +220,49 @@
 	\]
 	and extend to $\pi_a : \mathcal H \to \mathcal H$.
 	
-	%% now we define operators like this, extending them to H, and the representation
-	%% is given by sending each element of A to its corresponding 'extended
-	%% left-multiplication' operator on H.	
-	
 	Representation is given by
 	\[
 		\pi: A \to \mathcal{B(H)} : a \mapsto \pi_a.
 	\]
 \end{frame}
+%% here is a brief outline of the GNS construction.
+%% Given a state rho on A, we can construct a Hilbert space H and a representation
+%% of A on that Hilbert space.
+%% The Hilbert space comes from considering the quotient space of A by the 
+%% ideal L, defined here. Taking this quotient means we can then define an inner 
+%% product by <a,b> = rho(b*a), and completing this quotient space to a Hilbert
+%% space gives us what we need.
+%% now we define operators like these for a, extending them to H, and the representation
+%% is given by sending each element of A to its corresponding 'extended
+%% left-multiplication' operator on H.	
 
 \begin{frame} {Gelfand-Naimark Theorem} {Proof: Direct Sum}
 	Proof concludes by taking `direct sum' representation over the representations 
 	given by doing GNS construction to a subset of state space containing all pure 
 	states. This gives a faithful representation.
 \end{frame}
+%%
+%%
 
 \begin{frame} {Gelfand-Naimark Theorem} {For Commutative $C^\ast$-algebras}
 	\begin{thm}
-		Every Abelian $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the 
+		Every commutative $C^\ast$-algebra $A$ is $\ast$-isomorphic to $C(\P A)$, the 
 		algebra of continuous functions on the compact Hausdorff space $\P A$ containing 
 		all pure states on $A$. 
 	\end{thm}
-\end{frame}
+\end{frame} 
+%% the title of this talk refers to multiple theorems, and here's the other one.
+%% this theorem says that all commutative C* algebras have a related compact, Hausdorff
+%% topological space.
+%% This theorem allows us to think about the study of C* algebras in general as
+%% some sort of non commutative analogue to topology -- with the 'topological space'
+%% given by the pure state space, and the 'topology' given by the preimages of certain 
+%% maps on that space.
+
+	%% if asked: proved by showing that all pure states are multiplicative functionals and
+	%% that something called the Gelfand representation separates the points of P(A)
 
 \begin{frame} {References -- Any Questions?}
-
-	%% thank you for listening, hopefully i have convinced you that my project is at least 
-	%% remotely interesting. i have included a URL from which you can download my project.
-	%% finally -- any questions?
-	
 	Kadison, R.V. and Ringrose, J.R., 1983. 
 	\textit{Fundamentals of the Theory of Operator Algebras, Vol. I. Elementary Theory}. 
 	Springer.
@@ -195,8 +275,10 @@
 	\vfill
 
 	My project report can be downloaded from \texttt{goo.gl/Qv1zas}.
-	
 \end{frame}
+%% thank you for listening, hopefully i have convinced you that my project is
+%% worth reading. i have included a URL from which you can download my project.
+%% finally -- any questions?
 
 \end{document}
 
