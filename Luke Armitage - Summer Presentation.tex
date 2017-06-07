@@ -95,10 +95,10 @@
 	
 	Calkin algebra, the quotient algebra $\mathcal{B(H)/K(H)}$.
 \end{frame}
-%% these are important, fairly general examples. the first one will come up later,
+%% i present some important, fairly general examples. the first one will come up later,
 %% the second is the prototypical example, the bounded operators on some Hilbert space,
 %% which students who took functional analysis this year will be somewhat familiar with.
-%% two other examples which are important in funcitonal analysis are the compact operators,
+%% two other examples which are important in functional analysis are the compact operators,
 %% and the Calkin algebra, which is the quotient of the previous two examples taken on 
 %% the same Hilbert space.
 
@@ -114,8 +114,8 @@
 \end{frame}
 %% we move on to some important further definitions. those familiar with functional analysis
 %% will be aware of the importance of the spectrum in the study of bounded operators, and 
-%% the spectrum is also important here. it turns out that the spectrum of an element is always
-%% a nonempty closed subset of the unit disk of radius ||a||.
+%% the spectrum is also important here. it turns out that the spectrum of an element a is always
+%% a nonempty closed subset of the disk of radius ||a||.
 %% thus it makes sense to talk about the supremum of the spectral values, which we call the 
 %% spectral radius.
 
@@ -147,7 +147,8 @@
 %% of the dual space. the extreme points of the state space are called pure states.
 
 \begin{frame} {Definitions} {Maps between $C^\ast$-algebras}
-	A \emph{$\ast$-homomorphism} is an algebra homomorphism $\varphi : A \to B$ such that $\varphi (a^\ast) = \varphi(a)^\ast$, for all $a \in A$.
+	A \emph{$\ast$-homomorphism} is an algebra homomorphism $\varphi : A \to B$ 
+	such that $\varphi (a^\ast) = \varphi(a)^\ast$, for all $a \in A$.
 	
 	A \emph{$\ast$-isomorphism} is a bijective $\ast$-homomorphism.
 \end{frame}
@@ -190,6 +191,7 @@
 	
 	A bijective representation is called \emph{faithful}.
 \end{frame}
+%% the theorem we're going to look at concerns representations of C* algebras.
 %% a representation is a star homomorphisms into the bounded operators on some Hilbert space
 %% and we call it faithful if it's a star isomorphism
 
@@ -236,13 +238,17 @@
 %% is given by sending each element of A to its corresponding 'extended
 %% left-multiplication' operator on H.	
 
+
+\iffalse
 \begin{frame} {Gelfand-Naimark Theorem} {Proof: Direct Sum}
 	Proof concludes by taking `direct sum' representation over the representations 
 	given by doing GNS construction to a subset of state space containing all pure 
 	states. This gives a faithful representation.
-\end{frame}
+\end{frame}\fi
 %%
 %%
+
+%% CHECK TIME
 
 \begin{frame} {Gelfand-Naimark Theorem} {For Commutative $C^\ast$-algebras}
 	\begin{thm}
